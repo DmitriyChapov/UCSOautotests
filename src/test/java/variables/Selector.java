@@ -128,7 +128,7 @@ public class Selector {
     public static By headingBanks = By.className("banks__title");
     public static By headingPositionsPage = By.className("positions__title");
     public static By headingLocations = By.className("locations__title");
-    public static By headingTag = By.className("rubrics__title");
+    public static By headingTags = By.className("rubrics__title");
     public static By headingContentsPage = By.className("news__title");
     public static By headingInterviewsPage = By.className("polls__title");
     public static By headingElectronicCasesPage = By.className("cases__title");

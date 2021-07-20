@@ -72,15 +72,24 @@ public class Strings {
     public static String descriptionsTransportCardCardPageName = "Карточка описаний карты";
     public static String descriptionsTransportCardName ="Новое описание транспортной карты автотест № " + nmbAutoTest;
     public static String descriptionsTransportCardSaveNotification = "Карточка описаний карты \"" + descriptionsTransportCardName + "\" успешно сохранена";
+    public static String structuralSubdivisionsPageName = "Справочник структурных подразделений";
+    public static String structuralSubdivisionCardPageName = "Структурное подразделение";
+    public static String structuralSubdivisionName ="Новое структурное подразделение, созданное автотестом № " + nmbAutoTest;
+    public static String structuralSubdivisionCardSaveNotification = "Структурное подразделение \"" + structuralSubdivisionName + "\" успешно сохранено";
+    public static String tagsPageName = "Справочник тегов рубрик";
+    public static String tagCardPageName = "Карточка тега рубрики";
+    public static String tagName ="Новый тег рубрики, созданный автотестом № " + nmbAutoTest;
+    public static String tagCardSaveNotification = "Новая рубрика \"" + tagName + "\" успешно сохранена";
     public static String TransportAppSeries = "OK";
     public static String eventPlacesPageName = "Справочник учреждений для проведения мероприятий";
     public static String eventPlaceCardPageName = "Карточка учреждения для проведения мероприятий";
     public static String eventPlaceName = "Новое учреждение для проведения мероприятий, созданное автотестом № " + nmbAutoTest;
     public static String eventPlaceAddress = "г. Автотесто, ул. Автотестовая " + nmbAutoTest;
     public static String eventPlaceCardSaveNotification = "Карточка учреждения для проведения мероприятий \"" + eventPlaceName + "\" успешно сохранена";
-    public static String structuralSubdivisionName ="Новое структурное подразделение, созданное автотестом № " + nmbAutoTest;
-    public static String tagName ="Новый тег рубрики, созданный автотестом № " + nmbAutoTest;
+    public static String usersTypePageName = "Справочник типов пользователей";
+    public static String userTypeCardPageName = "Карточка типа пользователя";
     public static String userTypeName ="Новый тип пользователя, созданный автотестом " + nmbAutoTest;
+    public static String userTypeCardSaveNotification = "Карточка типа пользователя \"" + userTypeName + "\" успешно сохранена";
     public static String socialCode = "Код " + nmbSocialCode;
 
 

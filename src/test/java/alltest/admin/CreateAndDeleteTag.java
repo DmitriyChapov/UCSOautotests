@@ -5,8 +5,13 @@ import org.junit.Test;
 
 public class CreateAndDeleteTag extends TagsPage {
     @Test
-    public void testCreateAndDeleteTag() throws InterruptedException {
-        deleteTag();
-        Thread.sleep(2000);
+    public void testCreateAndDeleteTag() {
+        loginAdmin();               // Авторизация под пользователем с правами "Администратор"
+        sectionReferenceBooks();    // Переход в раздел "Справочники"
+        subSectionTags();           // Переход в подраздел "Теги рубрик", раздела "Справочники"
+        openTagCard();              // Открываем карточку Тега рубрики
+        createTag();                // Создаем Тег рубрики
+        checkTagCard();             // Проверяем заполненность карточки Тега рубрики
+        deleteTag();                // Удаляем Тег рубрики
     }
 }

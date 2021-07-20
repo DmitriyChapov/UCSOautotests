@@ -5,8 +5,13 @@ import org.junit.Test;
 
 public class CreateAndDeleteStructuralSubdivision extends StructuralSubdivisionsPage {
     @Test
-    public void testCreateAndDeleteStructuralSubdivision() throws InterruptedException {
-        deleteStructuralSubdivision();
-        Thread.sleep(2000);
+    public void testCreateAndDeleteStructuralSubdivision() {
+        loginAdmin();                            // Авторизация под пользователем с правами "Администратор"
+        sectionReferenceBooks();                 // Переход в раздел "Справочники"
+        subSectionStructuralSubdivisions();      // Переход в подраздел "Структурные подразделения", раздела "Справочники"
+        openStructuralSubdivisionCard();         // Открываем карточку Структурное подразделение
+        createStructuralSubdivision();           // Создаем Структурное подразделение
+        checkStructuralSubdivisionCard();        // Проверяем заполненность карточки Структурного подразделения
+        deleteStructuralSubdivision();           // Удаляем Структурное подразделение
     }
 }

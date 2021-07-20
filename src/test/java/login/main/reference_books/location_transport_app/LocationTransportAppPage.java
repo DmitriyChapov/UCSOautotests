@@ -67,6 +67,7 @@ public class LocationTransportAppPage extends Login {
     public void checkLocationTransportAppCard() {
         wait.until(ExpectedConditions.elementToBeClickable(xpathLocationTransportApps));
         driver.findElement(xpathLocationTransportApps).click();
+        wait.until(ExpectedConditions.elementToBeClickable(selectorFieldSearch));
         driver.findElement(selectorFieldSearch).sendKeys(locationTransportAppName);
         waitingSpinner();
         try {
@@ -102,6 +103,7 @@ public class LocationTransportAppPage extends Login {
     public void deleteLocationTransportApp() {
         wait.until(ExpectedConditions.elementToBeClickable(xpathLocationTransportApps));
         driver.findElement(xpathLocationTransportApps).click();
+        wait.until(ExpectedConditions.elementToBeClickable(selectorFieldSearch));
         driver.findElement(selectorFieldSearch).sendKeys(locationTransportAppName);
         waitingSpinner();
         try {

@@ -20,6 +20,12 @@ public class Urls {
     public static String mss_CodesUrl = "https://ucso-test.opencode.su/directories/partners-classifier";
     public static String positionsUrl = "https://ucso-test.opencode.su/directories/positions";
     public static String positionCardUrl = "https://ucso-test.opencode.su/directories/position-card";
+    public static String tagsUrl = "https://ucso-test.opencode.su/directories/rubrics";
+    public static String tagCardUrl = "https://ucso-test.opencode.su/directories/rubric-card";
+    public static String structuralSubdivisionsUrl = "https://ucso-test.opencode.su/directories/structural-subdivisions";
+    public static String structuralSubdivisionCardUrl = "https://ucso-test.opencode.su/directories/structural-subdivision-card";
+    public static String usersTypeUrl = "https://ucso-test.opencode.su/directories/transport-card-users";
+    public static String userTypeCardUrl = "https://ucso-test.opencode.su/directories/transport-card-user-card";
     public static String mss_CodeCardUrl = "https://ucso-test.opencode.su/directories/partners-classifier-card";
     public static String guidelinesAndRegulationsUrl = "https://ucso-test.opencode.su/guidelines/guidelines-list";
     public static String guidelinesAndRegulationsCardUrl = "https://ucso-test.opencode.su/guidelines/guideline-card";
