@@ -30,6 +30,7 @@ public class Login {
 
     @Before
     public void setUp() {
+        System.setProperty("webdriver.chrome.driver","C:\\WebDrivers\\chromedriver.exe");
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver, 20);
         actionChange = new Actions(driver);
