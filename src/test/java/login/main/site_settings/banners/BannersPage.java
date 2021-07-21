@@ -59,8 +59,8 @@ public class BannersPage extends Login {
         driver.findElement(selectorFieldBannerSecondLine).sendKeys(secondLineName);
         driver.findElement(selectorSelectBannerColor).click();
         List<WebElement> allColor = driver.findElements(selectorFieldBannerColors);
-        colorBanner = allColor.get(nmbColor).getText();
         allColor.get(nmbColor).click();
+        colorBanner = allColor.get(nmbColor).getText();
         driver.findElement(selectorFieldImage).sendKeys(imageBanner);
         waitingSpinner();
         wait.until(ExpectedConditions.elementToBeClickable(xpathButtonSave));
@@ -119,6 +119,7 @@ public class BannersPage extends Login {
         wait.until(ExpectedConditions.elementToBeClickable(xpathBanners));
         ((JavascriptExecutor) driver).executeScript("scroll(0,-250);");
         driver.findElement(xpathBanners).click();
+        wait.until(ExpectedConditions.elementToBeClickable(selectorFieldSearch));
         driver.findElement(selectorFieldSearch).sendKeys(bannerName);
         waitingSpinner();
         try {
@@ -132,6 +133,7 @@ public class BannersPage extends Login {
         for (int i = 0; i < bannerList.size(); i++) {
             String bannerNameSearch = bannerList.get(i).findElement(xpathBannerNameForSearch).getText();
             if (bannerNameSearch.equals(bannerName)) {
+                wait.until(ExpectedConditions.elementToBeClickable(xpathIconDelete));
                 bannerList.get(i).findElement(xpathIconDelete).click();
                 wait.until(ExpectedConditions.elementToBeClickable(xpathButtonAccept));
                 driver.findElement(xpathButtonAccept).click();

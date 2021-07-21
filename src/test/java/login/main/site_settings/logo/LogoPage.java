@@ -38,8 +38,9 @@ public class LogoPage extends Login {
     public void openLogoWindow() {
         wait.until(ExpectedConditions.elementToBeClickable(xpathButtonAdd));
         driver.findElement(xpathButtonAdd).click();
+        wait.until(ExpectedConditions.elementToBeClickable(selectorFieldName));
         String logoWindowNameNow = driver.findElement(headingLogoWindow).getText();
-        Assert.assertEquals("Не совпадают заголовки в окне \"Вариант логотипа\"",
+        Assert.assertEquals("Не совпадают заголовки в окне 'Вариант логотипа'",
                 logoWindowName, logoWindowNameNow);
         System.out.println("Open Logo window");
     }
