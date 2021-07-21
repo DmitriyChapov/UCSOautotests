@@ -1,4 +1,4 @@
 package alltest.GitTest;
 
-public class TestGitClass {
+public class TestGitClass  {
 }
