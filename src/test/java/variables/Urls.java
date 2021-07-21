@@ -29,6 +29,12 @@ public class Urls {
     public static String eventPlacesUrl = "https://ucso-test.opencode.su/directories/event-places";
     public static String eventPlaceCardUrl = "https://ucso-test.opencode.su/directories/event-places-card";
 
+    //Администрирование
+    public static String newsUrl = "https://ucso-test.opencode.su/news-dashboard/publications?type=NEWS&searchString=";
+    public static String newsCardUrl = "https://ucso-test.opencode.su/news-dashboard/posts-editor?type=NEWS";
+
+
+
     public static String siteSettingsUrl = "https://ucso-test.opencode.su/site-settings";
     public static String bannersUrl = "https://ucso-test.opencode.su/site-settings/banners";
     public static String bannerCardUrl = "https://ucso-test.opencode.su/site-settings/banner-card";

@@ -70,7 +70,7 @@ public class InterviewsPage extends Login {
         driver.findElement(selectorFieldAnswerMaxLength).sendKeys(String.valueOf(maxSymbolShortNumber));
         driver.findElement(selectorFieldImage).sendKeys(imageQuestionShortNumber);
         Thread.sleep(2000);
-        driver.findElement(xpathButtonSaveInWindom).click();
+        driver.findElement(xpathButtonSaveInWindow).click();
         System.out.println("Create qestion Short Answer - Number");
     }
 
@@ -87,7 +87,7 @@ public class InterviewsPage extends Login {
         driver.findElement(selectorFieldAnswerMaxLength).sendKeys(String.valueOf(maxSymbolShortDouble));
         driver.findElement(selectorFieldImage).sendKeys(imageQuestionShortDouble);
         Thread.sleep(2000);
-        driver.findElement(xpathButtonSaveInWindom).click();
+        driver.findElement(xpathButtonSaveInWindow).click();
         System.out.println("Create qestion Short Answer - Double");
     }
 
@@ -103,7 +103,7 @@ public class InterviewsPage extends Login {
         driver.findElement(selectorFieldQuestionDescription).sendKeys(questionShortPhoneDescription);
         driver.findElement(selectorFieldImage).sendKeys(imageQuestionShortPhone);
         Thread.sleep(2000);
-        driver.findElement(xpathButtonSaveInWindom).click();
+        driver.findElement(xpathButtonSaveInWindow).click();
         System.out.println("Create qestion Short Answer - Phone");
     }
 
@@ -120,7 +120,7 @@ public class InterviewsPage extends Login {
         driver.findElement(selectorFieldAnswerMaxLength).sendKeys(String.valueOf(maxSymbolShortSymbol));
         driver.findElement(selectorFieldImage).sendKeys(imageQuestionShortSymbol);
         Thread.sleep(2000);
-        driver.findElement(xpathButtonSaveInWindom).click();
+        driver.findElement(xpathButtonSaveInWindow).click();
         System.out.println("Create qestion Short Answer - Symbol");
     }
 
@@ -135,7 +135,7 @@ public class InterviewsPage extends Login {
         driver.findElement(selectorFieldAnswerMaxLength).sendKeys(String.valueOf(maxSymbolShortNoValid));
         driver.findElement(selectorFieldImage).sendKeys(imageQuestionShortNoValid);
         Thread.sleep(2000);
-        driver.findElement(xpathButtonSaveInWindom).click();
+        driver.findElement(xpathButtonSaveInWindow).click();
         System.out.println("Create qestion Short Answer - No valid");
     }
 
@@ -150,7 +150,7 @@ public class InterviewsPage extends Login {
         driver.findElement(selectorFieldAnswerMaxLength).sendKeys(String.valueOf(maxSymbolLong));
         driver.findElement(selectorFieldImage).sendKeys(imageQuestionLong);
         Thread.sleep(2000);
-        driver.findElement(xpathButtonSaveInWindom).click();
+        driver.findElement(xpathButtonSaveInWindow).click();
         System.out.println("Create qestion Long Answer");
     }
 
@@ -173,7 +173,7 @@ public class InterviewsPage extends Login {
             driver.findElement(By.id(idAnswer)).sendKeys(nameVar);
         }
         Thread.sleep(2000);
-        driver.findElement(xpathButtonSaveInWindom).click();
+        driver.findElement(xpathButtonSaveInWindow).click();
         System.out.println("Create qestion One Variant");
     }
 
@@ -196,7 +196,7 @@ public class InterviewsPage extends Login {
             driver.findElement(By.id(idAnswer)).sendKeys(nameVar);
         }
         Thread.sleep(2000);
-        driver.findElement(xpathButtonSaveInWindom).click();
+        driver.findElement(xpathButtonSaveInWindow).click();
         System.out.println("Create qestion Some Variant");
     }
 
@@ -218,7 +218,7 @@ public class InterviewsPage extends Login {
             driver.findElement(By.id(idAnswer)).sendKeys(nameVar);
         }
         Thread.sleep(2000);
-        driver.findElement(xpathButtonSaveInWindom).click();
+        driver.findElement(xpathButtonSaveInWindow).click();
         System.out.println("Create qestion Drop Down");
     }
 
@@ -241,7 +241,7 @@ public class InterviewsPage extends Login {
         }
         driver.findElement(selectorFieldQuestionDescription).sendKeys(questionScaleDescription);
         Thread.sleep(2000);
-        driver.findElement(xpathButtonSaveInWindom).click();
+        driver.findElement(xpathButtonSaveInWindow).click();
         System.out.println("Create qestion Scale");
     }
 
@@ -260,7 +260,7 @@ public class InterviewsPage extends Login {
         driver.findElement(selectorFieldAnswerMaxFiles).sendKeys(String.valueOf(maxFilesJPEG));
         driver.findElement(selectorFieldImage).sendKeys(imageQuestionDownloadJPEG);
         Thread.sleep(2000);
-        driver.findElement(xpathButtonSaveInWindom).click();
+        driver.findElement(xpathButtonSaveInWindow).click();
         System.out.println("Create qestion Download Files - JPEG");
     }
 
@@ -277,7 +277,7 @@ public class InterviewsPage extends Login {
         driver.findElement(By.xpath("/html/body/div[2]/div[3]")).click();
         driver.findElement(selectorFieldImage).sendKeys(imageQuestionDownloadPNG);
         Thread.sleep(2000);
-        driver.findElement(xpathButtonSaveInWindom).click();
+        driver.findElement(xpathButtonSaveInWindow).click();
         System.out.println("Create qestion Download Files - PNG");
     }
 
@@ -294,7 +294,7 @@ public class InterviewsPage extends Login {
         driver.findElement(By.xpath("/html/body/div[2]/div[3]")).click();
         driver.findElement(selectorFieldImage).sendKeys(imageQuestionDownloadPDF);
         Thread.sleep(2000);
-        driver.findElement(xpathButtonSaveInWindom).click();
+        driver.findElement(xpathButtonSaveInWindow).click();
         System.out.println("Create qestion Download Files - PDF");
     }
 
@@ -313,7 +313,7 @@ public class InterviewsPage extends Login {
         driver.findElement(selectorFieldAnswerMaxFiles).sendKeys(String.valueOf(maxFilesDOC));
         driver.findElement(selectorFieldImage).sendKeys(imageQuestionDownloadDOC);
         Thread.sleep(2000);
-        driver.findElement(xpathButtonSaveInWindom).click();
+        driver.findElement(xpathButtonSaveInWindow).click();
         System.out.println("Create qestion Download Files - DOC");
     }
 
@@ -333,7 +333,7 @@ public class InterviewsPage extends Login {
         driver.findElement(selectorFieldAnswerMaxFiles).sendKeys(String.valueOf(maxFilesXLS));
         driver.findElement(selectorFieldImage).sendKeys(imageQuestionDownloadXLS);
         Thread.sleep(2000);
-        driver.findElement(xpathButtonSaveInWindom).click();
+        driver.findElement(xpathButtonSaveInWindow).click();
         System.out.println("Create qestion Download Files - XLS");
     }
 
@@ -357,7 +357,7 @@ public class InterviewsPage extends Login {
         driver.findElement(selectorFieldAnswerMaxFiles).sendKeys(String.valueOf(maxFilesALL));
         driver.findElement(selectorFieldImage).sendKeys(imageQuestionDownloadALL);
         Thread.sleep(2000);
-        driver.findElement(xpathButtonSaveInWindom).click();
+        driver.findElement(xpathButtonSaveInWindow).click();
         System.out.println("Create qestion Download Files - ALL");
     }
 
@@ -371,7 +371,7 @@ public class InterviewsPage extends Login {
         driver.findElement(selectorFieldQuestionDescription).sendKeys(questionTextDescription);
         driver.findElement(selectorFieldImage).sendKeys(imageQuestionText);
         Thread.sleep(2000);
-        driver.findElement(xpathButtonSaveInWindom).click();
+        driver.findElement(xpathButtonSaveInWindow).click();
         System.out.println("Create qestion Text");
     }
 
@@ -425,7 +425,7 @@ public class InterviewsPage extends Login {
         Thread.sleep(2000);
         driver.findElement(xpathButtonPublic).click();
         Thread.sleep(2000);
-        driver.findElement(xpathButtonSaveInWindom).click();
+        driver.findElement(xpathButtonSaveInWindow).click();
         System.out.println("Public Interview");
     }
 }

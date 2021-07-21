@@ -129,4 +129,14 @@ public class DescriptionTransportCardPage extends Login {
                 0, descriptionsTransportCardListCheck.size());
         System.out.println("Descriptions Transport Card successfully Deleted");
     }
+
+    public void createAndDeleteDescriptionsTransportCard(){
+        loginAdmin();                                 // Авторизация под пользователем с правами "Администратор"
+        sectionReferenceBooks();                      // Переход в раздел "Справочники"
+        subSectionDescriptionsTransportCard();        // Переход в подраздел "Описания транспортной карты", раздела "Справочники"
+        openDescriptionsTransportCardCard();          // Открываем карточку Описания транспортной карты
+        createDescriptionsTransportCard();            // Создаем Описание транспортной карты
+        checkDescriptionsTransportCardCard();         // Проверяем заполненность карточки Описание транспортной карты
+        deleteDescriptionsTransportCard();            // Удаляем Описание транспортной карты
+    }
 }

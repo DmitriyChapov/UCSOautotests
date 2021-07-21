@@ -93,7 +93,7 @@ public class TSPPage extends Login {
         Thread.sleep(2000);
         driver.findElement(xpathButtonPublic).click();
         Thread.sleep(2000);
-        driver.findElement(xpathButtonSaveInWindom).click();
+        driver.findElement(xpathButtonSaveInWindow).click();
         Thread.sleep(2000);
         System.out.println("Public Promotion");
     }
@@ -165,7 +165,7 @@ public class TSPPage extends Login {
         Thread.sleep(2000);
         driver.findElement(xpathButtonPublic).click();
         Thread.sleep(2000);
-        driver.findElement(xpathButtonSaveInWindom).click();
+        driver.findElement(xpathButtonSaveInWindow).click();
         Thread.sleep(2000);
         System.out.println("Public Discount");
     }

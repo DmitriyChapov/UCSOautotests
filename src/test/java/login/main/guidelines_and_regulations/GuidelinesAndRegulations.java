@@ -23,9 +23,9 @@ public class GuidelinesAndRegulations extends Login {
         actionChange.perform();
         String guidelinesAndRegulationsUrlNow = driver.getCurrentUrl();
         String guidelinesAndRegulationsPageNameNow = driver.findElement(headingPage).getText();
-        Assert.assertEquals("Некорректный Url страницы \"Руководства и регламенты\"",
+        Assert.assertEquals("Некорректный Url страницы 'Руководства и регламенты'",
                 guidelinesAndRegulationsUrl, guidelinesAndRegulationsUrlNow);
-        Assert.assertEquals("Не совпадают заголовки на странице \"Руководства и регламенты\"",
+        Assert.assertEquals("Не совпадают заголовки на странице 'Руководства и регламенты'",
                 guidelinesAndRegulationsPageName,guidelinesAndRegulationsPageNameNow );
         System.out.println("Go to section: Guidelines And Regulations");
     }
@@ -35,9 +35,9 @@ public class GuidelinesAndRegulations extends Login {
         driver.findElement(xpathButtonAdd).click();
         String guidelinesAndRegulationsCardUrlNow = driver.getCurrentUrl();
         String guidelinesAndRegulationsCardPageNameNow = driver.findElement(headingCard).getText();
-        Assert.assertEquals("Некорректный Url страницы \"Карточка документа\"",
+        Assert.assertEquals("Некорректный Url страницы 'Карточка документа'",
                 guidelinesAndRegulationsCardUrl, guidelinesAndRegulationsCardUrlNow);
-        Assert.assertEquals("Не совпадают заголовки на странице \"Карточка документа\"",
+        Assert.assertEquals("Не совпадают заголовки на странице 'Карточка документа'",
                 guidelinesAndRegulationsCardPageName,guidelinesAndRegulationsCardPageNameNow);
         System.out.println("Open Document Card");
     }
@@ -77,7 +77,7 @@ public class GuidelinesAndRegulations extends Login {
             if (documentNameSearch.equals(documentName)) {
                 wait.until(ExpectedConditions.elementToBeClickable(xpathIconEdit));
                 documentList.get(i).findElement(xpathIconEdit).click();
-                System.out.println("Open Document Card for check");
+                System.out.println("Open Document Card for Check");
                 break;
             }
         }
@@ -87,11 +87,11 @@ public class GuidelinesAndRegulations extends Login {
         boolean documentMobileAvailableForCheck = driver.findElement(selectorDocumentMobile).isSelected();
         Assert.assertEquals("Некорректно заполнено поле 'Наименование'",
                 documentName, guidelinesAndRegulationsCardNameForCheck);
-        Assert.assertEquals("Изменился параметр доступности чек-бокса \"Портал\"",
+        Assert.assertEquals("Изменился параметр доступности чек-бокса 'Портал'",
                 documentPortalAvailable, documentPortalAvailableForCheck);
-        Assert.assertEquals("Изменился параметр доступности чек-бокса \"Мобильное приложение\"",
+        Assert.assertEquals("Изменился параметр доступности чек-бокса 'Мобильное приложение'",
                 documentMobileAvailable, documentMobileAvailableForCheck);
-        System.out.println("Document Card has been successfully verified");
+        System.out.println("Document Card has been successfully Verified");
     }
 
     public void deleteDocument() {
@@ -123,4 +123,13 @@ public class GuidelinesAndRegulations extends Login {
                 0, documentListCheck.size());
         System.out.println("Document successfully Deleted");
         }
+
+    public void createAndDeleteDocument(){
+        loginAdmin();                                 // Авторизация под пользователем с правами "Администратор"
+        sectionGuidelinesAndRegulations();            // Переход в раздел "Руководства и регламенты"
+        openDocumentCard();                           // Открываем карточку Документа
+        createDocument();                             // Создаем Документ
+        checkDocumentCard();                          // Проверяем заполненность карточки Документа
+        deleteDocument();                             // Удаляем Документ
+    }
 }

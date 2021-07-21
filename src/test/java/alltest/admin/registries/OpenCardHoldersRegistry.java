@@ -1,4 +1,4 @@
-package alltest.admin;
+package alltest.admin.registries;
 
 import login.main.registers.card_holders_registry.CardHoldersRegistryPage;
 import org.junit.Test;

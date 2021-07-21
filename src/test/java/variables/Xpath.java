@@ -138,7 +138,7 @@ public class Xpath {
     //Общие кнопки
     public static By xpathButtonSave = By.xpath("//span[contains(text(), 'Сохранить')]");
     public static By xpathButtonPublic = By.xpath("//span[contains(text(), 'Разместить')]");
-    public static By xpathButtonSaveInWindom = By.xpath("//mat-dialog-actions/button[2]/span[1]");
+    public static By xpathButtonSaveInWindow = By.xpath("//mat-dialog-actions/button[2]/span[1]");
     public static By xpathButtonSaveImage = By.xpath("//app-image-cropper/div[2]/button[2]");
     public static By xpathButtonAdd = By.xpath("//span[contains(text(), 'Добавить')]");
     public static By xpathButtonDownloadImage = By.xpath("//span[contains(text(),'Загрузить изображение')]");

@@ -130,4 +130,13 @@ public class MSS_codesPage extends Login {
                 0, mss_CodeListCheck.size());
             System.out.println("MSS-code successfully Deleted");
         }
+    public void createAndDeleteMSSCode(){
+        loginAdmin();               // Авторизация под пользователем с правами "Администратор"
+        sectionReferenceBooks();    // Переход в раздел "Справочники"
+        subSectionMSSCodes();       // Переход в подраздел "МСС-коды", раздела "Справочники"
+        openMSSCodeCard();          // Открываем карточку МСС-кода
+        createMSSCode();            // Создаем МСС-код
+        checkMSSCodeCard();         // Проверяем заполненность карточки МСС-кода
+        deleteMSSCode();            // Удаляем МСС-код
+    }
 }

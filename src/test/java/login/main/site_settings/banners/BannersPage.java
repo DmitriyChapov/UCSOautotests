@@ -6,7 +6,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
 import java.util.List;
 import static variables.Numbers.*;
 import static variables.Strings.*;
@@ -23,7 +22,7 @@ public class BannersPage extends Login {
     public void sectionSiteSettings() {
         driver.findElement(xpathSiteSettings).click();
         String siteSettingsUrlNow = driver.getCurrentUrl();
-        Assert.assertEquals("Некорректный Url страницы \"Настройки сайта\"",
+        Assert.assertEquals("Некорректный Url страницы 'Настройки сайта'",
                 siteSettingsUrl, siteSettingsUrlNow);
         System.out.println("Go to section: Site Settings");
     }
@@ -33,9 +32,9 @@ public class BannersPage extends Login {
         driver.findElement(xpathBanners).click();
         String bannersUrlNow = driver.getCurrentUrl();
         String bannersPageNameNow = driver.findElement(headingSettingsPage).getText();
-        Assert.assertEquals("Некорректный Url страницы \"Баннеры\"",
+        Assert.assertEquals("Некорректный Url страницы 'Баннеры'",
                 bannersUrl, bannersUrlNow);
-        Assert.assertEquals("Не совпадают заголовки на странице \"Баннеры\"",
+        Assert.assertEquals("Не совпадают заголовки на странице 'Баннеры'",
                 bannersPageName, bannersPageNameNow);
         System.out.println("Go to subsection: Banners");
     }
@@ -45,9 +44,9 @@ public class BannersPage extends Login {
         driver.findElement(xpathButtonAdd).click();
         String bannerCardUrlNow = driver.getCurrentUrl();
         String bannerCardPageNameNow = driver.findElement(headingCard).getText();
-        Assert.assertEquals("Некорректный Url страницы \"Карточка баннера\"",
+        Assert.assertEquals("Некорректный Url страницы 'Карточка Баннера'",
                 bannerCardUrl, bannerCardUrlNow);
-        Assert.assertEquals("Не совпадают заголовки на странице \"Карточка баннера\"",
+        Assert.assertEquals("Не совпадают заголовки на странице 'Карточка Баннера'",
                 bannerCardPageName, bannerCardPageNameNow);
         System.out.println("Open Banner Card");
     }
@@ -69,10 +68,10 @@ public class BannersPage extends Login {
         driver.findElement(xpathButtonAccept).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(xpathNotifier));
         String textNotificationBannerSave = driver.findElement(xpathNotifier).getText();
-        Assert.assertEquals("Не совпадают тексты нотификации при сохранении баннера",
+        Assert.assertEquals("Не совпадают тексты нотификации при сохранении Баннера",
                 notificationBannerSave, textNotificationBannerSave);
         bannerUrlwithID = driver.getCurrentUrl();
-        System.out.println("Banner Card successfully created");
+        System.out.println("Banner Card successfully Created");
     }
     public void checkBannerCard() {
         wait.until(ExpectedConditions.elementToBeClickable(xpathBanners));
@@ -92,7 +91,7 @@ public class BannersPage extends Login {
             String bannerNameSearch = bannerList.get(i).findElement(xpathBannerNameForSearch).getText();
             if (bannerNameSearch.equals(bannerName)) {
                 bannerList.get(i).findElement(xpathIconEdit).click();
-                System.out.println("Open Banner Card for check");
+                System.out.println("Open Banner Card for Check");
                 break;
             }
         }
@@ -102,7 +101,7 @@ public class BannersPage extends Login {
         String bannerFirstLineNameForCheck = driver.findElement(selectorFieldBannerFirstLine).getAttribute("value");
         String bannerSecondLineNameForCheck = driver.findElement(selectorFieldBannerSecondLine).getAttribute("value");
         String bannerColorForCheck = driver.findElement(By.xpath("//mat-select-trigger")).getText();
-        Assert.assertEquals("Не совпадают Url созданного баннера и открытой карточки баннера",
+        Assert.assertEquals("Не совпадают Url созданного Баннера и открытой карточки Баннера",
                 bannerUrlwithID, bannerCardUrlCheck);
         Assert.assertEquals("Некорректно заполнено поле 'Название'",
                 bannerName, bannerNameForCheck);
@@ -110,9 +109,9 @@ public class BannersPage extends Login {
                 firstLineName, bannerFirstLineNameForCheck);
         Assert.assertEquals("Некорректно заполнено поле 'Текст на второй строке'",
                 secondLineName, bannerSecondLineNameForCheck);
-        Assert.assertEquals("Некорректный цвет баннера",
+        Assert.assertEquals("Некорректный цвет Баннера",
                 colorBanner, bannerColorForCheck);
-        System.out.println("Banner Card has been successfully verified");
+        System.out.println("Banner Card has been successfully Verified");
     }
 
     public void deleteBanner() {
@@ -148,4 +147,13 @@ public class BannersPage extends Login {
         System.out.println("Banner successfully Deleted");
         }
 
+    public void createAndDeleteBanner(){
+        loginAdmin();            // Авторизация под пользователем с правами "Администратор"
+        sectionSiteSettings();   // Переход в раздел "Настройки сайта"
+        subsectionBanners();     // Переход в подраздел "Баннеры", раздела "Настройки сайта"
+        openBannerCard();        // Открываем карточку Баннера
+        createBanner();          // Создаем Баннер
+        checkBannerCard();       // Проверяем заполненность карточки Баннера
+        deleteBanner();          // Удаляем Баннер
+    }
 }

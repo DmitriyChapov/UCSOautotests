@@ -81,8 +81,8 @@ public class BanksPage extends Login{
             driver.findElement(selectorFieldBranchWorkingHours).sendKeys(branchHoursWork);
             driver.findElement(selectorFieldBranchAddress).sendKeys(branchAddress(i));
             driver.findElement(selectorAvailable).click();
-            wait.until(ExpectedConditions.elementToBeClickable(xpathButtonSaveInWindom));
-            driver.findElement(xpathButtonSaveInWindom).click();
+            wait.until(ExpectedConditions.elementToBeClickable(xpathButtonSaveInWindow));
+            driver.findElement(xpathButtonSaveInWindow).click();
             wait.until(ExpectedConditions.invisibilityOfElementLocated(selectorFieldBranchName));
         }
         List<WebElement> listBranch = driver.findElements(xpathNmbBranch);
@@ -106,8 +106,8 @@ public class BanksPage extends Login{
             driver.findElement(selectorDesignAvailable).click();
             driver.findElement(selectorFieldImage).sendKeys(imageDesignName(i));
             waitingSpinner();
-            wait.until(ExpectedConditions.elementToBeClickable(xpathButtonSaveInWindom));
-            driver.findElement(xpathButtonSaveInWindom).click();
+            wait.until(ExpectedConditions.elementToBeClickable(xpathButtonSaveInWindow));
+            driver.findElement(xpathButtonSaveInWindow).click();
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("confirm")));
             wait.until(ExpectedConditions.elementToBeClickable(xpathButtonAccept));
             driver.findElement(xpathButtonAccept).click();
@@ -208,4 +208,17 @@ public class BanksPage extends Login{
                 0, bankListCheck.size());
         System.out.println("Bank successfully Deleted");
     }
+
+    public void createAndDeleteBank() {
+        loginAdmin();            // Авторизация под пользователем с правами "Администратор"
+        sectionReferenceBooks(); // Переход в раздел "Справочники"
+        subSectionBanks();       // Переход в подраздел "Банки", раздела "Справочники"
+        openBankCard();          // Открываем карточку Банка
+        createBank();            // Создаем Банк
+        createBranch();          // Создаем отделения банка
+        tabDesignCreate();       // Создаем дизайны банковских карт
+        checkBankCard();         // Проверяем заполненность карточки Банка
+        deleteBank();            // Удаляем банк
+    }
+
 }

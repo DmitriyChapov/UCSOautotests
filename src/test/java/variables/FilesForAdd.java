@@ -5,9 +5,9 @@ public class FilesForAdd {
     { String imageDesignName = "C:\\Image for AutoTest\\BankDesign\\Design" + (i + 1) + ".png";
         return imageDesignName;}
     public static String imageNewsPrev = "C:\\Image for AutoTest\\News prev.png";
-    public static String imageNewsGallery_1 = "C:\\Image for AutoTest\\News gallery 1.jpg";
-    public static String imageNewsGallery_2 = "C:\\Image for AutoTest\\News gallery 2.jpg";
-    public static String imageNewsGallery_3 = "C:\\Image for AutoTest\\News gallery 3.jpg";
+    public static String imageNewsGallery(int i)
+    { String imageNewsGallery = "C:\\Image for AutoTest\\News gallery" + (i + 1) + ".jpg";
+        return imageNewsGallery;}
     public static String imageAfishaPrev = "C:\\Image for AutoTest\\Afisha prev.jpg";
     public static String imageAfishaMain = "C:\\Image for AutoTest\\Afisha main.jpg";
     public static String imageAfishaGallery_1 = "C:\\Image for AutoTest\\Afisha gallery 1.png";

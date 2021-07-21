@@ -112,4 +112,13 @@ public class LogoPage extends Login {
         System.out.println("Logo successfully Deleted");
     }
 
+    public void createAndDeleteLogo(){
+        loginAdmin();            // Авторизация под пользователем с правами "Администратор"
+        sectionSiteSettings();   // Переход в раздел "Настройки сайта"
+        subsectionLogo();        // Переход в подраздел "Управление логотипом", раздела "Настройки сайта"
+        openLogoWindow();        // Открываем окно создания логотипа
+        createLogo();            // Создаем Логотип
+        checkLogo();             // Проверяем заполненность Логотипа
+        deleteLogo();            // Удаляем Логотип
+    }
 }
