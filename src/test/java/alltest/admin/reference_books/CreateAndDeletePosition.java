@@ -1,4 +1,4 @@
-package alltest.admin;
+package alltest.admin.reference_books;
 
 import login.main.reference_books.position.PositionsPage;
 import org.junit.Test;

@@ -1,4 +1,4 @@
-package alltest.admin;
+package alltest.admin.reference_books;
 
 import login.main.reference_books.event_places.EventPlacesPage;
 import org.junit.Test;

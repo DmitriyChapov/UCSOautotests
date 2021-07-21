@@ -18,9 +18,9 @@ public class EventPlacesPage extends Login {
         driver.findElement(xpathReferenceBooks).click();
         String referenceBooksUrlNow = driver.getCurrentUrl();
         String referenceBooksPageNameNow = driver.findElement(headingReferenceBooks).getText();
-        Assert.assertEquals("Некорректный Url страницы \"Справочники\"",
+        Assert.assertEquals("Некорректный Url страницы 'Справочники'",
                 referenceBooksUrl,referenceBooksUrlNow);
-        Assert.assertEquals("Не совпадают заголовки на странице \"Справочники\"",
+        Assert.assertEquals("Не совпадают заголовки на странице 'Справочники'",
                 referenceBooksPageName,referenceBooksPageNameNow);
         System.out.println("Go to section: Reference Books");
     }
@@ -30,9 +30,9 @@ public class EventPlacesPage extends Login {
         driver.findElement(xpathEventPlaces).click();
         String eventPlacesUrlNow = driver.getCurrentUrl();
         String eventPlacesPageNameNow = driver.findElement(headingPage).getText();
-        Assert.assertEquals("Некорректный Url страницы \"Справочник учреждений для проведения мероприятий\"",
+        Assert.assertEquals("Некорректный Url страницы 'Справочник Учреждений для проведения мероприятий'",
                 eventPlacesUrl, eventPlacesUrlNow);
-        Assert.assertEquals("Не совпадают заголовки на странице \"Справочник учреждений для проведения мероприятий\"",
+        Assert.assertEquals("Не совпадают заголовки на странице 'Справочник Учреждений для проведения мероприятий'",
                 eventPlacesPageName, eventPlacesPageNameNow);
         System.out.println("Go to subsection: Event Places");
     }
@@ -42,9 +42,9 @@ public class EventPlacesPage extends Login {
         driver.findElement(xpathButtonAdd).click();
         String eventPlaceCardUrlNow = driver.getCurrentUrl();
         String eventPlaceCardPageNameNow = driver.findElement(headingCard).getText();
-        Assert.assertEquals("Некорректный Url страницы \"Карточка учреждения для проведения мероприятий\"",
+        Assert.assertEquals("Некорректный Url страницы 'Карточка Учреждения для проведения мероприятий'",
                 eventPlaceCardUrl, eventPlaceCardUrlNow);
-        Assert.assertEquals("Не совпадают заголовки на странице \"Карточка учреждения для проведения мероприятий\"",
+        Assert.assertEquals("Не совпадают заголовки на странице 'Карточка Учреждения для проведения мероприятий'",
                 eventPlaceCardPageName,eventPlaceCardPageNameNow);
         System.out.println("Open Event Place Card");
     }
@@ -65,7 +65,6 @@ public class EventPlacesPage extends Login {
         System.out.println("Event Place successfully Created");
     }
 
-
     public void checkEventPlaceCard() {
         wait.until(ExpectedConditions.elementToBeClickable(xpathEventPlaces));
         driver.findElement(xpathEventPlaces).click();
@@ -84,7 +83,7 @@ public class EventPlacesPage extends Login {
             if (eventPlaceNameSearch.equals(eventPlaceName)) {
                 wait.until(ExpectedConditions.elementToBeClickable(xpathIconEdit));
                 eventPlaceList.get(i).findElement(xpathIconEdit).click();
-                System.out.println("Open Event Place Card for check");
+                System.out.println("Open Event Place Card for Check");
                 break;
             }
         }
@@ -94,16 +93,17 @@ public class EventPlacesPage extends Login {
         boolean eventPlaceSameAddressAvailableForCheck = driver.findElement(selectorEventPlacesSameAddress).isSelected();
         Assert.assertEquals("Некорректно заполнено поле 'Наименование учреждения'",
                 eventPlaceName, eventPlaceNameForCheck);
-        Assert.assertEquals("Изменился параметр доступности",
+        Assert.assertEquals("Изменился параметр доступности Учреждения для проведения мероприятий",
                 eventPlaceAvailable, eventPlaceAvailableForCheck);
         Assert.assertEquals("Изменился параметр доступности чек-бокса 'Юридический адресс соответствует фактическому'",
                 eventPlaceSameAddressAvailable, eventPlaceSameAddressAvailableForCheck);
-        System.out.println("Event Place Card has been successfully verified");
+        System.out.println("Event Place Card has been successfully Verified");
     }
 
     public void deleteEventPlace() {
         wait.until(ExpectedConditions.elementToBeClickable(xpathEventPlaces));
         driver.findElement(xpathEventPlaces).click();
+        wait.until(ExpectedConditions.elementToBeClickable(selectorFieldSearch));
         driver.findElement(selectorFieldSearch).sendKeys(eventPlaceName);
         waitingSpinner();
         try {

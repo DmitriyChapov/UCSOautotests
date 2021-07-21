@@ -19,9 +19,9 @@ public class TagsPage extends Login {
         driver.findElement(xpathReferenceBooks).click();
         String referenceBooksUrlNow = driver.getCurrentUrl();
         String referenceBooksPageNameNow = driver.findElement(headingReferenceBooks).getText();
-        Assert.assertEquals("Некорректный Url страницы \"Справочники\"",
+        Assert.assertEquals("Некорректный Url страницы 'Справочники'",
                 referenceBooksUrl,referenceBooksUrlNow);
-        Assert.assertEquals("Не совпадают заголовки на странице \"Справочники\"",
+        Assert.assertEquals("Не совпадают заголовки на странице 'Справочники'",
                 referenceBooksPageName,referenceBooksPageNameNow);
         System.out.println("Go to section: Reference Books");
     }
@@ -31,9 +31,9 @@ public class TagsPage extends Login {
         driver.findElement(xpathTags).click();
         String tagsUrlNow = driver.getCurrentUrl();
         String tagsPageNameNow = driver.findElement(headingTags).getText();
-        Assert.assertEquals("Некорректный Url страницы \"Справочник Тегов рубрик\"",
+        Assert.assertEquals("Некорректный Url страницы 'Справочник Тегов рубрик'",
                 tagsUrl, tagsUrlNow);
-        Assert.assertEquals("Не совпадают заголовки на странице \"Справочник Тегов рубрик\"",
+        Assert.assertEquals("Не совпадают заголовки на странице 'Справочник Тегов рубрик'",
                 tagsPageName, tagsPageNameNow);
         System.out.println("Go to subsection: Tags");
     }
@@ -43,9 +43,9 @@ public class TagsPage extends Login {
         driver.findElement(xpathButtonAdd).click();
         String  tagCardUrlNow = driver.getCurrentUrl();
         String  tagCardPageNameNow = driver.findElement(headingCard).getText();
-        Assert.assertEquals("Некорректный Url страницы \"Карточка Тега рубрики\"",
+        Assert.assertEquals("Некорректный Url страницы 'Карточка Тега рубрики'",
                 tagCardUrl, tagCardUrlNow);
-        Assert.assertEquals("Не совпадают заголовки на странице \"Карточка Тега рубрики\"",
+        Assert.assertEquals("Не совпадают заголовки на странице 'Карточка Тега рубрики'",
                 tagCardPageName,tagCardPageNameNow);
         System.out.println("Open Tag Card");
     }
@@ -80,7 +80,7 @@ public class TagsPage extends Login {
             if (tagNameSearch.equals(tagName)) {
                 wait.until(ExpectedConditions.elementToBeClickable(xpathIconEdit));
                 tagList.get(i).findElement(xpathIconEdit).click();
-                System.out.println("Open Tag Card for check");
+                System.out.println("Open Tag Card for Check");
                 break;
             }
         }
@@ -91,7 +91,7 @@ public class TagsPage extends Login {
                 tagName, tagNameForCheck);
         Assert.assertEquals("Изменился параметр доступности Тега рубрики",
                 tagAvailable, tagAvailableForCheck);
-        System.out.println("Tag has been successfully verified");
+        System.out.println("Tag has been successfully Verified");
     }
 
     public void deleteTag() {

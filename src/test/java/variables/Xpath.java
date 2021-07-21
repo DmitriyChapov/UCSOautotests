@@ -70,6 +70,10 @@ public class Xpath {
         By xpathLocationWithLevel = By.xpath("//mat-tree-node[@aria-level = '" + i + "']");
         return xpathLocationWithLevel;
     }
+    public static By xpathDropDownDescriptionsTransportCard =  By.xpath("//span[contains(text(),'" + descriptionsTransportCardName + "' )]");
+    public static By xpathDropDownSocialCodes =  By.xpath("//span[contains(text(),'" + socialCode + "' )]");
+    public static By xpathDropDownUsersType = By.xpath("//span[contains(text(),'" + userTypeName + "' )]");
+    public static By xpathDropDownLocationsTransportApp = By.xpath("//span[contains(text(),'" + locationTransportAppName + "' )]");
 
     // Новости и Афиши
     public static By xpathTagForContents = By.xpath("//span[contains(text(), 'Автотест')]");
@@ -147,6 +151,7 @@ public class Xpath {
     public static By xpathListInTable = By.xpath("//tbody/tr");
     public static By xpathListBlocks = By.xpath("//mat-card");
     public static By xpathReferenceBookNameForSearch = By.xpath(".//td[2]");
+    public static By xpathCheckDropDown = By.xpath(".//span/span");
 
 }
 

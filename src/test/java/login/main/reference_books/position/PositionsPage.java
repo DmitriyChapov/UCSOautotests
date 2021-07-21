@@ -19,9 +19,9 @@ public class PositionsPage extends Login {
         driver.findElement(xpathReferenceBooks).click();
         String referenceBooksUrlNow = driver.getCurrentUrl();
         String referenceBooksPageNameNow = driver.findElement(headingReferenceBooks).getText();
-        Assert.assertEquals("Некорректный Url страницы \"Справочники\"",
+        Assert.assertEquals("Некорректный Url страницы 'Справочники'",
                 referenceBooksUrl,referenceBooksUrlNow);
-        Assert.assertEquals("Не совпадают заголовки на странице \"Справочники\"",
+        Assert.assertEquals("Не совпадают заголовки на странице 'Справочники'",
                 referenceBooksPageName,referenceBooksPageNameNow);
         System.out.println("Go to section: Reference Books");
     }
@@ -31,9 +31,9 @@ public class PositionsPage extends Login {
         driver.findElement(xpathPositions).click();
         String positionsUrlNow = driver.getCurrentUrl();
         String positionsPageNameNow = driver.findElement(headingPositionsPage).getText();
-        Assert.assertEquals("Некорректный Url страницы \"Справочник Должностей\"",
+        Assert.assertEquals("Некорректный Url страницы 'Справочник Должностей'",
                 positionsUrl, positionsUrlNow);
-        Assert.assertEquals("Не совпадают заголовки на странице \"Справочник Должностей\"",
+        Assert.assertEquals("Не совпадают заголовки на странице 'Справочник Должностей'",
                 positionsPageName, positionsPageNameNow);
         System.out.println("Go to subsection: Positions");
     }
@@ -41,11 +41,11 @@ public class PositionsPage extends Login {
     public void openPositionCard() {
         wait.until(ExpectedConditions.elementToBeClickable(xpathButtonAdd));
         driver.findElement(xpathButtonAdd).click();
-        String  positionCardUrlNow = driver.getCurrentUrl();
-        String  positionCardPageNameNow = driver.findElement(headingCard).getText();
-        Assert.assertEquals("Некорректный Url страницы \"Карточка Должности\"",
+        String positionCardUrlNow = driver.getCurrentUrl();
+        String positionCardPageNameNow = driver.findElement(headingCard).getText();
+        Assert.assertEquals("Некорректный Url страницы 'Карточка Должности'",
                 positionCardUrl, positionCardUrlNow);
-        Assert.assertEquals("Не совпадают заголовки на странице \"Карточка Должности\"",
+        Assert.assertEquals("Не совпадают заголовки на странице 'Карточка Должности'",
                 positionCardPageName,positionCardPageNameNow);
         System.out.println("Open Position Card");
     }
@@ -80,7 +80,7 @@ public class PositionsPage extends Login {
             if (positionNameSearch.equals(positionName)) {
                 wait.until(ExpectedConditions.elementToBeClickable(xpathIconEdit));
                 positionList.get(i).findElement(xpathIconEdit).click();
-                System.out.println("Open Position Card for check");
+                System.out.println("Open Position Card for Check");
                 break;
             }
         }
@@ -89,9 +89,9 @@ public class PositionsPage extends Login {
         boolean positionAvailableForCheck = driver.findElement(selectorAvailable).isSelected();
         Assert.assertEquals("Некорректно заполнено поле 'Должность'",
                 positionName, positionNameForCheck);
-        Assert.assertEquals("Изменился параметр доступности",
+        Assert.assertEquals("Изменился параметр доступности Должности",
                 positionAvailable, positionAvailableForCheck);
-        System.out.println("Position has been successfully verified");
+        System.out.println("Position has been successfully Verified");
     }
 
     public void deletePosition() {
@@ -125,5 +125,4 @@ public class PositionsPage extends Login {
                 0, positionListCheck.size());
         System.out.println("Position successfully Deleted");
         }
-
 }

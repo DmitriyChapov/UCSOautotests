@@ -35,6 +35,7 @@ public class Strings {
     public static String mss_CodeCardPageName = "Карточка MCC-кода";
     public static String mss_CodeName ="Новый МСС-код, созданный автотестом № " + nmbAutoTest;
     public static String mss_CodeCardSaveNotification = "MCC-код \"" + mss_CodeName + "\" успешно сохранен";
+
     public static String banksPageName = "Справочник банков";
     public static String bankCardPageName = "Карточка банка";
     public static String bankName ="Новый Банк, созданный автотестом № " + nmbAutoTest;
@@ -50,10 +51,12 @@ public class Strings {
     public static String nameDesign(int i)
     { String nameDesign = "Новый дизайн Банка, созданный автотестом " + nmbAutoTest + " № " + (i+1);
         return nameDesign;}
+
     public static String positionsPageName = "Справочник должностей";
     public static String positionCardPageName = "Карточка должности";
     public static String positionName ="Новая должность, созданная автотестом № " + nmbAutoTest;
     public static String positionCardSaveNotification = "Карточка должности \"" + positionName + "\" успешно сохранена";
+
     public static String locationsPageName = "Справочник локаций контента";
     public static String pathLocation(int i)
     { String pathLocation = "Локация " + i + "-го уровня автотеста № " + nmbAutoTest;
@@ -64,35 +67,43 @@ public class Strings {
     public static String notificationLocationDelete(int i)
     { String notificationLocationDelete = "Запись \"" + pathLocation(i) + "\" успешно удалена.";
         return notificationLocationDelete;}
+
     public static String locationTransportAppPageName = "Справочник локаций транспортного приложения";
     public static String locationTransportAppCardPageName = "Карточка локаций транспортного приложения";
     public static String locationTransportAppName = "Локация транспортного приложения, автотест № " + nmbAutoTest;
     public static String locationTransportAppCardSaveNotification = "Запись \"" + locationTransportAppName + "\" успешно добавлена.";
+
     public static String descriptionsTransportCardPageName = "Справочник описаний карты";
     public static String descriptionsTransportCardCardPageName = "Карточка описаний карты";
     public static String descriptionsTransportCardName ="Новое описание транспортной карты автотест № " + nmbAutoTest;
     public static String descriptionsTransportCardSaveNotification = "Карточка описаний карты \"" + descriptionsTransportCardName + "\" успешно сохранена";
+
+    public static String transportAppSeriesPageName = "Справочник серий транспортного приложения";
+    public static String transportAppSeriesCardPageName = "Карточка серии транспортного приложения";
+    public static String transportAppSeries = "OK";
+    public static String socialCode = "Код " + nmbSocialCode;
+    public static String transportAppSeriesCardSaveNotification = "Карточка серии \"" + transportAppSeries + "\" успешно сохранена";
+
     public static String structuralSubdivisionsPageName = "Справочник структурных подразделений";
     public static String structuralSubdivisionCardPageName = "Структурное подразделение";
     public static String structuralSubdivisionName ="Новое структурное подразделение, созданное автотестом № " + nmbAutoTest;
     public static String structuralSubdivisionCardSaveNotification = "Структурное подразделение \"" + structuralSubdivisionName + "\" успешно сохранено";
+
     public static String tagsPageName = "Справочник тегов рубрик";
     public static String tagCardPageName = "Карточка тега рубрики";
     public static String tagName ="Новый тег рубрики, созданный автотестом № " + nmbAutoTest;
     public static String tagCardSaveNotification = "Новая рубрика \"" + tagName + "\" успешно сохранена";
-    public static String TransportAppSeries = "OK";
+
+    public static String usersTypePageName = "Справочник типов пользователей";
+    public static String userTypeCardPageName = "Карточка типа пользователя";
+    public static String userTypeName ="Новый тип пользователя, созданный автотестом " + nmbAutoTest;
+    public static String userTypeCardSaveNotification = "Карточка типа пользователя \"" + userTypeName + "\" успешно сохранена";
+
     public static String eventPlacesPageName = "Справочник учреждений для проведения мероприятий";
     public static String eventPlaceCardPageName = "Карточка учреждения для проведения мероприятий";
     public static String eventPlaceName = "Новое учреждение для проведения мероприятий, созданное автотестом № " + nmbAutoTest;
     public static String eventPlaceAddress = "г. Автотесто, ул. Автотестовая " + nmbAutoTest;
     public static String eventPlaceCardSaveNotification = "Карточка учреждения для проведения мероприятий \"" + eventPlaceName + "\" успешно сохранена";
-    public static String usersTypePageName = "Справочник типов пользователей";
-    public static String userTypeCardPageName = "Карточка типа пользователя";
-    public static String userTypeName ="Новый тип пользователя, созданный автотестом " + nmbAutoTest;
-    public static String userTypeCardSaveNotification = "Карточка типа пользователя \"" + userTypeName + "\" успешно сохранена";
-    public static String socialCode = "Код " + nmbSocialCode;
-
-
 
     //Новости и Афиши
     public static String newsHeading =  "Заголовок новости, созданной автотестом. Этот заголовок содержит максимальное количество символов равное 150. Номер генерируется рандомно и равен " + nmbAutoTest;

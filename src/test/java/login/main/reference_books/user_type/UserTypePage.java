@@ -19,9 +19,9 @@ public class UserTypePage extends Login {
         driver.findElement(xpathReferenceBooks).click();
         String referenceBooksUrlNow = driver.getCurrentUrl();
         String referenceBooksPageNameNow = driver.findElement(headingReferenceBooks).getText();
-        Assert.assertEquals("Некорректный Url страницы \"Справочники\"",
+        Assert.assertEquals("Некорректный Url страницы 'Справочники'",
                 referenceBooksUrl,referenceBooksUrlNow);
-        Assert.assertEquals("Не совпадают заголовки на странице \"Справочники\"",
+        Assert.assertEquals("Не совпадают заголовки на странице 'Справочники'",
                 referenceBooksPageName,referenceBooksPageNameNow);
         System.out.println("Go to section: Reference Books");
     }
@@ -31,9 +31,9 @@ public class UserTypePage extends Login {
         driver.findElement(xpathUserTypes).click();
         String usersTypeUrlNow = driver.getCurrentUrl();
         String usersTypePageNameNow = driver.findElement(headingPage).getText();
-        Assert.assertEquals("Некорректный Url страницы \"Справочник Типов пользователей\"",
+        Assert.assertEquals("Некорректный Url страницы 'Справочник Типов пользователей'",
                 usersTypeUrl, usersTypeUrlNow);
-        Assert.assertEquals("Не совпадают заголовки на странице \"Справочник Типов пользователей\"",
+        Assert.assertEquals("Не совпадают заголовки на странице 'Справочник Типов пользователей'",
                 usersTypePageName, usersTypePageNameNow);
         System.out.println("Go to subsection: Users Type");
     }
@@ -43,9 +43,9 @@ public class UserTypePage extends Login {
         driver.findElement(xpathButtonAdd).click();
         String  userTypeCardUrlNow = driver.getCurrentUrl();
         String  userTypeCardPageNameNow = driver.findElement(headingCard).getText();
-        Assert.assertEquals("Некорректный Url страницы \"Карточка типа пользователя\"",
+        Assert.assertEquals("Некорректный Url страницы 'Карточка типа пользователя'",
                 userTypeCardUrl, userTypeCardUrlNow);
-        Assert.assertEquals("Не совпадают заголовки на странице \"Карточка типа пользователя\"",
+        Assert.assertEquals("Не совпадают заголовки на странице 'Карточка типа пользователя'",
                 userTypeCardPageName,userTypeCardPageNameNow);
         System.out.println("Open User Type Card");
     }
@@ -81,7 +81,7 @@ public class UserTypePage extends Login {
             if (userTypeNameSearch.equals(userTypeName)) {
                 wait.until(ExpectedConditions.elementToBeClickable(xpathIconEdit));
                 userTypeList.get(i).findElement(xpathIconEdit).click();
-                System.out.println("Open User Type Card for check");
+                System.out.println("Open User Type Card for Check");
                 break;
             }
         }
@@ -95,7 +95,7 @@ public class UserTypePage extends Login {
                 codeOTK, codeOTKForCheck);
         Assert.assertEquals("Изменился параметр доступности Типа пользователя",
                 userTypeAvailable, userTypeAvailableForCheck);
-        System.out.println("User Type has been successfully verified");
+        System.out.println("User Type has been successfully Verified");
     }
 
     public void deleteUserType() {

@@ -17,9 +17,9 @@ public class DescriptionTransportCardPage extends Login {
         driver.findElement(xpathReferenceBooks).click();
         String referenceBooksUrlNow = driver.getCurrentUrl();
         String referenceBooksPageNameNow = driver.findElement(headingReferenceBooks).getText();
-        Assert.assertEquals("Некорректный Url страницы \"Справочники\"",
+        Assert.assertEquals("Некорректный Url страницы 'Справочники'",
                 referenceBooksUrl,referenceBooksUrlNow);
-        Assert.assertEquals("Не совпадают заголовки на странице \"Справочники\"",
+        Assert.assertEquals("Не совпадают заголовки на странице 'Справочники'",
                 referenceBooksPageName,referenceBooksPageNameNow);
         System.out.println("Go to section: Reference Books");
     }
@@ -29,9 +29,9 @@ public class DescriptionTransportCardPage extends Login {
         driver.findElement(xpathDescriptionsTransportCards).click();
         String descriptionsTransportCardUrlNow = driver.getCurrentUrl();
         String descriptionsTransportCardPageNameNow = driver.findElement(headingPage).getText();
-        Assert.assertEquals("Некорректный Url страницы \"Справочник описаний карты\"",
+        Assert.assertEquals("Некорректный Url страницы 'Справочник Описаний карты'",
                 descriptionsTransportCardUrl, descriptionsTransportCardUrlNow);
-        Assert.assertEquals("Не совпадают заголовки на странице \"Справочник описаний карты\"",
+        Assert.assertEquals("Не совпадают заголовки на странице 'Справочник Описаний карты'",
                 descriptionsTransportCardPageName, descriptionsTransportCardPageNameNow);
         System.out.println("Go to subsection: Descriptions Transport Card");
     }
@@ -41,9 +41,9 @@ public class DescriptionTransportCardPage extends Login {
         driver.findElement(xpathButtonAdd).click();
         String descriptionsTransportCardCardUrlNow = driver.getCurrentUrl();
         String descriptionsTransportCardCardPageNameNow = driver.findElement(headingCard).getText();
-        Assert.assertEquals("Некорректный Url страницы \"Карточка описаний карты\"",
+        Assert.assertEquals("Некорректный Url страницы 'Карточка описаний карты'",
                 descriptionsTransportCardCardUrl, descriptionsTransportCardCardUrlNow);
-        Assert.assertEquals("Не совпадают заголовки на странице \"Карточка описаний карты\"",
+        Assert.assertEquals("Не совпадают заголовки на странице 'Карточка описаний карты'",
                 descriptionsTransportCardCardPageName,descriptionsTransportCardCardPageNameNow);
         System.out.println("Open Descriptions Transport Card Card");
     }
@@ -65,6 +65,7 @@ public class DescriptionTransportCardPage extends Login {
     public void checkDescriptionsTransportCardCard() {
         wait.until(ExpectedConditions.elementToBeClickable(xpathDescriptionsTransportCards));
         driver.findElement(xpathDescriptionsTransportCards).click();
+        wait.until(ExpectedConditions.elementToBeClickable(selectorFieldSearch));
         driver.findElement(selectorFieldSearch).sendKeys(descriptionsTransportCardName);
         waitingSpinner();
         try {
@@ -80,7 +81,7 @@ public class DescriptionTransportCardPage extends Login {
             if (descriptionsTransportCardNameSearch.equals(descriptionsTransportCardName)) {
                 wait.until(ExpectedConditions.elementToBeClickable(xpathIconEdit));
                 descriptionsTransportCardList.get(i).findElement(xpathIconEdit).click();
-                System.out.println("Open Descriptions Transport Card Card for check");
+                System.out.println("Open Descriptions Transport Card Card for Check");
                 break;
             }
         }
@@ -92,14 +93,15 @@ public class DescriptionTransportCardPage extends Login {
                 descriptionsTransportCardName, descriptionsTransportCardNameForCheck);
         Assert.assertEquals("Некорректно заполнено поле 'Код ОТК'",
                 codeOTK, codeOTKForCheck);
-        Assert.assertEquals("Изменился параметр доступности",
+        Assert.assertEquals("Изменился параметр доступности Описания карты",
                 descriptionsTransportCardAvailable, descriptionsTransportCardAvailableForCheck);
-        System.out.println("Descriptions Transport Card Card has been successfully verified");
+        System.out.println("Descriptions Transport Card Card has been successfully Verified");
     }
 
     public void deleteDescriptionsTransportCard()   {
         wait.until(ExpectedConditions.elementToBeClickable(xpathDescriptionsTransportCards));
         driver.findElement(xpathDescriptionsTransportCards).click();
+        wait.until(ExpectedConditions.elementToBeClickable(selectorFieldSearch));
         driver.findElement(selectorFieldSearch).sendKeys(descriptionsTransportCardName);
         waitingSpinner();
         try {
@@ -114,7 +116,7 @@ public class DescriptionTransportCardPage extends Login {
             String descriptionsTransportCardNameSearch = descriptionsTransportCardList.get(i).findElement(xpathReferenceBookNameForSearch).getText();
             if (descriptionsTransportCardNameSearch.equals(descriptionsTransportCardName)) {
                 wait.until(ExpectedConditions.elementToBeClickable(xpathIconDelete));
-                driver.findElement(xpathIconDelete).click();
+                descriptionsTransportCardList.get(i).findElement(xpathIconDelete).click();
                 wait.until(ExpectedConditions.elementToBeClickable(xpathButtonDelete));
                 driver.findElement(xpathButtonDelete).click();
                 break;

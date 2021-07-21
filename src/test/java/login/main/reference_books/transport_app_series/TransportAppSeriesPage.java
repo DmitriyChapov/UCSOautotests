@@ -1,157 +1,196 @@
 package login.main.reference_books.transport_app_series;
 
 import login.Login;
+import login.main.reference_books.description_transport_card.DescriptionTransportCardPage;
+import login.main.reference_books.location_transport_app.LocationTransportAppPage;
+import login.main.reference_books.user_type.UserTypePage;
+import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.util.List;
+
+import static variables.Urls.*;
 import static variables.Xpath.*;
 import static variables.Selector.*;
 import static variables.Strings.*;
 
 public class TransportAppSeriesPage extends Login {
+    boolean transportAppSeriesAvailable;
 
-    public void sectionReferenceBooks() throws InterruptedException {
-        loginAdmin();
+    DescriptionTransportCardPage DescriptionTransportCard = new DescriptionTransportCardPage();
+    UserTypePage UserType = new UserTypePage();
+    LocationTransportAppPage LocationTransportApp = new LocationTransportAppPage();
+
+    public void sectionReferenceBooks() {
         driver.findElement(xpathReferenceBooks).click();
+        String referenceBooksUrlNow = driver.getCurrentUrl();
+        String referenceBooksPageNameNow = driver.findElement(headingReferenceBooks).getText();
+        Assert.assertEquals("Некорректный Url страницы 'Справочники'",
+                referenceBooksUrl,referenceBooksUrlNow);
+        Assert.assertEquals("Не совпадают заголовки на странице 'Справочники'",
+                referenceBooksPageName,referenceBooksPageNameNow);
         System.out.println("Go to section: Reference Books");
     }
 
-    public void subSectionTransportAppSeries() throws InterruptedException {
-        sectionReferenceBooks();               // Переход в раздел "Справочники"
-        Thread.sleep(2000);
+    public void createDescriptionsTransportCard() {
+        DescriptionTransportCard.subSectionDescriptionsTransportCard();      // Переход в подраздел "Описания транспортной карты", раздела "Справочники"
+        DescriptionTransportCard.openDescriptionsTransportCardCard();        // Открываем карточку Описания транспортной карты
+        DescriptionTransportCard.createDescriptionsTransportCard();          // Создаем Описание транспортной карты
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(xpathNotifier));
+        DescriptionTransportCard.checkDescriptionsTransportCardCard();       // Проверяем заполненность карточки Описание транспортной карты
+    }
+
+    public void createUserType()   {
+        UserType.subSectionUsersType();                                      // Переход в подраздел "Типы пользователей", раздела "Справочники"
+        UserType.openUserTypeCard();                                         // Открываем карточку Типа пользователя
+        UserType.createUserType();                                           // Создаем Тип пользователя
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(xpathNotifier));
+        UserType.checkUserTypeCard();                                        // Проверяем заполненность карточки Типа пользователя
+    }
+
+    public void createLocationTransportApp() {
+        LocationTransportApp.subSectionLocationTransportApp();               // Переход в подраздел "Локации транспортного приложения", раздела "Справочники"
+        LocationTransportApp.openLocationTransportAppCard();                 // Открываем карточку Локация транспортного приложения
+        LocationTransportApp.createLocationTransportApp();                   // Создаем Локацию транспортного приложения
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(xpathNotifier));
+        LocationTransportApp.checkLocationTransportAppCard();                // Проверяем заполненность карточки Локации транспортного приложения
+    }
+
+    public void subSectionTransportAppSeries() {
+        wait.until(ExpectedConditions.elementToBeClickable(xpathTransportAppSeries));
         driver.findElement(xpathTransportAppSeries).click();
+        String transportAppSeriesUrlNow = driver.getCurrentUrl();
+        String transportAppSeriesPageNameNow = driver.findElement(headingPage).getText();
+        Assert.assertEquals("Некорректный Url страницы 'Справочник Серии транспортного приложения'",
+                transportAppSeriesUrl, transportAppSeriesUrlNow);
+        Assert.assertEquals("Не совпадают заголовки на странице 'Справочник Серии транспортного приложения'",
+                transportAppSeriesPageName, transportAppSeriesPageNameNow);
         System.out.println("Go to subsection: Transport App Series");
     }
 
-
-    public void createDescriptionsTransportCard() throws InterruptedException {
-        driver.findElement(xpathDescriptionsTransportCards).click();
-        System.out.println("Go to subsection: Descriptions Transport Card");
-        Thread.sleep(2000);
+    public void openTransportAppSeriesCard() {
+        wait.until(ExpectedConditions.elementToBeClickable(xpathButtonAdd));
         driver.findElement(xpathButtonAdd).click();
-        System.out.println("Open Descriptions Transport Card Card");
-        Thread.sleep(2000);
-        driver.findElement(selectorFieldName).sendKeys(descriptionsTransportCardName);
-        driver.findElement(selectorFieldCodeOTK).sendKeys(codeOTK);
-        driver.findElement(xpathButtonSave).click();
-        System.out.println("Create Descriptions Transport Card");
-    }
-
-    public void createUserType() throws InterruptedException {
-        driver.findElement(xpathUserTypes).click();
-        System.out.println("Go to subsection: User Type");
-        Thread.sleep(2000);
-        driver.findElement(xpathButtonAdd).click();
-        System.out.println("Open User Type Card");
-        Thread.sleep(2000);
-        driver.findElement(selectorFieldName).sendKeys(userTypeName);
-        driver.findElement(selectorFieldCodeOTK).sendKeys(codeOTK);
-        driver.findElement(xpathButtonSave).click();
-        System.out.println("Create User Type");
-    }
-
-    public void createLocationTransportApp() throws InterruptedException {
-        driver.findElement(xpathLocationTransportApps).click();
-        System.out.println("Go to subsection: Locations Transport App");
-        Thread.sleep(2000);
-        driver.findElement(xpathButtonAdd).click();
-        System.out.println("Open Locations Transport App Card");
-        Thread.sleep(2000);
-        driver.findElement(selectorFieldName).sendKeys(locationTransportAppName);
-        driver.findElement(selectorFieldCodeOTK).sendKeys(codeOTK);
-        driver.findElement(xpathButtonSave).click();
-        System.out.println("Create Locations Transport App");
-    }
-
-    public void openTransportAppSeriesCard() throws InterruptedException {
-        subSectionTransportAppSeries();       // Переход в подраздел "Серии транспортного приложения", раздела "Справочники"
-        Thread.sleep(2000);
-        driver.findElement(xpathButtonAdd).click();
+        String  transportAppSeriesCardUrlNow = driver.getCurrentUrl();
+        String  transportAppSeriesCardPageNameNow = driver.findElement(headingCard).getText();
+        Assert.assertEquals("Некорректный Url страницы 'Карточка Серии транспортного приложения'",
+                transportAppSeriesCardUrl, transportAppSeriesCardUrlNow);
+        Assert.assertEquals("Не совпадают заголовки на странице 'Карточка Серии транспортного приложения'",
+                transportAppSeriesCardPageName,transportAppSeriesCardPageNameNow);
         System.out.println("Open Transport App Series Card");
     }
 
-    public void createTransportAppSeries() throws InterruptedException {
-        sectionReferenceBooks();             // Переход в раздел "Справочники"
-        Thread.sleep(2000);
-        createDescriptionsTransportCard();   // Создаем Описание транспортной карты
-        Thread.sleep(2000);
-        createUserType();                    // Создаем Тип пользователя
-        Thread.sleep(2000);
-        createLocationTransportApp();        // Создаем Локацию транспортного приложения
-        Thread.sleep(2000);
-        driver.findElement(xpathTransportAppSeries).click();
-        System.out.println("Go to subsection: Transport App Series");
-        Thread.sleep(2000);
-        driver.findElement(xpathButtonAdd).click();
-        System.out.println("Open Transport App Series Card");
-        Thread.sleep(2000);
-        driver.findElement(selectorFieldName).sendKeys(TransportAppSeries);
+    public void createTransportAppSeries() {
+        wait.until(ExpectedConditions.elementToBeClickable(selectorFieldName));
+        driver.findElement(selectorFieldName).sendKeys(transportAppSeries);
+        wait.until(ExpectedConditions.elementToBeClickable(selectorSelectCardDescription));
         driver.findElement(selectorSelectCardDescription).click();
-        Thread.sleep(1000);
-        driver.findElement(By.xpath("//span[contains(text(),'" + descriptionsTransportCardName + "' )]")).click();
-        Thread.sleep(1000);
+        wait.until(ExpectedConditions.elementToBeClickable(xpathDropDownDescriptionsTransportCard));
+        driver.findElement(xpathDropDownDescriptionsTransportCard).click();
+        wait.until(ExpectedConditions.elementToBeClickable(selectorSelectSocialCode));
         driver.findElement(selectorSelectSocialCode).click();
-        driver.findElement(By.xpath("//span[contains(text(),'" + socialCode + "' )]")).click();
-        Thread.sleep(1000);
+        wait.until(ExpectedConditions.elementToBeClickable(xpathDropDownSocialCodes));
+        driver.findElement(xpathDropDownSocialCodes).click();
+        wait.until(ExpectedConditions.elementToBeClickable(selectorSelectUserType));
         driver.findElement(selectorSelectUserType).click();
-        driver.findElement(By.xpath("//span[contains(text(),'" + userTypeName + "' )]")).click();
-        Thread.sleep(1000);
+        wait.until(ExpectedConditions.elementToBeClickable(xpathDropDownUsersType));
+        driver.findElement(xpathDropDownUsersType).click();
+        wait.until(ExpectedConditions.elementToBeClickable(selectorSelectLocationTransportApp));
         driver.findElement(selectorSelectLocationTransportApp).click();
-        driver.findElement(By.xpath("//span[contains(text(),'" + locationTransportAppName + "' )]")).click();
+        wait.until(ExpectedConditions.elementToBeClickable(xpathDropDownLocationsTransportApp));
+        driver.findElement(xpathDropDownLocationsTransportApp).click();
+        transportAppSeriesAvailable = driver.findElement(selectorAvailable).isSelected();
+        wait.until(ExpectedConditions.elementToBeClickable(xpathButtonSave));
         driver.findElement(xpathButtonSave).click();
-        System.out.println("Create Transport App Series");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(xpathNotifier));
+        String textNotificationTransportAppSeriesCardSave = driver.findElement(xpathNotifier).getText();
+        Assert.assertEquals("Не совпадают тексты нотификации при сохранении Серии транспортного приложения",
+                transportAppSeriesCardSaveNotification, textNotificationTransportAppSeriesCardSave);
+        System.out.println("Transport App Series successfully Created");
     }
 
-    public void deleteTransportAppSeries() throws InterruptedException {
-        createTransportAppSeries();         // Создаем Серию транспортного приложения
-        Thread.sleep(2000);
-        driver.findElement(selectorFieldSearch).sendKeys(TransportAppSeries);
-        Thread.sleep(2000);           // Удаляем Серию транспортного приложения
-        String nameTransportAppSeriesSearch = driver.findElementByXPath("//app-application-series/div/div[2]/table/tbody/tr/td[2]").getText();
-        if (nameTransportAppSeriesSearch.equals(TransportAppSeries)) {
-            driver.findElement(xpathIconDelete).click();
-            Thread.sleep(1000);
-            driver.findElement(xpathButtonDelete).click();
-            System.out.println("Delete Transport App Series");
+    public void checkTransportAppSeriesCard() {
+        wait.until(ExpectedConditions.elementToBeClickable(selectorFieldSearch));
+        driver.findElement(selectorFieldSearch).sendKeys(transportAppSeries);
+        waitingSpinner();
+        try {
+            wait.until(ExpectedConditions.attributeToBe(xpathReferenceBookNameForSearch,
+                    "title", transportAppSeries));
+        } catch (org.openqa.selenium.StaleElementReferenceException ex) {
+            wait.until(ExpectedConditions.attributeToBe(xpathReferenceBookNameForSearch,
+                    "title", transportAppSeries));
         }
-        Thread.sleep(2000);          // Удаляем Описание транспортной карты
-        driver.findElement(xpathDescriptionsTransportCards).click();
-        System.out.println("Go to subsection: Descriptions Transport Card");
-        Thread.sleep(2000);
-        driver.findElement(selectorFieldSearch).sendKeys(descriptionsTransportCardName);
-        Thread.sleep(2000);
-        String nameDescriptionsTransportCardSearch = driver.findElementByXPath("//app-transport-card-descriptions/div/div[2]/table/tbody/tr[1]/td[2]").getText();
-        if (nameDescriptionsTransportCardSearch.equals(nameDescriptionsTransportCardSearch)) {
-            driver.findElement(xpathIconDelete).click();
-            Thread.sleep(1000);
-            driver.findElement(xpathButtonDelete).click();
-            System.out.println("Delete Descriptions Transport Card");
+        List<WebElement> transportAppSeriesList = driver.findElements(xpathListInTable);
+        for (int i = 0; i < transportAppSeriesList.size(); i++) {
+            String transportAppSeriesListNameSearch = transportAppSeriesList.get(i).findElement(xpathReferenceBookNameForSearch).getText();
+            if (transportAppSeriesListNameSearch.equals(transportAppSeries)) {
+                wait.until(ExpectedConditions.elementToBeClickable(xpathIconEdit));
+                transportAppSeriesList.get(i).findElement(xpathIconEdit).click();
+                System.out.println("Open Transport App Series Card for Check");
+                break;
+            }
         }
-        Thread.sleep(2000);         // Удаляем Тип пользователя
-        driver.findElement(xpathUserTypes).click();
-        System.out.println("Go to subsection: User Type");
-        Thread.sleep(2000);
-        driver.findElement(selectorFieldSearch).sendKeys(userTypeName);
-        Thread.sleep(2000);
-        String nameUserTypeSearch = driver.findElementByXPath("//app-transport-card-users/div/div[2]/table/tbody/tr[1]/td[2]").getText();
-        if (nameUserTypeSearch.equals(userTypeName)) {
-            driver.findElement(xpathIconDelete).click();
-            Thread.sleep(1000);
-            driver.findElement(xpathButtonDelete).click();
-            System.out.println("Delete Locations Transport App");
+        wait.until(ExpectedConditions.elementToBeClickable(selectorFieldName));
+        String transportAppSeriesNameForCheck = driver.findElement(selectorFieldName).getAttribute("value");
+        String cardDescriptionNameForCheck = driver.findElement(selectorSelectCardDescription).findElement(xpathCheckDropDown).getText();
+        String socialCodeNameForCheck = driver.findElement(selectorSelectSocialCode).findElement(xpathCheckDropDown).getText();
+        String typeUserNameForCheck = driver.findElement(selectorSelectUserType).findElement(xpathCheckDropDown).getText();
+        String locationTransportAppNameForCheck = driver.findElement(selectorSelectLocationTransportApp).findElement(xpathCheckDropDown).getText();
+        boolean transportAppSeriesAvailableForCheck = driver.findElement(selectorAvailable).isSelected();
+        System.out.println(transportAppSeriesAvailableForCheck);
+        Assert.assertEquals("Некорректно заполнено поле 'Серия'",
+                transportAppSeries, transportAppSeriesNameForCheck);
+        Assert.assertEquals("Некорректное Описание транспортной карты",
+                descriptionsTransportCardName, cardDescriptionNameForCheck);
+        Assert.assertEquals("Некорректная Группа социальных категорий",
+                socialCode, socialCodeNameForCheck);
+        Assert.assertEquals("Некорректный Тип пользователя",
+                userTypeName, typeUserNameForCheck);
+        Assert.assertEquals("Некорректная Локация транспортного приложения",
+                locationTransportAppName, locationTransportAppNameForCheck);
+        Assert.assertEquals("Изменился параметр доступности Серии транспортного приложения",
+                transportAppSeriesAvailable, transportAppSeriesAvailableForCheck);
+        System.out.println("Transport App Series Card has been successfully Verified");
+    }
+
+    public void deleteTransportAppSeries() {
+        wait.until(ExpectedConditions.elementToBeClickable(xpathTransportAppSeries));
+        driver.findElement(xpathTransportAppSeries).click();
+        wait.until(ExpectedConditions.elementToBeClickable(selectorFieldSearch));
+        driver.findElement(selectorFieldSearch).sendKeys(transportAppSeries);
+        waitingSpinner();
+        try {
+            wait.until(ExpectedConditions.attributeToBe(xpathReferenceBookNameForSearch,
+                    "title", transportAppSeries));
+        } catch (org.openqa.selenium.StaleElementReferenceException ex) {
+            wait.until(ExpectedConditions.attributeToBe(xpathReferenceBookNameForSearch,
+                    "title", transportAppSeries));
         }
-        Thread.sleep(2000);         // Удаляем Локацию транспортного приложения
-        driver.findElement(xpathLocationTransportApps).click();
-        System.out.println("Go to subsection: Locations Transport App");
-        Thread.sleep(2000);
-        driver.findElement(selectorFieldSearch).sendKeys(locationTransportAppName);
-        Thread.sleep(2000);
-        String nameLocationTransportAppSearch = driver.findElementByXPath("//app-transport-locations/div/div[2]/table/tbody/tr/td[2]").getText();
-        if (nameLocationTransportAppSearch.equals(locationTransportAppName)) {
-            driver.findElement(xpathIconDelete).click();
-            Thread.sleep(1000);
-            driver.findElement(xpathButtonDelete).click();
-            System.out.println("Delete Locations Transport App");
+        List<WebElement> transportAppSeriesList = driver.findElements(xpathListInTable);
+        for (int i = 0; i < transportAppSeriesList.size(); i++) {
+            String transportAppSeriesListNameSearch = transportAppSeriesList.get(i).findElement(xpathReferenceBookNameForSearch).getText();
+            if (transportAppSeriesListNameSearch.equals(transportAppSeries)) {
+                wait.until(ExpectedConditions.elementToBeClickable(xpathIconDelete));
+                transportAppSeriesList.get(i).findElement(xpathIconDelete).click();
+                wait.until(ExpectedConditions.elementToBeClickable(xpathButtonDelete));
+                driver.findElement(xpathButtonDelete).click();
+                break;
+            }
         }
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(xpathButtonDelete));
+        waitingSpinner();
+        List<WebElement> transportAppSeriesCheck = driver.findElements(xpathListInTable);
+        Assert.assertEquals("Серия транспортного приложения не удалена",
+                0, transportAppSeriesCheck.size());
+        System.out.println("Transport App Series successfully Deleted");
+    }
+
+    public void deleteRelatedDirectories() {
+        DescriptionTransportCard.deleteDescriptionsTransportCard();         //Удаляем Описание транспортной карты
+        UserType.deleteUserType();                                          //Удаляем Тип пользователя
+        LocationTransportApp.deleteLocationTransportApp();                  //Удаляем Локацию транспортного приложения
     }
 
 }

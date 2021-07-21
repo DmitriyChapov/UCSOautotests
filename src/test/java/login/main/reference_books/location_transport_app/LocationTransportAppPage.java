@@ -19,9 +19,9 @@ public class LocationTransportAppPage extends Login {
         driver.findElement(xpathReferenceBooks).click();
         String referenceBooksUrlNow = driver.getCurrentUrl();
         String referenceBooksPageNameNow = driver.findElement(headingReferenceBooks).getText();
-        Assert.assertEquals("Некорректный Url страницы \"Справочники\"",
+        Assert.assertEquals("Некорректный Url страницы 'Справочники'",
                 referenceBooksUrl,referenceBooksUrlNow);
-        Assert.assertEquals("Не совпадают заголовки на странице \"Справочники\"",
+        Assert.assertEquals("Не совпадают заголовки на странице 'Справочники'",
                 referenceBooksPageName,referenceBooksPageNameNow);
         System.out.println("Go to section: Reference Books");
     }
@@ -31,9 +31,9 @@ public class LocationTransportAppPage extends Login {
         driver.findElement(xpathLocationTransportApps).click();
         String locationTransportAppUrlNow = driver.getCurrentUrl();
         String locationTransportAppPageNameNow = driver.findElement(headingPage).getText();
-        Assert.assertEquals("Некорректный Url страницы \"Справочник локаций транспортного приложения\"",
+        Assert.assertEquals("Некорректный Url страницы 'Справочник Локаций транспортного приложения'",
                 locationTransportAppUrl, locationTransportAppUrlNow);
-        Assert.assertEquals("Не совпадают заголовки на странице \"Справочник локаций транспортного приложения\"",
+        Assert.assertEquals("Не совпадают заголовки на странице 'Справочник Локаций транспортного приложения'",
                 locationTransportAppPageName, locationTransportAppPageNameNow);
         System.out.println("Go to subsection: Locations Transport App");
     }
@@ -43,11 +43,11 @@ public class LocationTransportAppPage extends Login {
         driver.findElement(xpathButtonAdd).click();
         String  locationTransportAppCardUrlNow = driver.getCurrentUrl();
         String  locationTransportAppCardPageNameNow = driver.findElement(headingCard).getText();
-        Assert.assertEquals("Некорректный Url страницы \"Карточка локаций транспортного приложения\"",
+        Assert.assertEquals("Некорректный Url страницы 'Карточка Локаций транспортного приложения'",
                 locationTransportAppCardUrl, locationTransportAppCardUrlNow);
-        Assert.assertEquals("Не совпадают заголовки на странице \"Карточка локаций транспортного приложения\"",
+        Assert.assertEquals("Не совпадают заголовки на странице 'Карточка Локаций транспортного приложения'",
                 locationTransportAppCardPageName,locationTransportAppCardPageNameNow);
-        System.out.println("Open Locations Transport App Card");
+        System.out.println("Open Location Transport App Card");
     }
 
     public void createLocationTransportApp() {
@@ -83,7 +83,7 @@ public class LocationTransportAppPage extends Login {
             if (locationTransportAppNameSearch.equals(locationTransportAppName)) {
                 wait.until(ExpectedConditions.elementToBeClickable(xpathIconEdit));
                 locationTransportAppList.get(i).findElement(xpathIconEdit).click();
-                System.out.println("Open Locations Transport App Card for check");
+                System.out.println("Open Locations Transport App Card for Check");
                 break;
             }
         }
@@ -95,9 +95,9 @@ public class LocationTransportAppPage extends Login {
                 locationTransportAppName, locationTransportAppNameForCheck);
         Assert.assertEquals("Некорректно заполнено поле 'Код ОТК'",
                 codeOTK, codeOTKForCheck);
-        Assert.assertEquals("Изменился параметр доступности",
+        Assert.assertEquals("Изменился параметр доступности Локации траснпортного приложения",
                 locationTransportAppAvailable, locationTransportAppAvailableForCheck);
-        System.out.println("Locations Transport App Card has been successfully verified");
+        System.out.println("Locations Transport App Card has been successfully Verified");
     }
 
     public void deleteLocationTransportApp() {

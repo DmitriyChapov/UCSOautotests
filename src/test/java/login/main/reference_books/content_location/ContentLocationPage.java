@@ -21,9 +21,9 @@ public class ContentLocationPage extends Login {
         driver.findElement(xpathReferenceBooks).click();
         String referenceBooksUrlNow = driver.getCurrentUrl();
         String referenceBooksPageNameNow = driver.findElement(headingReferenceBooks).getText();
-        Assert.assertEquals("Некорректный Url страницы \"Справочники\"",
+        Assert.assertEquals("Некорректный Url страницы 'Справочники'",
                 referenceBooksUrl,referenceBooksUrlNow);
-        Assert.assertEquals("Не совпадают заголовки на странице \"Справочники\"",
+        Assert.assertEquals("Не совпадают заголовки на странице 'Справочники'",
                 referenceBooksPageName,referenceBooksPageNameNow);
         System.out.println("Go to section: Reference Books");
     }
@@ -33,9 +33,9 @@ public class ContentLocationPage extends Login {
         driver.findElement(xpathContentLocations).click();
         String contentLocationsUrlNow = driver.getCurrentUrl();
         String contentLocationsPageNameNow = driver.findElement(headingLocations).getText();
-        Assert.assertEquals("Некорректный Url страницы \"Справочник банков\"",
+        Assert.assertEquals("Некорректный Url страницы 'Справочник Локаций контента'",
                 locationsUrl, contentLocationsUrlNow);
-        Assert.assertEquals("Не совпадают заголовки на странице \"Справочник банков\"",
+        Assert.assertEquals("Не совпадают заголовки на странице 'Справочник Локаций контента'",
                 locationsPageName,contentLocationsPageNameNow);
         System.out.println("Go to subsection: Content Locations");
     }
@@ -50,7 +50,7 @@ public class ContentLocationPage extends Login {
         driver.findElement(xpathIconSaveLocation).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(xpathNotifier));
         String textNotificationLocationSave = driver.findElement(xpathNotifier).getText();
-        Assert.assertEquals("Не совпадают тексты нотификаций при сохранении Локации",
+        Assert.assertEquals("Не совпадают тексты нотификаций при сохранении Локации контента",
                 notificationLocationSave(i),textNotificationLocationSave);
         System.out.println("Location № " + i + " successfully Created");
         wait.until(ExpectedConditions.invisibilityOfElementLocated(xpathNotifier));
@@ -102,7 +102,7 @@ public class ContentLocationPage extends Login {
             driver.findElement(xpathButtonDelete).click();
             wait.until(ExpectedConditions.visibilityOfElementLocated(xpathNotifier));
             String textNotificationLocationDelete = driver.findElement(xpathNotifier).getText();
-            Assert.assertEquals("Не совпадают тексты нотификаций при удалении Локации",
+            Assert.assertEquals("Не совпадают тексты нотификаций при удалении Локации контента",
                     notificationLocationDelete(i),textNotificationLocationDelete);
             wait.until(ExpectedConditions.invisibilityOfElementLocated(xpathNotifier));
             System.out.println("Location № " + i + " successfully Deleted");

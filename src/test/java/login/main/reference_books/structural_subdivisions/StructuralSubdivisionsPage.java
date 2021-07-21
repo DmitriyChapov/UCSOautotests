@@ -19,9 +19,9 @@ public class StructuralSubdivisionsPage extends Login {
         driver.findElement(xpathReferenceBooks).click();
         String referenceBooksUrlNow = driver.getCurrentUrl();
         String referenceBooksPageNameNow = driver.findElement(headingReferenceBooks).getText();
-        Assert.assertEquals("Некорректный Url страницы \"Справочники\"",
+        Assert.assertEquals("Некорректный Url страницы 'Справочники'",
                 referenceBooksUrl,referenceBooksUrlNow);
-        Assert.assertEquals("Не совпадают заголовки на странице \"Справочники\"",
+        Assert.assertEquals("Не совпадают заголовки на странице 'Справочники'",
                 referenceBooksPageName,referenceBooksPageNameNow);
         System.out.println("Go to section: Reference Books");
     }
@@ -31,9 +31,9 @@ public class StructuralSubdivisionsPage extends Login {
         driver.findElement(xpathStructuralSubdivisions).click();
         String structuralSubdivisionsUrlNow = driver.getCurrentUrl();
         String structuralSubdivisionsPageNameNow = driver.findElement(headingPage).getText();
-        Assert.assertEquals("Некорректный Url страницы \"Справочник Структурных подразделений\"",
+        Assert.assertEquals("Некорректный Url страницы 'Справочник Структурных подразделений'",
                 structuralSubdivisionsUrl, structuralSubdivisionsUrlNow);
-        Assert.assertEquals("Не совпадают заголовки на странице \"Справочник Структурных подразделений\"",
+        Assert.assertEquals("Не совпадают заголовки на странице 'Справочник Структурных подразделений'",
                 structuralSubdivisionsPageName, structuralSubdivisionsPageNameNow);
         System.out.println("Go to subsection: Structural Subdivisions");
     }
@@ -43,9 +43,9 @@ public class StructuralSubdivisionsPage extends Login {
         driver.findElement(xpathButtonAdd).click();
         String  structuralSubdivisionCardUrlNow = driver.getCurrentUrl();
         String  structuralSubdivisionCardPageNameNow = driver.findElement(headingCard).getText();
-        Assert.assertEquals("Некорректный Url страницы \"Карточка Структурного подразделения\"",
+        Assert.assertEquals("Некорректный Url страницы 'Карточка Структурного подразделения'",
                 structuralSubdivisionCardUrl, structuralSubdivisionCardUrlNow);
-        Assert.assertEquals("Не совпадают заголовки на странице \"Карточка Структурного подразделения\"",
+        Assert.assertEquals("Не совпадают заголовки на странице 'Карточка Структурного подразделения'",
                 structuralSubdivisionCardPageName,structuralSubdivisionCardPageNameNow);
         System.out.println("Open Structural Subdivision Card");
     }
@@ -80,7 +80,7 @@ public class StructuralSubdivisionsPage extends Login {
             if (structuralSubdivisionNameSearch.equals(structuralSubdivisionName)) {
                 wait.until(ExpectedConditions.elementToBeClickable(xpathIconEdit));
                 structuralSubdivisionList.get(i).findElement(xpathIconEdit).click();
-                System.out.println("Open Structural Subdivision Card for check");
+                System.out.println("Open Structural Subdivision Card for Check");
                 break;
             }
         }
@@ -91,7 +91,7 @@ public class StructuralSubdivisionsPage extends Login {
                 structuralSubdivisionName, structuralSubdivisionNameForCheck);
         Assert.assertEquals("Изменился параметр доступности Структурного подразделения",
                 structuralSubdivisionAvailable, structuralSubdivisionAvailableForCheck);
-        System.out.println("Structural Subdivision has been successfully verified");
+        System.out.println("Structural Subdivision has been successfully Verified");
     }
 
     public void deleteStructuralSubdivision() {

@@ -20,9 +20,9 @@ public class MSS_codesPage extends Login {
         driver.findElement(xpathReferenceBooks).click();
         String referenceBooksUrlNow = driver.getCurrentUrl();
         String referenceBooksPageNameNow = driver.findElement(headingReferenceBooks).getText();
-        Assert.assertEquals("Некорректный Url страницы \"Справочники\"",
+        Assert.assertEquals("Некорректный Url страницы 'Справочники'",
                 referenceBooksUrl,referenceBooksUrlNow);
-        Assert.assertEquals("Не совпадают заголовки на странице \"Справочники\"",
+        Assert.assertEquals("Не совпадают заголовки на странице 'Справочники'",
                 referenceBooksPageName,referenceBooksPageNameNow);
         System.out.println("Go to section: Reference Books");
     }
@@ -32,9 +32,9 @@ public class MSS_codesPage extends Login {
         driver.findElement(xpathMSSCodes).click();
         String mss_CodesUrlNow = driver.getCurrentUrl();
         String mss_CodesPageNameNow = driver.findElement(headingPage).getText();
-        Assert.assertEquals("Некорректный Url страницы \"Справочник МСС-кодов\"",
+        Assert.assertEquals("Некорректный Url страницы 'Справочник МСС-кодов'",
                 mss_CodesUrl, mss_CodesUrlNow);
-        Assert.assertEquals("Не совпадают заголовки на странице \"Справочник МСС-кодов\"",
+        Assert.assertEquals("Не совпадают заголовки на странице 'Справочник МСС-кодов'",
                 mss_CodesPageName, mss_CodesPageNameNow);
         System.out.println("Go to subsection: MSS-codes");
     }
@@ -44,9 +44,9 @@ public class MSS_codesPage extends Login {
         driver.findElement(xpathButtonAdd).click();
         String  mss_CodeCardUrlNow = driver.getCurrentUrl();
         String  mss_CodeCardPageNameNow = driver.findElement(headingCard).getText();
-        Assert.assertEquals("Некорректный Url страницы \"Карточка МСС-кода\"",
+        Assert.assertEquals("Некорректный Url страницы 'Карточка МСС-кода'",
                 mss_CodeCardUrl, mss_CodeCardUrlNow);
-        Assert.assertEquals("Не совпадают заголовки на странице \"Карточка МСС-кода\"",
+        Assert.assertEquals("Не совпадают заголовки на странице 'Карточка МСС-кода'",
                 mss_CodeCardPageName,mss_CodeCardPageNameNow);
         System.out.println("Open MSS-code Card");
     }
@@ -82,7 +82,7 @@ public class MSS_codesPage extends Login {
             if (mss_CodeNameSearch.equals(mss_CodeName)) {
                 wait.until(ExpectedConditions.elementToBeClickable(xpathIconEdit));
                 mss_CodeList.get(i).findElement(xpathIconEdit).click();
-                System.out.println("Open MSS-code Card for check");
+                System.out.println("Open MSS-code Card for Check");
                 break;
             }
         }
@@ -94,9 +94,9 @@ public class MSS_codesPage extends Login {
                 mss_CodeName, mss_CodeNameForCheck);
         Assert.assertEquals("Некорректно заполнено поле 'МСС-код'",
                 String.valueOf(nmbAutoTest), mss_CodeForCheck);
-        Assert.assertEquals("Изменился параметр доступности",
+        Assert.assertEquals("Изменился параметр доступности МСС-кода",
                 mss_CodeAvailable, mss_CodeAvailableForCheck);
-        System.out.println("MSS-code has been successfully verified");
+        System.out.println("MSS-code has been successfully Verified");
     }
 
     public void deleteMSSCode() {

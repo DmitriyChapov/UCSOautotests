@@ -23,9 +23,9 @@ public class BanksPage extends Login{
         driver.findElement(xpathReferenceBooks).click();
         String referenceBooksUrlNow = driver.getCurrentUrl();
         String referenceBooksPageNameNow = driver.findElement(headingReferenceBooks).getText();
-        Assert.assertEquals("Некорректный Url страницы \"Справочники\"",
+        Assert.assertEquals("Некорректный Url страницы 'Справочники''",
                 referenceBooksUrl,referenceBooksUrlNow);
-        Assert.assertEquals("Не совпадают заголовки на странице \"Справочники\"",
+        Assert.assertEquals("Не совпадают заголовки на странице 'Справочники'",
                 referenceBooksPageName,referenceBooksPageNameNow);
         System.out.println("Go to section: Reference Books");
     }
@@ -35,9 +35,9 @@ public class BanksPage extends Login{
         driver.findElement(xpathBanks).click();
         String banksUrlNow = driver.getCurrentUrl();
         String banksPageNameNow = driver.findElement(headingBanks).getText();
-        Assert.assertEquals("Некорректный Url страницы \"Справочник банков\"",
+        Assert.assertEquals("Некорректный Url страницы 'Справочник банков'",
                 banksUrl, banksUrlNow);
-        Assert.assertEquals("Не совпадают заголовки на странице \"Справочник банков\"",
+        Assert.assertEquals("Не совпадают заголовки на странице 'Справочник банков'",
                 banksPageName, banksPageNameNow);
         System.out.println("Go to subsection: Banks");
     }
@@ -47,9 +47,9 @@ public class BanksPage extends Login{
         driver.findElement(xpathButtonAdd).click();
         String bankCardUrlNow = driver.getCurrentUrl();
         String bankCardPageNameNow = driver.findElement(headingCard).getText();
-        Assert.assertEquals("Некорректный Url страницы \"Карточка банка\"",
+        Assert.assertEquals("Некорректный Url страницы 'Карточка банка'",
                 bankCardUrl, bankCardUrlNow);
-        Assert.assertEquals("Не совпадают заголовки на странице \"Карточка банка\"",
+        Assert.assertEquals("Не совпадают заголовки на странице 'Карточка банка'",
                 bankCardPageName,bankCardPageNameNow);
         System.out.println("Open Bank Card");
     }
@@ -65,7 +65,7 @@ public class BanksPage extends Login{
         driver.findElement(xpathButtonSave).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(xpathNotifier));
         String textNotificationBankSave = driver.findElement(xpathNotifier).getText();
-        Assert.assertEquals("Не совпадают тексты нотификации при сохранении банка",
+        Assert.assertEquals("Не совпадают тексты нотификации при сохранении Банка",
                 bankSaveNotification, textNotificationBankSave);
         bankUrlwithID = driver.getCurrentUrl();
         System.out.println("Bank Card successfully Created");
@@ -81,12 +81,13 @@ public class BanksPage extends Login{
             driver.findElement(selectorFieldBranchWorkingHours).sendKeys(branchHoursWork);
             driver.findElement(selectorFieldBranchAddress).sendKeys(branchAddress(i));
             driver.findElement(selectorAvailable).click();
+            wait.until(ExpectedConditions.elementToBeClickable(xpathButtonSaveInWindom));
             driver.findElement(xpathButtonSaveInWindom).click();
             wait.until(ExpectedConditions.invisibilityOfElementLocated(selectorFieldBranchName));
         }
         List<WebElement> listBranch = driver.findElements(xpathNmbBranch);
         quantityBranch = listBranch.size();
-        Assert.assertEquals("Не все отделения созданы",
+        Assert.assertEquals("Не все Отделения банка созданы",
                 nmbBranch, quantityBranch);
         System.out.println("Bank Branches successfully Created");
     }
@@ -97,6 +98,7 @@ public class BanksPage extends Login{
         waitingSpinner();
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("[class = 'mat-ripple-element']")));
         for (int i=0; i < nmbDesign; i++ ) {
+            wait.until(ExpectedConditions.elementToBeClickable(xpathButtonAdd));
             driver.findElement(xpathButtonAdd).click();
             wait.until(ExpectedConditions.visibilityOfElementLocated(selectorFieldName));
             driver.findElement(selectorFieldName).sendKeys(nameDesign(i));
@@ -113,7 +115,7 @@ public class BanksPage extends Login{
         }
         List<WebElement> listDesign = driver.findElements(xpathNmbDesign);
         quantityDesign = listDesign.size();
-        Assert.assertEquals("Не все дизайны карт созданы",
+        Assert.assertEquals("Не все Дизайны карт банка созданы",
                 nmbDesign, quantityDesign);
         System.out.println("Bank Designs successfully Created");
     }
@@ -121,6 +123,7 @@ public class BanksPage extends Login{
     public void checkBankCard() {
         wait.until(ExpectedConditions.elementToBeClickable(xpathBanks));
         driver.findElement(xpathBanks).click();
+        wait.until(ExpectedConditions.elementToBeClickable(selectorFieldSearch));
         driver.findElement(selectorFieldSearch).sendKeys(bankName);
         waitingSpinner();
         try {
@@ -136,7 +139,7 @@ public class BanksPage extends Login{
             if (bankNameSearch.equals(bankName)) {
                 wait.until(ExpectedConditions.elementToBeClickable(xpathIconEdit));
                 bankList.get(i).findElement(xpathIconEdit).click();
-                System.out.println("Open Bank Card for check");
+                System.out.println("Open Bank Card for Check");
                 break;
         }
     }
@@ -149,7 +152,7 @@ public class BanksPage extends Login{
         boolean bankAvailableForCheck = driver.findElement(selectorBankAvailable).isSelected();
         List<WebElement> listBranchForCheck = driver.findElements(xpathNmbBranch);
         int quantityBranchForCheck = listBranchForCheck.size();
-        Assert.assertEquals("Не совпадают Url созданного банка и открытой карточки банка",
+        Assert.assertEquals("Не совпадают Url созданного Банка и открытой карточки Банка",
                 bankUrlwithID, bankCardUrlForCheck);
         Assert.assertEquals("Некорректно заполнено поле 'Наименование банка'",
                 bankName, bankNameForCheck);
@@ -159,7 +162,7 @@ public class BanksPage extends Login{
                 bankAddress, bankAddressForCheck );
         Assert.assertEquals("Некорректно заполнено поле 'Сайт'",
                 banksSiteName, banksSiteNameForCheck );
-        Assert.assertEquals("Изменился параметр доступности",
+        Assert.assertEquals("Изменился параметр доступности Банка",
                 bankAvailable, bankAvailableForCheck);
         Assert.assertEquals("Некорректное кол-во 'Отделений банка'",
                 quantityBranch, quantityBranchForCheck );
@@ -171,12 +174,13 @@ public class BanksPage extends Login{
         int quantityDesignForCheck = listDesignForCheck.size();
         Assert.assertEquals("Некорректное кол-во 'Дизайнов карт банка'",
                 quantityDesign, quantityDesignForCheck );
-        System.out.println("Bank Card has been successfully verified");
+        System.out.println("Bank Card has been successfully Verified");
     }
 
     public void deleteBank() {
         wait.until(ExpectedConditions.elementToBeClickable(xpathBanks));
         driver.findElement(xpathBanks).click();
+        wait.until(ExpectedConditions.elementToBeClickable(selectorFieldSearch));
         driver.findElement(selectorFieldSearch).sendKeys(bankName);
         waitingSpinner();
         try {
@@ -191,7 +195,7 @@ public class BanksPage extends Login{
             String bankNameSearch = bankList.get(i).findElement(xpathBankNameForSearch).getText();
             if (bankNameSearch.equals(bankName)) {
                 wait.until(ExpectedConditions.elementToBeClickable(xpathIconDelete));
-                driver.findElement(xpathIconDelete).click();
+                bankList.get(i).findElement(xpathIconDelete).click();
                 wait.until(ExpectedConditions.elementToBeClickable(xpathButtonDelete));
                 driver.findElement(xpathButtonDelete).click();
                 break;
