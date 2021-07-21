@@ -86,6 +86,7 @@ public class NewsPage extends Login {
         for (int i = 0; i < 3; i++) {
             wait.until(ExpectedConditions.elementToBeClickable(xpathButtonDownloadImage));
             driver.findElement(xpathButtonDownloadImage).click();
+            wait.until(ExpectedConditions.elementToBeClickable(xpathButtonSaveImage));
             driver.findElement(selectorFieldImage).sendKeys(imageNewsGallery(i));
             waitingSpinner();
             wait.until(ExpectedConditions.elementToBeClickable(xpathButtonSaveImage));
@@ -94,7 +95,6 @@ public class NewsPage extends Login {
     }
 
     public void createNews() {
-        openNewsCard();                          // Открываем Карточку новости
         tabPropertiesNewsCard();                 // Заполняем вкладку "Свойства"
         tabContentNewsCard();                    // Заполняем вкладку "Содержимое"
         wait.until(ExpectedConditions.elementToBeClickable(xpathButtonSave));
@@ -108,7 +108,6 @@ public class NewsPage extends Login {
     }
 
     public void publicNews() {
-        createNews();                         // Создаем Новость
         wait.until(ExpectedConditions.elementToBeClickable(xpathButtonPublic));
         driver.findElement(xpathButtonPublic).click();
         wait.until(ExpectedConditions.elementToBeClickable(xpathButtonAccept));
@@ -121,9 +120,11 @@ public class NewsPage extends Login {
     }
 
     public void createAndPublicNews(){
-        loginAdmin();
-        sectionContentNews();
-        publicNews();
+        loginAdmin();                             // Авторизация под пользователем с правами "Администратор"
+        sectionContentNews();                     // Переход в раздел "Новости"
+        openNewsCard();                           // Открываем Карточку новости
+        createNews();                             // Создаем Новость
+        publicNews();                             // Публикуем новость
     }
 
 }
