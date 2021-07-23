@@ -59,6 +59,7 @@ public class NewsPage extends Login {
         driver.findElement(selectorSelectTags).click();
         wait.until(ExpectedConditions.elementToBeClickable(xpathTagForContents));
         driver.findElement(xpathTagForContents).click();
+        newsCardCategory = driver.findElement(xpathTagForContents).getText();
         driver.findElementByClassName("cdk-overlay-container").click();
     }
 
@@ -107,6 +108,13 @@ public class NewsPage extends Login {
         System.out.println("News successfully Created");
     }
 
+    public void getCardID(){
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(xpathUserNewsCardId)));
+        String newsCardTemp = driver.findElement(xpathUserNewsCardId).getText();
+        newsCardId = newsCardTemp.substring(newsCardTemp.length() - 5);
+        System.out.println("ID созданной новости: " + newsCardId);
+    }
+
     public void publicNews() {
         wait.until(ExpectedConditions.elementToBeClickable(xpathButtonPublic));
         driver.findElement(xpathButtonPublic).click();
@@ -119,11 +127,14 @@ public class NewsPage extends Login {
         System.out.println("News successfully Published");
     }
 
+
+
     public void createAndPublicNews(){
         loginAdmin();                             // Авторизация под пользователем с правами "Администратор"
         sectionContentNews();                     // Переход в раздел "Новости"
         openNewsCard();                           // Открываем Карточку новости
-        createNews();                             // Создаем Новость
+        createNews();                             // Создаем
+        getCardID();                              // Получаем ID новости
         publicNews();                             // Публикуем новость
     }
 

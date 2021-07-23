@@ -120,6 +120,8 @@ public class Strings {
     public static String posterDate = "C 1 по 8 марта, начало в 19:00";
     public static String posterLocation = "Локация для автотеста";
     public static String posterCost = "Бесплатно";
+    public static String newsCardId;
+    public static String newsCardCategory;
 
     //Опросы
     public static String interviewHeading = "Заголовок свежего опроса, созданного автотестом. В опросе присутствуют все типы вопросов и они необязательные номер " + nmbAutoTest;

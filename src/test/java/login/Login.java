@@ -25,7 +25,7 @@ public class Login {
     public static Actions actionChange;
     public LocalDate toDay = LocalDate.now();
     public LocalTime toTime = LocalTime.now();
-    public String dateNow = DateTimeFormatter.ofPattern("dd/MM/yyyy").format(toDay);
+    public String dateNow = DateTimeFormatter.ofPattern("dd.MM.yyyy").format(toDay);
     public String timeNow = DateTimeFormatter.ofPattern("HH/mm").format(toTime);
 
     @Before

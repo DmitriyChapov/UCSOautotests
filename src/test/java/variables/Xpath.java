@@ -16,6 +16,7 @@ public class Xpath {
     public static By xpathMSS_CodeConfirm = By.xpath("//li[contains(text(), '9999 Название')]");
     public static By xpathTSPSendButton = By.xpath("//button[contains(text(), 'Отправить заявку')]");
     public static By xpathTSPUserAddress = By.xpath("//span[contains(text(), 'Добавить адрес')]");
+    public static By xpathUserNewsSection = By.xpath("//span[contains(text(), 'Новости')]");
 
     //Админка
 
@@ -81,6 +82,14 @@ public class Xpath {
     public static By xpathRadioButtonMainImage = By.xpath("//div[contains(text(), ' Основное изображение (в списке публикаций) ')]/../..");
     public static By xpathRadioButtonGalleryImage = By.xpath("//div[contains(text(), ' Галерея (детальное, внутри публикации) ')]/../..");
     public static By xpathLocationForEvent = By.xpath("//span[contains(text(), 'Локация для автотеста')]");
+    public static By xpathUserNewsCardId = By.xpath("//h1[contains(text(), 'Карточка')]");
+    public static By xpathAllUserNews = By.xpath("//a[contains(@href, 'news/')]");
+    public static By xpathNewsCardMainSectionHeading = By.xpath("//main//section/a/div/div[1]");
+    public static By xpathNewsCardMainSectionDates = By.xpath("//main//section/a/div/div[2]");
+    public static By xpathOpenedNewsCardHeading = By.xpath("//main//section//h1");
+    public static By xpathOpenedNewsCardAttributes = By.xpath("//main//section//p");
+    public static By xpathOpenedNewsCardCategory = By.xpath("//main//section//span");
+
 
     // Опросы
     public static By xpathAccessAll = By.xpath("//span[contains(text(),'Всем')]");
