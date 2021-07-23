@@ -34,4 +34,7 @@ public class FilesForAdd {
     public static String fileDocument = "C:\\Image for AutoTest\\Files\\AutoTest.pdf";
     public static String imageBanner = "C:\\Image for AutoTest\\Banner.png";
     public static String imageLogo = "C:\\Image for AutoTest\\Logo.svg";
+
+    public static String imageTSP = "C:\\Image for AutoTest\\TSP1.jpg";
+
 }
