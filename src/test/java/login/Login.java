@@ -57,16 +57,20 @@ public class Login {
         Assert.assertEquals("Не совпадают title", title,"Карта жителя СО");
     }
 
-    public void loginPortal() throws InterruptedException {
+    public void loginPortal() {
         driver.get(sitePortal);
-        Thread.sleep(2000);
+        wait.until(ExpectedConditions.elementToBeClickable(xpathCookieYes));
         driver.findElement(xpathCookieYes).click();
+        wait.until(ExpectedConditions.elementToBeClickable(xpathESIAuthorize));
         driver.findElement(xpathESIAuthorize).click();
+        wait.until(ExpectedConditions.elementToBeClickable(xpathCheckBoxDate));
         driver.findElement(xpathCheckBoxDate).click();
+        wait.until(ExpectedConditions.elementToBeClickable(xpathConfirmDateButton));
         driver.findElement(xpathConfirmDateButton).click();
-        Thread.sleep(2000);
+        wait.until(ExpectedConditions.elementToBeClickable(selectorLogin));
         driver.findElement(selectorLogin).sendKeys(loginOutUser);
         driver.findElement(selectorPassword).sendKeys(passwordOutUser);
+        wait.until(ExpectedConditions.elementToBeClickable(xpathButtonIn));
         driver.findElement(xpathButtonIn).click();
     }
 
