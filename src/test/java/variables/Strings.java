@@ -106,9 +106,14 @@ public class Strings {
     public static String eventPlaceCardSaveNotification = "Карточка учреждения для проведения мероприятий \"" + eventPlaceName + "\" успешно сохранена";
 
     //Новости и Афиши
+    public static String newsPageName = "Новости";
+    public static String newsCardPageName = "Карточка новости";
     public static String newsHeading =  "Заголовок новости, созданной автотестом. Этот заголовок содержит максимальное количество символов равное 150. Номер генерируется рандомно и равен " + nmbAutoTest;
     public static String newsAnnouncement = "Анонс новости, созданной автотестом. Этот анонс содержит максимальное количество знаков, равное 150 символов. Номер генерируется рандомно и равен " + nmbAutoTest;
     public static String newsText = "Текст новости, созданной автотестом номер " + nmbAutoTest + ". ";
+    public static String newsCardSaveNotification = "Публикация \"" + newsHeading + "\" успешно сохранена";
+    public static String newsCardPublicNotification = "Карточка новости \"" + newsHeading + "\" успешно опубликована";
+
     public static String posterHeading = "Заголовок афиши, созданной автотестом. Заголовок содержит максимальное количество знаков равное 150 символов. Номер генерируется рандомно и равен " + nmbAutoTest;
     public static String posterAnnouncement = "Анонс афиши, созданной автотестом. Анонс афиши содержит максимальное количество знаков равное 150 символов. Номер генерируется рандомно и равен № " + nmbAutoTest;
     public static String posterText = "Текст афиши, созданной автотестом номер " + nmbAutoTest + ". ";

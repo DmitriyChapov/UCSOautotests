@@ -125,4 +125,13 @@ public class PositionsPage extends Login {
                 0, positionListCheck.size());
         System.out.println("Position successfully Deleted");
         }
+    public void createAndDeletePosition(){
+        loginAdmin();               // Авторизация под пользователем с правами "Администратор"
+        sectionReferenceBooks();    // Переход в раздел "Справочники"
+        subSectionPositions();      // Переход в подраздел "Должности", раздела "Справочники"
+        openPositionCard();         // Открываем карточку Должности
+        createPosition();           // Создаем Должность
+        checkPositionCard();        // Проверяем заполненность карточки Должности
+        deletePosition();           // Удаляем Должность
+    }
 }

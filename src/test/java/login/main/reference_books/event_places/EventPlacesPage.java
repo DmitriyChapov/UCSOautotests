@@ -130,6 +130,15 @@ public class EventPlacesPage extends Login {
         Assert.assertEquals("Учреждение для проведения мероприятий не удалено",
                 0, eventPlaceListCheck.size());
         System.out.println("Event Place successfully Deleted");
-
         }
+
+    public void createAndDeleteEventPlace(){
+        loginAdmin();                  // Авторизация под пользователем с правами "Администратор"
+        sectionReferenceBooks();       // Переход в раздел "Справочники"
+        subSectionEventPlaces();       // Переход в подраздел "Учреждения для проведения мероприятий", раздела "Справочники"
+        openEventPlaceCard();          // Открываем карточку Учреждения для проведения мероприятий
+        createEventPlace();            // Создаем Учреждение для проведения мероприятий
+        checkEventPlaceCard();         // Проверяем заполненность карточки Учреждения для проведения мероприятий
+        deleteEventPlace();            // Удаляем Учреждение для проведения мероприятий
+    }
 }

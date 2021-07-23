@@ -2,113 +2,129 @@ package login.main.administration.content.news;
 
 import login.Login;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import static variables.Strings.*;
 import static variables.FilesForAdd.*;
+import static variables.Urls.*;
 import static variables.Xpath.*;
 import static variables.Selector.*;
-
 import java.util.List;
 
 public class NewsPage extends Login {
 
-    public void sectionContentNews() throws InterruptedException {
-        loginAdmin();
+    public void sectionContentNews() {
         WebElement sectionAdmin = driver.findElement(xpathAdministration);
-        WebElement subsectionKontent = driver.findElement(xpathContent);
-        Actions actionchange = new Actions(driver);
-        actionchange.moveToElement(sectionAdmin);
-        Thread.sleep(2000);
-        actionchange.moveToElement(subsectionKontent).click();
-        actionchange.perform();
-        String newsUrl = driver.getCurrentUrl();
-        String newsPageName = driver.findElement(headingContentsPage).getText();
-        Assert.assertEquals("Раздел \"Контент\" недоступен",
-                newsUrl, "https://ucso-test.opencode.su/news-dashboard/publications?type=NEWS&searchString=");
-        Assert.assertEquals("Подраздел \"Новости\" недоступен", "Новости", newsPageName);
+        WebElement subsectionContent = driver.findElement(xpathContent);
+        actionChange.moveToElement(sectionAdmin);
+        actionChange.moveToElement(subsectionContent).click();
+        actionChange.perform();
+        String newsUrlNow = driver.getCurrentUrl();
+        String newsPageNameNow = driver.findElement(headingContentsPage).getText();
+        Assert.assertEquals("Некорректный Url страницы 'Новости'",
+                newsUrl, newsUrlNow);
+        Assert.assertEquals("Не совпадают заголовки на странице 'Новости'", newsPageName, newsPageNameNow);
         System.out.println("Go to section: News");
     }
 
-    public void openNewsCard() throws InterruptedException {
-        sectionContentNews();                       // Переход в подраздел "Новости", раздела "Контент"
-        Thread.sleep(2000);
+    public void openNewsCard() {
+        wait.until(ExpectedConditions.elementToBeClickable(xpathButtonAdd));
         driver.findElement(xpathButtonAdd).click();
-        String newsCardUrl = driver.getCurrentUrl();
-        String newsCardPageName = driver.findElement(headingContentCard).getText();
-        Assert.assertEquals("Карточка новости недоступна",newsCardUrl, "https://ucso-test.opencode.su/news-dashboard/posts-editor?type=NEWS");
-        Assert.assertEquals(newsCardPageName, "Карточка новости");
+        String newsCardUrlNow = driver.getCurrentUrl();
+        String newsCardPageNameNow = driver.findElement(headingContentCard).getText();
+        Assert.assertEquals("Некорректный Url страницы 'Карточка новости'",
+                newsCardUrl, newsCardUrlNow);
+        Assert.assertEquals("Не совпадают заголовки на странице 'Карточка новости'",
+                newsCardPageName, newsCardPageNameNow);
         System.out.println("Open News Card");
     }
 
-    public void tabPropertiesNewsCard() throws InterruptedException {
+    public void tabPropertiesNewsCard() {
+        wait.until(ExpectedConditions.elementToBeClickable(xpathPortal));
         List<WebElement> datepicker = driver.findElements(dateFields);
         List<WebElement> timepicker = driver.findElements(timeFields);
         driver.findElement(xpathPortal).click();
         datepicker.get(4).sendKeys(dateNow);
         timepicker.get(4).sendKeys(timeNow);
         datepicker.get(5).sendKeys(dateNow);
+        wait.until(ExpectedConditions.elementToBeClickable(xpathMobile));
         driver.findElement(xpathMobile).click();
         datepicker.get(0).sendKeys(dateNow);
         timepicker.get(0).sendKeys(timeNow);
         datepicker.get(1).sendKeys(dateNow);
+        wait.until(ExpectedConditions.elementToBeClickable(xpathLocationForContent));
         driver.findElement(xpathLocationForContent).click();
+        wait.until(ExpectedConditions.elementToBeClickable(selectorSelectTags));
         driver.findElement(selectorSelectTags).click();
-        Thread.sleep(1000);
+        wait.until(ExpectedConditions.elementToBeClickable(xpathTagForContents));
         driver.findElement(xpathTagForContents).click();
         driver.findElementByClassName("cdk-overlay-container").click();
     }
 
-    public void tabContentNewsCard() throws InterruptedException {
+    public void tabContentNewsCard() {
+        wait.until(ExpectedConditions.elementToBeClickable(xpathTabContent));
         driver.findElement(xpathTabContent).click();
-        Thread.sleep(2000);
+        waitingSpinner();
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("[class = 'mat-ripple-element']")));
+        wait.until(ExpectedConditions.elementToBeClickable(selectorFieldContentTitle));
         driver.findElement(selectorFieldContentTitle).sendKeys(newsHeading);
         driver.findElement(selectorFieldContentTeaser).sendKeys(newsAnnouncement);
         driver.findElement(selectorFieldContentText).sendKeys(newsText.repeat(20));
-        Thread.sleep(1000);
         addImageNewsCard();            // Прикрепляем изображения
     }
 
-    public void addImageNewsCard() throws InterruptedException {
+    public void addImageNewsCard() {
+        wait.until(ExpectedConditions.elementToBeClickable(xpathButtonDownloadImage));
         driver.findElement(xpathButtonDownloadImage).click();
-        Thread.sleep(1000);
+        wait.until(ExpectedConditions.elementToBeClickable(xpathRadioButtonPrevImage));
         driver.findElement(xpathRadioButtonPrevImage).click();
         driver.findElement(selectorFieldImage).sendKeys(imageNewsPrev);
+        waitingSpinner();
+        wait.until(ExpectedConditions.elementToBeClickable(xpathButtonSaveImage));
         driver.findElement(xpathButtonSaveImage).click();
-        Thread.sleep(3000);
-        driver.findElement(xpathButtonDownloadImage).click();
-        driver.findElement(selectorFieldImage).sendKeys(imageNewsGallery_1);
-        Thread.sleep(3000);
-        driver.findElement(xpathButtonSaveImage).click();
-        Thread.sleep(3000);
-        driver.findElement(xpathButtonDownloadImage).click();
-        driver.findElement(selectorFieldImage).sendKeys(imageNewsGallery_2);
-        Thread.sleep(3000);
-        driver.findElement(xpathButtonSaveImage).click();
-        Thread.sleep(3000);
-        driver.findElement(xpathButtonDownloadImage).click();
-        driver.findElement(selectorFieldImage).sendKeys(imageNewsGallery_3);
-        Thread.sleep(3000);
-        driver.findElement(xpathButtonSaveImage).click();
+        for (int i = 0; i < 3; i++) {
+            wait.until(ExpectedConditions.elementToBeClickable(xpathButtonDownloadImage));
+            driver.findElement(xpathButtonDownloadImage).click();
+            wait.until(ExpectedConditions.elementToBeClickable(xpathButtonSaveImage));
+            driver.findElement(selectorFieldImage).sendKeys(imageNewsGallery(i));
+            waitingSpinner();
+            wait.until(ExpectedConditions.elementToBeClickable(xpathButtonSaveImage));
+            driver.findElement(xpathButtonSaveImage).click();
+        }
     }
 
-    public void createNews() throws InterruptedException {
-        openNewsCard();                          // Открываем Карточку новости
-        Thread.sleep(2000);
+    public void createNews() {
         tabPropertiesNewsCard();                 // Заполняем вкладку "Свойства"
-        Thread.sleep(2000);
         tabContentNewsCard();                    // Заполняем вкладку "Содержимое"
-        Thread.sleep(2000);
+        wait.until(ExpectedConditions.elementToBeClickable(xpathButtonSave));
         driver.findElement(xpathButtonSave).click();
-        System.out.println("Create News");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(xpathNotifier));
+        String textNotificationNewsCardSaveNow = driver.findElement(xpathNotifier).getText();
+        Assert.assertEquals("Не совпадают тексты нотификации при сохранении Новости",
+                newsCardSaveNotification, textNotificationNewsCardSaveNow);
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(xpathNotifier));
+        System.out.println("News successfully Created");
     }
 
-    public void publicNews() throws InterruptedException {
-        createNews();                         // Создаем Новость
-        Thread.sleep(2000);
+    public void publicNews() {
+        wait.until(ExpectedConditions.elementToBeClickable(xpathButtonPublic));
         driver.findElement(xpathButtonPublic).click();
-        Thread.sleep(1000);
-        driver.findElement(xpathButtonSaveInWindom).click();
-        System.out.println("Public News");
+        wait.until(ExpectedConditions.elementToBeClickable(xpathButtonAccept));
+        driver.findElement(xpathButtonAccept).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(xpathNotifier));
+        String textNotificationNewsCardPublicNow = driver.findElement(xpathNotifier).getText();
+        Assert.assertEquals("Не совпадают тексты нотификации при публикации Новости",
+                newsCardPublicNotification, textNotificationNewsCardPublicNow);
+        System.out.println("News successfully Published");
     }
+
+    public void createAndPublicNews(){
+        loginAdmin();                             // Авторизация под пользователем с правами "Администратор"
+        sectionContentNews();                     // Переход в раздел "Новости"
+        openNewsCard();                           // Открываем Карточку новости
+        createNews();                             // Создаем Новость
+        publicNews();                             // Публикуем новость
+    }
+
 }

@@ -125,4 +125,13 @@ public class StructuralSubdivisionsPage extends Login {
                 0, structuralSubdivisionListCheck.size());
         System.out.println("Structural Subdivision successfully Deleted");
     }
+    public void createAndDeleteStructuralSubdivision(){
+        loginAdmin();                            // Авторизация под пользователем с правами "Администратор"
+        sectionReferenceBooks();                 // Переход в раздел "Справочники"
+        subSectionStructuralSubdivisions();      // Переход в подраздел "Структурные подразделения", раздела "Справочники"
+        openStructuralSubdivisionCard();         // Открываем карточку Структурное подразделение
+        createStructuralSubdivision();           // Создаем Структурное подразделение
+        checkStructuralSubdivisionCard();        // Проверяем заполненность карточки Структурного подразделения
+        deleteStructuralSubdivision();           // Удаляем Структурное подразделение
+    }
 }

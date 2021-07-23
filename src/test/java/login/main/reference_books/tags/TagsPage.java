@@ -125,4 +125,13 @@ public class TagsPage extends Login {
                 0, tagListCheck.size());
         System.out.println("Tag successfully Deleted");
     }
+    public void createAndDeleteTag(){
+        loginAdmin();               // Авторизация под пользователем с правами "Администратор"
+        sectionReferenceBooks();    // Переход в раздел "Справочники"
+        subSectionTags();           // Переход в подраздел "Теги рубрик", раздела "Справочники"
+        openTagCard();              // Открываем карточку Тега рубрики
+        createTag();                // Создаем Тег рубрики
+        checkTagCard();             // Проверяем заполненность карточки Тега рубрики
+        deleteTag();                // Удаляем Тег рубрики
+    }
 }

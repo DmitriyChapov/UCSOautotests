@@ -19,9 +19,9 @@ public class CardHoldersRegistryPage extends Login {
         waitingSpinner();
         String cardHoldersRegistryUrlNow = driver.getCurrentUrl();
         String cardHoldersRegistryPageNameNow = driver.findElement(headingCardHoldersPage).getText();
-        Assert.assertEquals("Некорректный Url страницы \"Реестр держателей КЖСО\"",
+        Assert.assertEquals("Некорректный Url страницы 'Реестр держателей КЖСО'",
                 cardHoldersRegistryUrl, cardHoldersRegistryUrlNow);
-        Assert.assertEquals("Не совпадают заголовки на странице \"Реестр держателей КЖСО\"",
+        Assert.assertEquals("Не совпадают заголовки на странице 'Реестр держателей КЖСО'",
                 cardHoldersRegistryPageName, cardHoldersRegistryPageNameNow);
         System.out.println("Go to section: Card Holders Register");
     }

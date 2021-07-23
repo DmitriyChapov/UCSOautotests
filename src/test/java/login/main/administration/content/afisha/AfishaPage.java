@@ -115,7 +115,7 @@ public class AfishaPage extends Login {
         Thread.sleep(2000);
         driver.findElement(xpathButtonPublic).click();
         Thread.sleep(2000);
-        driver.findElement(xpathButtonSaveInWindom).click();
+        driver.findElement(xpathButtonSaveInWindow).click();
         System.out.println("Public Afisha");
     }
 }

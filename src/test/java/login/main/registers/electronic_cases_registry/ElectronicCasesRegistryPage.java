@@ -3,7 +3,6 @@ package login.main.registers.electronic_cases_registry;
 import login.Login;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
-
 import static variables.Selector.*;
 import static variables.Xpath.*;
 import static variables.Strings.*;
@@ -20,9 +19,9 @@ public class ElectronicCasesRegistryPage extends Login {
         waitingSpinner();
         String electronicCasesRegistersUrlNow = driver.getCurrentUrl();
         String electronicCasesRegisterPageNameNow = driver.findElement(headingElectronicCasesPage).getText();
-        Assert.assertEquals("Некорректный Url страницы \"Реестр электронных дел\"",
+        Assert.assertEquals("Некорректный Url страницы 'Реестр электронных дел'",
                 electronicCasesRegistersUrlNow, electronicCasesRegistersUrl);
-        Assert.assertEquals("Не совпадают заголовки на странице \"Реестр электронных дел\"",
+        Assert.assertEquals("Не совпадают заголовки на странице 'Реестр электронных дел'",
                 electronicCasesRegisterPageNameNow, electronicCasesRegisterPageName);
         System.out.println("Go to section: Electronic Cases Registers");
     }
