@@ -106,6 +106,8 @@ public class Strings {
     public static String posterCost = "Бесплатно";
     public static String newsCardId;
     public static String newsCardCategory;
+    public static String posterCardId;
+    public static String posterCategory;
 
     //Опросы
     public static String interviewHeading = "Заголовок свежего опроса, созданного автотестом. В опросе присутствуют все типы вопросов и они необязательные номер " + nmbAutoTest;

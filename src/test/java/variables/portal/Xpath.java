@@ -28,4 +28,27 @@ public class Xpath {
     public static By xpathOpenedNewsCardAttributes = By.xpath("//main//section//p");
     public static By xpathOpenedNewsCardCategory = By.xpath("//main//section//span");
 
+    public static By xpathPosterSection = By.xpath("//span[contains(text(), 'Афиши')]");
+    public static By xpathAllUserPosters = By.xpath("//a[contains(@href, 'posters/')]");
+    public static By xpathMainSPosterDates = By.xpath("//main//a//div[1]/div[2]/div[1]//div");
+    public static By xpathMainSPosterCost = By.xpath("//main//a//div[1]//div[2]//div[2]//div[1]");
+    public static By xpathMainSPosterAge = By.xpath("//main//a//div[1]//div[2]//div[2]//div[2]");
+    public static By xpathMainSPosterHeading = By.xpath("//a/div[2]/div[1]/div[1]");
+    public static By xpathMainSPosterTeaser = By.xpath("//a/div[2]/div[1]/div[2]");
+    public static By xpathMainSPosterLocation = By.xpath("//a/div[2]/div[2]/span");
+    public static By xpathOpenedPosterHeader = By.xpath("//main//header");
+    public static By xpathOpenedPosterHeading = By.xpath("//h1[contains(text(), '')]");
+    public static By xpathOpenedPosterDate = By.xpath("//main//div//div[1]//p");
+    public static By xpathOpenedPosterCost = By.xpath("//main//div//div[1]//div[2]");
+    public static By xpathOpenedPosterAge = By.xpath("//div[contains(text(), '+')]");
+    public static By xpathOpenedPosterLocation = By.xpath("//div/div[2]/p");
+    public static By xpathOpenedPosterUrl = By.xpath("//a[contains(@href, 'http')]");
+    public static By xpathOpenedPosterCategory = By.xpath("//main//section//span");
+    public static By xpathOpenedPosterTeaser = By.xpath("//main/section/p");
+    public static By xpathOpenedPosterText = By.xpath("//main/section/div/div/p");
+
+
+
+
+
 }

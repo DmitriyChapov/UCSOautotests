@@ -1,8 +1,11 @@
 package login.main.administration.content.afisha;
 
 import login.Login;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+
 import static variables.admin.Numbers.*;
 import static variables.admin.Strings.*;
 import static variables.admin.FilesForAdd.*;
@@ -49,6 +52,7 @@ public class AfishaPage extends Login {
         driver.findElement(selectorSelectTags).click();
         Thread.sleep(1000);
         driver.findElement(xpathTagForContents).click();
+        posterCategory = driver.findElement(xpathTagForContents).getText();
         driver.findElementByClassName("cdk-overlay-container").click();
     }
 
@@ -74,29 +78,36 @@ public class AfishaPage extends Login {
         driver.findElement(xpathButtonDownloadImage).click();
         Thread.sleep(1000);
         driver.findElement(xpathRadioButtonPrevImage).click();
-        driver.findElement(selectorFieldImage).sendKeys(imageAfishaPrev);
+        driver.findElement(selectorFieldImage).sendKeys(imageAfishaPrevA);
         driver.findElement(xpathButtonSaveImage).click();
         Thread.sleep(3000);
         driver.findElement(xpathButtonDownloadImage).click();
         Thread.sleep(1000);
         driver.findElement(xpathRadioButtonMainImage).click();
-        driver.findElement(selectorFieldImage).sendKeys(imageAfishaMain);
+        driver.findElement(selectorFieldImage).sendKeys(imageAfishaMainA);
         driver.findElement(xpathButtonSaveImage).click();
         Thread.sleep(3000);
         driver.findElement(xpathButtonDownloadImage).click();
-        driver.findElement(selectorFieldImage).sendKeys(imageAfishaGallery_1);
-        Thread.sleep(3000);
-        driver.findElement(xpathButtonSaveImage).click();
-        Thread.sleep(3000);
-        driver.findElement(xpathButtonDownloadImage).click();
-        driver.findElement(selectorFieldImage).sendKeys(imageAfishaGallery_2);
+        driver.findElement(selectorFieldImage).sendKeys(imageAfishaGallery_1A);
         Thread.sleep(3000);
         driver.findElement(xpathButtonSaveImage).click();
         Thread.sleep(3000);
         driver.findElement(xpathButtonDownloadImage).click();
-        driver.findElement(selectorFieldImage).sendKeys(imageAfishaGallery_3);
+        driver.findElement(selectorFieldImage).sendKeys(imageAfishaGallery_2A);
         Thread.sleep(3000);
         driver.findElement(xpathButtonSaveImage).click();
+        Thread.sleep(3000);
+        driver.findElement(xpathButtonDownloadImage).click();
+        driver.findElement(selectorFieldImage).sendKeys(imageAfishaGallery_3A);
+        Thread.sleep(3000);
+        driver.findElement(xpathButtonSaveImage).click();
+    }
+
+    public void getPosterID() {
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(xpathPosterHeadingID)));
+        String temp = driver.findElement(xpathPosterHeadingID).getText();
+        posterCardId = temp.substring(temp.length() - 5);
+        System.out.println("ID созданной афиши: " + posterCardId);
     }
 
     public void createAfisha() throws InterruptedException {
@@ -105,7 +116,7 @@ public class AfishaPage extends Login {
         tabPropertiesAfishaCard();            // Заполняем вкладку "Свойства"
         Thread.sleep(2000);
         tabContentAfishaCard();               // Заполняем вкладку "Содержимое"
-        Thread.sleep(3000);
+        Thread.sleep(1500);
         driver.findElement(xpathButtonSave).click();
         System.out.println("Create Afisha");
     }
@@ -113,6 +124,7 @@ public class AfishaPage extends Login {
     public void publicAfisha() throws InterruptedException {
         createAfisha();                 // Создаем Афишу
         Thread.sleep(2000);
+        getPosterID();
         driver.findElement(xpathButtonPublic).click();
         Thread.sleep(2000);
         driver.findElement(xpathButtonSaveInWindow).click();
