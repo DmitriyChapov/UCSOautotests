@@ -142,7 +142,6 @@ public class Xpath {
     public static By xpathCheckDropDown = By.xpath(".//span/span");
 
     //Создание ТСП для админки
-    public static By xpathButtonAvailable = By.xpath("//span[contains(text(), 'Доступен')]");
     public static By xpathNameField = By.xpath("//input[contains(@name, 'partnerName')]");
     public static By xpathDescriptionField = By.xpath("//textarea[contains(@name, 'partnerDescription')]");
     public static By xpathAddressField = By.xpath("//input[contains(@name, 'partnerAddress')]");
@@ -159,10 +158,6 @@ public class Xpath {
     public static By xpathFaceBook = By.xpath("//input[contains(@data-placeholder, 'Ссылка должна быть в формате https://facebook.com/company')]");
     public static By xpathInst = By.xpath("//input[contains(@data-placeholder, 'Ссылка должна быть в формате https://www.instagram.com/company/')]");
     public static By xpathDop = By.xpath("//textarea[contains(@name, 'partnerAdditional')]");
-
-    //Поиск ТСП для админки
-    public static By xpathTSPSearch = By.xpath("//input[contains(@name, 'search')]");
-    public static By xpathTSPEdit = By.xpath("//button[contains(@title, 'Редактировать торгово-сервисное предприятие')]");
 
 }
 

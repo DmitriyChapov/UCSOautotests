@@ -7,7 +7,7 @@ public class CreationTSP extends CreateTSP{
 
     @Test
     public void testCreationTSP() throws InterruptedException{
-        searchTSP();
+        CreationTSP();
 
     }
 }
