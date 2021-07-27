@@ -1,20 +1,16 @@
 package alltest.user;
 
-import login.Login;
-import login.main.administration.content.news.NewsPage;
-import login.main.administration.content.news.NewsPage.*;
 import org.junit.Test;
 
-public class OpenAndCheckCreatedNewsCard extends login.user_portal.OpenAndCheckCreatedNewsCard {
+public class OpenAndCheckCreatedNewsCard extends login.user_portal.news.OpenAndCheckCreatedNewsCard {
 
     @Test
-    public void testNewsCard() throws InterruptedException{
+    public void testNewsCard() {
         createAndPublicNews();
         loginPortal();
         userMainPageToNews();
         getUserNews();
         openCreatedNewsCard();
     }
-
 
 }

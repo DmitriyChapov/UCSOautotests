@@ -5,16 +5,15 @@ import login.main.reference_books.description_transport_card.DescriptionTranspor
 import login.main.reference_books.location_transport_app.LocationTransportAppPage;
 import login.main.reference_books.user_type.UserTypePage;
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
 
-import static variables.Urls.*;
-import static variables.Xpath.*;
-import static variables.Selector.*;
-import static variables.Strings.*;
+import static variables.admin.Urls.*;
+import static variables.admin.Xpath.*;
+import static variables.admin.Selector.*;
+import static variables.admin.Strings.*;
 
 public class TransportAppSeriesPage extends Login {
     boolean transportAppSeriesAvailable;

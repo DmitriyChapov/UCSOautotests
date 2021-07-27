@@ -5,10 +5,10 @@ import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import java.util.List;
-import static variables.Strings.*;
-import static variables.Urls.*;
-import static variables.Xpath.*;
-import static variables.Selector.*;
+import static variables.admin.Strings.*;
+import static variables.admin.Urls.*;
+import static variables.admin.Xpath.*;
+import static variables.admin.Selector.*;
 
 public class EventPlacesPage extends Login {
     boolean eventPlaceAvailable;

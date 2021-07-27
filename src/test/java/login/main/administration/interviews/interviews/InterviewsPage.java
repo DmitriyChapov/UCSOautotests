@@ -4,11 +4,11 @@ import login.Login;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import static variables.Numbers.*;
-import static variables.Xpath.*;
-import static variables.Selector.*;
-import static variables.Strings.*;
-import static variables.FilesForAdd.*;
+import static variables.admin.Numbers.*;
+import static variables.admin.Xpath.*;
+import static variables.admin.Selector.*;
+import static variables.admin.Strings.*;
+import static variables.admin.FilesForAdd.*;
 
 import java.util.List;
 

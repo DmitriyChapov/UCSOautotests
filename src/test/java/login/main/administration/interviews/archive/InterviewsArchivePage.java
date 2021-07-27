@@ -4,8 +4,8 @@ import login.Login;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import static variables.Selector.*;
-import static variables.Xpath.*;
+import static variables.admin.Selector.*;
+import static variables.admin.Xpath.*;
 
 public class InterviewsArchivePage extends Login {
 

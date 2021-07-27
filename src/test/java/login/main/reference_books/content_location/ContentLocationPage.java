@@ -6,12 +6,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import java.util.List;
-import static variables.Numbers.*;
-import static variables.Strings.*;
-import static variables.Strings.pathLocation;
-import static variables.Urls.*;
-import static variables.Xpath.*;
-import static variables.Selector.*;
+import static variables.admin.Numbers.*;
+import static variables.admin.Strings.*;
+import static variables.admin.Strings.pathLocation;
+import static variables.admin.Urls.*;
+import static variables.admin.Xpath.*;
+import static variables.admin.Selector.*;
 
 public class ContentLocationPage extends Login {
     int nmbLocationsBefore;
@@ -47,7 +47,7 @@ public class ContentLocationPage extends Login {
         locationName.get(locationName.size() - 1).click();
         int i = 1;
         driver.findElement(selectorFieldContentLocationName).sendKeys(pathLocation(i));
-        driver.findElement(xpathIconSaveLocation).click();
+        driver.findElement(xpathIconSave).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(xpathNotifier));
         String textNotificationLocationSave = driver.findElement(xpathNotifier).getText();
         Assert.assertEquals("Не совпадают тексты нотификаций при сохранении Локации контента",
@@ -59,7 +59,7 @@ public class ContentLocationPage extends Login {
             driver.findElement(xpathLocationPathAdd(i)).click();
             wait.until(ExpectedConditions.elementToBeClickable(selectorFieldContentLocationName));
             driver.findElement(selectorFieldContentLocationName).sendKeys(pathLocation(i+1));
-            driver.findElement(xpathIconSaveLocation).click();
+            driver.findElement(xpathIconSave).click();
             wait.until(ExpectedConditions.visibilityOfElementLocated(xpathNotifier));
             textNotificationLocationSave = driver.findElement(xpathNotifier).getText();
             Assert.assertEquals("Не совпадают тексты нотификаций при сохранении Локации",

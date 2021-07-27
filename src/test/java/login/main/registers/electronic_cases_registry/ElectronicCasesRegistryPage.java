@@ -3,10 +3,10 @@ package login.main.registers.electronic_cases_registry;
 import login.Login;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
-import static variables.Selector.*;
-import static variables.Xpath.*;
-import static variables.Strings.*;
-import static variables.Urls.*;
+import static variables.admin.Selector.*;
+import static variables.admin.Xpath.*;
+import static variables.admin.Strings.*;
+import static variables.admin.Urls.*;
 
 public class ElectronicCasesRegistryPage extends Login {
 

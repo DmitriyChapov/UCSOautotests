@@ -1,18 +1,17 @@
-package login.user_portal;
+package login.user_portal.news;
 
 import login.main.administration.content.news.NewsPage;
 import org.junit.Assert;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
-import static variables.Xpath.*;
-import static variables.Collections.*;
-import static variables.Strings.*;
+import static variables.portal.Xpath.*;
+import static variables.portal.Collections.*;
+import static variables.admin.Strings.*;
 
 
 public class OpenAndCheckCreatedNewsCard extends NewsPage {
 
     //Переход с главной страницы в раздел "Новости"
-    public void userMainPageToNews() throws InterruptedException {
+    public void userMainPageToNews() {
         wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(xpathUserNewsSection)));
         driver.findElement(xpathUserNewsSection).click();
     }

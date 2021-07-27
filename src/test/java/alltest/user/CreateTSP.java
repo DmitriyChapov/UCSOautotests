@@ -2,9 +2,7 @@ package alltest.user;
 
 import org.junit.Test;
 
-import static variables.Urls.*;
-
-public class CreateTSP extends login.user_portal.CreateTSP {
+public class CreateTSP extends login.user_portal.cabinetTSP.CreateTSP {
 
     @Test
     public void testCreateTSP() throws InterruptedException {

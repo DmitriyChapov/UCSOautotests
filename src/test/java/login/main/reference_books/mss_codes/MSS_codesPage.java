@@ -4,14 +4,12 @@ import login.Login;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
 import java.util.List;
-
-import static variables.Numbers.*;
-import static variables.Urls.*;
-import static variables.Xpath.*;
-import static variables.Selector.*;
-import static variables.Strings.*;
+import static variables.common.Numbers.*;
+import static variables.admin.Urls.*;
+import static variables.admin.Xpath.*;
+import static variables.admin.Selector.*;
+import static variables.admin.Strings.*;
 
 public class MSS_codesPage extends Login {
     boolean mss_CodeAvailable;

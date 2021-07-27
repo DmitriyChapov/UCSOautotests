@@ -1,36 +1,20 @@
-package variables;
+package variables.admin;
 
-import static variables.Numbers.*;
+import static variables.admin.Numbers.*;
+import static variables.admin.Selector.*;
+import static variables.admin.Xpath.xpathNotifier;
+import static variables.common.Numbers.*;
 
 public class Strings {
 
-    //Портал
-    public static String loginOutUser = "00000060021";
-    public static String passwordOutUser = "11111111";
-
-    //ЛК ТСП
-    public static String email = "mailfortestpetrov@yandex.ru";
-    public static String mss_code = "9999";
-    public static String userTSPName = "Новая организация, созданная автотестом из Личного кабинета пользователя";
-    public static String userTSPDescription = "Описание организации, созданной автотестом из Личного кабинета пользователя";
-    public static String userTSPAddress = "г. Автотестово, ул. Пользователя, д.15";
-    public static String userTSPEmailPublic = "Email@email.com";
-    public static String userTSPPhonePublic = "89270000000";
-    public static String userTSPOptionalText = "Дополнительная информация по ТСП, созданного пользователем. ";
-    public static String userTSPPromotionName = "Наименование Акции, созданной внешним пользователем, автотест № " + nmbAutoTest;
-    public static String userTSPDescriptionAndConditionPromotion = "Описание и условия действия акции, созданной внешним пользователем, автотест № " + nmbAutoTest + " и кол-вом адресов предоставления: " + nmbAddressForPromotion + ". ";
-    public static String userTSPDiscountName = "Наименование Скидки, созданной внешним пользователем, автотест № " + nmbAutoTest;
-    public static String userTSPDescriptionAndConditionDiscount = "Описание и условия действия скидки, созданной внешним пользователем, автотест № " + nmbAutoTest + " и кол-вом адресов предоставления: " + nmbAddressForDiscount + ". ";
-    public static String userTSPDiscount = nmbDiscount + "%";
-
-
-    //Админка
+    //Авторизация
     public static String loginInUser = "AutoTest";
     public static String passwordInUser = "123QWEqwe";
 
     //Справочники
     public static String referenceBooksPageName = "Справочники";
     public static String codeOTK = "Code_OTK_" + nmbAutoTest;
+
     public static String mss_CodesPageName = "Справочник MCC-кодов";
     public static String mss_CodeCardPageName = "Карточка MCC-кода";
     public static String mss_CodeName ="Новый МСС-код, созданный автотестом № " + nmbAutoTest;
@@ -161,23 +145,34 @@ public class Strings {
     public static String questionTextName = "Вопрос \"Текст.\" ";
     public static String questionTextDescription = "Просто текст";
 
-    //Скидки и акции
+    //ТСП, Скидки, Акции
     public static String tspNameAdmin = "AutoTest Сorporation";
+
     public static String promotionName = "Наименование Акции, с кол-вом символов 70, созданной автотестом № " + nmbAutoTest;
-    public static String descriptionAndConditionPromotion = "Описание и условия действия акции , созданной автотестом № " + nmbAutoTest + " и кол-вом адресов предоставления: " + nmbAddressForPromotion + ". ";
+    public static String descriptionAndConditionPromotion = "Описание и условия действия акции , созданной автотестом № " + nmbAutoTest + " и кол-вом адресов предоставления: " + nmbAddressForPromotionAdmin + ". ";
     public static String discountName = "Наименование Скидки с кол-вом символов 70, созданной автотестом № " + nmbAutoTest;
-    public static String descriptionAndConditionDiscount = "Описание и условия действия скидки , созданной автотестом № " + nmbAutoTest + " и кол-вом адресов предоставления: " + nmbAddressForDiscount + ". ";
-    public static String discount = nmbDiscount + "%";
+    public static String descriptionAndConditionDiscount = "Описание и условия действия скидки , созданной автотестом № " + nmbAutoTest + " и кол-вом адресов предоставления: " + nmbAddressForDiscountAdmin + ". ";
+    public static String discount = nmbDiscountAdmin + "%";
 
     //Реестры
     public static String cardHoldersRegistryPageName = "Реестр держателей карты";
     public static String electronicCasesRegisterPageName = "Реестр электронных дел";
 
     //Руководства и Регламенты
+    public static String guidelinesAndRegulationsUrlNow;
+    public static String guidelinesAndRegulationsPageNameNow;
     public static String guidelinesAndRegulationsPageName = "Руководства и регламенты";
+    public static String guidelinesAndRegulationsCardUrlNow;
+    public static String guidelinesAndRegulationsCardPageNameNow;
     public static String guidelinesAndRegulationsCardPageName = "Карточка документа";
     public static String documentName ="Новый документ, созданный автотестом № " + nmbAutoTest;
+    public static String guidelinesAndRegulationsCardSaveNotificationNow;
     public static String guidelinesAndRegulationsCardSaveNotification = "Карточка документа \"" + documentName + "\" успешно сохранена";
+    public static boolean documentPortalAvailable;
+    public static boolean documentMobileAvailable;
+    public static String guidelinesAndRegulationsCardNameForCheck;
+    public static boolean documentPortalAvailableForCheck;
+    public static boolean documentMobileAvailableForCheck;
 
     //Баннеры
     public static String bannersPageName = "Управление баннерами";

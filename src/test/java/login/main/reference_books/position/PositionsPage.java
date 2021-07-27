@@ -7,10 +7,10 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
 
-import static variables.Urls.*;
-import static variables.Xpath.*;
-import static variables.Selector.*;
-import static variables.Strings.*;
+import static variables.admin.Urls.*;
+import static variables.admin.Xpath.*;
+import static variables.admin.Selector.*;
+import static variables.admin.Strings.*;
 
 public class PositionsPage extends Login {
     boolean positionAvailable;
@@ -125,6 +125,7 @@ public class PositionsPage extends Login {
                 0, positionListCheck.size());
         System.out.println("Position successfully Deleted");
         }
+
     public void createAndDeletePosition(){
         loginAdmin();               // Авторизация под пользователем с правами "Администратор"
         sectionReferenceBooks();    // Переход в раздел "Справочники"

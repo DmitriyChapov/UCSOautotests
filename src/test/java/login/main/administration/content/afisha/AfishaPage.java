@@ -3,12 +3,12 @@ package login.main.administration.content.afisha;
 import login.Login;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import static variables.Numbers.*;
-import static variables.Strings.*;
-import static variables.FilesForAdd.*;
-import static variables.Urls.*;
-import static variables.Xpath.*;
-import static variables.Selector.*;
+import static variables.admin.Numbers.*;
+import static variables.admin.Strings.*;
+import static variables.admin.FilesForAdd.*;
+import static variables.admin.Urls.*;
+import static variables.admin.Xpath.*;
+import static variables.admin.Selector.*;
 import java.util.List;
 
 public class AfishaPage extends Login {

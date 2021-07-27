@@ -5,11 +5,11 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import static variables.Strings.*;
-import static variables.FilesForAdd.*;
-import static variables.Urls.*;
-import static variables.Xpath.*;
-import static variables.Selector.*;
+import static variables.admin.Strings.*;
+import static variables.admin.FilesForAdd.*;
+import static variables.admin.Urls.*;
+import static variables.admin.Xpath.*;
+import static variables.admin.Selector.*;
 import java.util.List;
 
 public class NewsPage extends Login {
@@ -92,6 +92,7 @@ public class NewsPage extends Login {
             waitingSpinner();
             wait.until(ExpectedConditions.elementToBeClickable(xpathButtonSaveImage));
             driver.findElement(xpathButtonSaveImage).click();
+            wait.until(ExpectedConditions.invisibilityOfElementLocated(xpathButtonSaveImage));
         }
     }
 
@@ -112,7 +113,7 @@ public class NewsPage extends Login {
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(xpathUserNewsCardId)));
         String newsCardTemp = driver.findElement(xpathUserNewsCardId).getText();
         newsCardId = newsCardTemp.substring(newsCardTemp.length() - 5);
-        System.out.println("ID созданной новости: " + newsCardId);
+        System.out.println("ID created news: " + newsCardId);
     }
 
     public void publicNews() {

@@ -1,24 +1,9 @@
-package variables;
+package variables.admin;
 
 import org.openqa.selenium.By;
-import static variables.Strings.*;
+import static variables.admin.Strings.*;
 
 public class Xpath {
-    //Портал
-    public static By xpathCookieYes = By.xpath("//button[contains(text(), 'Хорошо')]");
-    public static By xpathESIAuthorize = By.xpath("//span[contains(text(), 'Войти через')]");
-    public static By xpathCheckBoxDate = By.xpath("//input/../span");
-    public static By xpathConfirmDateButton = By.xpath("//button[contains(text(), 'Подтвердить')]");
-    public static By xpathPartner = By.xpath("//p[contains(text(), 'Партнерам')]");
-    public static By xpathPartnersAdd = By.xpath("//button[contains(text(), 'Стать партнером')]");
-    public static By xpathPartnersOpen = By.xpath("//button[contains(text(), 'Перейти в кабинет')]");
-    public static By xpathConfirmButton = By.xpath("//button[contains(text(), 'Готово')]");
-    public static By xpathMSS_CodeConfirm = By.xpath("//li[contains(text(), '9999 Название')]");
-    public static By xpathTSPSendButton = By.xpath("//button[contains(text(), 'Отправить заявку')]");
-    public static By xpathTSPUserAddress = By.xpath("//span[contains(text(), 'Добавить адрес')]");
-    public static By xpathUserNewsSection = By.xpath("//span[contains(text(), 'Новости')]");
-
-    //Админка
 
     //Разделы и подразделы
     public static By xpathReferenceBooks =By.xpath("//li[contains(text(), 'Справочники')]");
@@ -83,13 +68,6 @@ public class Xpath {
     public static By xpathRadioButtonGalleryImage = By.xpath("//div[contains(text(), ' Галерея (детальное, внутри публикации) ')]/../..");
     public static By xpathLocationForEvent = By.xpath("//span[contains(text(), 'Локация для автотеста')]");
     public static By xpathUserNewsCardId = By.xpath("//h1[contains(text(), 'Карточка')]");
-    public static By xpathAllUserNews = By.xpath("//a[contains(@href, 'news/')]");
-    public static By xpathNewsCardMainSectionHeading = By.xpath("//main//section/a/div/div[1]");
-    public static By xpathNewsCardMainSectionDates = By.xpath("//main//section/a/div/div[2]");
-    public static By xpathOpenedNewsCardHeading = By.xpath("//main//section//h1");
-    public static By xpathOpenedNewsCardAttributes = By.xpath("//main//section//p");
-    public static By xpathOpenedNewsCardCategory = By.xpath("//main//section//span");
-
 
     // Опросы
     public static By xpathAccessAll = By.xpath("//span[contains(text(),'Всем')]");
@@ -136,7 +114,7 @@ public class Xpath {
 
     // Общие Иконки
     public static By xpathIconDelete = By.xpath(".//mat-icon[contains(text(), 'delete')]");
-    public static By xpathIconSaveLocation = By.xpath("//mat-icon[contains(text(), 'save')]");
+    public static By xpathIconSave = By.xpath("//mat-icon[contains(text(), 'save')]");
     public static By xpathIconEdit = By.xpath(".//mat-icon[contains(text(), 'edit')]");
 
     // Общие Чек-боксы
@@ -185,14 +163,6 @@ public class Xpath {
     //Поиск ТСП для админки
     public static By xpathTSPSearch = By.xpath("//input[contains(@name, 'search')]");
     public static By xpathTSPEdit = By.xpath("//button[contains(@title, 'Редактировать торгово-сервисное предприятие')]");
-
-
-
-
-
-
-
-
 
 }
 

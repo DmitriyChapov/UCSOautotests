@@ -4,11 +4,11 @@ import login.Login;
 import org.junit.Test;
 import org.openqa.selenium.WebElement;
 import java.util.List;
-import static variables.Numbers.*;
-import static variables.Xpath.*;
-import static variables.Selector.*;
-import static variables.Strings.*;
-import static variables.FilesForAdd.*;
+import static variables.admin.Numbers.*;
+import static variables.admin.Xpath.*;
+import static variables.admin.Selector.*;
+import static variables.admin.Strings.*;
+import static variables.admin.FilesForAdd.*;
 
 public class TSPPage extends Login {
 
@@ -57,7 +57,7 @@ public class TSPPage extends Login {
     public void tabContentPromotionCard() throws InterruptedException {
         driver.findElement(xpathTabContent).click();
         Thread.sleep(2000);
-        for (int i = 0; i < nmbAddressForPromotion; i ++) {
+        for (int i = 0; i < nmbAddressForPromotionAdmin; i ++) {
             String deliveryAddress = "Адрес предоставления № " + (i+1);
             driver.findElement(selectorFieldAddressOffer).sendKeys(deliveryAddress);
             driver.findElement(selectorAddAddressOffer).click();
@@ -65,7 +65,7 @@ public class TSPPage extends Login {
         driver.findElement(selectorFieldContentTitle).sendKeys(promotionName);
         driver.findElement(selectorFieldOfferDateFrom).sendKeys(dateNow);
         driver.findElement(selectorFieldOfferDateTo).sendKeys(dateNow);
-        driver.findElement(selectorFieldContentTeaser).sendKeys(descriptionAndConditionPromotion.repeat(nmbRptForPromotion));
+        driver.findElement(selectorFieldContentTeaser).sendKeys(descriptionAndConditionPromotion.repeat(nmbRptForPromotionAdmin));
         Thread.sleep(1000);
         addImagePromotionCard();            // Прикрепляем изображение
     }
@@ -73,7 +73,7 @@ public class TSPPage extends Login {
     public void addImagePromotionCard() throws InterruptedException {
         driver.findElement(xpathButtonDownloadImage).click();
         Thread.sleep(1000);
-        driver.findElement(selectorFieldImage).sendKeys(imagePromotion);
+        driver.findElement(selectorFieldImage).sendKeys(imagePromotionAdmin);
         driver.findElement(xpathButtonSaveImage).click();
     }
 
@@ -121,7 +121,7 @@ public class TSPPage extends Login {
     public void tabContentDiscountCard() throws InterruptedException {
         driver.findElement(xpathTabContent).click();
         Thread.sleep(2000);
-        for (int i = 0; i < nmbAddressForDiscount; i ++) {
+        for (int i = 0; i < nmbAddressForDiscountAdmin; i ++) {
             String deliveryAddress = "Адрес предоставления № " + (i+1);
             driver.findElement(selectorFieldAddressOffer).sendKeys(deliveryAddress);
             driver.findElement(selectorAddAddressOffer).click();
@@ -129,7 +129,7 @@ public class TSPPage extends Login {
         driver.findElement(selectorFieldContentTitle).sendKeys(discountName);
         driver.findElement(selectorFieldOfferDateFrom).sendKeys(dateNow);
         driver.findElement(selectorFieldOfferDateTo).sendKeys(dateNow);
-        driver.findElement(selectorFieldContentTeaser).sendKeys(descriptionAndConditionDiscount.repeat(nmbRptForDiscount));
+        driver.findElement(selectorFieldContentTeaser).sendKeys(descriptionAndConditionDiscount.repeat(nmbRptForDiscountAdmin));
         driver.findElement(selectorFieldDiscount).sendKeys(discount);
         Thread.sleep(1000);
         addImageDiscountCard();            // Прикрепляем изображение
@@ -138,7 +138,7 @@ public class TSPPage extends Login {
     public void addImageDiscountCard() throws InterruptedException {
         driver.findElement(xpathButtonDownloadImage).click();
         Thread.sleep(1000);
-        driver.findElement(selectorFieldImage).sendKeys(imageDiscount);
+        driver.findElement(selectorFieldImage).sendKeys(imageDiscountAdmin);
         driver.findElement(xpathButtonSaveImage).click();
     }
 

@@ -7,10 +7,10 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
 
-import static variables.Urls.*;
-import static variables.Xpath.*;
-import static variables.Selector.*;
-import static variables.Strings.*;
+import static variables.admin.Urls.*;
+import static variables.admin.Xpath.*;
+import static variables.admin.Selector.*;
+import static variables.admin.Strings.*;
 
 public class LocationTransportAppPage extends Login {
     boolean locationTransportAppAvailable;

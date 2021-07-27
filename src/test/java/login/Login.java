@@ -8,15 +8,16 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-
-import static variables.Strings.*;
-import static variables.Urls.*;
-import static variables.Selector.*;
-import static variables.Xpath.*;
+import static variables.admin.Strings.*;
+import static variables.portal.Strings.*;
+import static variables.admin.Urls.*;
+import static variables.portal.Urls.*;
+import static variables.common.Selector.*;
+import static variables.admin.Xpath.*;
+import static variables.portal.Xpath.*;
 
 public class Login {
 

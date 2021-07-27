@@ -1,48 +1,8 @@
-package variables;
+package variables.admin;
 
 import org.openqa.selenium.By;
 
 public class Selector {
-
-    //Портал
-
-    //Главная страница
-    public static By selectorLogin = By.cssSelector("[name= 'login']");
-    public static By selectorPassword =By.cssSelector("[name= 'password']");
-
-    //ЛК ТСП
-    public static By selectorUserTSPName = By.cssSelector("[name = 'name']");
-    public static By selectorUserTSPDescription = By.cssSelector("[name = 'description']");
-    public static By selectorUserTSPAddress = By.cssSelector("[name = 'address']");
-    public static By selectorUserTSPLogo = By.cssSelector("[name = '#logo']");
-    public static By selectorUserTSPOGRN = By.cssSelector("[name = 'ogrn']");
-    public static By selectorUserTSPEmail = By.cssSelector("[name = 'email']");
-    public static By selectorUserTSPMSS_code = By.cssSelector("[name = '#classifiers']");
-    public static By selectorUserTSPWebPublic = By.cssSelector("[name = 'contacts.webSite']");
-    public static By selectorUserTSPEmailPublic = By.cssSelector("[name = 'contacts.contactEmail']");
-    public static By selectorUserTSPPhonePublic = By.cssSelector("[name = 'contacts.phone']");
-    public static By selectorUserTSPVK = By.cssSelector("[name = 'contacts.vk']");
-    public static By selectorUserTSPFB = By.cssSelector("[name = 'contacts.fb']");
-    public static By selectorUserTSPIG = By.cssSelector("[name = 'contacts.ig']");
-    public static By selectorUserTSPOK = By.cssSelector("[name = 'contacts.ok']");
-    public static By selectorUserTSPAdditional = By.cssSelector("[name = 'contacts.additional']");
-    public static By selectorUserTSPButtonAddDiscount = By.cssSelector("[id = 'tsp-add-discount']");
-    public static By selectorUserTSPButtonAddPromotion = By.cssSelector("[id = 'tsp-add-action']");
-    public static By selectorUserTSPOfferName = By.cssSelector("[name = 'detailTitle']");
-    public static By selectorUserTSPOfferFromDate = By.cssSelector("[name = 'fromDate']");
-    public static By selectorUserTSPOfferToDate = By.cssSelector("[name = 'toDate']");
-    public static By selectorUserTSPOfferDescription = By.cssSelector("[name = 'description']");
-    public static By selectorUserTSPOfferImage = By.cssSelector("[name = '#image']");
-    public static By TSPOfferAddress(int i) { By selectorUserTSPOfferAddress = By.cssSelector("[name = 'addresses" + "["+ i + "]']");
-        return selectorUserTSPOfferAddress;
-    }
-    public static By selectorUserTSPOfferDiscount = By.cssSelector("[name = 'value']");
-    public static By selectorUserTSPOfferButtonSave = By.cssSelector("[type = 'submit']");
-
-
-
-
-    //Админка
 
     //Справочники
     public static By selectorFieldMSSCodeName = By.cssSelector("[name = 'classifierName']");
@@ -58,11 +18,15 @@ public class Selector {
     public static By selectorFieldDesignCode = By.cssSelector("[name = 'code']");
     public static By selectorDesignAvailable = By.cssSelector("[name = 'cardAvailable']");
     public static By selectorFieldContentLocationName = By.cssSelector("[data-placeholder = 'Введите наименование']");
+    public static By selectorIconAddLocation = By.cssSelector("[title='Добавить локацию']");
     public static By selectorSelectLocationTransportApp = By.cssSelector("[name = 'location']");
     public static By selectorSelectCardDescription = By.cssSelector("[name = 'cardDescription']");
     public static By selectorSelectSocialCode = By.cssSelector("[name = 'cardUserSocialCode']");
     public static By selectorSelectUserType = By.cssSelector("[name = 'cardUser']");
+    public static By selectorFieldEventPlacesActAddress = By.cssSelector("[name = 'actualAddress']");
     public static By selectorEventPlacesSameAddress = By.cssSelector("[name = 'addressesSame']");
+    public static By selectorFieldCodeOTK = By.cssSelector("[name = 'type']");
+
 
     //Новости и Афиши
     public static By selectorFieldAge = By.cssSelector("[name = 'ageRestrictions']");
@@ -84,7 +48,7 @@ public class Selector {
     public static By selectorSelectTypeQuestion = By.cssSelector("[name = 'type']");
     public static By selectorSelectValidationType = By.cssSelector("[name = 'answerValidationType']");
 
-    //Скидки и Акции
+    //ТСП, Скидки, Акции
     public static By selectorFieldAddressOffer = By.cssSelector("[name = 'addressName']");
     public static By selectorAddAddressOffer = By.cssSelector("[title = 'Добавить адрес']");
     public static By selectorFieldOfferDateFrom = By.cssSelector("[name = 'fromDatePicker']");
@@ -104,18 +68,13 @@ public class Selector {
     //Логотип
 
     //Общие Поля
-    public static By selectorFieldCodeOTK = By.cssSelector("[name = 'type']");
     public static By selectorFieldName = By.cssSelector("[name = 'name']");
-    public static By selectorFieldEventPlacesActAddress = By.cssSelector("[name = 'actualAddress']");
     public static By selectorFieldContentTitle = By.cssSelector("[name = 'titleInput']");
     public static By selectorFieldContentTeaser = By.cssSelector("[name = 'teaserTextInput']");
     public static By selectorFieldContentText = By.cssSelector("[class = 'ace_text-input']");
     public static By timeFields = By.cssSelector("[type = 'time']");
     public static By selectorFieldImage = By.cssSelector("[name = 'fileInput']");
     public static By selectorFieldSearch = By.cssSelector("[name = 'search']");
-
-    //Общие Иконки
-    public static By selectorIconAddLocation = By.cssSelector("[title='Добавить локацию']");
 
     //Общие Чек-боксы
     public static By selectorAvailable = By.cssSelector("[name = 'available']");

@@ -4,16 +4,14 @@ import login.Login;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import java.util.List;
-import static variables.Urls.*;
-import static variables.Xpath.*;
-import static variables.Selector.*;
-import static variables.Strings.*;
-import static variables.FilesForAdd.*;
+import static variables.admin.Urls.*;
+import static variables.admin.Xpath.*;
+import static variables.admin.Selector.*;
+import static variables.admin.Strings.*;
+import static variables.admin.FilesForAdd.*;
+import static variables.admin.Collections.*;
 
 public class GuidelinesAndRegulations extends Login {
-    boolean documentPortalAvailable;
-    boolean documentMobileAvailable;
 
     public void sectionGuidelinesAndRegulations() {
         WebElement sectionGuidelinesAndRegulations = driver.findElement(xpathDocument);
@@ -21,8 +19,8 @@ public class GuidelinesAndRegulations extends Login {
         actionChange.moveToElement(sectionGuidelinesAndRegulations);
         actionChange.moveToElement(subsectionGuidelinesAndRegulations).click();
         actionChange.perform();
-        String guidelinesAndRegulationsUrlNow = driver.getCurrentUrl();
-        String guidelinesAndRegulationsPageNameNow = driver.findElement(headingPage).getText();
+        guidelinesAndRegulationsUrlNow = driver.getCurrentUrl();
+        guidelinesAndRegulationsPageNameNow = driver.findElement(headingPage).getText();
         Assert.assertEquals("Некорректный Url страницы 'Руководства и регламенты'",
                 guidelinesAndRegulationsUrl, guidelinesAndRegulationsUrlNow);
         Assert.assertEquals("Не совпадают заголовки на странице 'Руководства и регламенты'",
@@ -33,8 +31,8 @@ public class GuidelinesAndRegulations extends Login {
     public void openDocumentCard() {
         wait.until(ExpectedConditions.elementToBeClickable(xpathButtonAdd));
         driver.findElement(xpathButtonAdd).click();
-        String guidelinesAndRegulationsCardUrlNow = driver.getCurrentUrl();
-        String guidelinesAndRegulationsCardPageNameNow = driver.findElement(headingCard).getText();
+        guidelinesAndRegulationsCardUrlNow = driver.getCurrentUrl();
+        guidelinesAndRegulationsCardPageNameNow = driver.findElement(headingCard).getText();
         Assert.assertEquals("Некорректный Url страницы 'Карточка документа'",
                 guidelinesAndRegulationsCardUrl, guidelinesAndRegulationsCardUrlNow);
         Assert.assertEquals("Не совпадают заголовки на странице 'Карточка документа'",
@@ -54,9 +52,9 @@ public class GuidelinesAndRegulations extends Login {
         wait.until(ExpectedConditions.elementToBeClickable(xpathButtonSave));
         driver.findElement(xpathButtonSave).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(xpathNotifier));
-        String textNotificationGuidelinesAndRegulationsCardSaveNow = driver.findElement(xpathNotifier).getText();
+        guidelinesAndRegulationsCardSaveNotificationNow = driver.findElement(xpathNotifier).getText();
         Assert.assertEquals("Не совпадают тексты нотификации при сохранении Документа",
-                guidelinesAndRegulationsCardSaveNotification, textNotificationGuidelinesAndRegulationsCardSaveNow);
+                guidelinesAndRegulationsCardSaveNotification, guidelinesAndRegulationsCardSaveNotificationNow);
         System.out.println("Document successfully Created");
     }
 
@@ -71,7 +69,7 @@ public class GuidelinesAndRegulations extends Login {
             wait.until(ExpectedConditions.attributeToBe(xpathDocumentNameForSearch,
                     "title", documentName));
         }
-        List<WebElement> documentList = driver.findElements(xpathListInTable);
+        documentList = driver.findElements(xpathListInTable);
         for (int i = 0; i < documentList.size(); i++) {
             String documentNameSearch = documentList.get(i).findElement(xpathDocumentNameForSearch).getText();
             if (documentNameSearch.equals(documentName)) {
@@ -82,9 +80,9 @@ public class GuidelinesAndRegulations extends Login {
             }
         }
         wait.until(ExpectedConditions.elementToBeClickable(selectorFieldName));
-        String guidelinesAndRegulationsCardNameForCheck = driver.findElement(selectorFieldName).getAttribute("value");
-        boolean documentPortalAvailableForCheck = driver.findElement(selectorDocumentPortal).isSelected();
-        boolean documentMobileAvailableForCheck = driver.findElement(selectorDocumentMobile).isSelected();
+        guidelinesAndRegulationsCardNameForCheck = driver.findElement(selectorFieldName).getAttribute("value");
+        documentPortalAvailableForCheck = driver.findElement(selectorDocumentPortal).isSelected();
+        documentMobileAvailableForCheck = driver.findElement(selectorDocumentMobile).isSelected();
         Assert.assertEquals("Некорректно заполнено поле 'Наименование'",
                 documentName, guidelinesAndRegulationsCardNameForCheck);
         Assert.assertEquals("Изменился параметр доступности чек-бокса 'Портал'",
@@ -107,7 +105,7 @@ public class GuidelinesAndRegulations extends Login {
             wait.until(ExpectedConditions.attributeToBe(xpathDocumentNameForSearch,
                     "title", documentName));
         }
-        List<WebElement> documentList = driver.findElements(xpathListInTable);
+        documentList = driver.findElements(xpathListInTable);
         for (int i = 0; i < documentList.size(); i++) {
             String documentNameSearch = documentList.get(i).findElement(xpathDocumentNameForSearch).getText();
             if (documentNameSearch.equals(documentName)) {
@@ -118,7 +116,7 @@ public class GuidelinesAndRegulations extends Login {
         }
         wait.until(ExpectedConditions.invisibilityOfElementLocated(xpathIconDelete));
         waitingSpinner();
-        List<WebElement> documentListCheck = driver.findElements(xpathListInTable);
+        documentListCheck = driver.findElements(xpathListInTable);
         Assert.assertEquals("Документ не удален",
                 0, documentListCheck.size());
         System.out.println("Document successfully Deleted");

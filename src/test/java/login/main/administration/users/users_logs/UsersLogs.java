@@ -5,7 +5,7 @@ import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
-import static variables.Xpath.*;
+import static variables.admin.Xpath.*;
 
 public class UsersLogs extends Login {
 

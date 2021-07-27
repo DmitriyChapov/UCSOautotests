@@ -2,8 +2,10 @@ package login.main.administration.TSP;
 
 import login.Login;
 import org.openqa.selenium.JavascriptExecutor;
-import static variables.FilesForAdd.*;
-import static variables.Xpath.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import static variables.admin.FilesForAdd.*;
+import static variables.admin.Xpath.*;
 
 
 public class CreateTSP  extends Login {
@@ -11,8 +13,9 @@ String name = "Тестовое название";
 String Ogrn = "1117746358608";
 
 
-    public void sectionTSP() throws InterruptedException {
+    public void sectionTSP() {
         loginAdmin();
+        wait.until(ExpectedConditions.elementToBeClickable(xpathTSP));
         driver.findElement(xpathTSP).click();
         driver.findElement(xpathButtonAdd).click();
 
@@ -31,7 +34,7 @@ String Ogrn = "1117746358608";
         JavascriptExecutor pageDown = (JavascriptExecutor)driver;
         pageDown.executeScript("scroll(0,1000)","");
         driver.findElement(xpathButtonDownloadImage).click();
-        driver.findElement(xpathChooseFile).sendKeys(imageTSP);
+        driver.findElement(xpathChooseFile).sendKeys(imageLogoTSPAdmin);
         driver.findElement(xpathButtonOk).click();
         driver.findElement(xpathSiteField).sendKeys("https://test.com");
         driver.findElement(xpathEmail2Field).sendKeys("test@gmail.com");
