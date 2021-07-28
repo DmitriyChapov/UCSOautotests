@@ -70,7 +70,7 @@ public class InterviewsPage extends Login {
         driver.findElement(selectorFieldQuestion).sendKeys(questionShortNumberName);
         driver.findElement(selectorFieldQuestionDescription).sendKeys(questionShortNumberDescription);
         driver.findElement(selectorFieldAnswerMaxLength).sendKeys(String.valueOf(maxSymbolShortNumber));
-        driver.findElement(selectorFieldImage).sendKeys(imageQuestionShortNumber);
+        driver.findElement(selectorFieldImage).sendKeys(imageQuestionShortNumberA);
         Thread.sleep(2000);
         driver.findElement(xpathButtonSaveInWindow).click();
         System.out.println("Create qestion Short Answer - Number");
@@ -87,7 +87,7 @@ public class InterviewsPage extends Login {
         driver.findElement(selectorFieldQuestion).sendKeys(questionShortDoubleName);
         driver.findElement(selectorFieldQuestionDescription).sendKeys(questionShortDoubleDescription);
         driver.findElement(selectorFieldAnswerMaxLength).sendKeys(String.valueOf(maxSymbolShortDouble));
-        driver.findElement(selectorFieldImage).sendKeys(imageQuestionShortDouble);
+        driver.findElement(selectorFieldImage).sendKeys(imageQuestionShortDoubleA);
         Thread.sleep(2000);
         driver.findElement(xpathButtonSaveInWindow).click();
         System.out.println("Create qestion Short Answer - Double");
@@ -103,7 +103,7 @@ public class InterviewsPage extends Login {
         driver.findElement(xpathValidationTypePhone).click();
         driver.findElement(selectorFieldQuestion).sendKeys(questionShortPhoneName);
         driver.findElement(selectorFieldQuestionDescription).sendKeys(questionShortPhoneDescription);
-        driver.findElement(selectorFieldImage).sendKeys(imageQuestionShortPhone);
+        driver.findElement(selectorFieldImage).sendKeys(imageQuestionShortPhoneA);
         Thread.sleep(2000);
         driver.findElement(xpathButtonSaveInWindow).click();
         System.out.println("Create qestion Short Answer - Phone");
@@ -120,7 +120,7 @@ public class InterviewsPage extends Login {
         driver.findElement(selectorFieldQuestion).sendKeys(questionShortSymbolName);
         driver.findElement(selectorFieldQuestionDescription).sendKeys(questionShortSymbolDescription);
         driver.findElement(selectorFieldAnswerMaxLength).sendKeys(String.valueOf(maxSymbolShortSymbol));
-        driver.findElement(selectorFieldImage).sendKeys(imageQuestionShortSymbol);
+        driver.findElement(selectorFieldImage).sendKeys(imageQuestionShortSymbolA);
         Thread.sleep(2000);
         driver.findElement(xpathButtonSaveInWindow).click();
         System.out.println("Create qestion Short Answer - Symbol");
@@ -135,7 +135,7 @@ public class InterviewsPage extends Login {
         driver.findElement(selectorFieldQuestion).sendKeys(questionShortNoValidName);
         driver.findElement(selectorFieldQuestionDescription).sendKeys(questionShortNoValidDescription);
         driver.findElement(selectorFieldAnswerMaxLength).sendKeys(String.valueOf(maxSymbolShortNoValid));
-        driver.findElement(selectorFieldImage).sendKeys(imageQuestionShortNoValid);
+        driver.findElement(selectorFieldImage).sendKeys(imageQuestionShortNoValidA);
         Thread.sleep(2000);
         driver.findElement(xpathButtonSaveInWindow).click();
         System.out.println("Create qestion Short Answer - No valid");
@@ -150,7 +150,7 @@ public class InterviewsPage extends Login {
         driver.findElement(selectorFieldQuestion).sendKeys(questionLongName);
         driver.findElement(selectorFieldQuestionDescription).sendKeys(questionLongDescription);
         driver.findElement(selectorFieldAnswerMaxLength).sendKeys(String.valueOf(maxSymbolLong));
-        driver.findElement(selectorFieldImage).sendKeys(imageQuestionLong);
+        driver.findElement(selectorFieldImage).sendKeys(imageQuestionLongA);
         Thread.sleep(2000);
         driver.findElement(xpathButtonSaveInWindow).click();
         System.out.println("Create qestion Long Answer");
@@ -168,7 +168,7 @@ public class InterviewsPage extends Login {
             String nameVar = "Вариант " + (i+1) ;
             String idAnswer = "answer-" + i;
             driver.findElement(xpathButtonAddAnswer).click();
-            String imageQuestionVarName = "C:\\Image for AutoTest\\Questions\\Options\\Option" + (i + 1) + ".jpg";
+            String imageQuestionVarName = "D:\\ImageForAutoTests\\Questions\\Options\\Option" + (i + 1) + ".jpg";
             List<WebElement> imageIcon = driver.findElements(selectorFieldImage);
             imageIcon.get(imageIcon.size() - 1).sendKeys(imageQuestionVarName);
             Thread.sleep(2000);
@@ -191,7 +191,7 @@ public class InterviewsPage extends Login {
             String nameVar = "Вариант " + (i+1) ;
             String idAnswer = "answer-" + i;
             driver.findElement(xpathButtonAddAnswer).click();
-            String imageQuestionVarName = "C:\\Image for AutoTest\\Questions\\Options\\Option" + (i + 1) + ".jpg";
+            String imageQuestionVarName = "D:\\ImageForAutoTests\\Questions\\Options\\Option" + (i + 1) + ".jpg";
             List<WebElement> imageIcon = driver.findElements(selectorFieldImage);
             imageIcon.get(imageIcon.size() - 1).sendKeys(imageQuestionVarName);
             Thread.sleep(2000);
@@ -210,7 +210,7 @@ public class InterviewsPage extends Login {
         driver.findElement(xpathDropDownAnswer).click();
         driver.findElement(selectorFieldQuestion).sendKeys(questionDropDownName);
         driver.findElement(selectorFieldQuestionDescription).sendKeys(questionDropDownDescription);
-        driver.findElement(selectorFieldImage).sendKeys(imageQuestionDropDown);
+        driver.findElement(selectorFieldImage).sendKeys(imageQuestionDropDownA);
         Thread.sleep(2000);
         for (int i=0; i < nmbDropDown; i++ ) {
             String nameVar = "Вариант " + (i+1) ;
@@ -231,7 +231,7 @@ public class InterviewsPage extends Login {
         Thread.sleep(1000);
         driver.findElement(xpathScaleAnswer).click();
         driver.findElement(selectorFieldQuestion).sendKeys(questionScaleName);
-        driver.findElement(selectorFieldImage).sendKeys(imageQuestionScale);
+        driver.findElement(selectorFieldImage).sendKeys(imageQuestionScaleA);
         Thread.sleep(2000);
         if (rndScale == 1) {
             questionScaleDescription = questionScaleDescription + 5;
@@ -260,7 +260,7 @@ public class InterviewsPage extends Login {
         driver.findElement(By.xpath("/html/body/div[2]/div[3]")).click();
         driver.findElement(selectorFieldAnswerMaxFiles).clear();
         driver.findElement(selectorFieldAnswerMaxFiles).sendKeys(String.valueOf(maxFilesJPEG));
-        driver.findElement(selectorFieldImage).sendKeys(imageQuestionDownloadJPEG);
+        driver.findElement(selectorFieldImage).sendKeys(imageQuestionDownloadJPEGA);
         Thread.sleep(2000);
         driver.findElement(xpathButtonSaveInWindow).click();
         System.out.println("Create qestion Download Files - JPEG");
@@ -277,7 +277,7 @@ public class InterviewsPage extends Login {
         driver.findElement(selectorSelectValidationType).click();
         driver.findElement(xpathDownloadFilesPNG).click();
         driver.findElement(By.xpath("/html/body/div[2]/div[3]")).click();
-        driver.findElement(selectorFieldImage).sendKeys(imageQuestionDownloadPNG);
+        driver.findElement(selectorFieldImage).sendKeys(imageQuestionDownloadPNGA);
         Thread.sleep(2000);
         driver.findElement(xpathButtonSaveInWindow).click();
         System.out.println("Create qestion Download Files - PNG");
@@ -294,7 +294,7 @@ public class InterviewsPage extends Login {
         driver.findElement(selectorSelectValidationType).click();
         driver.findElement(xpathDownloadFilesPDF).click();
         driver.findElement(By.xpath("/html/body/div[2]/div[3]")).click();
-        driver.findElement(selectorFieldImage).sendKeys(imageQuestionDownloadPDF);
+        driver.findElement(selectorFieldImage).sendKeys(imageQuestionDownloadPDFA);
         Thread.sleep(2000);
         driver.findElement(xpathButtonSaveInWindow).click();
         System.out.println("Create qestion Download Files - PDF");
@@ -313,7 +313,7 @@ public class InterviewsPage extends Login {
         driver.findElement(By.xpath("/html/body/div[2]/div[3]")).click();
         driver.findElement(selectorFieldAnswerMaxFiles).clear();
         driver.findElement(selectorFieldAnswerMaxFiles).sendKeys(String.valueOf(maxFilesDOC));
-        driver.findElement(selectorFieldImage).sendKeys(imageQuestionDownloadDOC);
+        driver.findElement(selectorFieldImage).sendKeys(imageQuestionDownloadDOCA);
         Thread.sleep(2000);
         driver.findElement(xpathButtonSaveInWindow).click();
         System.out.println("Create qestion Download Files - DOC");
@@ -333,7 +333,7 @@ public class InterviewsPage extends Login {
         driver.findElement(By.xpath("/html/body/div[2]/div[3]")).click();
         driver.findElement(selectorFieldAnswerMaxFiles).clear();
         driver.findElement(selectorFieldAnswerMaxFiles).sendKeys(String.valueOf(maxFilesXLS));
-        driver.findElement(selectorFieldImage).sendKeys(imageQuestionDownloadXLS);
+        driver.findElement(selectorFieldImage).sendKeys(imageQuestionDownloadXLSA);
         Thread.sleep(2000);
         driver.findElement(xpathButtonSaveInWindow).click();
         System.out.println("Create qestion Download Files - XLS");
@@ -357,7 +357,7 @@ public class InterviewsPage extends Login {
         driver.findElement(By.xpath("/html/body/div[2]/div[3]")).click();
         driver.findElement(selectorFieldAnswerMaxFiles).clear();
         driver.findElement(selectorFieldAnswerMaxFiles).sendKeys(String.valueOf(maxFilesALL));
-        driver.findElement(selectorFieldImage).sendKeys(imageQuestionDownloadALL);
+        driver.findElement(selectorFieldImage).sendKeys(imageQuestionDownloadALLA);
         Thread.sleep(2000);
         driver.findElement(xpathButtonSaveInWindow).click();
         System.out.println("Create qestion Download Files - ALL");
@@ -371,7 +371,7 @@ public class InterviewsPage extends Login {
         driver.findElement(xpathTextAnswer).click();
         driver.findElement(selectorFieldQuestion).sendKeys(questionTextName.repeat(10));
         driver.findElement(selectorFieldQuestionDescription).sendKeys(questionTextDescription);
-        driver.findElement(selectorFieldImage).sendKeys(imageQuestionText);
+        driver.findElement(selectorFieldImage).sendKeys(imageQuestionTextA);
         Thread.sleep(2000);
         driver.findElement(xpathButtonSaveInWindow).click();
         System.out.println("Create qestion Text");

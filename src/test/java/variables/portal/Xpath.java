@@ -2,6 +2,8 @@ package variables.portal;
 
 import org.openqa.selenium.By;
 
+import static variables.admin.Strings.surveyId;
+
 public class Xpath {
 
     //Авторизация
@@ -50,7 +52,10 @@ public class Xpath {
     //Опросы
     public static By xpathUserToSurveryCard = By.xpath("//span[contains(text(), 'Опросы')]");
     public static By xpathUserSurveys = By.xpath("//a[contains(@href, 'polls/')]");
-    public static By xpathSurveyMainSHeading = By.xpath("//a/div[1]");
+    public static By xpathSurveyMainSHeading = By.xpath("//a[contains(@href, '"+ surveyId +"')]/div[1]");
+    public static By xpathOpenedSurveyElements = By.xpath("//main//section");
+    public static By xpathOpenedSurveyHeading = By.xpath("//h1[contains(text(), '')]");
+    public static By xpathOpenedSurveyDescription = By.xpath("//form//article[1]");
 
 
 
