@@ -95,6 +95,7 @@ public class Xpath {
     public static By xpathDownloadFilesDOC =  By.xpath("//span[contains(text(), 'DOC')]");
     public static By xpathDownloadFilesXLS =  By.xpath("//span[contains(text(), 'XLS')]");
     public static By xpathTextAnswer = By.xpath("//span[contains(text(), 'Текст')]");
+    public static By xpathCreatedSurveyId = By.xpath("//span[contains(text(), 'ID')]");
 
     // Скидки и Акции
     public static By xpathTSPAvailableSlide = By.xpath("//mat-slide-toggle[@name='available']");

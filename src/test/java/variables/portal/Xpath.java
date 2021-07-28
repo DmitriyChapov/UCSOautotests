@@ -47,6 +47,10 @@ public class Xpath {
     public static By xpathOpenedPosterTeaser = By.xpath("//main/section/p");
     public static By xpathOpenedPosterText = By.xpath("//main/section/div/div/p");
 
+    //Опросы
+    public static By xpathUserToSurveryCard = By.xpath("//span[contains(text(), 'Опросы')]");
+    public static By xpathUserSurveys = By.xpath("//a[contains(@href, 'polls/')]");
+    public static By xpathSurveyMainSHeading = By.xpath("//a/div[1]");
 
 
 

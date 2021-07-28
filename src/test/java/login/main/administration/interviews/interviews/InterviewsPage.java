@@ -4,6 +4,8 @@ import login.Login;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+
 import static variables.admin.Numbers.*;
 import static variables.admin.Xpath.*;
 import static variables.admin.Selector.*;
@@ -420,9 +422,17 @@ public class InterviewsPage extends Login {
         System.out.println("Create Interview");
     }
 
+    public void getSurveyId(){
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(xpathCreatedSurveyId)));
+        String tempSurvey = driver.findElement(xpathCreatedSurveyId).getText();
+        surveyId = tempSurvey.substring(4, tempSurvey.length());
+        System.out.println(surveyId);
+    }
+
     public void publicInterview() throws InterruptedException {
         createInterview();                 // Создаем Опрос
         Thread.sleep(2000);
+        getSurveyId();
         driver.findElement(xpathButtonPublic).click();
         Thread.sleep(2000);
         driver.findElement(xpathButtonSaveInWindow).click();

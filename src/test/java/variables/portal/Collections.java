@@ -20,4 +20,8 @@ public class Collections {
     public static List<WebElement> posterCardHeadings;
     public static List<WebElement> posterCardTeasers;
     public static List<WebElement> posterCardLocations;
+
+    //Опросы
+    public static List<WebElement> userSurveys;
+    public static List<WebElement> surveysHeadings;
 }

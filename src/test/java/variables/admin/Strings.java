@@ -146,6 +146,7 @@ public class Strings {
     public static String questionDownloadALLDescription = "Допустимый формат загружаемый файлов - JPG, JPEG,PNG, PDF, DOC, DOCX, ODT, RTF, XLS, XLSX. Максимальное кол-во файлов: " + maxFilesALL;
     public static String questionTextName = "Вопрос \"Текст.\" ";
     public static String questionTextDescription = "Просто текст";
+    public static String surveyId;
 
     //ТСП, Скидки, Акции
     public static String tspNameAdmin = "AutoTest Сorporation";
