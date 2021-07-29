@@ -96,6 +96,10 @@ public class Xpath {
     public static By xpathDownloadFilesXLS =  By.xpath("//span[contains(text(), 'XLS')]");
     public static By xpathTextAnswer = By.xpath("//span[contains(text(), 'Текст')]");
     public static By xpathCreatedSurveyId = By.xpath("//span[contains(text(), 'ID')]");
+    public static By xpathCreatedSurveyOneVarVariants = By.xpath("//input[contains(@id, 'answer')]");
+    public static By xpathCreatedSurveySomeVarVariants = By.xpath("//input[contains(@id, 'answer')]");
+    public static By xpathCreatedSurveyDropDownVariants = By.xpath("//input[contains(@id, 'answer')]");
+    public static By xpathCreatedSurveyScaleCount = By.xpath("//mat-select[contains(@id, 'answerValidationType')]//div[1]//div");
 
     // Скидки и Акции
     public static By xpathTSPAvailableSlide = By.xpath("//mat-slide-toggle[@name='available']");

@@ -147,6 +147,7 @@ public class Strings {
     public static String questionTextName = "Вопрос \"Текст.\" ";
     public static String questionTextDescription = "Просто текст";
     public static String surveyId;
+    public static String scaleCount;
 
     //ТСП, Скидки, Акции
     public static String tspNameAdmin = "AutoTest Сorporation";

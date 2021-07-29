@@ -12,5 +12,22 @@ public class CheckCreatedSurvey extends login.user_portal.interviews.CheckCreate
         getAllUserSurveys();
         findCreatedSurvey();
         surveyMainAttributesAssert();
+        surveyShortAnswerNumberAssert();
+        surveyShortAnswerDoubleAssert();
+        surveyShortAnswerPhoneAssert();
+        surveyShortAnswerSymbolAssert();
+        surveyShortAnswerNoValidAssert();
+        surveyLongAnswerAssert();
+        surveyOneVarAssert();
+        surveySomeVarAssert();
+        surveyDropDownAssert();
+        surveyScaleAssert();
+        surveyDownloadJPEGAssert();
+        surveyDownloadPNGAssert();
+        surveyDownloadPDFAssert();
+        surveyDownloadDOCAssert();
+        surveyDownloadXLSAssert();
+        surveyDownloadALLAssert();
+        surveyTextAssert();
     }
 }

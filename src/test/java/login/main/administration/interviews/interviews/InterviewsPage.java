@@ -4,13 +4,16 @@ import login.Login;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.interactions.SourceType;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import static variables.admin.Collections.*;
 import static variables.admin.Numbers.*;
 import static variables.admin.Xpath.*;
 import static variables.admin.Selector.*;
 import static variables.admin.Strings.*;
 import static variables.admin.FilesForAdd.*;
+import static variables.portal.Collections.surveyOneVarVariants;
 
 import java.util.List;
 
@@ -109,7 +112,7 @@ public class InterviewsPage extends Login {
         System.out.println("Create qestion Short Answer - Phone");
     }
 
-    public void qestionShortAnswerSymbol() throws InterruptedException{
+    public void qestionShortAnswerSymbol() throws InterruptedException {
         driver.findElement(xpathButtonAddQuestion).click();
         Thread.sleep(1000);
         driver.findElement(selectorSelectTypeQuestion).click();
@@ -164,8 +167,8 @@ public class InterviewsPage extends Login {
         driver.findElement(xpathOneVarAnswer).click();
         driver.findElement(selectorFieldQuestion).sendKeys(questionOneVarName);
         driver.findElement(selectorFieldQuestionDescription).sendKeys(questionOneVarDescription);
-        for (int i=0; i < nmbOneVar; i++ ) {
-            String nameVar = "Вариант " + (i+1) ;
+        for (int i = 0; i < nmbOneVar; i++) {
+            String nameVar = "Вариант " + (i + 1);
             String idAnswer = "answer-" + i;
             driver.findElement(xpathButtonAddAnswer).click();
             String imageQuestionVarName = "D:\\ImageForAutoTests\\Questions\\Options\\Option" + (i + 1) + ".jpg";
@@ -175,8 +178,13 @@ public class InterviewsPage extends Login {
             driver.findElement(By.id(idAnswer)).sendKeys(nameVar);
         }
         Thread.sleep(2000);
+        questionOneVarVariants = driver.findElements(xpathCreatedSurveyOneVarVariants);         //Получение списка вариантов
         driver.findElement(xpathButtonSaveInWindow).click();
         System.out.println("Create qestion One Variant");
+
+        for (int i = 0; i < questionOneVarVariants.size(); i++) {                   //Получение списка наименований вариантов
+            questionOneVarVariantsNames.add(questionOneVarVariants.get(i).getAttribute("value"));
+        }
     }
 
     public void qestionSomeVar() throws InterruptedException {
@@ -187,8 +195,8 @@ public class InterviewsPage extends Login {
         driver.findElement(xpathSomeVarAnswer).click();
         driver.findElement(selectorFieldQuestion).sendKeys(questionSomeVarName);
         driver.findElement(selectorFieldQuestionDescription).sendKeys(questionSomeVarDescription);
-        for (int i=0; i < nmbSomeVar; i++ ) {
-            String nameVar = "Вариант " + (i+1) ;
+        for (int i = 0; i < nmbSomeVar; i++) {
+            String nameVar = "Вариант " + (i + 1);
             String idAnswer = "answer-" + i;
             driver.findElement(xpathButtonAddAnswer).click();
             String imageQuestionVarName = "D:\\ImageForAutoTests\\Questions\\Options\\Option" + (i + 1) + ".jpg";
@@ -198,8 +206,13 @@ public class InterviewsPage extends Login {
             driver.findElement(By.id(idAnswer)).sendKeys(nameVar);
         }
         Thread.sleep(2000);
+        questionSomeVarVariants = driver.findElements(xpathCreatedSurveySomeVarVariants);       //Получение списка вариантов
         driver.findElement(xpathButtonSaveInWindow).click();
         System.out.println("Create qestion Some Variant");
+
+        for (int i = 0; i < questionSomeVarVariants.size(); i++) {                   //Получение списка наименований вариантов
+            questionSomeVarVariantsNames.add(questionSomeVarVariants.get(i).getAttribute("value"));
+        }
     }
 
     public void qestionDropDown() throws InterruptedException {
@@ -212,16 +225,21 @@ public class InterviewsPage extends Login {
         driver.findElement(selectorFieldQuestionDescription).sendKeys(questionDropDownDescription);
         driver.findElement(selectorFieldImage).sendKeys(imageQuestionDropDownA);
         Thread.sleep(2000);
-        for (int i=0; i < nmbDropDown; i++ ) {
-            String nameVar = "Вариант " + (i+1) ;
+        for (int i = 0; i < nmbDropDown; i++) {
+            String nameVar = "Вариант " + (i + 1);
             String idAnswer = "answer-" + i;
             driver.findElement(xpathButtonAddAnswer).click();
             Thread.sleep(2000);
             driver.findElement(By.id(idAnswer)).sendKeys(nameVar);
         }
         Thread.sleep(2000);
+        questionDropDownVariants = driver.findElements(xpathCreatedSurveyDropDownVariants);       //Получение списка вариантов
         driver.findElement(xpathButtonSaveInWindow).click();
         System.out.println("Create qestion Drop Down");
+
+        for (int i = 0; i < questionDropDownVariants.size(); i++) {                      //Получение списка наименований вариантов
+            questionDropDownVariantsNames.add(questionDropDownVariants.get(i).getAttribute("value"));
+        }
     }
 
     public void qestionScale() throws InterruptedException {
@@ -235,14 +253,14 @@ public class InterviewsPage extends Login {
         Thread.sleep(2000);
         if (rndScale == 1) {
             questionScaleDescription = questionScaleDescription + 5;
-        }
-        else {
+        } else {
             driver.findElement(selectorSelectValidationType).click();
             driver.findElement(xpathScale10).click();
             questionScaleDescription = questionScaleDescription + 10;
         }
         driver.findElement(selectorFieldQuestionDescription).sendKeys(questionScaleDescription);
         Thread.sleep(2000);
+        scaleCount = driver.findElement(xpathCreatedSurveyScaleCount).getText();
         driver.findElement(xpathButtonSaveInWindow).click();
         System.out.println("Create qestion Scale");
     }
@@ -422,11 +440,11 @@ public class InterviewsPage extends Login {
         System.out.println("Create Interview");
     }
 
-    public void getSurveyId(){
+    public void getSurveyId() {
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(xpathCreatedSurveyId)));
         String tempSurvey = driver.findElement(xpathCreatedSurveyId).getText();
         surveyId = tempSurvey.substring(4, tempSurvey.length());
-        System.out.println(surveyId);
+        System.out.println("ID созданного опроса: " + surveyId);
     }
 
     public void publicInterview() throws InterruptedException {
