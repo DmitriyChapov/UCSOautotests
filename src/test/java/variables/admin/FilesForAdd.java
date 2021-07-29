@@ -22,13 +22,6 @@ public class FilesForAdd {
     public static String imageAfishaGallery_2 = "C:\\Image for AutoTest\\Afisha gallery 2.png";
     public static String imageAfishaGallery_3 = "C:\\Image for AutoTest\\Afisha gallery 3.jpg";
 
-    public static String imageAfishaPrevA = "D:\\ImageForAutoTests\\Afisha prev.jpg";
-    public static String imageAfishaMainA = "D:\\ImageForAutoTests\\Afisha main.jpg";
-    public static String imageAfishaGallery_1A = "D:\\ImageForAutoTests\\Afisha gallery 1.png";
-    public static String imageAfishaGallery_2A = "D:\\ImageForAutoTests\\Afisha gallery 2.png";
-    public static String imageAfishaGallery_3A = "D:\\ImageForAutoTests\\Afisha gallery 3.jpg";
-
-
     //Опросы
     public static String imageQuestionShortNumber = "C:\\Image for AutoTest\\Questions\\Number.jpg";
     public static String imageQuestionShortDouble = "C:\\Image for AutoTest\\Questions\\Double.jpg";
@@ -46,21 +39,6 @@ public class FilesForAdd {
     public static String imageQuestionDownloadALL = "C:\\Image for AutoTest\\Questions\\AllFILES.jpg";
     public static String imageQuestionText = "C:\\Image for AutoTest\\Questions\\Text.png";
 
-    public static String imageQuestionShortNumberA = "D:\\ImageForAutoTests\\Questions\\Number.jpg";
-    public static String imageQuestionShortDoubleA = "D:\\ImageForAutoTests\\Questions\\Double.jpg";
-    public static String imageQuestionShortPhoneA = "D:\\ImageForAutoTests\\Questions\\Phone.jpg";
-    public static String imageQuestionShortSymbolA = "D:\\ImageForAutoTests\\Questions\\Symbol.jpg";
-    public static String imageQuestionShortNoValidA = "D:\\ImageForAutoTests\\Questions\\NoValid.jpg";
-    public static String imageQuestionLongA = "D:\\ImageForAutoTests\\Questions\\Long.jpg";
-    public static String imageQuestionDropDownA = "D:\\ImageForAutoTests\\Questions\\DropDown.jpg";
-    public static String imageQuestionScaleA = "D:\\ImageForAutoTests\\Questions\\Scale.jpg";
-    public static String imageQuestionDownloadJPEGA = "D:\\ImageForAutoTests\\Questions\\JPEG.png";
-    public static String imageQuestionDownloadPNGA = "D:\\ImageForAutoTests\\Questions\\PNG.jpg";
-    public static String imageQuestionDownloadPDFA = "D:\\ImageForAutoTests\\Questions\\PDF.jpg";
-    public static String imageQuestionDownloadDOCA = "D:\\ImageForAutoTests\\Questions\\DOC.jpg";
-    public static String imageQuestionDownloadXLSA = "D:\\ImageForAutoTests\\Questions\\XLS.jpg";
-    public static String imageQuestionDownloadALLA = "D:\\ImageForAutoTests\\Questions\\AllFILES.jpg";
-    public static String imageQuestionTextA = "D:\\ImageForAutoTests\\Questions\\Text.png";
 
     //ТСП, Скидки, Акции
     public static String imageLogoTSPAdmin = "C:\\Image for AutoTest\\TSP1.jpg";

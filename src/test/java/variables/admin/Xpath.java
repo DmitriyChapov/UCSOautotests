@@ -134,12 +134,11 @@ public class Xpath {
     public static By xpathButtonSaveInWindow = By.xpath("//mat-dialog-actions/button[2]/span[1]");
     public static By xpathButtonSaveImage = By.xpath("//app-image-cropper/div[2]/button[2]");
     public static By xpathButtonAdd = By.xpath("//span[contains(text(), 'Добавить')]");
-    public static By xpathButtonDownloadImage = By.xpath("//button[contains(text(), 'Загрузить изображение')]");
+    public static By xpathButtonDownloadImage = By.xpath("//span[contains(text(), 'Загрузить изображение')]");
     public static By xpathButtonAccept = By.xpath("//span[contains(text(), 'Подтвердить')]");
     public static By xpathButtonDelete = By.xpath("//span[contains(text(), 'Удалить')]");
     public static By xpathButtonIn = By.xpath("//span[contains(text(), 'Войти')]");
     public static By xpathButtonOk = By.xpath("//span[contains(text(), 'Ок')]");
-
 
     //Общие
     public static By xpathSpinner = By.xpath("//mat-spinner");
