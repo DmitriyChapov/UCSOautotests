@@ -31,6 +31,7 @@ public class Urls {
     //Администрирование
     public static String newsUrl = "https://ucso-test.opencode.su/news-dashboard/publications?type=NEWS&searchString=";
     public static String newsCardUrl = "https://ucso-test.opencode.su/news-dashboard/posts-editor?type=NEWS";
+    public static String TSP = "https://ucso-test.opencode.su/partners/partners-list";
 
 
 

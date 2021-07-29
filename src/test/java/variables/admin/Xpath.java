@@ -29,6 +29,7 @@ public class Xpath {
     public static By xpathElectronicCases = By.xpath("//a[contains(text(), 'Реестр электронных дел')]");
     public static By xpathCardHolders = By.xpath("//a[contains(text(), 'Реестр держателей КЖСО')]");
     public static By xpathTSP = By.xpath("//li[contains(text(), 'Торгово-сервисные предприятия')]");
+    public static By xpathTSP2 = By.xpath("//a[contains(text(), 'Торгово-сервисные предприятия')]");
     public static By xpathTabPromotions = By.xpath("//div[contains(text(), 'Акции')]");
     public static By xpathTabDiscount = By.xpath("//div[contains(text(), 'Скидки')]");
     public static By xpathDocument = By.xpath("//li[contains(text(), 'Документация')]");
@@ -130,11 +131,12 @@ public class Xpath {
     public static By xpathButtonSaveInWindow = By.xpath("//mat-dialog-actions/button[2]/span[1]");
     public static By xpathButtonSaveImage = By.xpath("//app-image-cropper/div[2]/button[2]");
     public static By xpathButtonAdd = By.xpath("//span[contains(text(), 'Добавить')]");
-    public static By xpathButtonDownloadImage = By.xpath("//button[contains(text(), 'Загрузить изображение')]");
+    public static By xpathButtonDownloadImage = By.xpath("//span[contains(text(), 'Загрузить изображение')]");
     public static By xpathButtonAccept = By.xpath("//span[contains(text(), 'Подтвердить')]");
     public static By xpathButtonDelete = By.xpath("//span[contains(text(), 'Удалить')]");
     public static By xpathButtonIn = By.xpath("//span[contains(text(), 'Войти')]");
     public static By xpathButtonOk = By.xpath("//span[contains(text(), 'Ок')]");
+    public static By xpathButtonYes = By.xpath("//span[contains(text(), 'Да')]");
 
 
     //Общие
@@ -151,6 +153,7 @@ public class Xpath {
     public static By xpathEmailField = By.xpath("//input[contains(@name, 'partnerEmail')]");
     public static By xpathOgrnField = By.xpath("//input[contains(@name, 'partnerOgrn')]");
     public static By xpathMCCField = By.xpath("//input[contains(@data-placeholder, 'Выберите MCC-код организации')]");
+    public static By xpathMCCChosenField = By.xpath("//span[contains(@class, 'classifiers-value')]");
     public static By xpathMCCChooseField = By.xpath("//span[contains(text(), 'Классификатор 1')]");
     public static By xpathSiteField = By.xpath("//input[contains(@data-placeholder, 'Ссылка должна содержать \"http://\" или \"https://\"')]");
     public static By xpathEmail2Field = By.xpath("//input[contains(@name, 'email')]");

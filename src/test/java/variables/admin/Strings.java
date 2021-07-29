@@ -197,7 +197,7 @@ public class Strings {
     public static String adminTSPDescription = "Описание организации, созданной автотестом из кабинета администратора";
     public static String adminTSPAddress = "г. Автотестово, ул. Пользователя, д. " + nmbAutoTest;
     public static String adminTSPEmailPublic = "Email@email.com";
-    public static String adminTSPPhonePublic = "89270000000";
+    public static String adminTSPPhonePublic = "9270000000";
     public static String adminTSPOptionalText = "Дополнительная информация по ТСП, созданного администратором. ";
 
 }
