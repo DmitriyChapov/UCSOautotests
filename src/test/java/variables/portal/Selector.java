@@ -2,6 +2,8 @@ package variables.portal;
 
 import org.openqa.selenium.By;
 
+import static variables.admin.Strings.surveyId;
+
 public class Selector {
 
     //Кабинет ТСП
@@ -33,4 +35,7 @@ public class Selector {
     public static By selectorUserTSPOfferDiscount = By.cssSelector("[name = 'value']");
     public static By selectorUserTSPOfferButtonSave = By.cssSelector("[type = 'submit']");
 
+
+    //Опросы
+    public static By selectorCreatedSurveyHref = By.cssSelector("a[href = '#/info/polls/" + surveyId + "']");
 }
