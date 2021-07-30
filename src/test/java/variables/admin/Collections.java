@@ -17,5 +17,6 @@ public class Collections {
     public static ArrayList<String> questionSomeVarVariantsNames = new ArrayList<>();
     public static List<WebElement> questionDropDownVariants;
     public static ArrayList<String> questionDropDownVariantsNames = new ArrayList<>();
+    public static List<WebElement> questionTypes;
 
 }

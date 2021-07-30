@@ -47,6 +47,7 @@ public class Selector {
     public static By selectorSelectInterviewAccess = By.cssSelector("[name = 'accessModeInMobile']");
     public static By selectorSelectTypeQuestion = By.cssSelector("[name = 'type']");
     public static By selectorSelectValidationType = By.cssSelector("[name = 'answerValidationType']");
+    public static By selectorQuestionType = By.cssSelector("p[class = 'question__type']");
 
     //ТСП, Скидки, Акции
     public static By selectorFieldAddressOffer = By.cssSelector("[name = 'addressName']");

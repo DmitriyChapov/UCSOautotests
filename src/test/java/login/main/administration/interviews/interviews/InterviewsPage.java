@@ -15,6 +15,7 @@ import static variables.admin.Strings.*;
 import static variables.admin.FilesForAdd.*;
 import static variables.portal.Collections.surveyOneVarVariants;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class InterviewsPage extends Login {
@@ -447,10 +448,17 @@ public class InterviewsPage extends Login {
         System.out.println("ID созданного опроса: " + surveyId);
     }
 
+    public void getAllQuestionsType() {
+        wait.until(ExpectedConditions.presenceOfElementLocated(selectorQuestionType));
+        questionTypes = driver.findElements(selectorQuestionType);
+    }
+
+
     public void publicInterview() throws InterruptedException {
         createInterview();                 // Создаем Опрос
         Thread.sleep(2000);
         getSurveyId();
+        getAllQuestionsType();
         driver.findElement(xpathButtonPublic).click();
         Thread.sleep(2000);
         driver.findElement(xpathButtonSaveInWindow).click();
