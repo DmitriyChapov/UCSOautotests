@@ -15,6 +15,7 @@ public class Selector {
     public static By selectorFieldBranchNumber = By.cssSelector("[name = 'branchNumber']");
     public static By selectorFieldBranchWorkingHours = By.cssSelector("[name = 'workingHours']");
     public static By selectorFieldBranchAddress = By.cssSelector("[name = 'address']");
+    public static By selectorBranchCoordinates = By.cssSelector("[name= 'coordinates']");
     public static By selectorFieldDesignCode = By.cssSelector("[name = 'code']");
     public static By selectorDesignAvailable = By.cssSelector("[name = 'cardAvailable']");
     public static By selectorFieldContentLocationName = By.cssSelector("[data-placeholder = 'Введите наименование']");

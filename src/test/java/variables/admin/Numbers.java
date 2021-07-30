@@ -4,6 +4,18 @@ public class Numbers {
 
     //Справочники
     public static int bankBIC = (int) (Math.random() * 899999999 + 100000000);
+    public static int bankNmbLatitudeXX(){
+    int bankNmbLatitudeXX = (int) (Math.random() * 6 + 49);
+    return bankNmbLatitudeXX;}
+    public static int bankNmbLatitudexx() {
+    int bankNmbLatitudexx = (int) (Math.random() * 899999 + 100000);
+    return bankNmbLatitudexx;}
+    public static int bankNmbLatitudeYY() {
+    int bankNmbLatitudeYY = (int) (Math.random() * 11 + 44);
+    return bankNmbLatitudeYY;}
+    public static int bankNmbLatitudeyy(){
+    int bankNmbLatitudeyy = (int) (Math.random() * 899999 + 100000);
+    return bankNmbLatitudeyy;}
     public static int nmbBranch = (int) (Math.random() *5 + 2);
     public static int nmbDesign = (int) (Math.random() *3 + 1);
     public static int codeDesign()

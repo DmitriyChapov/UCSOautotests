@@ -3,24 +3,30 @@ package variables.admin;
 public class FilesForAdd {
 
     //Справочники
-    public static String imageDesignName(int i) {
-        String imageDesignName = "C:\\Image for AutoTest\\BankDesign\\Design" + (i + 1) + ".png";
-        return imageDesignName;
-    }
+    public static String imageDesignName(int i)
+    { String imageDesignName = "C:\\Image for AutoTest\\BankDesign\\Design" + (i + 1) + ".png";
+        return imageDesignName;}
 
     //Новости и Афиши
     public static String imageNewsPrev = "C:\\Image for AutoTest\\News prev.png";
-
-    public static String imageNewsGallery(int i) {
-        String imageNewsGallery = "C:\\Image for AutoTest\\News gallery" + (i + 1) + ".jpg";
-        return imageNewsGallery;
-    }
+    public static String imageNewsGallery(int i)
+    { String imageNewsGallery = "C:\\Image for AutoTest\\News gallery" + (i + 1) + ".jpg";
+        return imageNewsGallery;}
 
     public static String imageAfishaPrev = "C:\\Image for AutoTest\\Afisha prev.jpg";
     public static String imageAfishaMain = "C:\\Image for AutoTest\\Afisha main.jpg";
     public static String imageAfishaGallery_1 = "C:\\Image for AutoTest\\Afisha gallery 1.png";
     public static String imageAfishaGallery_2 = "C:\\Image for AutoTest\\Afisha gallery 2.png";
     public static String imageAfishaGallery_3 = "C:\\Image for AutoTest\\Afisha gallery 3.jpg";
+
+    public static String imageAfishaPrevA = "D:\\ImageForAutoTests\\Afisha prev.jpg";
+    public static String imageAfishaMainA = "D:\\ImageForAutoTests\\Afisha main.jpg";
+    public static String imageAfishaGallery_1A = "D:\\ImageForAutoTests\\Afisha gallery 1.png";
+    public static String imageAfishaGallery_2A = "D:\\ImageForAutoTests\\Afisha gallery 2.png";
+    public static String imageAfishaGallery_3A = "D:\\ImageForAutoTests\\Afisha gallery 3.jpg";
+
+
+
 
     //Опросы
     public static String imageQuestionShortNumber = "C:\\Image for AutoTest\\Questions\\Number.jpg";
@@ -37,8 +43,7 @@ public class FilesForAdd {
     public static String imageQuestionDownloadDOC = "C:\\Image for AutoTest\\Questions\\DOC.jpg";
     public static String imageQuestionDownloadXLS = "C:\\Image for AutoTest\\Questions\\XLS.jpg";
     public static String imageQuestionDownloadALL = "C:\\Image for AutoTest\\Questions\\AllFILES.jpg";
-    public static String imageQuestionText = "C:\\Image for AutoTest\\Questions\\Text.png";
-
+    public static String imageQuestionText ="C:\\Image for AutoTest\\Questions\\Text.png";
 
     //ТСП, Скидки, Акции
     public static String imageLogoTSPAdmin = "C:\\Image for AutoTest\\TSP1.jpg";

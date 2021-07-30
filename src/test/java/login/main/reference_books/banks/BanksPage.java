@@ -80,6 +80,7 @@ public class BanksPage extends Login{
             driver.findElement(selectorFieldBranchNumber).sendKeys(String.valueOf((i+1)));
             driver.findElement(selectorFieldBranchWorkingHours).sendKeys(branchHoursWork);
             driver.findElement(selectorFieldBranchAddress).sendKeys(branchAddress(i));
+            driver.findElement(selectorBranchCoordinates).sendKeys(branchCoordinates());
             driver.findElement(selectorAvailable).click();
             wait.until(ExpectedConditions.elementToBeClickable(xpathButtonSaveInWindow));
             driver.findElement(xpathButtonSaveInWindow).click();
@@ -218,7 +219,7 @@ public class BanksPage extends Login{
         createBranch();          // Создаем отделения банка
         tabDesignCreate();       // Создаем дизайны банковских карт
         checkBankCard();         // Проверяем заполненность карточки Банка
-        deleteBank();            // Удаляем банк
+       // deleteBank();            // Удаляем банк
     }
 
 }

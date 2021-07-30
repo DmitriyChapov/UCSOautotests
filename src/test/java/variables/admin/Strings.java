@@ -35,6 +35,9 @@ public class Strings {
     public static String nameDesign(int i)
     { String nameDesign = "Новый дизайн Банка, созданный автотестом " + nmbAutoTest + " № " + (i+1);
         return nameDesign;}
+    public static String branchCoordinates(){
+        String branchCoordinates= bankNmbLatitudeXX() + "." + bankNmbLatitudexx() + ", " + bankNmbLatitudeYY() + "." + bankNmbLatitudeyy();
+        return branchCoordinates;}
 
     public static String positionsPageName = "Справочник должностей";
     public static String positionCardPageName = "Карточка должности";
