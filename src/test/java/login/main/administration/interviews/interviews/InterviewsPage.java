@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+
 import static variables.admin.Collections.*;
 import static variables.admin.Numbers.*;
 import static variables.admin.Urls.*;
@@ -13,6 +14,7 @@ import static variables.admin.Xpath.*;
 import static variables.admin.Selector.*;
 import static variables.admin.Strings.*;
 import static variables.admin.FilesForAdd.*;
+
 import java.util.List;
 
 public class InterviewsPage extends Login {
@@ -96,10 +98,16 @@ public class InterviewsPage extends Login {
         driver.findElement(selectorFieldImage).sendKeys(imageQuestionShortNumber);
         waitingSpinner();
         wait.until(ExpectedConditions.elementToBeClickable(xpathButtonSaveInWindow));
+        //Добавление очередного типа вопроса в коллекцию
+        try {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        } catch (org.openqa.selenium.StaleElementReferenceException ex) {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        }
         driver.findElement(xpathButtonSaveInWindow).click();
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("mat-dialog-container")));
-        if ( interviewDescription.contains("Короткий ответ; ")){}
-            else {
+        if (interviewDescription.contains("Короткий ответ; ")) {
+        } else {
             interviewDescription = interviewDescription + "Короткий ответ; ";
         }
         System.out.println("Question successfully Added: Short Answer - Number");
@@ -124,10 +132,16 @@ public class InterviewsPage extends Login {
         driver.findElement(selectorFieldImage).sendKeys(imageQuestionShortDouble);
         waitingSpinner();
         wait.until(ExpectedConditions.elementToBeClickable(xpathButtonSaveInWindow));
+        //Добавление очередного типа вопроса в коллекцию
+        try {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        } catch (org.openqa.selenium.StaleElementReferenceException ex) {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        }
         driver.findElement(xpathButtonSaveInWindow).click();
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("mat-dialog-container")));
-        if ( interviewDescription.contains("Короткий ответ; ")){}
-        else {
+        if (interviewDescription.contains("Короткий ответ; ")) {
+        } else {
             interviewDescription = interviewDescription + "Короткий ответ; ";
         }
         System.out.println("Question successfully Added: Short Answer - Double");
@@ -150,10 +164,16 @@ public class InterviewsPage extends Login {
         driver.findElement(selectorFieldImage).sendKeys(imageQuestionShortPhone);
         waitingSpinner();
         wait.until(ExpectedConditions.elementToBeClickable(xpathButtonSaveInWindow));
+        //Добавление очередного типа вопроса в коллекцию
+        try {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        } catch (org.openqa.selenium.StaleElementReferenceException ex) {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        }
         driver.findElement(xpathButtonSaveInWindow).click();
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("mat-dialog-container")));
-        if ( interviewDescription.contains("Короткий ответ; ")){}
-        else {
+        if (interviewDescription.contains("Короткий ответ; ")) {
+        } else {
             interviewDescription = interviewDescription + "Короткий ответ; ";
         }
         System.out.println("Question successfully Added: Short Answer - Phone");
@@ -178,10 +198,16 @@ public class InterviewsPage extends Login {
         driver.findElement(selectorFieldImage).sendKeys(imageQuestionShortSymbol);
         waitingSpinner();
         wait.until(ExpectedConditions.elementToBeClickable(xpathButtonSaveInWindow));
+        //Добавление очередного типа вопроса в коллекцию
+        try {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        } catch (org.openqa.selenium.StaleElementReferenceException ex) {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        }
         driver.findElement(xpathButtonSaveInWindow).click();
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("mat-dialog-container")));
-        if ( interviewDescription.contains("Короткий ответ; ")){}
-        else {
+        if (interviewDescription.contains("Короткий ответ; ")) {
+        } else {
             interviewDescription = interviewDescription + "Короткий ответ; ";
         }
         System.out.println("Question successfully Added: Short Answer - Symbol");
@@ -202,10 +228,16 @@ public class InterviewsPage extends Login {
         driver.findElement(selectorFieldImage).sendKeys(imageQuestionShortNoValid);
         waitingSpinner();
         wait.until(ExpectedConditions.elementToBeClickable(xpathButtonSaveInWindow));
+        //Добавление очередного типа вопроса в коллекцию
+        try {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        } catch (org.openqa.selenium.StaleElementReferenceException ex) {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        }
         driver.findElement(xpathButtonSaveInWindow).click();
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("mat-dialog-container")));
-        if ( interviewDescription.contains("Короткий ответ; ")){}
-        else {
+        if (interviewDescription.contains("Короткий ответ; ")) {
+        } else {
             interviewDescription = interviewDescription + "Короткий ответ; ";
         }
         System.out.println("Question successfully Added: Short Answer - No valid");
@@ -226,10 +258,16 @@ public class InterviewsPage extends Login {
         driver.findElement(selectorFieldImage).sendKeys(imageQuestionLong);
         waitingSpinner();
         wait.until(ExpectedConditions.elementToBeClickable(xpathButtonSaveInWindow));
+        try {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        } catch (org.openqa.selenium.StaleElementReferenceException ex) {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        }
+        //Добавление очередного типа вопроса в коллекцию
         driver.findElement(xpathButtonSaveInWindow).click();
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("mat-dialog-container")));
-        if ( interviewDescription.contains("Длинный ответ; ")){}
-        else {
+        if (interviewDescription.contains("Длинный ответ; ")) {
+        } else {
             interviewDescription = interviewDescription + "Длинный ответ; ";
         }
         System.out.println("Question successfully Added: Long Answer");
@@ -256,14 +294,21 @@ public class InterviewsPage extends Login {
             driver.findElement(idAnswer(i)).sendKeys(nameVar(i));
         }
         wait.until(ExpectedConditions.elementToBeClickable(xpathButtonSaveInWindow));
-        questionOneVarVariants = driver.findElements(xpathCreatedSurveyOneVarVariants);         //Получение списка вариантов
+        questionOneVarVariants = driver.findElements(xpathCreatedSurveyOneVarVariants);
+        //Добавление очередного типа вопроса в коллекцию
+        try {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        } catch (org.openqa.selenium.StaleElementReferenceException ex) {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        }
+        //Получение списка вариантов
         driver.findElement(xpathButtonSaveInWindow).click();
         for (int i = 0; i < questionOneVarVariants.size(); i++) {                   //Получение списка наименований вариантов
             questionOneVarVariantsNames.add(questionOneVarVariants.get(i).getAttribute("value"));
         }
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("mat-dialog-container")));
-        if ( interviewDescription.contains("Один вариант; ")){}
-        else {
+        if (interviewDescription.contains("Один вариант; ")) {
+        } else {
             interviewDescription = interviewDescription + "Один вариант; ";
         }
         System.out.println("Question successfully Added: One Variant");
@@ -291,13 +336,19 @@ public class InterviewsPage extends Login {
         }
         wait.until(ExpectedConditions.elementToBeClickable(xpathButtonSaveInWindow));
         questionSomeVarVariants = driver.findElements(xpathCreatedSurveySomeVarVariants);       //Получение списка вариантов
+        //Добавление очередного типа вопроса в коллекцию
+        try {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        } catch (org.openqa.selenium.StaleElementReferenceException ex) {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        }
         driver.findElement(xpathButtonSaveInWindow).click();
         for (int i = 0; i < questionSomeVarVariants.size(); i++) {                   //Получение списка наименований вариантов
             questionSomeVarVariantsNames.add(questionSomeVarVariants.get(i).getAttribute("value"));
         }
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("mat-dialog-container")));
-        if ( interviewDescription.contains("Несколько вариантов; ")){}
-        else {
+        if (interviewDescription.contains("Несколько вариантов; ")) {
+        } else {
             interviewDescription = interviewDescription + "Несколько вариантов; ";
         }
         System.out.println("Question successfully Added: Some Variant");
@@ -324,13 +375,19 @@ public class InterviewsPage extends Login {
         }
         wait.until(ExpectedConditions.elementToBeClickable(xpathButtonSaveInWindow));
         questionDropDownVariants = driver.findElements(xpathCreatedSurveyDropDownVariants);       //Получение списка вариантов
+        //Добавление очередного типа вопроса в коллекцию
+        try {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        } catch (org.openqa.selenium.StaleElementReferenceException ex) {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        }
         driver.findElement(xpathButtonSaveInWindow).click();
         for (int i = 0; i < questionDropDownVariants.size(); i++) {                      //Получение списка наименований вариантов
             questionDropDownVariantsNames.add(questionDropDownVariants.get(i).getAttribute("value"));
         }
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("mat-dialog-container")));
-        if ( interviewDescription.contains("Выпадающий список; ")){}
-        else {
+        if (interviewDescription.contains("Выпадающий список; ")) {
+        } else {
             interviewDescription = interviewDescription + "Выпадающий список; ";
         }
         System.out.println("Question successfully Added: Drop Down");
@@ -359,10 +416,16 @@ public class InterviewsPage extends Login {
         driver.findElement(selectorFieldQuestionDescription).sendKeys(questionScaleDescription);
         wait.until(ExpectedConditions.elementToBeClickable(xpathButtonSaveInWindow));
         scaleCount = driver.findElement(xpathCreatedSurveyScaleCount).getText();
+        //Добавление очередного типа вопроса в коллекцию
+        try {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        } catch (org.openqa.selenium.StaleElementReferenceException ex) {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        }
         driver.findElement(xpathButtonSaveInWindow).click();
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("mat-dialog-container")));
-        if ( interviewDescription.contains("Шкала; ")){}
-        else {
+        if (interviewDescription.contains("Шкала; ")) {
+        } else {
             interviewDescription = interviewDescription + "Шкала; ";
         }
         System.out.println("Question successfully Added: Scale");
@@ -388,10 +451,16 @@ public class InterviewsPage extends Login {
         driver.findElement(selectorFieldImage).sendKeys(imageQuestionDownloadJPEG);
         waitingSpinner();
         wait.until(ExpectedConditions.elementToBeClickable(xpathButtonSaveInWindow));
+        //Добавление очередного типа вопроса в коллекцию
+        try {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        } catch (org.openqa.selenium.StaleElementReferenceException ex) {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        }
         driver.findElement(xpathButtonSaveInWindow).click();
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("mat-dialog-container")));
-        if ( interviewDescription.contains("Загрузка файлов; ")){}
-        else {
+        if (interviewDescription.contains("Загрузка файлов; ")) {
+        } else {
             interviewDescription = interviewDescription + "Загрузка файлов; ";
         }
         System.out.println("Question successfully Added: Download Files - JPEG");
@@ -415,10 +484,16 @@ public class InterviewsPage extends Login {
         driver.findElement(selectorFieldImage).sendKeys(imageQuestionDownloadPNG);
         waitingSpinner();
         wait.until(ExpectedConditions.elementToBeClickable(xpathButtonSaveInWindow));
+        //Добавление очередного типа вопроса в коллекцию
+        try {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        } catch (org.openqa.selenium.StaleElementReferenceException ex) {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        }
         driver.findElement(xpathButtonSaveInWindow).click();
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("mat-dialog-container")));
-        if ( interviewDescription.contains("Загрузка файлов; ")){}
-        else {
+        if (interviewDescription.contains("Загрузка файлов; ")) {
+        } else {
             interviewDescription = interviewDescription + "Загрузка файлов; ";
         }
         System.out.println("Question successfully Added: Download Files - PNG");
@@ -442,10 +517,16 @@ public class InterviewsPage extends Login {
         driver.findElement(selectorFieldImage).sendKeys(imageQuestionDownloadPDF);
         waitingSpinner();
         wait.until(ExpectedConditions.elementToBeClickable(xpathButtonSaveInWindow));
+        //Добавление очередного типа вопроса в коллекцию
+        try {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        } catch (org.openqa.selenium.StaleElementReferenceException ex) {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        }
         driver.findElement(xpathButtonSaveInWindow).click();
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("mat-dialog-container")));
-        if ( interviewDescription.contains("Загрузка файлов; ")){}
-        else {
+        if (interviewDescription.contains("Загрузка файлов; ")) {
+        } else {
             interviewDescription = interviewDescription + "Загрузка файлов; ";
         }
         System.out.println("Question successfully Added: Download Files - PDF");
@@ -471,10 +552,16 @@ public class InterviewsPage extends Login {
         driver.findElement(selectorFieldImage).sendKeys(imageQuestionDownloadDOC);
         waitingSpinner();
         wait.until(ExpectedConditions.elementToBeClickable(xpathButtonSaveInWindow));
+        //Добавление очередного типа вопроса в коллекцию
+        try {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        } catch (org.openqa.selenium.StaleElementReferenceException ex) {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        }
         driver.findElement(xpathButtonSaveInWindow).click();
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("mat-dialog-container")));
-        if ( interviewDescription.contains("Загрузка файлов; ")){}
-        else {
+        if (interviewDescription.contains("Загрузка файлов; ")) {
+        } else {
             interviewDescription = interviewDescription + "Загрузка файлов; ";
         }
         System.out.println("Question successfully Added: Download Files - DOC");
@@ -500,10 +587,16 @@ public class InterviewsPage extends Login {
         driver.findElement(selectorFieldImage).sendKeys(imageQuestionDownloadXLS);
         waitingSpinner();
         wait.until(ExpectedConditions.elementToBeClickable(xpathButtonSaveInWindow));
+        //Добавление очередного типа вопроса в коллекцию
+        try {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        } catch (org.openqa.selenium.StaleElementReferenceException ex) {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        }
         driver.findElement(xpathButtonSaveInWindow).click();
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("mat-dialog-container")));
-        if ( interviewDescription.contains("Загрузка файлов; ")){}
-        else {
+        if (interviewDescription.contains("Загрузка файлов; ")) {
+        } else {
             interviewDescription = interviewDescription + "Загрузка файлов; ";
         }
         System.out.println("Question successfully Added: Download Files - XLS");
@@ -537,10 +630,16 @@ public class InterviewsPage extends Login {
         driver.findElement(selectorFieldImage).sendKeys(imageQuestionDownloadALL);
         waitingSpinner();
         wait.until(ExpectedConditions.elementToBeClickable(xpathButtonSaveInWindow));
+        //Добавление очередного типа вопроса в коллекцию
+        try {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        } catch (org.openqa.selenium.StaleElementReferenceException ex) {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        }
         driver.findElement(xpathButtonSaveInWindow).click();
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("mat-dialog-container")));
-        if ( interviewDescription.contains("Загрузка файлов; ")){}
-        else {
+        if (interviewDescription.contains("Загрузка файлов; ")) {
+        } else {
             interviewDescription = interviewDescription + "Загрузка файлов; ";
         }
         System.out.println("Question successfully Added: Download Files - ALL");
@@ -559,10 +658,16 @@ public class InterviewsPage extends Login {
         driver.findElement(selectorFieldImage).sendKeys(imageQuestionText);
         waitingSpinner();
         wait.until(ExpectedConditions.elementToBeClickable(xpathButtonSaveInWindow));
+        //Добавление очередного типа вопроса в коллекцию
+        try {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        } catch (org.openqa.selenium.StaleElementReferenceException ex) {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        }
         driver.findElement(xpathButtonSaveInWindow).click();
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("mat-dialog-container")));
-        if ( interviewDescription.contains("Текст; ")){}
-        else {
+        if (interviewDescription.contains("Текст; ")) {
+        } else {
             interviewDescription = interviewDescription + "Текст; ";
         }
         System.out.println("Question successfully Added: Text");
@@ -615,7 +720,14 @@ public class InterviewsPage extends Login {
 
     public void getAllQuestionsType() {
         wait.until(ExpectedConditions.presenceOfElementLocated(selectorQuestionType));
-        questionTypes = driver.findElements(selectorQuestionType);
+        questionTypesWeb = driver.findElements(selectorQuestionType);
+        questionNamesWeb = driver.findElements(selectorQuestionName);
+
+        //Получение названия и типа вопроса
+        for (int i = 0; i < questionNamesWeb.size(); i++) {
+            questionNames.add(questionNamesWeb.get(i).getText());
+            questionTypes.add(questionTypesWeb.get(i).getText());
+        }
     }
 
 

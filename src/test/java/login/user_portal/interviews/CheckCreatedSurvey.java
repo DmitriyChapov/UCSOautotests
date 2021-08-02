@@ -56,8 +56,8 @@ public class CheckCreatedSurvey extends InterviewsPage {
         String openedSurveyHeading = driver.findElement(xpathOpenedSurveyHeading).getText();
         Assert.assertEquals("Не совпадает заголовок в открытом опросе", interviewHeading, openedSurveyHeading);
 
-        String openedSurveyDescription = driver.findElement(xpathOpenedSurveyDescription).getText();
-        Assert.assertEquals("Не совпадает краткое описание в открытом опросе", interviewDescription, openedSurveyDescription);
+        /*String openedSurveyDescription = driver.findElement(xpathOpenedSurveyDescription).getText();
+        Assert.assertEquals("Не совпадает краткое описание в открытом опросе", interviewDescription, openedSurveyDescription);*/
     }
 
     //Проверка вопроса в зависимости от его типа
