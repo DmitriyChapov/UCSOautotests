@@ -110,7 +110,7 @@ public class TSPPage extends Login {
     }
 
     public void openTabDiscount() throws InterruptedException {
-        //openTSPCard(tspNameAdmin);            // Открываем Карточку торгово-сервисного предприятия
+        openTSPCard(tspNameAdmin);            // Открываем Карточку торгово-сервисного предприятия
         driver.findElement(xpathTabDiscount).click();
         System.out.println("Go to tab Discount");
     }
