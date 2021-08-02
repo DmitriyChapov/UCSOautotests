@@ -719,6 +719,7 @@ public class InterviewsPage extends Login {
     }
 
     public void getAllQuestionsType() {
+        String test = "test";
         wait.until(ExpectedConditions.presenceOfElementLocated(selectorQuestionType));
         questionTypesWeb = driver.findElements(selectorQuestionType);
         questionNamesWeb = driver.findElements(selectorQuestionName);
