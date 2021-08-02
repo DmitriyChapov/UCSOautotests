@@ -113,12 +113,12 @@ public class TagsPage extends Login {
             if (tagNameSearch.equals(tagName)) {
                 wait.until(ExpectedConditions.elementToBeClickable(xpathIconDelete));
                 tagList.get(i).findElement(xpathIconDelete).click();
-                wait.until(ExpectedConditions.elementToBeClickable(xpathButtonDelete));
-                driver.findElement(xpathButtonDelete).click();
+                wait.until(ExpectedConditions.elementToBeClickable(xpathButtonAccept));
+                driver.findElement(xpathButtonAccept).click();
                 break;
             }
         }
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(xpathButtonDelete));
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(xpathButtonAccept));
         waitingSpinner();
         List<WebElement> tagListCheck = driver.findElements(xpathListInTable);
         Assert.assertEquals("Тег рубрики не удален",

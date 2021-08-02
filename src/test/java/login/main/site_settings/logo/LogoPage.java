@@ -99,12 +99,12 @@ public class LogoPage extends Login {
             if (logoNameSearch.equals(logoName)) {
                 wait.until(ExpectedConditions.elementToBeClickable(xpathIconDelete));
                 logoList.get(i).findElement(xpathIconDelete).click();
-                wait.until(ExpectedConditions.elementToBeClickable(xpathButtonDelete));
-                driver.findElement(xpathButtonDelete).click();
+                wait.until(ExpectedConditions.elementToBeClickable(xpathButtonAccept));
+                driver.findElement(xpathButtonAccept).click();
                 break;
             }
         }
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(xpathButtonDelete));
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(xpathButtonAccept));
         waitingSpinner();
         List<WebElement> logoListCheck = driver.findElements(xpathListBlocks);
         Assert.assertEquals("Логотип не удален",

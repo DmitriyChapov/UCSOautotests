@@ -6,7 +6,6 @@ import org.junit.Test;
 public class CreateAndDeletePosition extends PositionsPage {
 
     @Test
-    public void testCreateAndDeletePosition() {
-        createAndDeletePosition();
+    public void testCreateAndDeletePosition() {createAndDeletePosition();
     }
 }

@@ -113,12 +113,12 @@ public class PositionsPage extends Login {
             if (positionNameSearch.equals(positionName)) {
                 wait.until(ExpectedConditions.elementToBeClickable(xpathIconDelete));
                 positionList.get(i).findElement(xpathIconDelete).click();
-                wait.until(ExpectedConditions.elementToBeClickable(xpathButtonDelete));
-                driver.findElement(xpathButtonDelete).click();
+                wait.until(ExpectedConditions.elementToBeClickable(xpathButtonAccept));
+                driver.findElement(xpathButtonAccept).click();
                 break;
             }
         }
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(xpathButtonDelete));
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(xpathButtonAccept));
         waitingSpinner();
         List<WebElement> positionListCheck = driver.findElements(xpathListInTable);
         Assert.assertEquals("Должность не удалена",

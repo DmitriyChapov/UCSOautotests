@@ -173,12 +173,12 @@ public class TransportAppSeriesPage extends Login {
             if (transportAppSeriesListNameSearch.equals(transportAppSeries)) {
                 wait.until(ExpectedConditions.elementToBeClickable(xpathIconDelete));
                 transportAppSeriesList.get(i).findElement(xpathIconDelete).click();
-                wait.until(ExpectedConditions.elementToBeClickable(xpathButtonDelete));
-                driver.findElement(xpathButtonDelete).click();
+                wait.until(ExpectedConditions.elementToBeClickable(xpathButtonAccept));
+                driver.findElement(xpathButtonAccept).click();
                 break;
             }
         }
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(xpathButtonDelete));
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(xpathButtonAccept));
         waitingSpinner();
         List<WebElement> transportAppSeriesCheck = driver.findElements(xpathListInTable);
         Assert.assertEquals("Серия транспортного приложения не удалена",

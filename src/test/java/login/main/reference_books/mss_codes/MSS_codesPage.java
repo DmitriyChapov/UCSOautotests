@@ -116,12 +116,12 @@ public class MSS_codesPage extends Login {
             if (mss_CodeNameSearch.equals(mss_CodeName)) {
                 wait.until(ExpectedConditions.elementToBeClickable(xpathIconDelete));
                 mss_CodeList.get(i).findElement(xpathIconDelete).click();
-                wait.until(ExpectedConditions.elementToBeClickable(xpathButtonDelete));
-                driver.findElement(xpathButtonDelete).click();
+                wait.until(ExpectedConditions.elementToBeClickable(xpathButtonAccept));
+                driver.findElement(xpathButtonAccept).click();
                 break;
             }
         }
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(xpathButtonDelete));
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(xpathButtonAccept));
         waitingSpinner();
         List<WebElement> mss_CodeListCheck = driver.findElements(xpathListInTable);
         Assert.assertEquals("МСС-код не удален",

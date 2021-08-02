@@ -111,10 +111,12 @@ public class GuidelinesAndRegulations extends Login {
             if (documentNameSearch.equals(documentName)) {
                 wait.until(ExpectedConditions.elementToBeClickable(xpathIconDelete));
                 documentList.get(i).findElement(xpathIconDelete).click();
+                wait.until(ExpectedConditions.elementToBeClickable(xpathButtonAccept));
+                driver.findElement(xpathButtonAccept).click();
                 break;
             }
         }
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(xpathIconDelete));
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(xpathButtonAccept));
         waitingSpinner();
         documentListCheck = driver.findElements(xpathListInTable);
         Assert.assertEquals("Документ не удален",

@@ -71,7 +71,7 @@ public class TSPPage extends Login {
     }
 
     public void addImagePromotionCard() throws InterruptedException {
-        driver.findElement(xpathButtonDownloadImage).click();
+        driver.findElement(xpathButtonSpanDownloadImage).click();
         Thread.sleep(1000);
         driver.findElement(selectorFieldImage).sendKeys(imagePromotionAdmin);
         driver.findElement(xpathButtonSaveImage).click();
@@ -136,7 +136,7 @@ public class TSPPage extends Login {
     }
 
     public void addImageDiscountCard() throws InterruptedException {
-        driver.findElement(xpathButtonDownloadImage).click();
+        driver.findElement(xpathButtonSpanDownloadImage).click();
         Thread.sleep(1000);
         driver.findElement(selectorFieldImage).sendKeys(imageDiscountAdmin);
         driver.findElement(xpathButtonSaveImage).click();

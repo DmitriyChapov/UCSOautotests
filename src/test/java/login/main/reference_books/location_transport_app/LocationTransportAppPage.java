@@ -119,12 +119,12 @@ public class LocationTransportAppPage extends Login {
             if (locationTransportAppNameSearch.equals(locationTransportAppName)) {
                 wait.until(ExpectedConditions.elementToBeClickable(xpathIconDelete));
                 locationTransportAppList.get(i).findElement(xpathIconDelete).click();
-                wait.until(ExpectedConditions.elementToBeClickable(xpathButtonDelete));
-                driver.findElement(xpathButtonDelete).click();
+                wait.until(ExpectedConditions.elementToBeClickable(xpathButtonAccept));
+                driver.findElement(xpathButtonAccept).click();
                 break;
             }
         }
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(xpathButtonDelete));
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(xpathButtonAccept));
         waitingSpinner();
         List<WebElement> locationTransportAppListCheck = driver.findElements(xpathListInTable);
         Assert.assertEquals("Локация транспортного приложения не удалена",

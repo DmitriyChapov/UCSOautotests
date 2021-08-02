@@ -6,8 +6,7 @@ import login.main.administration.TSP.CreateTSP;
 public class CreationTSP extends CreateTSP{
 
     @Test
-    public void testCreationTSP() throws InterruptedException{
+    public void testCreationTSP() {
         CreationTSP();
-
     }
 }

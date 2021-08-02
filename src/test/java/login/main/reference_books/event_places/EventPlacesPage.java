@@ -119,12 +119,12 @@ public class EventPlacesPage extends Login {
             if (eventPlaceNameSearch.equals(eventPlaceName)) {
                 wait.until(ExpectedConditions.elementToBeClickable(xpathIconDelete));
                 eventPlaceList.get(i).findElement(xpathIconDelete).click();
-                wait.until(ExpectedConditions.elementToBeClickable(xpathButtonDelete));
-                driver.findElement(xpathButtonDelete).click();
+                wait.until(ExpectedConditions.elementToBeClickable(xpathButtonAccept));
+                driver.findElement(xpathButtonAccept).click();
                 break;
             }
         }
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(xpathButtonDelete));
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(xpathButtonAccept));
         waitingSpinner();
         List<WebElement> eventPlaceListCheck = driver.findElements(xpathListInTable);
         Assert.assertEquals("Учреждение для проведения мероприятий не удалено",

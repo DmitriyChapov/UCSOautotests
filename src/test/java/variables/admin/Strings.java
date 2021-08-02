@@ -187,7 +187,7 @@ public class Strings {
     public static String bannerName = "Наименование Баннера, с кол-вом знаков 70, созданный автотестом № " + nmbAutoTest;
     public static String firstLineName = "Автотест заполнения 1 строки";
     public static String secondLineName = "Автотест заполнения 2 строки";
-    public static String notificationBannerSave = "Баннер \"" + bannerName + "\" успешно сохранен";
+    public static String notificationBannerSave = "Баннер \"" + bannerName + "\" успешно сохранен.";
 
     //Логотип
     public static String logoPageName = "Управление логотипом";

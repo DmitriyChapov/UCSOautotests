@@ -197,12 +197,12 @@ public class BanksPage extends Login{
             if (bankNameSearch.equals(bankName)) {
                 wait.until(ExpectedConditions.elementToBeClickable(xpathIconDelete));
                 bankList.get(i).findElement(xpathIconDelete).click();
-                wait.until(ExpectedConditions.elementToBeClickable(xpathButtonDelete));
-                driver.findElement(xpathButtonDelete).click();
+                wait.until(ExpectedConditions.elementToBeClickable(xpathButtonAccept));
+                driver.findElement(xpathButtonAccept).click();
                 break;
             }
         }
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(xpathButtonDelete));
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(xpathButtonAccept));
         waitingSpinner();
         List<WebElement> bankListCheck = driver.findElements(xpathListInTable);
         Assert.assertEquals("Банк не удален",
@@ -219,7 +219,7 @@ public class BanksPage extends Login{
         createBranch();          // Создаем отделения банка
         tabDesignCreate();       // Создаем дизайны банковских карт
         checkBankCard();         // Проверяем заполненность карточки Банка
-       // deleteBank();            // Удаляем банк
+        deleteBank();            // Удаляем банк
     }
 
 }

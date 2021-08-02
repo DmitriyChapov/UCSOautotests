@@ -113,12 +113,12 @@ public class StructuralSubdivisionsPage extends Login {
             if (structuralSubdivisionNameSearch.equals(structuralSubdivisionName)) {
                 wait.until(ExpectedConditions.elementToBeClickable(xpathIconDelete));
                 structuralSubdivisionList.get(i).findElement(xpathIconDelete).click();
-                wait.until(ExpectedConditions.elementToBeClickable(xpathButtonDelete));
-                driver.findElement(xpathButtonDelete).click();
+                wait.until(ExpectedConditions.elementToBeClickable(xpathButtonAccept));
+                driver.findElement(xpathButtonAccept).click();
                 break;
             }
         }
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(xpathButtonDelete));
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(xpathButtonAccept));
         waitingSpinner();
         List<WebElement> structuralSubdivisionListCheck = driver.findElements(xpathListInTable);
         Assert.assertEquals("Струтурное подразделение не удалено",

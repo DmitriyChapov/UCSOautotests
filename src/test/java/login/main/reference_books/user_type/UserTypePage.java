@@ -117,12 +117,12 @@ public class UserTypePage extends Login {
             if (userTypeNameSearch.equals(userTypeName)) {
                 wait.until(ExpectedConditions.elementToBeClickable(xpathIconDelete));
                 userTypeList.get(i).findElement(xpathIconDelete).click();
-                wait.until(ExpectedConditions.elementToBeClickable(xpathButtonDelete));
-                driver.findElement(xpathButtonDelete).click();
+                wait.until(ExpectedConditions.elementToBeClickable(xpathButtonAccept));
+                driver.findElement(xpathButtonAccept).click();
                 break;
             }
         }
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(xpathButtonDelete));
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(xpathButtonAccept));
         waitingSpinner();
         List<WebElement> userTypeListCheck = driver.findElements(xpathListInTable);
         Assert.assertEquals("Тип пользователя не удален",

@@ -38,7 +38,7 @@ public class CreateTSP extends Login {
         pageDown.executeScript("scroll(0,500)", "");
         driver.findElement(xpathMCCField).click();
         driver.findElement(xpathMCCChooseField).click();
-        driver.findElement(xpathButtonDownloadImage).click();
+        driver.findElement(xpathButtonSpanDownloadImage).click();
         driver.findElement(xpathChooseFile).sendKeys(imageLogoTSPAdmin);
         driver.findElement(xpathButtonOk).click();
         pageDown.executeScript("scroll(0,1500)", "");
@@ -136,13 +136,12 @@ public class CreateTSP extends Login {
             if (TSPNameSearch.equals(adminTSPName)) {
                 wait.until(ExpectedConditions.elementToBeClickable(xpathIconDelete));
                 TSPList.get(i).findElement(xpathIconDelete).click();
-                wait.until(ExpectedConditions.elementToBeClickable(xpathButtonYes));
-                driver.findElement(xpathButtonYes).click();
+                wait.until(ExpectedConditions.elementToBeClickable(xpathButtonAccept));
+                driver.findElement(xpathButtonAccept).click();
                 break;
             }
-
         }
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(xpathButtonYes));
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(xpathButtonAccept));
         waitingSpinner();
         List<WebElement> TSPListCheck = driver.findElements(xpathListInTable);
         Assert.assertEquals("ТСП не удалена",0, TSPListCheck.size());

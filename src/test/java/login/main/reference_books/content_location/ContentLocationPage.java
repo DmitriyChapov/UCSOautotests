@@ -43,6 +43,7 @@ public class ContentLocationPage extends Login {
     public void createContentLocations() {
         List<WebElement> locationsBefore = driver.findElements(xpathLocationPathForCheck);
         nmbLocationsBefore = locationsBefore.size();
+        System.out.println("Кол-во локаций до автотеста: " + nmbLocationsBefore);
         List<WebElement> locationName = driver.findElements(selectorIconAddLocation);
         locationName.get(locationName.size() - 1).click();
         int i = 1;
@@ -69,6 +70,7 @@ public class ContentLocationPage extends Login {
         }
         List<WebElement> locationsAfter = driver.findElements(xpathLocationPathForCheck);
         nmbLocationsAfter = locationsAfter.size();
+        System.out.println("Кол-во локаций до автотеста: " + nmbLocationsAfter);
         int nmbCreatedLocations = nmbLocationsAfter - nmbLocationsBefore;
         Assert.assertEquals("Не все Локации контента созданы",
                 (nmbLocations +1), nmbCreatedLocations);
@@ -99,7 +101,7 @@ public class ContentLocationPage extends Login {
         for (int i = (nmbLocations + 1) ; i >= 1; i--){
             wait.until(ExpectedConditions.elementToBeClickable(xpathLocationPathDelete(i)));
             driver.findElement(xpathLocationPathDelete(i)).click();
-            driver.findElement(xpathButtonDelete).click();
+            driver.findElement(xpathButtonAccept).click();
             wait.until(ExpectedConditions.visibilityOfElementLocated(xpathNotifier));
             String textNotificationLocationDelete = driver.findElement(xpathNotifier).getText();
             Assert.assertEquals("Не совпадают тексты нотификаций при удалении Локации контента",
