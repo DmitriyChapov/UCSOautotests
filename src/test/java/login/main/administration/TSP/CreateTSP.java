@@ -1,6 +1,7 @@
 package login.main.administration.TSP;
 
 import login.Login;
+import login.main.tsp.TSPPage;
 import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -18,7 +19,7 @@ import static variables.common.Urls.*;
 import static variables.admin.Urls.*;
 
 
-public class CreateTSP extends Login {
+public class CreateTSP extends TSPPage {
 
     public void sectionTSP() {
         wait.until(ExpectedConditions.elementToBeClickable(xpathTSP));
@@ -115,6 +116,8 @@ public class CreateTSP extends Login {
         String TSPDopForCheck = driver.findElement(xpathDop).getAttribute("value");
         Assert.assertEquals("Некорректно заполнено поле 'Дополнительно'", adminTSPOptionalText, TSPDopForCheck);
         System.out.println("TSP has been successfully Verified");
+        JavascriptExecutor pageUp = (JavascriptExecutor) driver;
+        pageUp.executeScript("window.scroll(0,-3000)", "");
 
     }
 
@@ -148,12 +151,18 @@ public class CreateTSP extends Login {
         System.out.println("TSP successfully Deleted");
     }
 
-    public void CreationTSP() {
+    public void CreationTSP() throws InterruptedException {
         loginAdmin(); // Авторизация под пользователем с правами "Администратор"
         sectionTSP(); // Переход в раздел "Торгово-сервисные предприятия"
         sectionCreationTSP(); // Создание и заполнение ТСП
         compareTSP(); // Проверка правильности заполнения ТСП
-        deleteTSP(); // Удаление ТСП
+        publicPromotion(); // Создание акции
+        comparePromotion(); // Проверка правильности заполнения Акции
+
+
+
+
+        //deleteTSP(); // Удаление ТСП
 
 
     }
