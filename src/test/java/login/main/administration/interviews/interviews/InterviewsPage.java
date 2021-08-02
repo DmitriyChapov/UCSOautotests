@@ -4,7 +4,6 @@ import login.Login;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.interactions.SourceType;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import static variables.admin.Collections.*;
@@ -13,9 +12,7 @@ import static variables.admin.Xpath.*;
 import static variables.admin.Selector.*;
 import static variables.admin.Strings.*;
 import static variables.admin.FilesForAdd.*;
-import static variables.portal.Collections.surveyOneVarVariants;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class InterviewsPage extends Login {
@@ -76,6 +73,12 @@ public class InterviewsPage extends Login {
         driver.findElement(selectorFieldAnswerMaxLength).sendKeys(String.valueOf(maxSymbolShortNumber));
         driver.findElement(selectorFieldImage).sendKeys(imageQuestionShortNumber);
         Thread.sleep(2000);
+        //Добавление очередного типа вопроса в коллекцию
+        try {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        } catch (org.openqa.selenium.StaleElementReferenceException ex) {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        }
         driver.findElement(xpathButtonSaveInWindow).click();
         System.out.println("Create qestion Short Answer - Number");
     }
@@ -93,6 +96,12 @@ public class InterviewsPage extends Login {
         driver.findElement(selectorFieldAnswerMaxLength).sendKeys(String.valueOf(maxSymbolShortDouble));
         driver.findElement(selectorFieldImage).sendKeys(imageQuestionShortDouble);
         Thread.sleep(2000);
+        //Добавление очередного типа вопроса в коллекцию
+        try {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        } catch (org.openqa.selenium.StaleElementReferenceException ex) {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        }
         driver.findElement(xpathButtonSaveInWindow).click();
         System.out.println("Create qestion Short Answer - Double");
     }
@@ -109,6 +118,12 @@ public class InterviewsPage extends Login {
         driver.findElement(selectorFieldQuestionDescription).sendKeys(questionShortPhoneDescription);
         driver.findElement(selectorFieldImage).sendKeys(imageQuestionShortPhone);
         Thread.sleep(2000);
+        //Добавление очередного типа вопроса в коллекцию
+        try {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        } catch (org.openqa.selenium.StaleElementReferenceException ex) {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        }
         driver.findElement(xpathButtonSaveInWindow).click();
         System.out.println("Create qestion Short Answer - Phone");
     }
@@ -126,6 +141,12 @@ public class InterviewsPage extends Login {
         driver.findElement(selectorFieldAnswerMaxLength).sendKeys(String.valueOf(maxSymbolShortSymbol));
         driver.findElement(selectorFieldImage).sendKeys(imageQuestionShortSymbol);
         Thread.sleep(2000);
+        //Добавление очередного типа вопроса в коллекцию
+        try {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        } catch (org.openqa.selenium.StaleElementReferenceException ex) {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        }
         driver.findElement(xpathButtonSaveInWindow).click();
         System.out.println("Create qestion Short Answer - Symbol");
     }
@@ -141,6 +162,12 @@ public class InterviewsPage extends Login {
         driver.findElement(selectorFieldAnswerMaxLength).sendKeys(String.valueOf(maxSymbolShortNoValid));
         driver.findElement(selectorFieldImage).sendKeys(imageQuestionShortNoValid);
         Thread.sleep(2000);
+        //Добавление очередного типа вопроса в коллекцию
+        try {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        } catch (org.openqa.selenium.StaleElementReferenceException ex) {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        }
         driver.findElement(xpathButtonSaveInWindow).click();
         System.out.println("Create qestion Short Answer - No valid");
     }
@@ -156,6 +183,12 @@ public class InterviewsPage extends Login {
         driver.findElement(selectorFieldAnswerMaxLength).sendKeys(String.valueOf(maxSymbolLong));
         driver.findElement(selectorFieldImage).sendKeys(imageQuestionLong);
         Thread.sleep(2000);
+        //Добавление очередного типа вопроса в коллекцию
+        try {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        } catch (org.openqa.selenium.StaleElementReferenceException ex) {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        }
         driver.findElement(xpathButtonSaveInWindow).click();
         System.out.println("Create qestion Long Answer");
     }
@@ -180,6 +213,12 @@ public class InterviewsPage extends Login {
         }
         Thread.sleep(2000);
         questionOneVarVariants = driver.findElements(xpathCreatedSurveyOneVarVariants);         //Получение списка вариантов
+        //Добавление очередного типа вопроса в коллекцию
+        try {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        } catch (org.openqa.selenium.StaleElementReferenceException ex) {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        }
         driver.findElement(xpathButtonSaveInWindow).click();
         System.out.println("Create qestion One Variant");
 
@@ -208,6 +247,12 @@ public class InterviewsPage extends Login {
         }
         Thread.sleep(2000);
         questionSomeVarVariants = driver.findElements(xpathCreatedSurveySomeVarVariants);       //Получение списка вариантов
+        //Добавление очередного типа вопроса в коллекцию
+        try {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        } catch (org.openqa.selenium.StaleElementReferenceException ex) {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        }
         driver.findElement(xpathButtonSaveInWindow).click();
         System.out.println("Create qestion Some Variant");
 
@@ -235,6 +280,12 @@ public class InterviewsPage extends Login {
         }
         Thread.sleep(2000);
         questionDropDownVariants = driver.findElements(xpathCreatedSurveyDropDownVariants);       //Получение списка вариантов
+        //Добавление очередного типа вопроса в коллекцию
+        try {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        } catch (org.openqa.selenium.StaleElementReferenceException ex) {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        }
         driver.findElement(xpathButtonSaveInWindow).click();
         System.out.println("Create qestion Drop Down");
 
@@ -262,6 +313,12 @@ public class InterviewsPage extends Login {
         driver.findElement(selectorFieldQuestionDescription).sendKeys(questionScaleDescription);
         Thread.sleep(2000);
         scaleCount = driver.findElement(xpathCreatedSurveyScaleCount).getText();
+        //Добавление очередного типа вопроса в коллекцию
+        try {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        } catch (org.openqa.selenium.StaleElementReferenceException ex) {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        }
         driver.findElement(xpathButtonSaveInWindow).click();
         System.out.println("Create qestion Scale");
     }
@@ -281,6 +338,12 @@ public class InterviewsPage extends Login {
         driver.findElement(selectorFieldAnswerMaxFiles).sendKeys(String.valueOf(maxFilesJPEG));
         driver.findElement(selectorFieldImage).sendKeys(imageQuestionDownloadJPEG);
         Thread.sleep(2000);
+        //Добавление очередного типа вопроса в коллекцию
+        try {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        } catch (org.openqa.selenium.StaleElementReferenceException ex) {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        }
         driver.findElement(xpathButtonSaveInWindow).click();
         System.out.println("Create qestion Download Files - JPEG");
     }
@@ -298,6 +361,12 @@ public class InterviewsPage extends Login {
         driver.findElement(By.xpath("/html/body/div[2]/div[3]")).click();
         driver.findElement(selectorFieldImage).sendKeys(imageQuestionDownloadPNG);
         Thread.sleep(2000);
+        //Добавление очередного типа вопроса в коллекцию
+        try {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        } catch (org.openqa.selenium.StaleElementReferenceException ex) {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        }
         driver.findElement(xpathButtonSaveInWindow).click();
         System.out.println("Create qestion Download Files - PNG");
     }
@@ -315,6 +384,12 @@ public class InterviewsPage extends Login {
         driver.findElement(By.xpath("/html/body/div[2]/div[3]")).click();
         driver.findElement(selectorFieldImage).sendKeys(imageQuestionDownloadPDF);
         Thread.sleep(2000);
+        //Добавление очередного типа вопроса в коллекцию
+        try {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        } catch (org.openqa.selenium.StaleElementReferenceException ex) {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        }
         driver.findElement(xpathButtonSaveInWindow).click();
         System.out.println("Create qestion Download Files - PDF");
     }
@@ -334,6 +409,12 @@ public class InterviewsPage extends Login {
         driver.findElement(selectorFieldAnswerMaxFiles).sendKeys(String.valueOf(maxFilesDOC));
         driver.findElement(selectorFieldImage).sendKeys(imageQuestionDownloadDOC);
         Thread.sleep(2000);
+        //Добавление очередного типа вопроса в коллекцию
+        try {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        } catch (org.openqa.selenium.StaleElementReferenceException ex) {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        }
         driver.findElement(xpathButtonSaveInWindow).click();
         System.out.println("Create qestion Download Files - DOC");
     }
@@ -354,6 +435,12 @@ public class InterviewsPage extends Login {
         driver.findElement(selectorFieldAnswerMaxFiles).sendKeys(String.valueOf(maxFilesXLS));
         driver.findElement(selectorFieldImage).sendKeys(imageQuestionDownloadXLS);
         Thread.sleep(2000);
+        //Добавление очередного типа вопроса в коллекцию
+        try {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        } catch (org.openqa.selenium.StaleElementReferenceException ex) {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        }
         driver.findElement(xpathButtonSaveInWindow).click();
         System.out.println("Create qestion Download Files - XLS");
     }
@@ -378,6 +465,12 @@ public class InterviewsPage extends Login {
         driver.findElement(selectorFieldAnswerMaxFiles).sendKeys(String.valueOf(maxFilesALL));
         driver.findElement(selectorFieldImage).sendKeys(imageQuestionDownloadALL);
         Thread.sleep(2000);
+        //Добавление очередного типа вопроса в коллекцию
+        try {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        } catch (org.openqa.selenium.StaleElementReferenceException ex) {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        }
         driver.findElement(xpathButtonSaveInWindow).click();
         System.out.println("Create qestion Download Files - ALL");
     }
@@ -392,6 +485,12 @@ public class InterviewsPage extends Login {
         driver.findElement(selectorFieldQuestionDescription).sendKeys(questionTextDescription);
         driver.findElement(selectorFieldImage).sendKeys(imageQuestionText);
         Thread.sleep(2000);
+        //Добавление очередного типа вопроса в коллекцию
+        try {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        } catch (org.openqa.selenium.StaleElementReferenceException ex) {
+            questionDescriptions.add(driver.findElement(selectorQuestionDescription).getAttribute("value"));
+        }
         driver.findElement(xpathButtonSaveInWindow).click();
         System.out.println("Create qestion Text");
     }
@@ -435,7 +534,7 @@ public class InterviewsPage extends Login {
         Thread.sleep(2000);
         qestionDownloadFilesALL();           //Создаем вопрос "Загрузка файла" - Все типы
         Thread.sleep(1000);
-        qestionText();                       //Создаем вопрос "Текс"
+        qestionText();                       //Создаем вопрос "Текст"
         Thread.sleep(2000);
         driver.findElement(xpathButtonSave).click();
         System.out.println("Create Interview");
@@ -450,15 +549,23 @@ public class InterviewsPage extends Login {
 
     public void getAllQuestionsType() {
         wait.until(ExpectedConditions.presenceOfElementLocated(selectorQuestionType));
-        questionTypes = driver.findElements(selectorQuestionType);
-    }
+        questionTypesWeb = driver.findElements(selectorQuestionType);
+        questionNamesWeb = driver.findElements(selectorQuestionName);
 
+        //Получение названия и типа вопроса
+        for (int i = 0; i < questionNamesWeb.size(); i++) {
+
+            questionNames.add(questionNamesWeb.get(i).getText());
+            questionTypes.add(questionTypesWeb.get(i).getText());
+        }
+    }
 
     public void publicInterview() throws InterruptedException {
         createInterview();                 // Создаем Опрос
         Thread.sleep(2000);
         getSurveyId();
         getAllQuestionsType();
+        Thread.sleep(2000);
         driver.findElement(xpathButtonPublic).click();
         Thread.sleep(2000);
         driver.findElement(xpathButtonSaveInWindow).click();

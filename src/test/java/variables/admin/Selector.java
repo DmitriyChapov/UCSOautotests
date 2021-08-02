@@ -49,6 +49,8 @@ public class Selector {
     public static By selectorSelectTypeQuestion = By.cssSelector("[name = 'type']");
     public static By selectorSelectValidationType = By.cssSelector("[name = 'answerValidationType']");
     public static By selectorQuestionType = By.cssSelector("p[class = 'question__type']");
+    public static By selectorQuestionName = By.cssSelector("p[class = 'question__text']");
+    public static By selectorQuestionDescription = By.cssSelector("textarea[id = 'questionDescription']");
 
     //ТСП, Скидки, Акции
     public static By selectorFieldAddressOffer = By.cssSelector("[name = 'addressName']");

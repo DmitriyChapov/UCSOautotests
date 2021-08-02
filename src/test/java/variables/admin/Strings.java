@@ -151,6 +151,7 @@ public class Strings {
     public static String questionTextDescription = "Просто текст";
     public static String surveyId;
     public static String scaleCount;
+    public static String qType;
 
     //ТСП, Скидки, Акции
     public static String tspNameAdmin = "AutoTest Сorporation";

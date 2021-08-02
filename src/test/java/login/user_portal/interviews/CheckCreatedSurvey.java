@@ -2,16 +2,18 @@ package login.user_portal.interviews;
 
 import login.main.administration.interviews.interviews.InterviewsPage;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+
+import java.util.ArrayList;
+import java.util.List;
+
 import static variables.admin.Collections.*;
-import static variables.portal.Selector.*;
 import static variables.portal.Xpath.*;
 import static variables.portal.Collections.*;
 import static variables.admin.Strings.*;
+import static variables.portal.Numbers.*;
 
 public class CheckCreatedSurvey extends InterviewsPage {
 
@@ -46,9 +48,11 @@ public class CheckCreatedSurvey extends InterviewsPage {
         }
     }
 
-
     public void surveyMainAttributesAssert() {
         wait.until(ExpectedConditions.presenceOfElementLocated(xpathOpenedSurveyElements));
+        openedSurveyNamesNow = driver.findElements(xpathOpenedSurveyNames);
+        openedSurveyDescriptionsNow = driver.findElements(xpathOpenedSurveyDescriptions);
+
         String openedSurveyHeading = driver.findElement(xpathOpenedSurveyHeading).getText();
         Assert.assertEquals("Не совпадает заголовок в открытом опросе", interviewHeading, openedSurveyHeading);
 
@@ -56,185 +60,173 @@ public class CheckCreatedSurvey extends InterviewsPage {
         Assert.assertEquals("Не совпадает краткое описание в открытом опросе", interviewDescription, openedSurveyDescription);
     }
 
-    //Вопрос "Короткий ответ" - Числовая форма
-    public void surveyShortAnswerNumberAssert() {
-        String openedSurveyShortAnswerNumberNameNow = driver.findElement(xpathOpenedSurveyShortAnswerNumberName).getText();
-        Assert.assertEquals("Не совпадает наименование вопроса с коротким ответом (числовая форма) в открытом опроснике", questionShortNumberName, openedSurveyShortAnswerNumberNameNow);
+    //Проверка вопроса в зависимости от его типа
+    public void surveyQuestionsAssert() {
+        for (counter = 0; counter < questionTypes.size(); counter++) {
+            qType = questionTypes.get(counter);
 
-        String openedSurveyShortAnswerNumberDescriptionNow = driver.findElement(xpathOpenedSurveyShortAnswerNumberDescription).getText();
-        Assert.assertEquals("Не совпадает краткое описание вопроса с коротким ответом (числовая форма) в открытом опроснике", questionShortNumberDescription, openedSurveyShortAnswerNumberDescriptionNow);
+            if (qType.equals("Короткий ответ")) {
+                surveyShortAnswerAssert(openedSurveyNamesNow, openedSurveyDescriptionsNow, questionNames, questionDescriptions);
+            } else if (qType.equals("Длинный ответ")) {
+                surveyLongAnswerAssert(openedSurveyNamesNow, openedSurveyDescriptionsNow, questionNames, questionDescriptions);
+            } else if (qType.equals("Один вариант")) {
+                surveyOneVarAnswerAssert(openedSurveyNamesNow, openedSurveyDescriptionsNow, questionNames, questionDescriptions);
+            } else if (qType.equals("Несколько вариантов")) {
+                surveySomeVarAnswerAssert(openedSurveyNamesNow, openedSurveyDescriptionsNow, questionNames, questionDescriptions);
+            } else if (qType.equals("Выпадающий список")) {
+                surveyDropDownAnswerAssert(openedSurveyNamesNow, openedSurveyDescriptionsNow, questionNames, questionDescriptions);
+            } else if (qType.equals("Шкала")) {
+                surveyScaleAnswerAssert(openedSurveyNamesNow, openedSurveyDescriptionsNow, questionNames, questionDescriptions);
+            } else if (qType.equals("Загрузка файла")) {
+                surveyDownloadFileAssert(openedSurveyNamesNow, openedSurveyDescriptionsNow, questionNames, questionDescriptions);
+            } else if (qType.equals("Текст")) {
+                surveyTextAnswerAssert(openedSurveyNamesNow, openedSurveyDescriptionsNow, questionNames, questionDescriptions);
+            }
+        }
     }
 
-    //Вопрос "Короткий ответ" - Дробные числа
-    public void surveyShortAnswerDoubleAssert() {
-        String openedSurveyShortAnswerDoubleNameNow = driver.findElement(xpathOpenedSurveyShortAnswerNumberName).getText();
-        Assert.assertEquals("Не совпадает наименование вопроса с коротким ответом (дробные числа) в открытом опроснике", questionShortDoubleName, openedSurveyShortAnswerDoubleNameNow);
+    //Проверка вопроса с коротким ответом
+    public void surveyShortAnswerAssert(List<WebElement> namesNow, List<WebElement> descriptionsNow, ArrayList<String> namesExpected, ArrayList<String> descriptionsExpected) {
+        String openedSurveyShortAnswerNameNow = namesNow.get(counter).getText();
+        String questionShortAnswerName = namesExpected.get(counter);
+        System.out.println(questionShortAnswerName);
 
-        String openedSurveyShortAnswerDoubleDescriptionNow = driver.findElement(xpathOpenedSurveyShortAnswerNumberDescription).getText();
-        Assert.assertEquals("Не совпадает краткое описание вопроса с коротким ответом (дробные числа) в открытом опроснике", questionShortDoubleDescription, openedSurveyShortAnswerDoubleDescriptionNow);
+        if (questionTypes.size() > 1) {
+            Assert.assertEquals("Не совпадает наименование вопроса с коротким ответом в открытом опроснике", questionShortAnswerName, openedSurveyShortAnswerNameNow.substring(3, openedSurveyShortAnswerNameNow.length()));
+        } else {
+            Assert.assertEquals("Не совпадает наименование вопроса с коротким ответом в открытом опроснике", questionShortAnswerName, openedSurveyShortAnswerNameNow);
+        }
+
+        String openedSurveyShortAnswerDescriptionNow = descriptionsNow.get(counter).getText();
+        String questionShortAnswerDescription = descriptionsExpected.get(counter);
+        System.out.println(questionShortAnswerDescription);
+        Assert.assertEquals("Не совпадает краткое описание вопроса с коротким ответом в открытом опроснике", questionShortAnswerDescription, openedSurveyShortAnswerDescriptionNow);
     }
 
-    //Вопрос "Короткий ответ" - Формат телефона
-    public void surveyShortAnswerPhoneAssert() {
-        String openedSurveyShortAnswerPhoneNameNow = driver.findElement(xpathOpenedSurveyShortAnswerNumberName).getText();
-        Assert.assertEquals("Не совпадает наименование вопроса с коротким ответом (формат телефона) в открытом опроснике", questionShortPhoneName, openedSurveyShortAnswerPhoneNameNow);
+    //Проверка вопроса с длинным ответом
+    public void surveyLongAnswerAssert(List<WebElement> namesNow, List<WebElement> descriptionsNow, ArrayList<String> namesExpected, ArrayList<String> descriptionsExpected) {
+        String openedSurveyLongAnswerNameNow = namesNow.get(counter).getText();
+        String questionLongAnswerName = namesExpected.get(counter);
+        System.out.println(questionLongAnswerName);
 
-        String openedSurveyShortAnswerPhoneDescriptionNow = driver.findElement(xpathOpenedSurveyShortAnswerNumberDescription).getText();
-        Assert.assertEquals("Не совпадает краткое описание вопроса с коротким ответом (формат телефона) в открытом опроснике", questionShortPhoneDescription, openedSurveyShortAnswerPhoneDescriptionNow);
+        if (questionTypes.size() > 1) {
+            Assert.assertEquals("Не совпадает наименование вопроса с длинным ответом в открытом опроснике", questionLongAnswerName, openedSurveyLongAnswerNameNow.substring(3, openedSurveyLongAnswerNameNow.length()));
+        } else {
+            Assert.assertEquals("Не совпадает наименование вопроса с длинным ответом в открытом опроснике", questionLongAnswerName, openedSurveyLongAnswerNameNow);
+        }
+
+        String openedSurveyLongAnswerDescriptionNow = descriptionsNow.get(counter).getText();
+        String questionLongAnswerDescription = descriptionsExpected.get(counter);
+        System.out.println(questionLongAnswerDescription);
+        Assert.assertEquals("Не совпадает краткое описание вопроса с коротким ответом (числовая форма) в открытом опроснике", questionLongAnswerDescription, openedSurveyLongAnswerDescriptionNow);
     }
 
-    //Вопрос "Короткий ответ" - Кириллические символы
-    public void surveyShortAnswerSymbolAssert() {
-        String openedSurveyShortAnswerSymbolNameNow = driver.findElement(xpathOpenedSurveyShortAnswerNumberName).getText();
-        Assert.assertEquals("Не совпадает наименование вопроса с коротким ответом (кириллические символы) в открытом опроснике", questionShortSymbolName, openedSurveyShortAnswerSymbolNameNow);
+    //Проверка вопроса 'Один вариант'
+    public void surveyOneVarAnswerAssert(List<WebElement> namesNow, List<WebElement> descriptionsNow, ArrayList<String> namesExpected, ArrayList<String> descriptionsExpected) {
+        String openedSurveyOneVarAnswerNameNow = namesNow.get(counter).getText();
+        String questionOneVarName = namesExpected.get(counter);
+        System.out.println(questionOneVarName);
 
-        String openedSurveyShortAnswerSymbolDescriptionNow = driver.findElement(xpathOpenedSurveyShortAnswerNumberDescription).getText();
-        Assert.assertEquals("Не совпадает краткое описание вопроса с коротким ответом (кириллические символы) в открытом опроснике", questionShortSymbolDescription, openedSurveyShortAnswerSymbolDescriptionNow);
-    }
+        if (questionTypes.size() > 1) {
+            Assert.assertEquals("Не совпадает наименование вопроса с одним вариантом ответа в открытом опроснике", questionOneVarName, openedSurveyOneVarAnswerNameNow.substring(3, openedSurveyOneVarAnswerNameNow.length()));
+        } else {
+            Assert.assertEquals("Не совпадает наименование вопроса с одним вариантом ответа в открытом опроснике", questionOneVarName, openedSurveyOneVarAnswerNameNow);
+        }
 
-    //Вопрос "Короткий ответ" - Без валидации
-    public void surveyShortAnswerNoValidAssert() {
-        String openedSurveyShortAnswerNoValidNameNow = driver.findElement(xpathOpenedSurveyShortAnswerNumberName).getText();
-        Assert.assertEquals("Не совпадает наименование вопроса с коротким ответом (без валидации) в открытом опроснике", questionShortNoValidName, openedSurveyShortAnswerNoValidNameNow);
-
-        String openedSurveyShortAnswerNoValidDescriptionNow = driver.findElement(xpathOpenedSurveyShortAnswerNumberDescription).getText();
-        Assert.assertEquals("Не совпадает краткое описание вопроса с коротким ответом (без валидации) в открытом опроснике", questionShortNoValidDescription, openedSurveyShortAnswerNoValidDescriptionNow);
-    }
-
-    //Вопрос "Длинный ответ"
-    public void surveyLongAnswerAssert() {
-        String openedSurveyLongAnswerNameNow = driver.findElement(xpathOpenedSurveyLongAnswerName).getText();
-        Assert.assertEquals("Не совпадает наименование вопроса с длинным в открытом опроснике", questionLongName, openedSurveyLongAnswerNameNow);
-
-        String openedSurveyLongAnswerDescriptionNow = driver.findElement(xpathOpenedSurveyLongAnswerDescription).getText();
-        Assert.assertEquals("Не совпадает краткое описание вопроса с длинным ответом в открытом опроснике", questionLongDescription, openedSurveyLongAnswerDescriptionNow);
-    }
-
-    //Вопрос "Один вариант ответа"
-    public void surveyOneVarAssert() {
-        String openedSurveyOneVarNameNow = driver.findElement(xpathOpenedSurveyOneVarName).getText();
-        Assert.assertEquals("Не совпадает наименование вопроса с одним вариантом ответа в открытом опроснике", questionOneVarName, openedSurveyOneVarNameNow);
-
-        String openedSurveyOneVarDescriptionNow = driver.findElement(xpathOpenedSurveyOneVarDescription).getText();
+        String openedSurveyOneVarDescriptionNow = descriptionsNow.get(counter).getText();
+        String questionOneVarDescription = descriptionsExpected.get(counter);
+        System.out.println(questionOneVarDescription);
         Assert.assertEquals("Не совпадает краткое описание вопроса с одним вариантом ответа в открытом опроснике", questionOneVarDescription, openedSurveyOneVarDescriptionNow);
-
-        wait.until(ExpectedConditions.presenceOfElementLocated(xpathOpenedSurveyOneVarVariants));
-        surveyOneVarVariants = driver.findElements(xpathOpenedSurveyOneVarVariants);
-
-        for (int i = 0; i < surveyOneVarVariants.size(); i++) {
-            Assert.assertEquals("Не совпадает вариант ответа в вопросе с одним вариантом ответа", questionOneVarVariantsNames.get(i), surveyOneVarVariants.get(i).getText());
-        }
     }
 
-    //Вопрос "Несколько вариантов ответа"
-    public void surveySomeVarAssert() {
-        String openedSurveySomeVarNameNow = driver.findElement(xpathOpenedSurveySomeVarName).getText();
-        Assert.assertEquals("Не совпадает наименование вопроса с несколькими вариантами ответа в открытом опроснике", questionSomeVarName, openedSurveySomeVarNameNow);
+    //Проверка вопроса 'Несколько вариантов'
+    public void surveySomeVarAnswerAssert(List<WebElement> namesNow, List<WebElement> descriptionsNow, ArrayList<String> namesExpected, ArrayList<String> descriptionsExpected) {
+        String openedSurveySomeVarAnswerNameNow = namesNow.get(counter).getText();
+        String questionSomeVarName = namesExpected.get(counter);
+        System.out.println(questionSomeVarName);
 
-        String openedSurveySomeVarDescriptionNow = driver.findElement(xpathOpenedSurveySomeVarDescription).getText();
+        if (questionTypes.size() > 1) {
+            Assert.assertEquals("Не совпадает наименование вопроса с несколькими вариантами ответа в открытом опроснике", questionSomeVarName, openedSurveySomeVarAnswerNameNow.substring(3, openedSurveySomeVarAnswerNameNow.length()));
+        } else {
+            Assert.assertEquals("Не совпадает наименование вопроса с несколькими вариантами ответа в открытом опроснике", questionSomeVarName, openedSurveySomeVarAnswerNameNow);
+        }
+
+        String openedSurveySomeVarDescriptionNow = descriptionsNow.get(counter).getText();
+        String questionSomeVarDescription = descriptionsExpected.get(counter);
+        System.out.println(questionSomeVarDescription);
         Assert.assertEquals("Не совпадает краткое описание вопроса с несколькими вариантами ответа в открытом опроснике", questionSomeVarDescription, openedSurveySomeVarDescriptionNow);
+    }
 
-        wait.until(ExpectedConditions.presenceOfElementLocated(xpathOpenedSurveySomeVarVariants));
-        surveySomeVarVariants = driver.findElements(xpathOpenedSurveySomeVarVariants);
+    //Проверка вопроса 'Выпадающий список'
+    public void surveyDropDownAnswerAssert(List<WebElement> namesNow, List<WebElement> descriptionsNow, ArrayList<String> namesExpected, ArrayList<String> descriptionsExpected) {
+        String openedSurveyDropDownAnswerNameNow = namesNow.get(counter).getText();
+        String questionDropDownName = namesExpected.get(counter);
+        System.out.println(questionDropDownName);
 
-        for (int i = 0; i < surveySomeVarVariants.size(); i++) {
-            Assert.assertEquals("Не совпадает вариант ответа в вопросе с несколькими вариантами ответа", questionSomeVarVariantsNames.get(i), surveySomeVarVariants.get(i).getText());
+        if (questionTypes.size() > 1) {
+            Assert.assertEquals("Не совпадает наименование вопроса с выпадающим списком в открытом опроснике", questionDropDownName, openedSurveyDropDownAnswerNameNow.substring(3, openedSurveyDropDownAnswerNameNow.length()));
+        } else {
+            Assert.assertEquals("Не совпадает наименование вопроса с выпадающим списком в открытом опроснике", questionDropDownName, openedSurveyDropDownAnswerNameNow);
         }
+
+        String openedSurveyDropDownDescriptionNow = descriptionsNow.get(counter).getText();
+        String questionDropDownDescription = descriptionsExpected.get(counter);
+        System.out.println(questionDropDownDescription);
+        Assert.assertEquals("Не совпадает краткое описание вопроса с выпадающим списком в открытом опроснике", questionDropDownDescription, openedSurveyDropDownDescriptionNow);
     }
 
-    //Вопрос "Выпадающий список"
-    public void surveyDropDownAssert() {
-        String openedSurveyDropDownNameNow = driver.findElement(xpathOpenedSurveyDropDownName).getText();
-        Assert.assertEquals("Не совпадает наименование вопроса с выпадающим списком в открытом опроснике", questionDropDownName, openedSurveyDropDownNameNow);
+    //Проверка вопроса 'Шкала'
+    public void surveyScaleAnswerAssert(List<WebElement> namesNow, List<WebElement> descriptionsNow, ArrayList<String> namesExpected, ArrayList<String> descriptionsExpected) {
+        String openedSurveyScaleAnswerNameNow = namesNow.get(counter).getText();
+        String questionScaleName = namesExpected.get(counter);
+        System.out.println(questionScaleName);
 
-        String openedSurveyDropDownDescription = driver.findElement(xpathOpenedSurveyDropDownDescription).getText();
-        Assert.assertEquals("Не совпадает краткое описание вопроса с выпадающим список в открытом опроснике", questionDropDownDescription, openedSurveyDropDownDescription);
-
-        wait.until(ExpectedConditions.elementToBeClickable(xpathOpenedSurveyShowDropDown));
-        driver.findElement(xpathOpenedSurveyShowDropDown).click();
-
-        wait.until(ExpectedConditions.presenceOfElementLocated(xpathOpenedSurveyDropDownVariants));
-        surveyDropDownVariants = driver.findElements(xpathOpenedSurveyDropDownVariants);
-
-        for (int i = 0; i < surveyDropDownVariants.size(); i++) {
-            Assert.assertEquals("Не совпадает вариант ответа в вопросе с выпадающим списком", questionDropDownVariantsNames.get(i), surveyDropDownVariants.get(i).getText());
+        if (questionTypes.size() > 1) {
+            Assert.assertEquals("Не совпадает наименование вопроса с вариантом ответа 'Шкала' в открытом опроснике", questionScaleName, openedSurveyScaleAnswerNameNow.substring(3, openedSurveyScaleAnswerNameNow.length()));
+        } else {
+            Assert.assertEquals("Не совпадает наименование вопроса с вариантом ответа 'Шкала' в открытом опроснике", questionScaleName, openedSurveyScaleAnswerNameNow);
         }
+
+        String openedSurveyScaleDescriptionNow = descriptionsNow.get(counter).getText();
+        String questionScaleDescription = descriptionsExpected.get(counter);
+        System.out.println(questionScaleDescription);
+        Assert.assertEquals("Не совпадает краткое описание вопроса с вариантом ответа 'Шкала' в открытом опроснике", questionScaleDescription, openedSurveyScaleDescriptionNow);
     }
 
-    //Вопрос "Шкала"
-    public void surveyScaleAssert() {
-        String openedSurveyScaleAnswerNameNow = driver.findElement(xpathOpenedSurveyScaleName).getText();
-        Assert.assertEquals("Не совпадает наименование вопроса 'Шкала' открытом опроснике", questionScaleName, openedSurveyScaleAnswerNameNow);
+    //Проверка вопроса 'Загрузить файл'
+    public void surveyDownloadFileAssert(List<WebElement> namesNow, List<WebElement> descriptionsNow, ArrayList<String> namesExpected, ArrayList<String> descriptionsExpected) {
+        String openedSurveyFileNameNow = namesNow.get(counter).getText();
+        String questionFileName = namesExpected.get(counter);
+        System.out.println(questionFileName);
 
-        String openedSurveyScaleAnswerDescriptionNow = driver.findElement(xpathOpenedSurveyScaleDescription).getText();
-        Assert.assertEquals("Не совпадает краткое описание вопроса 'Шкала' в открытом опроснике", questionScaleDescription, openedSurveyScaleAnswerDescriptionNow);
+        if (questionTypes.size() > 1) {
+            Assert.assertEquals("Не совпадает наименование вопроса 'Загрузка файла' в открытом опроснике", questionFileName, openedSurveyFileNameNow.substring(3, openedSurveyFileNameNow.length()));
+        } else {
+            Assert.assertEquals("Не совпадает наименование вопроса 'Загрузка файла' в открытом опроснике", questionFileName, openedSurveyFileNameNow);
+        }
 
-        surveyScaleStars = driver.findElements(xpathOpenedSurveyScaleStar);
-        String openedSurveyStarsCount = String.valueOf(surveyScaleStars.size());
-        Assert.assertEquals("Не совпадает количество шкал в вопросе 'Шкала'", scaleCount, openedSurveyStarsCount);
+        String openedSurveyFileDescriptionNow = descriptionsNow.get(counter).getText();
+        String questionFileDescription = descriptionsExpected.get(counter);
+        System.out.println(questionFileDescription);
+        Assert.assertEquals("Не совпадает краткое описание вопроса 'Загрузка файла' в открытом опроснике", questionFileDescription, openedSurveyFileDescriptionNow);
     }
 
-    //Вопрос "Загрузка файла" – JPEG
-    public void surveyDownloadJPEGAssert() {
-        String openedSurveyDownloadJPEGName = driver.findElement(xpathOpenedSurveyDownloadJPEGName).getText();
-        Assert.assertEquals("Не совпадет наименование вопроса 'Загрузка JPEG' в открытом опроснике", questionDownloadJPEGName, openedSurveyDownloadJPEGName);
+    //Проверка вопроса 'Текст'
+    public void surveyTextAnswerAssert(List<WebElement> namesNow, List<WebElement> descriptionsNow, ArrayList<String> namesExpected, ArrayList<String> descriptionsExpected) {
+        String openedSurveyTextAnswerNameNow = namesNow.get(counter).getText();
+        String questionTextAnswerFileName = namesExpected.get(counter);
+        System.out.println(questionTextAnswerFileName);
 
-        String openedSurveyDownloadPNGDescription = driver.findElement(xpathOpenedSurveyDownloadJPEGDescription).getText();
-        Assert.assertEquals("Не совпадет наименование вопроса 'Загрузка JPEG' в открытом опроснике", questionDownloadJPEGDescription, openedSurveyDownloadPNGDescription);
-    }
+        if (questionTypes.size() > 1) {
+            Assert.assertEquals("Не совпадает наименование вопроса 'Текст' в открытом опроснике", questionTextAnswerFileName, openedSurveyTextAnswerNameNow.substring(3, openedSurveyTextAnswerNameNow.length()));
+        } else {
+            Assert.assertEquals("Не совпадает наименование вопроса 'Текст' в открытом опроснике", questionTextAnswerFileName, openedSurveyTextAnswerNameNow);
+        }
 
-    //Вопрос "Загрузка файла" – PNG
-    public void surveyDownloadPNGAssert() {
-        String openedSurveyDownloadPNGName = driver.findElement(xpathOpenedSurveyDownloadPNGName).getText();
-        Assert.assertEquals("Не совпадет наименование вопроса 'Загрузка PNG' в открытом опроснике", questionDownloadPNGName, openedSurveyDownloadPNGName);
-
-        String openedSurveyDownloadPNGDescription = driver.findElement(xpathOpenedSurveyDownloadPNGDescription).getText();
-        Assert.assertEquals("Не совпадет наименование вопроса 'Загрузка PNG' в открытом опроснике", questionDownloadPNGDescription, openedSurveyDownloadPNGDescription);
-    }
-
-    //Вопрос "Загрузка файла" – PDF
-    public void surveyDownloadPDFAssert() {
-        String openedSurveyDownloadPDFName = driver.findElement(xpathOpenedSurveyDownloadPDFName).getText();
-        Assert.assertEquals("Не совпадет наименование вопроса 'Загрузка PDF' в открытом опроснике", questionDownloadPDFName, openedSurveyDownloadPDFName);
-
-        String openedSurveyDownloadPDFDescription = driver.findElement(xpathOpenedSurveyDownloadPDFDescription).getText();
-        Assert.assertEquals("Не совпадет наименование вопроса 'Загрузка PDF' в открытом опроснике", questionDownloadPDFDescription, openedSurveyDownloadPDFDescription);
-    }
-
-    //Вопрос "Загрузка файла" – DOC
-    public void surveyDownloadDOCAssert() {
-        String openedSurveyDownloadDOCName = driver.findElement(xpathOpenedSurveyDownloadDOCName).getText();
-        Assert.assertEquals("Не совпадет наименование вопроса 'Загрузка DOC' в открытом опроснике", questionDownloadDOCName, openedSurveyDownloadDOCName);
-
-        String openedSurveyDownloadDOCDescription = driver.findElement(xpathOpenedSurveyDownloadDOCDescription).getText();
-        Assert.assertEquals("Не совпадет наименование вопроса 'Загрузка DOC' в открытом опроснике", questionDownloadDOCDescription, openedSurveyDownloadDOCDescription);
-    }
-
-    //Вопрос "Загрузка файла" – XLS
-    public void surveyDownloadXLSAssert() {
-        String openedSurveyDownloadXLSName = driver.findElement(xpathOpenedSurveyDownloadXLSName).getText();
-        Assert.assertEquals("Не совпадет наименование вопроса 'Загрузка XLS' в открытом опроснике", questionDownloadXLSName, openedSurveyDownloadXLSName);
-
-        String openedSurveyDownloadXLSDescription = driver.findElement(xpathOpenedSurveyDownloadXLSDescription).getText();
-        Assert.assertEquals("Не совпадет наименование вопроса 'Загрузка XLS' в открытом опроснике", questionDownloadXLSDescription, openedSurveyDownloadXLSDescription);
-    }
-
-    //Вопрос "Загрузка файла" – Все файлы
-    public void surveyDownloadALLAssert() {
-        String openedSurveyDownloadAllName = driver.findElement(xpathOpenedSurveyDownloadALLName).getText();
-        Assert.assertEquals("Не совпадет наименование вопроса 'Загрузка всех файлов' в открытом опроснике", questionDownloadALLName, openedSurveyDownloadAllName);
-
-        String openedSurveyDownloadAllDescription = driver.findElement(xpathOpenedSurveyDownloadALLDescription).getText();
-        Assert.assertEquals("Не совпадет наименование вопроса 'Загрузка всех файлов' в открытом опроснике", questionDownloadALLDescription, openedSurveyDownloadAllDescription);
-    }
-
-    //Вопрос "Текст"
-    public void surveyTextAssert() {
-        /*String openedSurveyTextName = driver.findElement(xpathOpenedSurveyTextName).getText();
-        Assert.assertEquals("Не совпадет наименование вопроса 'Текст' в открытом опроснике", questionTextName, openedSurveyTextName);*/
-
-        String openedSurveyTextDescription = driver.findElement(xpathOpenedSurveyTextDescription).getText();
-        Assert.assertEquals("Не совпадет наименование вопроса 'Текст' в открытом опроснике", questionTextDescription, openedSurveyTextDescription);
+        String openedSurveyTextAnswerDescriptionNow = descriptionsNow.get(counter).getText();
+        String questionTextAnswerDescription = descriptionsExpected.get(counter);
+        System.out.println(questionTextAnswerDescription);
+        Assert.assertEquals("Не совпадает краткое описание вопроса 'Текст' в открытом опроснике", questionTextAnswerDescription, openedSurveyTextAnswerDescriptionNow);
     }
 }
 
