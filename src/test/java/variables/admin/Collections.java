@@ -1,5 +1,6 @@
 package variables.admin;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
@@ -17,6 +18,15 @@ public class Collections {
     public static ArrayList<String> questionSomeVarVariantsNames = new ArrayList<>();
     public static List<WebElement> questionDropDownVariants;
     public static ArrayList<String> questionDropDownVariantsNames = new ArrayList<>();
-    public static List<WebElement> questionTypes;
+    public static List<WebElement> questionTypesWeb;
+    public static ArrayList<String> questionTypes = new ArrayList<>();
+    //public static List<WebElement> questionNames;
+    public static List<WebElement> questionNamesWeb;
+    public static ArrayList<String> questionNames = new ArrayList<>();
+    public static ArrayList<String> questionDescriptions = new ArrayList<>();
+
+
+    public static List<WebElement> openedSurveyNamesNow;
+    public static List<WebElement> openedSurveyDescriptionsNow;
 
 }

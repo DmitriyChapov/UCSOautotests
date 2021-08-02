@@ -101,4 +101,7 @@ public class Xpath {
     //Вопрос "Текст"
     public static By xpathOpenedSurveyTextName = By.xpath("//form//article//p[1]");
     public static By xpathOpenedSurveyTextDescription = By.xpath("//form//article//p[2]");
+
+    public static By xpathOpenedSurveyNames = By.xpath("//form//article//p[1]");
+    public static By xpathOpenedSurveyDescriptions = By.xpath("//form//article//p[2]");
 }

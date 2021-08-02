@@ -98,8 +98,7 @@ public class InterviewsPage extends Login {
         wait.until(ExpectedConditions.elementToBeClickable(xpathButtonSaveInWindow));
         driver.findElement(xpathButtonSaveInWindow).click();
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("mat-dialog-container")));
-        if ( interviewDescription.contains("Короткий ответ; ")){}
-            else {
+        if (!interviewDescription.contains("Короткий ответ; ")){
             interviewDescription = interviewDescription + "Короткий ответ; ";
         }
         System.out.println("Question successfully Added: Short Answer - Number");
@@ -126,8 +125,7 @@ public class InterviewsPage extends Login {
         wait.until(ExpectedConditions.elementToBeClickable(xpathButtonSaveInWindow));
         driver.findElement(xpathButtonSaveInWindow).click();
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("mat-dialog-container")));
-        if ( interviewDescription.contains("Короткий ответ; ")){}
-        else {
+        if (!interviewDescription.contains("Короткий ответ; ")){
             interviewDescription = interviewDescription + "Короткий ответ; ";
         }
         System.out.println("Question successfully Added: Short Answer - Double");
@@ -152,8 +150,7 @@ public class InterviewsPage extends Login {
         wait.until(ExpectedConditions.elementToBeClickable(xpathButtonSaveInWindow));
         driver.findElement(xpathButtonSaveInWindow).click();
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("mat-dialog-container")));
-        if ( interviewDescription.contains("Короткий ответ; ")){}
-        else {
+        if (!interviewDescription.contains("Короткий ответ; ")){
             interviewDescription = interviewDescription + "Короткий ответ; ";
         }
         System.out.println("Question successfully Added: Short Answer - Phone");
@@ -180,8 +177,7 @@ public class InterviewsPage extends Login {
         wait.until(ExpectedConditions.elementToBeClickable(xpathButtonSaveInWindow));
         driver.findElement(xpathButtonSaveInWindow).click();
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("mat-dialog-container")));
-        if ( interviewDescription.contains("Короткий ответ; ")){}
-        else {
+        if (!interviewDescription.contains("Короткий ответ; ")){
             interviewDescription = interviewDescription + "Короткий ответ; ";
         }
         System.out.println("Question successfully Added: Short Answer - Symbol");
@@ -204,8 +200,7 @@ public class InterviewsPage extends Login {
         wait.until(ExpectedConditions.elementToBeClickable(xpathButtonSaveInWindow));
         driver.findElement(xpathButtonSaveInWindow).click();
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("mat-dialog-container")));
-        if ( interviewDescription.contains("Короткий ответ; ")){}
-        else {
+        if (!interviewDescription.contains("Короткий ответ; ")){
             interviewDescription = interviewDescription + "Короткий ответ; ";
         }
         System.out.println("Question successfully Added: Short Answer - No valid");
@@ -228,8 +223,7 @@ public class InterviewsPage extends Login {
         wait.until(ExpectedConditions.elementToBeClickable(xpathButtonSaveInWindow));
         driver.findElement(xpathButtonSaveInWindow).click();
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("mat-dialog-container")));
-        if ( interviewDescription.contains("Длинный ответ; ")){}
-        else {
+        if (!interviewDescription.contains("Длинный ответ; ")){
             interviewDescription = interviewDescription + "Длинный ответ; ";
         }
         System.out.println("Question successfully Added: Long Answer");
@@ -262,8 +256,7 @@ public class InterviewsPage extends Login {
             questionOneVarVariantsNames.add(questionOneVarVariants.get(i).getAttribute("value"));
         }
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("mat-dialog-container")));
-        if ( interviewDescription.contains("Один вариант; ")){}
-        else {
+        if (!interviewDescription.contains("Один вариант; ")){
             interviewDescription = interviewDescription + "Один вариант; ";
         }
         System.out.println("Question successfully Added: One Variant");
@@ -296,8 +289,7 @@ public class InterviewsPage extends Login {
             questionSomeVarVariantsNames.add(questionSomeVarVariants.get(i).getAttribute("value"));
         }
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("mat-dialog-container")));
-        if ( interviewDescription.contains("Несколько вариантов; ")){}
-        else {
+        if (!interviewDescription.contains("Несколько вариантов; ")){
             interviewDescription = interviewDescription + "Несколько вариантов; ";
         }
         System.out.println("Question successfully Added: Some Variant");
@@ -329,8 +321,7 @@ public class InterviewsPage extends Login {
             questionDropDownVariantsNames.add(questionDropDownVariants.get(i).getAttribute("value"));
         }
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("mat-dialog-container")));
-        if ( interviewDescription.contains("Выпадающий список; ")){}
-        else {
+        if (!interviewDescription.contains("Выпадающий список; ")){
             interviewDescription = interviewDescription + "Выпадающий список; ";
         }
         System.out.println("Question successfully Added: Drop Down");
@@ -361,8 +352,7 @@ public class InterviewsPage extends Login {
         scaleCount = driver.findElement(xpathCreatedSurveyScaleCount).getText();
         driver.findElement(xpathButtonSaveInWindow).click();
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("mat-dialog-container")));
-        if ( interviewDescription.contains("Шкала; ")){}
-        else {
+        if (!interviewDescription.contains("Шкала; ")){
             interviewDescription = interviewDescription + "Шкала; ";
         }
         System.out.println("Question successfully Added: Scale");
@@ -390,8 +380,7 @@ public class InterviewsPage extends Login {
         wait.until(ExpectedConditions.elementToBeClickable(xpathButtonSaveInWindow));
         driver.findElement(xpathButtonSaveInWindow).click();
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("mat-dialog-container")));
-        if ( interviewDescription.contains("Загрузка файлов; ")){}
-        else {
+        if (!interviewDescription.contains("Загрузка файлов; ")){
             interviewDescription = interviewDescription + "Загрузка файлов; ";
         }
         System.out.println("Question successfully Added: Download Files - JPEG");
@@ -417,8 +406,7 @@ public class InterviewsPage extends Login {
         wait.until(ExpectedConditions.elementToBeClickable(xpathButtonSaveInWindow));
         driver.findElement(xpathButtonSaveInWindow).click();
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("mat-dialog-container")));
-        if ( interviewDescription.contains("Загрузка файлов; ")){}
-        else {
+        if (!interviewDescription.contains("Загрузка файлов; ")){
             interviewDescription = interviewDescription + "Загрузка файлов; ";
         }
         System.out.println("Question successfully Added: Download Files - PNG");
@@ -444,8 +432,7 @@ public class InterviewsPage extends Login {
         wait.until(ExpectedConditions.elementToBeClickable(xpathButtonSaveInWindow));
         driver.findElement(xpathButtonSaveInWindow).click();
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("mat-dialog-container")));
-        if ( interviewDescription.contains("Загрузка файлов; ")){}
-        else {
+        if (!interviewDescription.contains("Загрузка файлов; ")){
             interviewDescription = interviewDescription + "Загрузка файлов; ";
         }
         System.out.println("Question successfully Added: Download Files - PDF");
@@ -473,8 +460,7 @@ public class InterviewsPage extends Login {
         wait.until(ExpectedConditions.elementToBeClickable(xpathButtonSaveInWindow));
         driver.findElement(xpathButtonSaveInWindow).click();
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("mat-dialog-container")));
-        if ( interviewDescription.contains("Загрузка файлов; ")){}
-        else {
+        if (!interviewDescription.contains("Загрузка файлов; ")){
             interviewDescription = interviewDescription + "Загрузка файлов; ";
         }
         System.out.println("Question successfully Added: Download Files - DOC");
@@ -502,8 +488,7 @@ public class InterviewsPage extends Login {
         wait.until(ExpectedConditions.elementToBeClickable(xpathButtonSaveInWindow));
         driver.findElement(xpathButtonSaveInWindow).click();
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("mat-dialog-container")));
-        if ( interviewDescription.contains("Загрузка файлов; ")){}
-        else {
+        if (!interviewDescription.contains("Загрузка файлов; ")){
             interviewDescription = interviewDescription + "Загрузка файлов; ";
         }
         System.out.println("Question successfully Added: Download Files - XLS");
@@ -539,8 +524,7 @@ public class InterviewsPage extends Login {
         wait.until(ExpectedConditions.elementToBeClickable(xpathButtonSaveInWindow));
         driver.findElement(xpathButtonSaveInWindow).click();
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("mat-dialog-container")));
-        if ( interviewDescription.contains("Загрузка файлов; ")){}
-        else {
+        if (!interviewDescription.contains("Загрузка файлов; ")){
             interviewDescription = interviewDescription + "Загрузка файлов; ";
         }
         System.out.println("Question successfully Added: Download Files - ALL");
@@ -561,8 +545,7 @@ public class InterviewsPage extends Login {
         wait.until(ExpectedConditions.elementToBeClickable(xpathButtonSaveInWindow));
         driver.findElement(xpathButtonSaveInWindow).click();
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("mat-dialog-container")));
-        if ( interviewDescription.contains("Текст; ")){}
-        else {
+        if (!interviewDescription.contains("Текст; ")){
             interviewDescription = interviewDescription + "Текст; ";
         }
         System.out.println("Question successfully Added: Text");
@@ -609,13 +592,20 @@ public class InterviewsPage extends Login {
     public void getSurveyId() {
         wait.until(ExpectedConditions.presenceOfElementLocated(xpathCreatedSurveyId));
         String tempSurvey = driver.findElement(xpathCreatedSurveyId).getText();
-        surveyId = tempSurvey.substring(4, tempSurvey.length());
+        surveyId = tempSurvey.substring(4);
         System.out.println("ID созданного опроса: " + surveyId);
     }
 
     public void getAllQuestionsType() {
         wait.until(ExpectedConditions.presenceOfElementLocated(selectorQuestionType));
-        questionTypes = driver.findElements(selectorQuestionType);
+        questionTypesWeb = driver.findElements(selectorQuestionType);
+        questionNamesWeb = driver.findElements(selectorQuestionName);
+
+        //Получение названия и типа вопроса
+        for (int i = 0; i < questionNamesWeb.size(); i++) {
+            questionNames.add(questionNamesWeb.get(i).getText());
+            questionTypes.add(questionTypesWeb.get(i).getText());
+        }
     }
 
 
