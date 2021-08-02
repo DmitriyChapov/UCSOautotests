@@ -113,8 +113,12 @@ public class Strings {
     public static String posterCategory;
 
     //Опросы
+    public static String interviewPageName = "Опросы";
+    public static String interviewCardPageName = "Карточка опроса";
     public static String interviewHeading = "Заголовок свежего опроса, созданного автотестом. В опросе присутствуют все типы вопросов и они необязательные номер " + nmbAutoTest;
-    public static String interviewDescription = "Краткое описание опроса, созданного автотестом № " + nmbAutoTest + ". В данном опросе присутствуют вопросы с типом: Короткий ответ, Длинный ответ, Один вариант, Несколько вариантов, Выпадающий список, Шкала, Загрузка файла, Текст";
+    public static String interviewDescription = "Краткое описание опроса, созданного автотестом № " + nmbAutoTest + ". В данном опросе присутствуют вопросы с типом: ";
+    public static String interviewCardSaveNotification = "Карточка опроса \"" + interviewHeading + "\" успешно сохранена";
+    public static String interviewCardPublicNotification = "Опрос \"" + interviewHeading + "\" успешно опубликован";
     public static String questionShortNumberName = "Вопрос \"Короткий ответ\" - Числовая форма";
     public static String questionShortNumberDescription = "Максимальное кол-во символов: " + maxSymbolShortNumber;
     public static String questionShortDoubleName = "Вопрос \"Короткий ответ\" - Дробные числа";
@@ -129,6 +133,12 @@ public class Strings {
     public static String questionLongDescription = "Максимальное кол-во символов: " + maxSymbolLong;
     public static String questionOneVarName = "Вопрос \"Один вариант\"";
     public static String questionOneVarDescription = "Кол-во вариантов ответа: " + nmbOneVar;
+    public static String nameVar(int i) {
+        String nameVar = "Вариант " + (i + 1);
+        return nameVar;
+    }
+
+
     public static String questionSomeVarName = "Вопрос \"Несколько вариантов\"";
     public static String questionSomeVarDescription = "Кол-во вариантов ответа: " + nmbSomeVar;
     public static String questionDropDownName = "Вопрос \"Выпадающий список\"";

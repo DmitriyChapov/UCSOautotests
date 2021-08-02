@@ -12,21 +12,14 @@ public class FilesForAdd {
     public static String imageNewsGallery(int i)
     { String imageNewsGallery = "C:\\Image for AutoTest\\News gallery" + (i + 1) + ".jpg";
         return imageNewsGallery;}
-
-    public static String imageAfishaPrev = "C:\\Image for AutoTest\\Afisha prev.jpg";
-    public static String imageAfishaMain = "C:\\Image for AutoTest\\Afisha main.jpg";
+    public static String imagePosterPrev = "C:\\Image for AutoTest\\Afisha prev.jpg";
+    public static String imagePosterMain = "C:\\Image for AutoTest\\Afisha main.jpg";
+    public static String imagePosterGallery(int i)
+    { String imageNewsGallery = "C:\\Image for AutoTest\\Afisha gallery " + (i + 1) + ".jpg";
+        return imageNewsGallery;}
     public static String imageAfishaGallery_1 = "C:\\Image for AutoTest\\Afisha gallery 1.png";
     public static String imageAfishaGallery_2 = "C:\\Image for AutoTest\\Afisha gallery 2.png";
     public static String imageAfishaGallery_3 = "C:\\Image for AutoTest\\Afisha gallery 3.jpg";
-
-    public static String imageAfishaPrevA = "D:\\ImageForAutoTests\\Afisha prev.jpg";
-    public static String imageAfishaMainA = "D:\\ImageForAutoTests\\Afisha main.jpg";
-    public static String imageAfishaGallery_1A = "D:\\ImageForAutoTests\\Afisha gallery 1.png";
-    public static String imageAfishaGallery_2A = "D:\\ImageForAutoTests\\Afisha gallery 2.png";
-    public static String imageAfishaGallery_3A = "D:\\ImageForAutoTests\\Afisha gallery 3.jpg";
-
-
-
 
     //Опросы
     public static String imageQuestionShortNumber = "C:\\Image for AutoTest\\Questions\\Number.jpg";
@@ -35,6 +28,9 @@ public class FilesForAdd {
     public static String imageQuestionShortSymbol = "C:\\Image for AutoTest\\Questions\\Symbol.jpg";
     public static String imageQuestionShortNoValid = "C:\\Image for AutoTest\\Questions\\NoValid.jpg";
     public static String imageQuestionLong = "C:\\Image for AutoTest\\Questions\\Long.jpg";
+    public static String imageQuestionVarName(int i)
+    { String imageQuestionVarName = "C:\\Image for AutoTest\\Questions\\Options\\Option" + (i + 1) + ".jpg";
+        return imageQuestionVarName;}
     public static String imageQuestionDropDown = "C:\\Image for AutoTest\\Questions\\DropDown.jpg";
     public static String imageQuestionScale = "C:\\Image for AutoTest\\Questions\\Scale.jpg";
     public static String imageQuestionDownloadJPEG = "C:\\Image for AutoTest\\Questions\\JPEG.png";

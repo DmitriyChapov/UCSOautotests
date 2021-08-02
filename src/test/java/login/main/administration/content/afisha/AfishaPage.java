@@ -1,7 +1,6 @@
 package login.main.administration.content.afisha;
 
 import login.Login;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -78,13 +77,13 @@ public class AfishaPage extends Login {
         driver.findElement(xpathButtonDownloadImage).click();
         Thread.sleep(1000);
         driver.findElement(xpathRadioButtonPrevImage).click();
-        driver.findElement(selectorFieldImage).sendKeys(imageAfishaPrev);
+        driver.findElement(selectorFieldImage).sendKeys(imagePosterPrev);
         driver.findElement(xpathButtonSaveImage).click();
         Thread.sleep(3000);
         driver.findElement(xpathButtonDownloadImage).click();
         Thread.sleep(1000);
         driver.findElement(xpathRadioButtonMainImage).click();
-        driver.findElement(selectorFieldImage).sendKeys(imageAfishaMain);
+        driver.findElement(selectorFieldImage).sendKeys(imagePosterMain);
         driver.findElement(xpathButtonSaveImage).click();
         Thread.sleep(3000);
         driver.findElement(xpathButtonDownloadImage).click();
