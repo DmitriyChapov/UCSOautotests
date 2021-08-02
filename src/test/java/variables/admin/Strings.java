@@ -101,12 +101,16 @@ public class Strings {
     public static String newsCardSaveNotification = "Публикация \"" + newsHeading + "\" успешно сохранена";
     public static String newsCardPublicNotification = "Карточка новости \"" + newsHeading + "\" успешно опубликована";
 
+    public static String postersPageName = "Афиши";
+    public static String posterCardPageName = "Карточка афиши";
     public static String posterHeading = "Заголовок афиши, созданной автотестом. Заголовок содержит максимальное количество знаков равное 150 символов. Номер генерируется рандомно и равен " + nmbAutoTest;
     public static String posterAnnouncement = "Анонс афиши, созданной автотестом. Анонс афиши содержит максимальное количество знаков равное 150 символов. Номер генерируется рандомно и равен № " + nmbAutoTest;
     public static String posterText = "Текст афиши, созданной автотестом номер " + nmbAutoTest + ". ";
     public static String posterDate = "C 1 по 8 марта, начало в 19:00";
     public static String posterLocation = "Локация для автотеста";
     public static String posterCost = "Бесплатно";
+    public static String posterCardSaveNotification = "Публикация \"" + posterHeading + "\" успешно сохранена";
+    public static String posterCardPublicNotification = "Карточка афиши \"" + posterHeading + "\" успешно опубликована";
     public static String newsCardId;
     public static String newsCardCategory;
     public static String posterCardId;

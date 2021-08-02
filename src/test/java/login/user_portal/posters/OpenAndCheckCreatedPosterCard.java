@@ -1,9 +1,7 @@
 package login.user_portal.posters;
 
-import login.main.administration.content.afisha.AfishaPage;
+import login.main.administration.content.afisha.PostersPage;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import static variables.admin.Numbers.age;
@@ -13,7 +11,7 @@ import static variables.portal.Xpath.*;
 import static variables.portal.Collections.*;
 
 
-public class OpenAndCheckCreatedPosterCard extends AfishaPage {
+public class OpenAndCheckCreatedPosterCard extends PostersPage {
 
     public void userToPosterCard() {
         wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(xpathPosterSection)));

@@ -134,9 +134,9 @@ public class NewsPage extends Login {
         loginAdmin();                             // Авторизация под пользователем с правами "Администратор"
         sectionContentNews();                     // Переход в раздел "Новости"
         openNewsCard();                           // Открываем Карточку новости
-        createNews();                             // Создаем
-        getCardID();                              // Получаем ID новости
-        publicNews();                             // Публикуем новость
+        createNews();                             // Создаем Новость
+        getCardID();                              // Получаем ID Новости
+        publicNews();                             // Публикуем Новость
     }
 
 }

@@ -31,6 +31,8 @@ public class Urls {
     //Администрирование
     public static String newsUrl = "https://ucso-test.opencode.su/news-dashboard/publications?type=NEWS&searchString=";
     public static String newsCardUrl = "https://ucso-test.opencode.su/news-dashboard/posts-editor?type=NEWS";
+    public static String postersUrl = "https://ucso-test.opencode.su/news-dashboard/publications?type=AFISHA&searchString=";
+    public static String posterCardUrl = "https://ucso-test.opencode.su/news-dashboard/posts-editor?type=AFISHA";
     public static String interviewsUrl = "https://ucso-test.opencode.su/votes/polls?type=ACTUAL&blockView=false";
     public static String interviewCardUrl = "https://ucso-test.opencode.su/votes/poll-card";
     public static String TSP = "https://ucso-test.opencode.su/partners/partners-list";
