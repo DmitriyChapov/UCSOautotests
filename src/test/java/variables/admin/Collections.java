@@ -26,4 +26,8 @@ public class Collections {
     public static List<WebElement> openedSurveyNamesNow;
     public static List<WebElement> openedSurveyDescriptionsNow;
 
+    //ТСП
+    public static List<WebElement> chosenAddressForPromotion;
+    public static List<WebElement> chosenAddressForDiscount;
+
 }

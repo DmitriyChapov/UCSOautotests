@@ -16,6 +16,7 @@ import static variables.admin.Strings.*;
 import static variables.admin.FilesForAdd.*;
 import static variables.common.Urls.*;
 import static variables.common.Urls.urlInsatgram;
+import static variables.admin.Collections.*;
 
 public class TSPPage extends Login {
     boolean CheckBox;
@@ -219,6 +220,8 @@ public class TSPPage extends Login {
         driver.findElement(selectorFieldOfferDateFrom).sendKeys(dateNow);
         driver.findElement(selectorFieldOfferDateTo).sendKeys(dateNow);
         driver.findElement(selectorFieldContentTeaser).sendKeys(descriptionAndConditionPromotion.repeat(nmbRptForPromotionAdmin));
+        chosenAddressForPromotion = driver.findElements(xpathChosenAddress);
+
         addImagePromotionCard(); // Прикрепляем изображение
     }
 
@@ -269,16 +272,10 @@ public class TSPPage extends Login {
         Assert.assertEquals("Некорректно заполнено второе поле 'Период действия'", dateNow, PromotionDateToForCheck);
         String PromotionDescriptionForCheck = driver.findElement(selectorFieldContentTeaser).getAttribute("value");
         Assert.assertEquals("Некорректно заполнено второе поле 'Описание'", descriptionAndConditionPromotion.repeat(nmbRptForPromotionAdmin), PromotionDescriptionForCheck);
-
-        /*for (int i = 0; i < nmbAddressForPromotionAdmin; i++) {
-            String deliveryAddress = "Адрес предоставления № " + (i + 1);
-
-            //Assert.assertEquals("Некорректно заполнены поля 'Адреса предоставления'", deliveryAddress, PromotionAddressForCheck);
-            System.out.println();
-        }*/
-
+        Assert.assertEquals("Некорректно заполнены поля 'Адреса предоставления'", nmbAddressForPromotionAdmin, chosenAddressForPromotion.size());
         System.out.println("Promotion has been successfully Verified");
         driver.navigate().back();
+
         driver.navigate().back();
         wait.until(ExpectedConditions.invisibilityOfElementLocated(xpathSpinner));
     }
@@ -324,6 +321,7 @@ public class TSPPage extends Login {
         driver.findElement(selectorFieldOfferDateTo).sendKeys(dateNow);
         driver.findElement(selectorFieldContentTeaser).sendKeys(descriptionAndConditionDiscount.repeat(nmbRptForDiscountAdmin));
         driver.findElement(selectorFieldDiscount).sendKeys(discount);
+        chosenAddressForDiscount = driver.findElements(xpathChosenAddress);
         addImageDiscountCard();            // Прикрепляем изображение
     }
 
@@ -377,14 +375,7 @@ public class TSPPage extends Login {
         Assert.assertEquals("Некорректно заполнено второе поле 'Описание'", descriptionAndConditionDiscount.repeat(nmbRptForDiscountAdmin), DiscountDescriptionForCheck);
         String DiscountForCheck = driver.findElement(selectorFieldDiscount).getAttribute("value");
         Assert.assertEquals("Некорректно заполнено второе поле 'Скидка'", discount, DiscountForCheck);
-
-        /*for (int i = 0; i < nmbAddressForPromotionAdmin; i++) {
-            String deliveryAddress = "Адрес предоставления № " + (i + 1);
-            String PromotionAddressForCheck = driver.findElement(xpathChosenAddress).getText();
-            //Assert.assertEquals("Некорректно заполнены поля 'Адреса предоставления'", deliveryAddress, PromotionAddressForCheck);
-            System.out.println(PromotionAddressForCheck);
-
-        }*/ //ДОДЕЛАТЬ!(НЕ ДОЙДЁТ НИКАК)
+        Assert.assertEquals("Некорректно заполнены поля 'Адреса предоставления'", nmbAddressForDiscountAdmin, chosenAddressForDiscount.size());
         System.out.println("Discount has been successfully Verified");
     }
 
