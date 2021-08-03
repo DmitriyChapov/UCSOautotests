@@ -8,7 +8,7 @@ import static variables.portal.Collections.*;
 import static variables.admin.Strings.*;
 
 
-public class OpenAndCheckCreatedNewsCard extends NewsPage {
+public class CheckCreatedNewsCard extends NewsPage {
 
     //Переход с главной страницы в раздел "Новости"
     public void userMainPageToNews() {

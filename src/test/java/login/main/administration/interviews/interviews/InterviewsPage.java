@@ -679,7 +679,7 @@ public class InterviewsPage extends Login {
         openInterviewCard();                  // Открываем Карточку опроса
         tabPropertiesInterviewCard();         //Заполняем вкладку "Свойства"
         tabConstructorInterviewCard();        //Заполняем вкладку "Конструктор"
-        /*questionShortAnswerNumber();          //Создаем вопрос "Короткий ответ" - Числовая форма
+        questionShortAnswerNumber();          //Создаем вопрос "Короткий ответ" - Числовая форма
         questionShortAnswerDouble();          //Создаем вопрос "Короткий ответ" - Дробные числа
         questionShortAnswerPhone();           //Создаем вопрос "Короткий ответ" - Формат телефона
         questionShortAnswerSymbol();          //Создаем вопрос "Короткий ответ" - Кириллические символы
@@ -694,7 +694,7 @@ public class InterviewsPage extends Login {
         questionDownloadFilesPDF();           //Создаем вопрос "Загрузка файла" - PDF
         questionDownloadFilesDOC();           //Создаем вопрос "Загрузка файла" - DOC
         questionDownloadFilesXLS();           //Создаем вопрос "Загрузка файла" - XLS
-        questionDownloadFilesALL(); */          //Создаем вопрос "Загрузка файла" - Все типы
+        questionDownloadFilesALL();           //Создаем вопрос "Загрузка файла" - Все типы
         questionText();                       //Создаем вопрос "Текс"
         System.out.println(interviewDescription);
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(selectorFieldInterviewDescription));
@@ -711,15 +711,16 @@ public class InterviewsPage extends Login {
         System.out.println("Interview successfully Created");
     }
 
+
     public void getSurveyId() {
         wait.until(ExpectedConditions.presenceOfElementLocated(xpathCreatedSurveyId));
         String tempSurvey = driver.findElement(xpathCreatedSurveyId).getText();
         surveyId = tempSurvey.substring(4, tempSurvey.length());
-        System.out.println("ID созданного опроса: " + surveyId);
+        System.out.println("ID of created survey: " + surveyId);
     }
 
+
     public void getAllQuestionsType() {
-        String test = "test";
         wait.until(ExpectedConditions.presenceOfElementLocated(selectorQuestionType));
         questionTypesWeb = driver.findElements(selectorQuestionType);
         questionNamesWeb = driver.findElements(selectorQuestionName);

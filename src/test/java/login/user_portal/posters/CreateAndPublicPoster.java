@@ -11,7 +11,7 @@ import static variables.portal.Xpath.*;
 import static variables.portal.Collections.*;
 
 
-public class OpenAndCheckCreatedPosterCard extends PostersPage {
+public class CreateAndPublicPoster extends PostersPage {
 
     public void userToPosterCard() {
         wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(xpathPosterSection)));

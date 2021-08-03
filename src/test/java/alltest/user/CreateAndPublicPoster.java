@@ -2,7 +2,7 @@ package alltest.user;
 
 import org.junit.Test;
 
-public class OpenAndCheckCreatedPosterCard extends login.user_portal.posters.OpenAndCheckCreatedPosterCard {
+public class CreateAndPublicPoster extends login.user_portal.posters.CreateAndPublicPoster {
 
     @Test
     public void testPosterCard() {

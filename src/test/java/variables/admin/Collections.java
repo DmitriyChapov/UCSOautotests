@@ -20,12 +20,9 @@ public class Collections {
     public static ArrayList<String> questionDropDownVariantsNames = new ArrayList<>();
     public static List<WebElement> questionTypesWeb;
     public static ArrayList<String> questionTypes = new ArrayList<>();
-    //public static List<WebElement> questionNames;
     public static List<WebElement> questionNamesWeb;
     public static ArrayList<String> questionNames = new ArrayList<>();
     public static ArrayList<String> questionDescriptions = new ArrayList<>();
-
-
     public static List<WebElement> openedSurveyNamesNow;
     public static List<WebElement> openedSurveyDescriptionsNow;
 
