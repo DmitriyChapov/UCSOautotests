@@ -679,7 +679,7 @@ public class InterviewsPage extends Login {
         openInterviewCard();                  // Открываем Карточку опроса
         tabPropertiesInterviewCard();         //Заполняем вкладку "Свойства"
         tabConstructorInterviewCard();        //Заполняем вкладку "Конструктор"
-        questionShortAnswerNumber();          //Создаем вопрос "Короткий ответ" - Числовая форма
+        /*questionShortAnswerNumber();          //Создаем вопрос "Короткий ответ" - Числовая форма
         questionShortAnswerDouble();          //Создаем вопрос "Короткий ответ" - Дробные числа
         questionShortAnswerPhone();           //Создаем вопрос "Короткий ответ" - Формат телефона
         questionShortAnswerSymbol();          //Создаем вопрос "Короткий ответ" - Кириллические символы
@@ -694,7 +694,7 @@ public class InterviewsPage extends Login {
         questionDownloadFilesPDF();           //Создаем вопрос "Загрузка файла" - PDF
         questionDownloadFilesDOC();           //Создаем вопрос "Загрузка файла" - DOC
         questionDownloadFilesXLS();           //Создаем вопрос "Загрузка файла" - XLS
-        questionDownloadFilesALL();           //Создаем вопрос "Загрузка файла" - Все типы
+        questionDownloadFilesALL(); */          //Создаем вопрос "Загрузка файла" - Все типы
         questionText();                       //Создаем вопрос "Текс"
         System.out.println(interviewDescription);
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(selectorFieldInterviewDescription));

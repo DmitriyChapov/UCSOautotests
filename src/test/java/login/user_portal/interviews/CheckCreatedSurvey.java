@@ -56,14 +56,16 @@ public class CheckCreatedSurvey extends InterviewsPage {
         String openedSurveyHeading = driver.findElement(xpathOpenedSurveyHeading).getText();
         Assert.assertEquals("Не совпадает заголовок в открытом опросе", interviewHeading, openedSurveyHeading);
 
-        /*String openedSurveyDescription = driver.findElement(xpathOpenedSurveyDescription).getText();
-        Assert.assertEquals("Не совпадает краткое описание в открытом опросе", interviewDescription, openedSurveyDescription);*/
+        String openedSurveyDescription = driver.findElement(xpathOpenedSurveyDescription).getText();
+        Assert.assertEquals("Не совпадает краткое описание в открытом опросе", interviewDescription.substring(0, interviewDescription.length() - 1), openedSurveyDescription);
     }
 
     //Проверка вопроса в зависимости от его типа
     public void surveyQuestionsAssert() {
         for (counter = 0; counter < questionTypes.size(); counter++) {
             qType = questionTypes.get(counter);
+
+            beginTitle = (counter >= 9) ? 4 : 3;
 
             if (qType.equals("Короткий ответ")) {
                 surveyShortAnswerAssert(openedSurveyNamesNow, openedSurveyDescriptionsNow, questionNames, questionDescriptions);
@@ -92,7 +94,7 @@ public class CheckCreatedSurvey extends InterviewsPage {
         System.out.println(questionShortAnswerName);
 
         if (questionTypes.size() > 1) {
-            Assert.assertEquals("Не совпадает наименование вопроса с коротким ответом в открытом опроснике", questionShortAnswerName, openedSurveyShortAnswerNameNow.substring(3, openedSurveyShortAnswerNameNow.length()));
+            Assert.assertEquals("Не совпадает наименование вопроса с коротким ответом в открытом опроснике", questionShortAnswerName, openedSurveyShortAnswerNameNow.substring(beginTitle, openedSurveyShortAnswerNameNow.length()));
         } else {
             Assert.assertEquals("Не совпадает наименование вопроса с коротким ответом в открытом опроснике", questionShortAnswerName, openedSurveyShortAnswerNameNow);
         }
@@ -110,7 +112,7 @@ public class CheckCreatedSurvey extends InterviewsPage {
         System.out.println(questionLongAnswerName);
 
         if (questionTypes.size() > 1) {
-            Assert.assertEquals("Не совпадает наименование вопроса с длинным ответом в открытом опроснике", questionLongAnswerName, openedSurveyLongAnswerNameNow.substring(3, openedSurveyLongAnswerNameNow.length()));
+            Assert.assertEquals("Не совпадает наименование вопроса с длинным ответом в открытом опроснике", questionLongAnswerName, openedSurveyLongAnswerNameNow.substring(beginTitle, openedSurveyLongAnswerNameNow.length()));
         } else {
             Assert.assertEquals("Не совпадает наименование вопроса с длинным ответом в открытом опроснике", questionLongAnswerName, openedSurveyLongAnswerNameNow);
         }
@@ -128,7 +130,7 @@ public class CheckCreatedSurvey extends InterviewsPage {
         System.out.println(questionOneVarName);
 
         if (questionTypes.size() > 1) {
-            Assert.assertEquals("Не совпадает наименование вопроса с одним вариантом ответа в открытом опроснике", questionOneVarName, openedSurveyOneVarAnswerNameNow.substring(3, openedSurveyOneVarAnswerNameNow.length()));
+            Assert.assertEquals("Не совпадает наименование вопроса с одним вариантом ответа в открытом опроснике", questionOneVarName, openedSurveyOneVarAnswerNameNow.substring(beginTitle, openedSurveyOneVarAnswerNameNow.length()));
         } else {
             Assert.assertEquals("Не совпадает наименование вопроса с одним вариантом ответа в открытом опроснике", questionOneVarName, openedSurveyOneVarAnswerNameNow);
         }
@@ -146,7 +148,7 @@ public class CheckCreatedSurvey extends InterviewsPage {
         System.out.println(questionSomeVarName);
 
         if (questionTypes.size() > 1) {
-            Assert.assertEquals("Не совпадает наименование вопроса с несколькими вариантами ответа в открытом опроснике", questionSomeVarName, openedSurveySomeVarAnswerNameNow.substring(3, openedSurveySomeVarAnswerNameNow.length()));
+            Assert.assertEquals("Не совпадает наименование вопроса с несколькими вариантами ответа в открытом опроснике", questionSomeVarName, openedSurveySomeVarAnswerNameNow.substring(beginTitle, openedSurveySomeVarAnswerNameNow.length()));
         } else {
             Assert.assertEquals("Не совпадает наименование вопроса с несколькими вариантами ответа в открытом опроснике", questionSomeVarName, openedSurveySomeVarAnswerNameNow);
         }
@@ -164,7 +166,7 @@ public class CheckCreatedSurvey extends InterviewsPage {
         System.out.println(questionDropDownName);
 
         if (questionTypes.size() > 1) {
-            Assert.assertEquals("Не совпадает наименование вопроса с выпадающим списком в открытом опроснике", questionDropDownName, openedSurveyDropDownAnswerNameNow.substring(3, openedSurveyDropDownAnswerNameNow.length()));
+            Assert.assertEquals("Не совпадает наименование вопроса с выпадающим списком в открытом опроснике", questionDropDownName, openedSurveyDropDownAnswerNameNow.substring(beginTitle, openedSurveyDropDownAnswerNameNow.length()));
         } else {
             Assert.assertEquals("Не совпадает наименование вопроса с выпадающим списком в открытом опроснике", questionDropDownName, openedSurveyDropDownAnswerNameNow);
         }
@@ -182,7 +184,7 @@ public class CheckCreatedSurvey extends InterviewsPage {
         System.out.println(questionScaleName);
 
         if (questionTypes.size() > 1) {
-            Assert.assertEquals("Не совпадает наименование вопроса с вариантом ответа 'Шкала' в открытом опроснике", questionScaleName, openedSurveyScaleAnswerNameNow.substring(3, openedSurveyScaleAnswerNameNow.length()));
+            Assert.assertEquals("Не совпадает наименование вопроса с вариантом ответа 'Шкала' в открытом опроснике", questionScaleName, openedSurveyScaleAnswerNameNow.substring(beginTitle, openedSurveyScaleAnswerNameNow.length()));
         } else {
             Assert.assertEquals("Не совпадает наименование вопроса с вариантом ответа 'Шкала' в открытом опроснике", questionScaleName, openedSurveyScaleAnswerNameNow);
         }
@@ -200,7 +202,7 @@ public class CheckCreatedSurvey extends InterviewsPage {
         System.out.println(questionFileName);
 
         if (questionTypes.size() > 1) {
-            Assert.assertEquals("Не совпадает наименование вопроса 'Загрузка файла' в открытом опроснике", questionFileName, openedSurveyFileNameNow.substring(3, openedSurveyFileNameNow.length()));
+            Assert.assertEquals("Не совпадает наименование вопроса 'Загрузка файла' в открытом опроснике", questionFileName, openedSurveyFileNameNow.substring(beginTitle, openedSurveyFileNameNow.length()));
         } else {
             Assert.assertEquals("Не совпадает наименование вопроса 'Загрузка файла' в открытом опроснике", questionFileName, openedSurveyFileNameNow);
         }
@@ -218,7 +220,7 @@ public class CheckCreatedSurvey extends InterviewsPage {
         System.out.println(questionTextAnswerFileName);
 
         if (questionTypes.size() > 1) {
-            Assert.assertEquals("Не совпадает наименование вопроса 'Текст' в открытом опроснике", questionTextAnswerFileName, openedSurveyTextAnswerNameNow.substring(3, openedSurveyTextAnswerNameNow.length()));
+            Assert.assertEquals("Не совпадает наименование вопроса 'Текст' в открытом опроснике", questionTextAnswerFileName, openedSurveyTextAnswerNameNow.substring(beginTitle, openedSurveyTextAnswerNameNow.length()));
         } else {
             Assert.assertEquals("Не совпадает наименование вопроса 'Текст' в открытом опроснике", questionTextAnswerFileName, openedSurveyTextAnswerNameNow);
         }
