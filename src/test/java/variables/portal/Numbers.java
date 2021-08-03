@@ -12,4 +12,5 @@ public class Numbers {
     public static int nmbAddressForDiscountPortal = (int) (Math.random() * 8 + 1 );
     public static int nmbDiscountPortal = (int) (Math.random() * 98 + 1);
     public static int counter = 0;
+    public static int beginTitle = 3;
 }
