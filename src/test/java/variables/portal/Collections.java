@@ -24,4 +24,10 @@ public class Collections {
     //Опросы
     public static List<WebElement> userSurveys;
 
+    //Акции
+    public static List<WebElement> allPromotions;
+    public static List<WebElement> allPromotionsMainSNames;
+    public static List<WebElement> allPromotionsMainSCorp;
+    public static List<WebElement> openedPromotionLinks;
+
 }

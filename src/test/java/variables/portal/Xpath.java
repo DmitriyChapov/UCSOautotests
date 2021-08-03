@@ -58,4 +58,25 @@ public class Xpath {
     public static By xpathOpenedSurveyDescription = By.xpath("//form//article[1]");
     public static By xpathOpenedSurveyNames = By.xpath("//form//article//p[1]");
     public static By xpathOpenedSurveyDescriptions = By.xpath("//form//article//p[2]");
+
+    //Акции
+    public static By xpathToPromotionsAndDiscounts = By.xpath("//span[contains(text(), 'Скидки и акции')]");
+    public static By xpathToPromotions = By.xpath("//a[contains(text(), 'Акции')]");
+    public static By xpathAllPromotions = By.xpath("//a[contains(@href, 'permanent/')]");
+    public static By xpathAllPromotionsMainSNames = By.xpath("//a//div[2]//span[1]");
+    public static By xpathAllPromotionsMainSCorp = By.xpath("//a//div[2]//span[2]");
+    public static By xpathAllPromotionElements = By.xpath("//main//article[2]");
+    public static By xpathOpenedPromotionHeading = By.xpath("//div//h1");
+    public static By xpathOpenedPromotionCorporation = By.xpath("//div//h3");
+    public static By xpathOpenedPromotionEmailCorp = By.xpath("//p[contains(text(), '@')]");
+    public static By xpathOpenedPromotionPhoneCorp = By.xpath("//p[contains(text(), '+')]");
+    public static By xpathOpenedPromotionCorpWebsite = By.xpath("//main//a[contains(@href, '')]");
+    public static By xpathOpenedPromotionCorpVk = By.xpath("//main//a[contains(@href, 'vk')]");
+    public static By xpathOpenedPromotionCorpFacebook = By.xpath("//main//a[contains(@href, 'face')]");
+    public static By xpathOpenedPromotionCorpInst = By.xpath("//main//a[contains(@href, 'inst')]");
+    public static By xpathOpenedPromotionCorpOdnkl = By.xpath("//main//a[contains(@href, 'ok.ru')]");
+    public static By xpathOpenedPromotionAdditionalInfo = By.xpath("//article//div[2]//pre[contains(text(), '')]");
+    public static By xpathOpenedShowPromotionAddresses = By.xpath("//span[contains(text(), 'Все адреса')]");
+    public static By xpathOpenedPromotionConditions = By.xpath("//div[3]//pre");
+
 }

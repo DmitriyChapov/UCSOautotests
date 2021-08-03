@@ -247,7 +247,15 @@ public class TSPPage extends Login {
         driver.findElement(xpathButtonPublic).click();
         wait.until(ExpectedConditions.elementToBeClickable(xpathButtonSaveInWindow));
         driver.findElement(xpathButtonSaveInWindow).click();
+        getPromotionID();
         System.out.println("Public Promotion");
+    }
+
+    public void getPromotionID() {
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(xpathPromotionID)));
+        //String temp = driver.findElement(By.cssSelector("span[class = 'ng-star-inserted']")).getText();
+        promotionID = driver.findElement(xpathPromotionID).getText().substring(driver.findElement(xpathPromotionID).getText().length() - 4);
+        System.out.println("ID созданной акции: " + promotionID);
     }
 
     public void comparePromotion() {

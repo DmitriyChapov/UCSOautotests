@@ -30,4 +30,5 @@ public class Collections {
     public static List<WebElement> chosenAddressForPromotion;
     public static List<WebElement> chosenAddressForDiscount;
 
+
 }

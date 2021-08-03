@@ -176,6 +176,8 @@ public class Strings {
     public static String descriptionAndConditionDiscount = "Описание и условия действия скидки , созданной автотестом № " + nmbAutoTest + " и кол-вом адресов предоставления: " + nmbAddressForDiscountAdmin + ". ";
     public static String discount = nmbDiscountAdmin + "%";
 
+    public static String promotionID;
+
     //Реестры
     public static String cardHoldersRegistryPageName = "Реестр держателей карты";
     public static String electronicCasesRegisterPageName = "Реестр электронных дел";
