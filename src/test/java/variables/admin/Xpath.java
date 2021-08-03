@@ -168,6 +168,8 @@ public class Xpath {
     public static By xpathFaceBook = By.xpath("//input[contains(@data-placeholder, 'Ссылка должна быть в формате https://facebook.com/company')]");
     public static By xpathInst = By.xpath("//input[contains(@data-placeholder, 'Ссылка должна быть в формате https://www.instagram.com/company/')]");
     public static By xpathDop = By.xpath("//textarea[contains(@name, 'partnerAdditional')]");
+    //public static By xpathChosenAddress = By.xpath("//div[contains(text(), ' Адрес предоставления ')]");
+
 
 }
 
