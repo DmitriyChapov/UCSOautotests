@@ -23,9 +23,5 @@ public class Collections {
 
     //Опросы
     public static List<WebElement> userSurveys;
-    public static List<WebElement> surveysHeadings;
-    public static List<WebElement> surveyOneVarVariants;
-    public static List<WebElement> surveySomeVarVariants;
-    public static List<WebElement> surveyDropDownVariants;
-    public static List<WebElement> surveyScaleStars;
+
 }

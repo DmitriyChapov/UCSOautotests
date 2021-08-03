@@ -91,7 +91,6 @@ public class CheckCreatedSurvey extends InterviewsPage {
     public void surveyShortAnswerAssert(List<WebElement> namesNow, List<WebElement> descriptionsNow, ArrayList<String> namesExpected, ArrayList<String> descriptionsExpected) {
         String openedSurveyShortAnswerNameNow = namesNow.get(counter).getText();
         String questionShortAnswerName = namesExpected.get(counter);
-        System.out.println(questionShortAnswerName);
 
         if (questionTypes.size() > 1) {
             Assert.assertEquals("Не совпадает наименование вопроса с коротким ответом в открытом опроснике", questionShortAnswerName, openedSurveyShortAnswerNameNow.substring(beginTitle, openedSurveyShortAnswerNameNow.length()));
@@ -101,7 +100,6 @@ public class CheckCreatedSurvey extends InterviewsPage {
 
         String openedSurveyShortAnswerDescriptionNow = descriptionsNow.get(counter).getText();
         String questionShortAnswerDescription = descriptionsExpected.get(counter);
-        System.out.println(questionShortAnswerDescription);
         Assert.assertEquals("Не совпадает краткое описание вопроса с коротким ответом в открытом опроснике", questionShortAnswerDescription, openedSurveyShortAnswerDescriptionNow);
     }
 
@@ -109,7 +107,6 @@ public class CheckCreatedSurvey extends InterviewsPage {
     public void surveyLongAnswerAssert(List<WebElement> namesNow, List<WebElement> descriptionsNow, ArrayList<String> namesExpected, ArrayList<String> descriptionsExpected) {
         String openedSurveyLongAnswerNameNow = namesNow.get(counter).getText();
         String questionLongAnswerName = namesExpected.get(counter);
-        System.out.println(questionLongAnswerName);
 
         if (questionTypes.size() > 1) {
             Assert.assertEquals("Не совпадает наименование вопроса с длинным ответом в открытом опроснике", questionLongAnswerName, openedSurveyLongAnswerNameNow.substring(beginTitle, openedSurveyLongAnswerNameNow.length()));
@@ -119,7 +116,6 @@ public class CheckCreatedSurvey extends InterviewsPage {
 
         String openedSurveyLongAnswerDescriptionNow = descriptionsNow.get(counter).getText();
         String questionLongAnswerDescription = descriptionsExpected.get(counter);
-        System.out.println(questionLongAnswerDescription);
         Assert.assertEquals("Не совпадает краткое описание вопроса с коротким ответом (числовая форма) в открытом опроснике", questionLongAnswerDescription, openedSurveyLongAnswerDescriptionNow);
     }
 
@@ -127,7 +123,6 @@ public class CheckCreatedSurvey extends InterviewsPage {
     public void surveyOneVarAnswerAssert(List<WebElement> namesNow, List<WebElement> descriptionsNow, ArrayList<String> namesExpected, ArrayList<String> descriptionsExpected) {
         String openedSurveyOneVarAnswerNameNow = namesNow.get(counter).getText();
         String questionOneVarName = namesExpected.get(counter);
-        System.out.println(questionOneVarName);
 
         if (questionTypes.size() > 1) {
             Assert.assertEquals("Не совпадает наименование вопроса с одним вариантом ответа в открытом опроснике", questionOneVarName, openedSurveyOneVarAnswerNameNow.substring(beginTitle, openedSurveyOneVarAnswerNameNow.length()));
@@ -137,7 +132,6 @@ public class CheckCreatedSurvey extends InterviewsPage {
 
         String openedSurveyOneVarDescriptionNow = descriptionsNow.get(counter).getText();
         String questionOneVarDescription = descriptionsExpected.get(counter);
-        System.out.println(questionOneVarDescription);
         Assert.assertEquals("Не совпадает краткое описание вопроса с одним вариантом ответа в открытом опроснике", questionOneVarDescription, openedSurveyOneVarDescriptionNow);
     }
 
@@ -145,7 +139,6 @@ public class CheckCreatedSurvey extends InterviewsPage {
     public void surveySomeVarAnswerAssert(List<WebElement> namesNow, List<WebElement> descriptionsNow, ArrayList<String> namesExpected, ArrayList<String> descriptionsExpected) {
         String openedSurveySomeVarAnswerNameNow = namesNow.get(counter).getText();
         String questionSomeVarName = namesExpected.get(counter);
-        System.out.println(questionSomeVarName);
 
         if (questionTypes.size() > 1) {
             Assert.assertEquals("Не совпадает наименование вопроса с несколькими вариантами ответа в открытом опроснике", questionSomeVarName, openedSurveySomeVarAnswerNameNow.substring(beginTitle, openedSurveySomeVarAnswerNameNow.length()));
@@ -155,7 +148,6 @@ public class CheckCreatedSurvey extends InterviewsPage {
 
         String openedSurveySomeVarDescriptionNow = descriptionsNow.get(counter).getText();
         String questionSomeVarDescription = descriptionsExpected.get(counter);
-        System.out.println(questionSomeVarDescription);
         Assert.assertEquals("Не совпадает краткое описание вопроса с несколькими вариантами ответа в открытом опроснике", questionSomeVarDescription, openedSurveySomeVarDescriptionNow);
     }
 
@@ -163,7 +155,6 @@ public class CheckCreatedSurvey extends InterviewsPage {
     public void surveyDropDownAnswerAssert(List<WebElement> namesNow, List<WebElement> descriptionsNow, ArrayList<String> namesExpected, ArrayList<String> descriptionsExpected) {
         String openedSurveyDropDownAnswerNameNow = namesNow.get(counter).getText();
         String questionDropDownName = namesExpected.get(counter);
-        System.out.println(questionDropDownName);
 
         if (questionTypes.size() > 1) {
             Assert.assertEquals("Не совпадает наименование вопроса с выпадающим списком в открытом опроснике", questionDropDownName, openedSurveyDropDownAnswerNameNow.substring(beginTitle, openedSurveyDropDownAnswerNameNow.length()));
@@ -173,7 +164,6 @@ public class CheckCreatedSurvey extends InterviewsPage {
 
         String openedSurveyDropDownDescriptionNow = descriptionsNow.get(counter).getText();
         String questionDropDownDescription = descriptionsExpected.get(counter);
-        System.out.println(questionDropDownDescription);
         Assert.assertEquals("Не совпадает краткое описание вопроса с выпадающим списком в открытом опроснике", questionDropDownDescription, openedSurveyDropDownDescriptionNow);
     }
 
@@ -181,7 +171,6 @@ public class CheckCreatedSurvey extends InterviewsPage {
     public void surveyScaleAnswerAssert(List<WebElement> namesNow, List<WebElement> descriptionsNow, ArrayList<String> namesExpected, ArrayList<String> descriptionsExpected) {
         String openedSurveyScaleAnswerNameNow = namesNow.get(counter).getText();
         String questionScaleName = namesExpected.get(counter);
-        System.out.println(questionScaleName);
 
         if (questionTypes.size() > 1) {
             Assert.assertEquals("Не совпадает наименование вопроса с вариантом ответа 'Шкала' в открытом опроснике", questionScaleName, openedSurveyScaleAnswerNameNow.substring(beginTitle, openedSurveyScaleAnswerNameNow.length()));
@@ -191,7 +180,6 @@ public class CheckCreatedSurvey extends InterviewsPage {
 
         String openedSurveyScaleDescriptionNow = descriptionsNow.get(counter).getText();
         String questionScaleDescription = descriptionsExpected.get(counter);
-        System.out.println(questionScaleDescription);
         Assert.assertEquals("Не совпадает краткое описание вопроса с вариантом ответа 'Шкала' в открытом опроснике", questionScaleDescription, openedSurveyScaleDescriptionNow);
     }
 
@@ -199,7 +187,6 @@ public class CheckCreatedSurvey extends InterviewsPage {
     public void surveyDownloadFileAssert(List<WebElement> namesNow, List<WebElement> descriptionsNow, ArrayList<String> namesExpected, ArrayList<String> descriptionsExpected) {
         String openedSurveyFileNameNow = namesNow.get(counter).getText();
         String questionFileName = namesExpected.get(counter);
-        System.out.println(questionFileName);
 
         if (questionTypes.size() > 1) {
             Assert.assertEquals("Не совпадает наименование вопроса 'Загрузка файла' в открытом опроснике", questionFileName, openedSurveyFileNameNow.substring(beginTitle, openedSurveyFileNameNow.length()));
@@ -209,7 +196,6 @@ public class CheckCreatedSurvey extends InterviewsPage {
 
         String openedSurveyFileDescriptionNow = descriptionsNow.get(counter).getText();
         String questionFileDescription = descriptionsExpected.get(counter);
-        System.out.println(questionFileDescription);
         Assert.assertEquals("Не совпадает краткое описание вопроса 'Загрузка файла' в открытом опроснике", questionFileDescription, openedSurveyFileDescriptionNow);
     }
 
@@ -217,7 +203,6 @@ public class CheckCreatedSurvey extends InterviewsPage {
     public void surveyTextAnswerAssert(List<WebElement> namesNow, List<WebElement> descriptionsNow, ArrayList<String> namesExpected, ArrayList<String> descriptionsExpected) {
         String openedSurveyTextAnswerNameNow = namesNow.get(counter).getText();
         String questionTextAnswerFileName = namesExpected.get(counter);
-        System.out.println(questionTextAnswerFileName);
 
         if (questionTypes.size() > 1) {
             Assert.assertEquals("Не совпадает наименование вопроса 'Текст' в открытом опроснике", questionTextAnswerFileName, openedSurveyTextAnswerNameNow.substring(beginTitle, openedSurveyTextAnswerNameNow.length()));
@@ -227,7 +212,6 @@ public class CheckCreatedSurvey extends InterviewsPage {
 
         String openedSurveyTextAnswerDescriptionNow = descriptionsNow.get(counter).getText();
         String questionTextAnswerDescription = descriptionsExpected.get(counter);
-        System.out.println(questionTextAnswerDescription);
         Assert.assertEquals("Не совпадает краткое описание вопроса 'Текст' в открытом опроснике", questionTextAnswerDescription, openedSurveyTextAnswerDescriptionNow);
     }
 }
