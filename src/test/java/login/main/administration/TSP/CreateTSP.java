@@ -151,18 +151,16 @@ public class CreateTSP extends TSPPage {
         System.out.println("TSP successfully Deleted");
     }
 
-    public void CreationTSP() throws InterruptedException {
+    public void CreationTSP() {
         loginAdmin(); // Авторизация под пользователем с правами "Администратор"
         sectionTSP(); // Переход в раздел "Торгово-сервисные предприятия"
         sectionCreationTSP(); // Создание и заполнение ТСП
         compareTSP(); // Проверка правильности заполнения ТСП
         publicPromotion(); // Создание акции
         comparePromotion(); // Проверка правильности заполнения Акции
-
-
-
-
-        //deleteTSP(); // Удаление ТСП
+        publicDiscount(); // Создание скидки
+        compareDiscount(); // Проверка правильности заполнения скидки
+        deleteTSP(); // Удаление ТСП
 
 
     }
