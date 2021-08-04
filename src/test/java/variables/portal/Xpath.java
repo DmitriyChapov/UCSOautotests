@@ -77,6 +77,7 @@ public class Xpath {
     public static By xpathOpenedPromotionCorpOdnkl = By.xpath("//main//a[contains(@href, 'ok.ru')]");
     public static By xpathOpenedPromotionAdditionalInfo = By.xpath("//article//div[2]//pre[contains(text(), '')]");
     public static By xpathOpenedShowPromotionAddresses = By.xpath("//span[contains(text(), 'Все адреса')]");
+    public static By xpathOpenedPromotionAllAddresses = By.xpath("//article/div[2]/div[2]/div/ul/li");
     public static By xpathOpenedPromotionConditions = By.xpath("//div[3]//pre");
 
 }

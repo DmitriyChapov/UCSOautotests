@@ -255,7 +255,7 @@ public class TSPPage extends Login {
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(xpathPromotionID)));
         //String temp = driver.findElement(By.cssSelector("span[class = 'ng-star-inserted']")).getText();
         promotionID = driver.findElement(xpathPromotionID).getText().substring(driver.findElement(xpathPromotionID).getText().length() - 4);
-        System.out.println("ID созданной акции: " + promotionID);
+        System.out.println("ID of created promotion: " + promotionID);
     }
 
     public void comparePromotion() {
@@ -393,10 +393,10 @@ public class TSPPage extends Login {
         sectionCreationTSP(); // Создание и заполнение ТСП
         compareTSP(); // Проверка правильности заполнения ТСП
         publicPromotion(); // Создание акции
-        comparePromotion(); // Проверка правильности заполнения Акции
-        publicDiscount(); // Создание скидки
-        compareDiscount(); // Проверка правильности заполнения скидки
-        deleteTSP(); // Удаление ТСП
+        //comparePromotion(); // Проверка правильности заполнения Акции
+        //publicDiscount(); // Создание скидки
+        //compareDiscount(); // Проверка правильности заполнения скидки
+        //deleteTSP(); // Удаление ТСП
 
     }
 }

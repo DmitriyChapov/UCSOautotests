@@ -28,6 +28,7 @@ public class Collections {
     public static List<WebElement> allPromotions;
     public static List<WebElement> allPromotionsMainSNames;
     public static List<WebElement> allPromotionsMainSCorp;
-    public static List<WebElement> openedPromotionLinks;
+    public static List<WebElement> allAddresses;
+
 
 }
