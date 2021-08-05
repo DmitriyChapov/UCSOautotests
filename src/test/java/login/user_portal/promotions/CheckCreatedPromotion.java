@@ -4,6 +4,11 @@ import login.main.tsp.TSPPage;
 import org.junit.Assert;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 import static variables.admin.Numbers.nmbRptForPromotionAdmin;
 import static variables.common.Urls.*;
 import static variables.portal.Xpath.*;
@@ -44,7 +49,7 @@ public class CheckCreatedPromotion extends TSPPage {
         }
     }
 
-    public void checkOpenedPromotion() {
+    public void checkOpenedPromotion() throws ParseException {
         wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(xpathAllPromotionElements));
 
         Assert.assertEquals("Не совпадает наименование открытой акции", promotionName, driver.findElement(xpathOpenedPromotionHeading).getText());
@@ -52,6 +57,11 @@ public class CheckCreatedPromotion extends TSPPage {
         Assert.assertEquals("Не  совпадает ссылка на сайт компании в открытой акции", tspSitePublic, driver.findElement(xpathOpenedPromotionCorpWebsite).getAttribute("href"));
         Assert.assertEquals("Не совпадает email компании в открытой акции", adminTSPEmailPublic, driver.findElement(xpathOpenedPromotionEmailCorp).getText());
         Assert.assertEquals("Не совпадает номер телефона компании в открытой акции", tspPhone, driver.findElement(xpathOpenedPromotionPhoneCorp).getText());
+
+        int colon = driver.findElement(xpathOpenedPromotionDate).getText().lastIndexOf(":");
+        String discountDateNow = driver.findElement(xpathOpenedPromotionDate).getText().substring(colon + 2, driver.findElement(xpathOpenedPromotionDate).getText().length());
+        Assert.assertEquals("Не совпадает период действия скидки в открытой скидки", convertDate(dateNow), discountDateNow);
+
         Assert.assertEquals("Не совпадает дополнительная информация компании по компании в открытой акции", adminTSPOptionalText, driver.findElement(xpathOpenedPromotionAdditionalInfo).getText());
         Assert.assertEquals("Не совпадает ссылка на соц. сеть 'ВК' в открытой акции", urlVK, driver.findElement(xpathOpenedPromotionCorpVk).getAttribute("href"));
         Assert.assertEquals("Не совпадает ссылка на соц. сеть 'Facebook' в открытой акции", urlFacebook, driver.findElement(xpathOpenedPromotionCorpFacebook).getAttribute("href"));
@@ -60,6 +70,16 @@ public class CheckCreatedPromotion extends TSPPage {
         //Repeat (optional)
         Assert.assertEquals("Не совпадают условия акции в открытой акции", descriptionAndConditionPromotion.repeat(nmbRptForPromotionAdmin), driver.findElement(xpathOpenedPromotionConditions).getText());
 
+    }
+
+    public String convertDate(String dateOldString) throws ParseException {
+        SimpleDateFormat oldDateFormat = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
+        SimpleDateFormat newDateFormat = new SimpleDateFormat("dd MMMM yyyy", Locale.getDefault());
+
+        Date date = oldDateFormat.parse(dateOldString);
+        String result = newDateFormat.format(date);
+
+        return result;
     }
 
 }

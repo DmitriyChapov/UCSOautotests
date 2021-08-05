@@ -52,7 +52,7 @@ public class Xpath {
     //Опросы
     public static By xpathUserToSurveryCard = By.xpath("//span[contains(text(), 'Опросы')]");
     public static By xpathUserSurveys = By.xpath("//a[contains(@href, 'polls/')]");
-    public static By xpathSurveyMainSHeading = By.xpath("//a[contains(@href, '"+ surveyId +"')]/div[1]");
+    public static By xpathSurveyMainSHeading = By.xpath("//a[contains(@href, '" + surveyId + "')]/div[1]");
     public static By xpathOpenedSurveyElements = By.xpath("//main//section");
     public static By xpathOpenedSurveyHeading = By.xpath("//h1[contains(text(), '')]");
     public static By xpathOpenedSurveyDescription = By.xpath("//form//article[1]");
@@ -79,5 +79,28 @@ public class Xpath {
     public static By xpathOpenedShowPromotionAddresses = By.xpath("//span[contains(text(), 'Все адреса')]");
     public static By xpathOpenedPromotionAllAddresses = By.xpath("//article/div[2]/div[2]/div/ul/li");
     public static By xpathOpenedPromotionConditions = By.xpath("//div[3]//pre");
+    public static By xpathOpenedPromotionDate = By.xpath("//div/h2");
+
+    //Скидки
+    public static By xpathMainSDiscounts = By.xpath("//a[contains(@href, 'general/')]");
+    public static By xpathMainSDiscountPercentage = By.xpath("//span[contains(text(), '%')]");
+    public static By xpathMainSDiscountName = By.xpath("//article/div[2]/span[2]");
+    public static By xpathMainSDiscountCorp = By.xpath("//article/div[2]/span[3]");
+    public static By xpathAllDiscountElements = By.xpath("//main//article[2]");
+    public static By xpathOpenedDiscountHeading = By.xpath("//div//h1");
+    public static By xpathOpenedDiscountPercentage = By.xpath("//span[contains(text(), '%')]");
+    public static By xpathOpenedDiscountCorporation = By.xpath("//div//h3");
+    public static By xpathOpenedDiscountEmailCorp = By.xpath("//p[contains(text(), '@')]");
+    public static By xpathOpenedDiscountPhoneCorp = By.xpath("//p[contains(text(), '+')]");
+    public static By xpathOpenedDiscountCorpWebsite = By.xpath("//main//a[contains(@href, '')]");
+    public static By xpathOpenedDiscountCorpVk = By.xpath("//main//a[contains(@href, 'vk')]");
+    public static By xpathOpenedDiscountCorpFacebook = By.xpath("//main//a[contains(@href, 'face')]");
+    public static By xpathOpenedDiscountCorpInst = By.xpath("//main//a[contains(@href, 'inst')]");
+    public static By xpathOpenedDiscountCorpOdnkl = By.xpath("//main//a[contains(@href, 'ok.ru')]");
+    public static By xpathOpenedDiscountAdditionalInfo = By.xpath("//article//div[2]//pre[contains(text(), '')]");
+    public static By xpathShowDiscountAddresses = By.xpath("//span[contains(text(), 'Все адреса')]");
+    public static By xpathOpenedDiscountAllAddresses = By.xpath("//article/div[2]/div[2]/div/ul/li");
+    public static By xpathOpenedDiscountConditions = By.xpath("//div[3]//pre");
+    public static By xpathOpenedDiscountDate = By.xpath("//div[2]/h2");
 
 }

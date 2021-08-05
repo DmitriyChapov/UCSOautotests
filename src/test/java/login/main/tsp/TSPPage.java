@@ -333,6 +333,7 @@ public class TSPPage extends Login {
         addImageDiscountCard();            // Прикрепляем изображение
     }
 
+
     public void addImageDiscountCard() {
         driver.findElement(xpathButtonSpanDownloadImage).click();
         driver.findElement(selectorFieldImage).sendKeys(imageDiscountAdmin);
@@ -350,12 +351,20 @@ public class TSPPage extends Login {
         System.out.println("Create Discount");
     }
 
+    public void getDiscountID() {
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(xpathDiscountID)));
+        int colon = driver.findElement(xpathDiscountID).getText().lastIndexOf(":");
+        discountID = driver.findElement(xpathDiscountID).getText().substring(colon + 2, driver.findElement(xpathDiscountID).getText().length());
+        System.out.println("ID of created discount: " + discountID);
+    }
+
     public void publicDiscount() {
         createDiscount();                 // Создаем Скидку
         wait.until(ExpectedConditions.elementToBeClickable(xpathButtonPublic));
         driver.findElement(xpathButtonPublic).click();
         wait.until(ExpectedConditions.elementToBeClickable(xpathButtonSaveInWindow));
         driver.findElement(xpathButtonSaveInWindow).click();
+        getDiscountID();
         System.out.println("Public Discount");
     }
 
@@ -393,10 +402,10 @@ public class TSPPage extends Login {
         sectionCreationTSP(); // Создание и заполнение ТСП
         compareTSP(); // Проверка правильности заполнения ТСП
         publicPromotion(); // Создание акции
-        //comparePromotion(); // Проверка правильности заполнения Акции
-        //publicDiscount(); // Создание скидки
-        //compareDiscount(); // Проверка правильности заполнения скидки
-        //deleteTSP(); // Удаление ТСП
+        comparePromotion(); // Проверка правильности заполнения Акции
+        publicDiscount(); // Создание скидки
+        compareDiscount(); // Проверка правильности заполнения скидки
+        deleteTSP(); // Удаление ТСП
 
     }
 }

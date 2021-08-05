@@ -106,7 +106,8 @@ public class Xpath {
     public static By xpathTSPAvailableSlide = By.xpath("//mat-slide-toggle[@name='available']");
     //Акции
     public static By xpathPromotionID = By.xpath("//span[contains(text(), 'ID')]");
-
+    //Скидки
+    public static By xpathDiscountID = By.xpath("//span[contains(text(), 'ID')]");
     // Баннеры
     public static By xpathBannerNameForSearch = By.xpath("//tbody/tr/td[3]");
 

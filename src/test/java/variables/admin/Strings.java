@@ -177,6 +177,11 @@ public class Strings {
     public static String discount = nmbDiscountAdmin + "%";
 
     public static String promotionID;
+    public static String discountID;
+
+    //Даты
+    public static String dateDiscountFrom;
+    public static String dateDiscountTo;
 
     //Реестры
     public static String cardHoldersRegistryPageName = "Реестр держателей карты";
