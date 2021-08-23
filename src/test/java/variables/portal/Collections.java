@@ -30,5 +30,10 @@ public class Collections {
     public static List<WebElement> allPromotionsMainSCorp;
     public static List<WebElement> allAddresses;
 
+    //Скидки
+    public static List<WebElement> allDiscounts;
+    public static List<WebElement>  allDiscountPercentages;
+    public static List<WebElement> allDiscountMainSNames;
+    public static List<WebElement> allDiscountMainSCorp;
 
 }

@@ -2,6 +2,8 @@ package login.user_portal.cabinetTSP;
 
 import login.Login;
 import login.main.tsp.TSPPage;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+
 import static variables.portal.Numbers.*;
 import static variables.admin.Xpath.*;
 import static variables.portal.Xpath.*;
@@ -23,6 +25,7 @@ public class CreateTSP extends Login {
 
     public void createTSPofUser() throws InterruptedException {
         driver.findElement(xpathPartnersAdd).click();
+        wait.until(ExpectedConditions.elementToBeClickable(selectorUserTSPName));
         driver.findElement(selectorUserTSPName).sendKeys(userTSPName);
         driver.findElement(selectorUserTSPDescription).sendKeys(userTSPDescription);
         driver.findElement(selectorUserTSPAddress).sendKeys(userTSPAddress);
@@ -30,7 +33,7 @@ public class CreateTSP extends Login {
         driver.findElement(xpathConfirmButton).click();
         driver.findElement(selectorUserTSPOGRN).sendKeys(String.valueOf(portalOGRN));
         driver.findElement(selectorUserTSPEmail).sendKeys(email);
-        driver.findElement(selectorUserTSPMSS_code).sendKeys(mss_code);
+        driver.findElement(xpathUserTSPMSS_code).sendKeys(mss_code);
         Thread.sleep(1000);
         driver.findElement(xpathMSS_CodeConfirm).click();
         driver.findElement(selectorUserTSPWebPublic).sendKeys(tspSitePublic);

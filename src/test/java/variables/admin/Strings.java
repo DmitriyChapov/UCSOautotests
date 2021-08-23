@@ -9,7 +9,7 @@ public class Strings {
 
     //Авторизация
     public static String loginInUser = "AutoTest";
-    public static String passwordInUser = "123QWEqwe";
+    public static String passwordInUser = "123qweQWE";
 
     //Справочники
     public static String referenceBooksPageName = "Справочники";
@@ -168,16 +168,31 @@ public class Strings {
     public static String qType;
 
     //ТСП, Скидки, Акции
-    public static String tspNameAdmin = "AutoTest Сorporation";
+    public static String tspPageName = "Торгово-сервисные предприятия";
+    public static String tspCardPageName = "Карточка торгово-сервисного предприятия";
+    public static String tspID;
+    public static String email = "yojiwit265@activesniper.com";
+    public static String mss_code = "9999";
+    public static String adminTSPName = "Новая организация, созданная автотестом из кабинета администратора №" + nmbAutoTest;
+    public static String adminTSPDescription = "Описание организации, созданной автотестом из кабинета администратора";
+    public static String adminTSPAddress = "г. Автотестово, ул. Администратора, д. " + nmbAutoTest;
+    public static String adminTSPEmailPublic = "Email@email.com";
+    public static String adminTSPPhonePublic = "9270000000";
+    public static String adminTSPOptionalText = "Дополнительная информация по ТСП, созданного администратором. ";
+    public static String tspSaveNotification = "ТСП \"" + adminTSPName + "\" успешно сохранено";
 
     public static String promotionName = "Наименование Акции, с кол-вом символов 70, созданной автотестом № " + nmbAutoTest;
     public static String descriptionAndConditionPromotion = "Описание и условия действия акции , созданной автотестом № " + nmbAutoTest + " и кол-вом адресов предоставления: " + nmbAddressForPromotionAdmin + ". ";
+    public static String promotionID;
+    public static String promotionSaveNotification = "Предложение \"" + promotionName + "\" успешно сохранено";
+
     public static String discountName = "Наименование Скидки с кол-вом символов 70, созданной автотестом № " + nmbAutoTest;
     public static String descriptionAndConditionDiscount = "Описание и условия действия скидки , созданной автотестом № " + nmbAutoTest + " и кол-вом адресов предоставления: " + nmbAddressForDiscountAdmin + ". ";
     public static String discount = nmbDiscountAdmin + "%";
-
-    public static String promotionID;
     public static String discountID;
+    public static String discountSaveNotification = "Предложение \"" + discountName + "\" успешно сохранено";
+
+    public static String tspNameAdmin = "AutoTest Сorporation";
 
     //Даты
     public static String dateDiscountFrom;
@@ -217,14 +232,7 @@ public class Strings {
     public static String logoName = "Наименование Логотипа созданного автотестом " + nmbAutoTest;
 
     //ТСП
-    public static String email = "yojiwit265@activesniper.com";
-    public static String mss_code = "9999";
-    public static String adminTSPName = "Новая организация, созданная автотестом из кабинета администратора №" + nmbAutoTest;
-    public static String adminTSPDescription = "Описание организации, созданной автотестом из кабинета администратора";
-    public static String adminTSPAddress = "г. Автотестово, ул. Пользователя, д. " + nmbAutoTest;
-    public static String adminTSPEmailPublic = "Email@email.com";
-    public static String adminTSPPhonePublic = "9270000000";
-    public static String adminTSPOptionalText = "Дополнительная информация по ТСП, созданного администратором. ";
+
 
 }
 

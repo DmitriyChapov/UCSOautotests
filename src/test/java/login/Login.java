@@ -29,6 +29,8 @@ public class Login {
     public LocalTime toTime = LocalTime.now();
     public String dateNow = DateTimeFormatter.ofPattern("dd.MM.yyyy").format(toDay);
     public String timeNow = DateTimeFormatter.ofPattern("HH:mm").format(toTime);
+    public String convertDate = DateTimeFormatter.ofPattern("dd MMMM yyyy").format(toDay);
+
 
     @Before
     public void setUp() {

@@ -13,7 +13,9 @@ public class Selector {
     public static By selectorUserTSPLogo = By.cssSelector("[name = '#logo']");
     public static By selectorUserTSPOGRN = By.cssSelector("[name = 'ogrn']");
     public static By selectorUserTSPEmail = By.cssSelector("[name = 'email']");
-    public static By selectorUserTSPMSS_code = By.cssSelector("[name = '#classifiers']");
+
+
+
     public static By selectorUserTSPWebPublic = By.cssSelector("[name = 'contacts.webSite']");
     public static By selectorUserTSPEmailPublic = By.cssSelector("[name = 'contacts.contactEmail']");
     public static By selectorUserTSPPhonePublic = By.cssSelector("[name = 'contacts.phone']");

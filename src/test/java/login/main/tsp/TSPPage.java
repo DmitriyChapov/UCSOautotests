@@ -4,32 +4,48 @@ import login.Login;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
 import java.util.List;
-
 import static java.lang.String.valueOf;
 import static variables.admin.Numbers.*;
-import static variables.admin.Urls.TSP;
+import static variables.admin.Urls.*;
 import static variables.admin.Xpath.*;
 import static variables.admin.Selector.*;
 import static variables.admin.Strings.*;
 import static variables.admin.FilesForAdd.*;
 import static variables.common.Urls.*;
-import static variables.common.Urls.urlInsatgram;
 import static variables.admin.Collections.*;
 
 public class TSPPage extends Login {
     boolean CheckBox;
+    boolean TSPAvailable;
 
-    public void sectionTSP() {
-        wait.until(ExpectedConditions.elementToBeClickable(xpathTSP));
+    public void sectionTSP(){
         driver.findElement(xpathTSP).click();
-        driver.findElement(xpathButtonAdd).click();
-
+        String tspUrlNow = driver.getCurrentUrl();
+        String tspPageNameNow = driver.findElement(headingTSPPage).getText();
+        Assert.assertEquals("Некорректный Url страницы 'Торгово-сервисные предприятия''",
+                tspUrl,tspUrlNow);
+        Assert.assertEquals("Не совпадают заголовки на странице 'Торгово-сервисные предприятия'",
+                tspPageName,tspPageNameNow);
+        System.out.println("Go to section: TSP");
     }
 
-    public void sectionCreationTSP() {
+    public void openTSPCard() {
+        wait.until(ExpectedConditions.elementToBeClickable(xpathButtonAdd));
+        driver.findElement(xpathButtonAdd).click();
+        String tspCardUrlNow = driver.getCurrentUrl();
+        String tspCardPageNameNow = driver.findElement(headingTSPCardPage).getText();
+        Assert.assertEquals("Некорректный Url страницы 'Карточка торгово-сервисного предприятия'",
+                tspCardUrl, tspCardUrlNow);
+        Assert.assertEquals("Не совпадают заголовки на странице 'Карточка торгово-сервисного предприятия'",
+                tspCardPageName,tspCardPageNameNow);
+        System.out.println("Open TSP Card");
+    }
+
+    public void createTSP() {
         driver.findElement(xpathTSPAvailableSlide).click();
+        TSPAvailable = driver.findElement(xpathTSPAvailableSlide).isSelected();
+        wait.until(ExpectedConditions.elementToBeClickable(xpathNameField));
         driver.findElement(xpathNameField).sendKeys(adminTSPName);
         driver.findElement(xpathDescriptionField).sendKeys(adminTSPDescription);
         driver.findElement(xpathAddressField).sendKeys(adminTSPAddress);
@@ -38,10 +54,14 @@ public class TSPPage extends Login {
         JavascriptExecutor pageDown = (JavascriptExecutor) driver;
         pageDown.executeScript("scroll(0,500)", "");
         driver.findElement(xpathMCCField).click();
-        driver.findElement(xpathMCCChooseField).click();
+        driver.findElement(xpathMCC_CodeInDropDown).click();
         driver.findElement(xpathButtonSpanDownloadImage).click();
-        driver.findElement(xpathChooseFile).sendKeys(imageLogoTSPAdmin);
+        wait.until(ExpectedConditions.elementToBeClickable(xpathButtonOk));
+        driver.findElement(selectorFieldImage).sendKeys(imageTSPLogoAdmin);
+        wait.until(ExpectedConditions.elementToBeClickable(xpathButtonOk));
         driver.findElement(xpathButtonOk).click();
+        waitingSpinner();
+        wait.until(ExpectedConditions.elementToBeClickable(xpathSiteField));
         pageDown.executeScript("scroll(0,2000)", "");
         driver.findElement(xpathSiteField).sendKeys(tspSitePublic);
         driver.findElement(xpathEmail2Field).sendKeys(adminTSPEmailPublic);
@@ -53,11 +73,24 @@ public class TSPPage extends Login {
         driver.findElement(xpathDop).sendKeys(adminTSPOptionalText);
         wait.until(ExpectedConditions.elementToBeClickable(xpathButtonSave));
         driver.findElement(xpathButtonSave).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(xpathNotifier));
+        String textNotificationTSPSave = driver.findElement(xpathNotifier).getText();
+        Assert.assertEquals("Не совпадают тексты нотификации при сохранении ТСП",
+                tspSaveNotification, textNotificationTSPSave);
+        System.out.println("TSP Card successfully Created");
     }
 
-    public void compareTSP() {
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(xpathSpinner));
-        driver.get(TSP);
+    public void getTSPID() {
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(xpathID)));
+        int colon = driver.findElement(xpathID).getText().lastIndexOf(":");
+        tspID = driver.findElement(xpathID).getText().substring(colon + 2, driver.findElement(xpathID).getText().length());
+        System.out.println("ID of created TSP: " + tspID);
+    }
+
+    public void checkTSPCard() {
+        ((JavascriptExecutor) driver).executeScript("scroll(0,-500);");
+        wait.until(ExpectedConditions.elementToBeClickable(xpathTSP2));
+        driver.findElement(xpathTSP2).click();
         wait.until(ExpectedConditions.elementToBeClickable(selectorFieldSearch));
         driver.findElement(selectorFieldSearch).sendKeys(adminTSPName);
         waitingSpinner();
@@ -78,51 +111,49 @@ public class TSPPage extends Login {
                 break;
             }
         }
-        boolean TSPAvailableForCheck = driver.findElement(xpathTSPAvailableSlide).isSelected();
-        if (TSPAvailableForCheck) {
-            Assert.assertEquals("Изменился параметр доступности карточки TSP",
-                    xpathTSPAvailableSlide, TSPAvailableForCheck);
-        }
         wait.until(ExpectedConditions.elementToBeClickable(xpathNameField));
-        String TSPNameForCheck = driver.findElement(xpathNameField).getAttribute("value");
-        Assert.assertEquals("Некорректно заполнено поле 'Наименование'", adminTSPName, TSPNameForCheck);
-        String TSPDescriptionForCheck = driver.findElement(xpathDescriptionField).getAttribute("value");
-        Assert.assertEquals("Некорректно заполнено поле 'Описание'", adminTSPDescription, TSPDescriptionForCheck);
-        String TSPAddressForCheck = driver.findElement(xpathAddressField).getAttribute("value");
-        Assert.assertEquals("Некорректно заполнено поле 'Адрес'", adminTSPAddress, TSPAddressForCheck);
-        String TSPEmail1ForCheck = driver.findElement(xpathEmailField).getAttribute("value");
-        Assert.assertEquals("Некорректно заполнено поле 'E-mail'", email, TSPEmail1ForCheck);
-        String TSPOGRNForCheck = driver.findElement(xpathOgrnField).getAttribute("value");
-        Assert.assertEquals("Некорректно заполнено поле 'ОГРН/ОГРНИП'", valueOf(adminOGRN), TSPOGRNForCheck);
         JavascriptExecutor pageDown = (JavascriptExecutor) driver;
+        boolean TSPAvailableForCheck = driver.findElement(xpathTSPAvailableSlide).isSelected();
+        String TSPNameForCheck = driver.findElement(xpathNameField).getAttribute("value");
+        String TSPDescriptionForCheck = driver.findElement(xpathDescriptionField).getAttribute("value");
+        String TSPAddressForCheck = driver.findElement(xpathAddressField).getAttribute("value");
+        String TSPEmail1ForCheck = driver.findElement(xpathEmailField).getAttribute("value");
+        String TSPOGRNForCheck = driver.findElement(xpathOgrnField).getAttribute("value");
+        String TSPMCCForCheck = driver.findElement(xpathMCC_CodeField).getText();
+        Assert.assertEquals("Изменился параметр доступности карточки TSP",
+                TSPAvailable, TSPAvailableForCheck);
+        Assert.assertEquals("Некорректно заполнено поле 'Наименование'", adminTSPName, TSPNameForCheck);
+        Assert.assertEquals("Некорректно заполнено поле 'Описание'", adminTSPDescription, TSPDescriptionForCheck);
+        Assert.assertEquals("Некорректно заполнено поле 'Адрес'", adminTSPAddress, TSPAddressForCheck);
+        Assert.assertEquals("Некорректно заполнено поле 'E-mail'", email, TSPEmail1ForCheck);
+        Assert.assertEquals("Некорректно заполнено поле 'ОГРН/ОГРНИП'", valueOf(adminOGRN), TSPOGRNForCheck);
         pageDown.executeScript("scroll(0,500)", "");
-        String TSPMCCForCheck = driver.findElement(xpathMCCChosenField).getText();
         Assert.assertEquals("Некорректно заполнено поле 'MCC'", "1223   Классификатор 1", TSPMCCForCheck);
         pageDown.executeScript("scroll(0,1500)", "");
         String TSPSiteForCheck = driver.findElement(xpathSiteField).getAttribute("value");
-        Assert.assertEquals("Некорректно заполнено поле 'Сайт'", tspSitePublic, TSPSiteForCheck);
         String TSPEmail2ForCheck = driver.findElement(xpathEmail2Field).getAttribute("value");
-        Assert.assertEquals("Некорректно заполнено поле 'Email'", adminTSPEmailPublic, TSPEmail2ForCheck);
         String TSPPhoneForCheck = driver.findElement(xpathPhone).getAttribute("value");
-        Assert.assertEquals("Некорректно заполнено поле 'Телефон'", "+7(927)000-0000", TSPPhoneForCheck);
         String TSPVKForCheck = driver.findElement(xpathVK).getAttribute("value");
-        Assert.assertEquals("Некорректно заполнено поле 'Вконтакте'", urlVK, TSPVKForCheck);
         String TSPOKForCheck = driver.findElement(xpathOK).getAttribute("value");
-        Assert.assertEquals("Некорректно заполнено поле 'Одноклассники'", urlOK, TSPOKForCheck);
         String TSPFaceBookForCheck = driver.findElement(xpathFaceBook).getAttribute("value");
-        Assert.assertEquals("Некорректно заполнено поле 'Facebook'", urlFacebook, TSPFaceBookForCheck);
         String TSPInstForCheck = driver.findElement(xpathInst).getAttribute("value");
-        Assert.assertEquals("Некорректно заполнено поле 'Instagram'", urlInsatgram, TSPInstForCheck);
         String TSPDopForCheck = driver.findElement(xpathDop).getAttribute("value");
+        Assert.assertEquals("Некорректно заполнено поле 'Сайт'", tspSitePublic, TSPSiteForCheck);
+        Assert.assertEquals("Некорректно заполнено поле 'Email'", adminTSPEmailPublic, TSPEmail2ForCheck);
+        Assert.assertEquals("Некорректно заполнено поле 'Телефон'", "+7(927)000-0000", TSPPhoneForCheck);
+        Assert.assertEquals("Некорректно заполнено поле 'Вконтакте'", urlVK, TSPVKForCheck);
+        Assert.assertEquals("Некорректно заполнено поле 'Одноклассники'", urlOK, TSPOKForCheck);
+        Assert.assertEquals("Некорректно заполнено поле 'Facebook'", urlFacebook, TSPFaceBookForCheck);
+        Assert.assertEquals("Некорректно заполнено поле 'Instagram'", urlInsatgram, TSPInstForCheck);
         Assert.assertEquals("Некорректно заполнено поле 'Дополнительно'", adminTSPOptionalText, TSPDopForCheck);
+        pageDown.executeScript("scroll(0,-1500)", "");
         System.out.println("TSP has been successfully Verified");
-        JavascriptExecutor pageUp = (JavascriptExecutor) driver;
-        pageUp.executeScript("window.scroll(0,-3000)", "");
-
     }
 
     public void deleteTSP() {
-        driver.get(TSP);
+        ((JavascriptExecutor) driver).executeScript("scroll(0,-500);");
+        wait.until(ExpectedConditions.elementToBeClickable(xpathTSP2));
+        driver.findElement(xpathTSP2).click();
         wait.until(ExpectedConditions.elementToBeClickable(selectorFieldSearch));
         driver.findElement(selectorFieldSearch).sendKeys(adminTSPName);
         waitingSpinner();
@@ -151,14 +182,7 @@ public class TSPPage extends Login {
         System.out.println("TSP successfully Deleted");
     }
 
-    public void GoToTSP() {
-        loginAdmin();
-        driver.findElement(xpathTSP).click();
-        System.out.println("Go to section: TSP");
-    }
-
     public void openTSPCard(String tsp) {
-        GoToTSP(); // Переход в раздел "Торгово-сервисные предприятия"
         wait.until(ExpectedConditions.elementToBeClickable(selectorFieldSearch));
         driver.findElement(selectorFieldSearch).sendKeys(tsp);
         waitingSpinner();
@@ -187,7 +211,7 @@ public class TSPPage extends Login {
     }
 
     public void openPromotionCard() {
-        openTabPromotions(); // Переход во вкладку "Акции", в карточке "Торгово-сервисного предприятия"
+        openTabPromotions();               // Переход во вкладку "Акции", в карточке "Торгово-сервисного предприятия"
         wait.until(ExpectedConditions.elementToBeClickable(xpathButtonAdd));
         driver.findElement(xpathButtonAdd).click();
         System.out.println("Open Promotion Card");
@@ -213,7 +237,9 @@ public class TSPPage extends Login {
         driver.findElement(xpathTabContent).click();
         for (int i = 0; i < nmbAddressForPromotionAdmin; i++) {
             String deliveryAddress = "Адрес предоставления № " + (i + 1);
+            wait.until(ExpectedConditions.elementToBeClickable(selectorFieldAddressOffer));
             driver.findElement(selectorFieldAddressOffer).sendKeys(deliveryAddress);
+            wait.until(ExpectedConditions.elementToBeClickable(selectorAddAddressOffer));
             driver.findElement(selectorAddAddressOffer).click();
         }
         driver.findElement(selectorFieldContentTitle).sendKeys(promotionName);
@@ -221,7 +247,6 @@ public class TSPPage extends Login {
         driver.findElement(selectorFieldOfferDateTo).sendKeys(dateNow);
         driver.findElement(selectorFieldContentTeaser).sendKeys(descriptionAndConditionPromotion.repeat(nmbRptForPromotionAdmin));
         chosenAddressForPromotion = driver.findElements(xpathChosenAddress);
-
         addImagePromotionCard(); // Прикрепляем изображение
     }
 
@@ -233,32 +258,34 @@ public class TSPPage extends Login {
     }
 
     public void createPromotion() {
-        openPromotionCard();             // Открываем Карточку акции
         tabPropertiesPromotionCard();    // Заполняем вкладку "Свойства"
         tabContentPromotionCard();       // Заполняем вкладку "Содержимое"
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(xpathSpinner));
+        wait.until(ExpectedConditions.elementToBeClickable(xpathButtonSave));
         driver.findElement(xpathButtonSave).click();
-        System.out.println("Create Promotion");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(xpathNotifier));
+        String textNotificationPromotionCardSaveNow = driver.findElement(xpathNotifier).getText();
+        Assert.assertEquals("Не совпадают тексты нотификации при сохранении Акции",
+                promotionSaveNotification, textNotificationPromotionCardSaveNow);
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(xpathNotifier));
+        System.out.println("Promotion successfully Created");
     }
 
     public void publicPromotion() {
-        createPromotion(); // Создаем Акцию
         wait.until(ExpectedConditions.elementToBeClickable(xpathButtonPublic));
         driver.findElement(xpathButtonPublic).click();
         wait.until(ExpectedConditions.elementToBeClickable(xpathButtonSaveInWindow));
         driver.findElement(xpathButtonSaveInWindow).click();
-        getPromotionID();
         System.out.println("Public Promotion");
     }
 
     public void getPromotionID() {
-        wait.until(ExpectedConditions.visibilityOf(driver.findElement(xpathPromotionID)));
-        //String temp = driver.findElement(By.cssSelector("span[class = 'ng-star-inserted']")).getText();
-        promotionID = driver.findElement(xpathPromotionID).getText().substring(driver.findElement(xpathPromotionID).getText().length() - 4);
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(xpathID)));
+        int colon = driver.findElement(xpathID).getText().lastIndexOf(":");
+        promotionID = driver.findElement(xpathID).getText().substring(colon + 2);
         System.out.println("ID of created promotion: " + promotionID);
     }
 
-    public void comparePromotion() {
+    public void checkPromotion() {
         wait.until(ExpectedConditions.elementToBeClickable(xpathPortal));
         boolean PromotionPortalCheckBoxForCheck = driver.findElement(xpathPortal).isSelected();
         Assert.assertEquals("Некорректно заполнен чек-бокс 'Портал'", CheckBox, PromotionPortalCheckBoxForCheck);
@@ -282,8 +309,6 @@ public class TSPPage extends Login {
         Assert.assertEquals("Некорректно заполнено второе поле 'Описание'", descriptionAndConditionPromotion.repeat(nmbRptForPromotionAdmin), PromotionDescriptionForCheck);
         Assert.assertEquals("Некорректно заполнены поля 'Адреса предоставления'", nmbAddressForPromotionAdmin, chosenAddressForPromotion.size());
         System.out.println("Promotion has been successfully Verified");
-        driver.navigate().back();
-
         driver.navigate().back();
         wait.until(ExpectedConditions.invisibilityOfElementLocated(xpathSpinner));
     }
@@ -321,7 +346,9 @@ public class TSPPage extends Login {
         driver.findElement(xpathTabContent).click();
         for (int i = 0; i < nmbAddressForDiscountAdmin; i++) {
             String deliveryAddress = "Адрес предоставления № " + (i + 1);
+            wait.until(ExpectedConditions.elementToBeClickable(selectorFieldAddressOffer));
             driver.findElement(selectorFieldAddressOffer).sendKeys(deliveryAddress);
+            wait.until(ExpectedConditions.elementToBeClickable(selectorAddAddressOffer));
             driver.findElement(selectorAddAddressOffer).click();
         }
         driver.findElement(selectorFieldContentTitle).sendKeys(discountName);
@@ -333,42 +360,42 @@ public class TSPPage extends Login {
         addImageDiscountCard();            // Прикрепляем изображение
     }
 
-
     public void addImageDiscountCard() {
         driver.findElement(xpathButtonSpanDownloadImage).click();
         driver.findElement(selectorFieldImage).sendKeys(imageDiscountAdmin);
         driver.findElement(xpathButtonSaveImage).click();
         wait.until(ExpectedConditions.invisibilityOfElementLocated(xpathButtonSaveImage));
-
     }
 
     public void createDiscount() {
-        openDiscountCard();             // Открываем Карточку скидки
         tabPropertiesDiscountCard();    //Заполняем вкладку "Свойства"
         tabContentDiscountCard();       //Заполняем вкладку "Содержимое"
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(xpathSpinner));
+        wait.until(ExpectedConditions.elementToBeClickable(xpathButtonSave));
         driver.findElement(xpathButtonSave).click();
-        System.out.println("Create Discount");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(xpathNotifier));
+        String textNotificationDiscountCardSaveNow = driver.findElement(xpathNotifier).getText();
+        Assert.assertEquals("Не совпадают тексты нотификации при сохранении Скидки",
+                discountSaveNotification, textNotificationDiscountCardSaveNow);
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(xpathNotifier));
+        System.out.println("Discount successfully Created");
     }
 
     public void getDiscountID() {
-        wait.until(ExpectedConditions.visibilityOf(driver.findElement(xpathDiscountID)));
-        int colon = driver.findElement(xpathDiscountID).getText().lastIndexOf(":");
-        discountID = driver.findElement(xpathDiscountID).getText().substring(colon + 2, driver.findElement(xpathDiscountID).getText().length());
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(xpathID)));
+        int colon = driver.findElement(xpathID).getText().lastIndexOf(":");
+        discountID = driver.findElement(xpathID).getText().substring(colon + 2);
         System.out.println("ID of created discount: " + discountID);
     }
 
     public void publicDiscount() {
-        createDiscount();                 // Создаем Скидку
         wait.until(ExpectedConditions.elementToBeClickable(xpathButtonPublic));
         driver.findElement(xpathButtonPublic).click();
         wait.until(ExpectedConditions.elementToBeClickable(xpathButtonSaveInWindow));
         driver.findElement(xpathButtonSaveInWindow).click();
-        getDiscountID();
         System.out.println("Public Discount");
     }
 
-    public void compareDiscount() {
+    public void checkDiscount() {
         wait.until(ExpectedConditions.elementToBeClickable(xpathPortal));
         boolean DiscountPortalCheckBoxForCheck = driver.findElement(xpathPortal).isSelected();
         Assert.assertEquals("Некорректно заполнен чек-бокс 'Портал'", CheckBox, DiscountPortalCheckBoxForCheck);
@@ -396,16 +423,32 @@ public class TSPPage extends Login {
         System.out.println("Discount has been successfully Verified");
     }
 
-    public void CreateTSPPromotionAndDiscount() {
-        loginAdmin(); // Авторизация под пользователем с правами "Администратор"
-        sectionTSP(); // Переход в раздел "Торгово-сервисные предприятия"
-        sectionCreationTSP(); // Создание и заполнение ТСП
-        compareTSP(); // Проверка правильности заполнения ТСП
-        publicPromotion(); // Создание акции
-        comparePromotion(); // Проверка правильности заполнения Акции
-        publicDiscount(); // Создание скидки
-        compareDiscount(); // Проверка правильности заполнения скидки
-        deleteTSP(); // Удаление ТСП
+    public void CreateAndCheckTSP(){
+        loginAdmin();                        // Авторизация под пользователем с правами "Администратор"
+        sectionTSP();                        // Переход в раздел "Торгово-сервисные предприятия"
+        openTSPCard();                       // Открываем карточку Торгово-сервисного предприятия
+        createTSP();                         // Создаем ТСП
+        getTSPID();                          // Получаем ID ТСП
+        checkTSPCard();                      // Проверяем заполненность карточки ТСП
+    }
 
+    public void CreateAndCheckPromotion(){
+        sectionTSP();                        // Переход в раздел "Торгово-сервисные предприятия"
+        openTSPCard(adminTSPName);           // Открываем карточку Торгово-сервисного предприятия
+        openPromotionCard();                 // Открываем карточку Акции
+        createPromotion();                   // Создаем Акцию
+        getPromotionID();                    // Получаем ID Акции
+        publicPromotion();                   // Публикуем Акцию
+        checkPromotion();                    // Проверяем заполненность карточки Акции
+    }
+
+    public void CreateAndCheckDiscount(){
+        sectionTSP();                        // Переход в раздел "Торгово-сервисные предприятия"
+        openTSPCard(adminTSPName);           // Открываем карточку Торгово-сервисного предприятия
+        openDiscountCard();                  // Открываем карточку Акции
+        createDiscount();                    // Создаем Акцию
+        getDiscountID();                     // Получаем ID Акции
+        publicDiscount();                    // Публикуем Акцию
+        checkDiscount();                     // Проверяем заполненность карточки Акции
     }
 }

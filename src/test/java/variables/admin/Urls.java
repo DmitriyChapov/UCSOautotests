@@ -35,8 +35,8 @@ public class Urls {
     public static String posterCardUrl = "https://ucso-test.opencode.su/news-dashboard/posts-editor?type=AFISHA";
     public static String interviewsUrl = "https://ucso-test.opencode.su/votes/polls?type=ACTUAL&blockView=false";
     public static String interviewCardUrl = "https://ucso-test.opencode.su/votes/poll-card";
-    public static String TSP = "https://ucso-test.opencode.su/partners/partners-list";
-
+    public static String tspUrl = "https://ucso-test.opencode.su/partners/partners-list";
+    public static String tspCardUrl = "https://ucso-test.opencode.su/partners/partner-card";
 
 
     public static String siteSettingsUrl = "https://ucso-test.opencode.su/site-settings";
@@ -47,5 +47,5 @@ public class Urls {
     public static String guidelinesAndRegulationsCardUrl = "https://ucso-test.opencode.su/guidelines/guideline-card";
     public static String cardHoldersRegistryUrl = "https://ucso-test.opencode.su/card-holders-registry";
     public static String electronicCasesRegistersUrl = "https://ucso-test.opencode.su/electronic-cases-registry";
-    public static String scheduleAfisha = "https://www.google.com/";
+    public static String schedulePoster = "https://www.google.com/";
 }

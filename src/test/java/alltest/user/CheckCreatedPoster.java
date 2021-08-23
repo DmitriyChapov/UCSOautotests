@@ -2,11 +2,11 @@ package alltest.user;
 
 import org.junit.Test;
 
-public class CreateAndPublicPoster extends login.user_portal.posters.CreateAndPublicPoster {
+public class CheckCreatedPoster extends login.user_portal.posters.CreateAndPublicPoster {
 
     @Test
-    public void testPosterCard() {
-        publicPoster();
+    public void testCheckCreatedPoster() {
+        createAndPublicPoster();
         loginPortal();
         userToPosterCard();
         getUserPosters();

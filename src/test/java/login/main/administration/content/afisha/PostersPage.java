@@ -4,7 +4,6 @@ import login.Login;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import static variables.admin.Numbers.*;
@@ -80,7 +79,7 @@ public class PostersPage extends Login {
         wait.until(ExpectedConditions.elementToBeClickable(xpathLocationForEvent));
         driver.findElement(xpathLocationForEvent).click();
         driver.findElement(selectorFieldEventCost).sendKeys(posterCost);
-        driver.findElement(selectorFieldEventShedule).sendKeys(scheduleAfisha);
+        driver.findElement(selectorFieldEventShedule).sendKeys(schedulePoster);
         addImagePosterCard();             // Прикрепляем изображения
     }
 

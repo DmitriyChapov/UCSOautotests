@@ -152,6 +152,7 @@ public class Xpath {
     public static By xpathListBlocks = By.xpath("//mat-card");
     public static By xpathReferenceBookNameForSearch = By.xpath(".//td[2]");
     public static By xpathCheckDropDown = By.xpath(".//span/span");
+    public static By xpathID = By.xpath("//span[contains(text(), 'ID')]");
 
     //Создание ТСП для админки
     public static By xpathNameField = By.xpath("//input[contains(@name, 'partnerName')]");
@@ -160,11 +161,10 @@ public class Xpath {
     public static By xpathEmailField = By.xpath("//input[contains(@name, 'partnerEmail')]");
     public static By xpathOgrnField = By.xpath("//input[contains(@name, 'partnerOgrn')]");
     public static By xpathMCCField = By.xpath("//input[contains(@data-placeholder, 'Выберите MCC-код организации')]");
-    public static By xpathMCCChosenField = By.xpath("//span[contains(@class, 'classifiers-value')]");
-    public static By xpathMCCChooseField = By.xpath("//span[contains(text(), 'Классификатор 1')]");
+    public static By xpathMCC_CodeField = By.xpath("//span[contains(@class, 'classifiers-value')]");
+    public static By xpathMCC_CodeInDropDown = By.xpath("//span[contains(text(), 'Классификатор 1')]");
     public static By xpathSiteField = By.xpath("//input[contains(@data-placeholder, 'Ссылка должна содержать \"http://\" или \"https://\"')]");
     public static By xpathEmail2Field = By.xpath("//input[contains(@name, 'email')]");
-    public static By xpathChooseFile = By.xpath("//input[contains(@name, 'fileInput')]");
     public static By xpathPhone = By.xpath("//input[contains(@name, 'phone')]");
     public static By xpathVK = By.xpath("//input[contains(@data-placeholder, 'Ссылка должна быть в формате https://vk.com/company')]");
     public static By xpathOK = By.xpath("//input[contains(@data-placeholder, 'Ссылка должна быть в формате https://ok.ru/company')]");

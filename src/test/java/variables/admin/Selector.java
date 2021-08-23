@@ -101,6 +101,7 @@ public class Selector {
     public static By headingElectronicCasesPage = By.className("cases__title");
     public static By headingCardHoldersPage = By.className("cardholder-registry__title");
     public static By headingTSPPage = By.className("partners__title");
+    public static By headingTSPCardPage = By.className("partner-card__title");
     public static By headingSettingsPage = By.className("settings__title");
     public static By headingLogoWindow = By.xpath("//app-logo-card//h2");
 

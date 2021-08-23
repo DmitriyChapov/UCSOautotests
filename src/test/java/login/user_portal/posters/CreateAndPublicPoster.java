@@ -6,7 +6,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import static variables.admin.Numbers.age;
 import static variables.admin.Strings.*;
-import static variables.admin.Urls.scheduleAfisha;
+import static variables.admin.Urls.schedulePoster;
 import static variables.portal.Xpath.*;
 import static variables.portal.Collections.*;
 
@@ -36,6 +36,19 @@ public class CreateAndPublicPoster extends PostersPage {
 
             if (userPosterId.equals(posterCardId)) {
 
+                //Проверка заголовка созданной афиши в основном разделе 'Афииши'
+                String posterCardMainSHeadingNow = posterCardHeadings.get(i).getText();
+                if (posterHeading.length() > 97) {
+                    Assert.assertEquals("Не совпадает заголовок афиши в общем разделе 'Афиши'", posterHeading.substring(0, 97), posterCardMainSHeadingNow.substring(0, 97));
+                }
+                else {
+                    Assert.assertEquals("Не совпадает заголовок афиши в общем разделе 'Афиши'", posterHeading, posterCardMainSHeadingNow);
+                }
+
+                //Проверка анонса созданной афиши в основном разделе 'Афииши'
+                String posterCardMainSTeaserNow = posterCardTeasers.get(i).getText();
+                Assert.assertEquals("Не совпадает анонс афиши в общем разделе 'Афиши'", posterAnnouncement, posterCardMainSTeaserNow);
+
                 //Проверка даты созданной афиши в основном разделе 'Афииши'
                 String posterCardMainSDateNow = posterCardDates.get(i).getText();
                 Assert.assertEquals("Не совпадает дата афиши в общем разделе 'Афиши'", posterDate, posterCardMainSDateNow);
@@ -49,20 +62,6 @@ public class CreateAndPublicPoster extends PostersPage {
                 //Проверка цены созданной афиши в основном разделе 'Афииши'
                 String posterCardMainSCostNow = posterCardCosts.get(i).getText();
                 Assert.assertEquals("Не совпадает цена у афиши в общем разделе 'Афиши'", posterCost, posterCardMainSCostNow);
-
-
-                //Проверка заголовка созданной афиши в основном разделе 'Афииши'
-                String posterCardMainSHeadingNow = posterCardHeadings.get(i).getText();
-                if (posterHeading.length() > 97) {
-                    Assert.assertEquals("Не совпадает заголовок афиши в общем разделе 'Афиши'", posterHeading.substring(0, 97), posterCardMainSHeadingNow.substring(0, 97));
-                }
-                else {
-                    Assert.assertEquals("Не совпадает заголовок афиши в общем разделе 'Афиши'", posterHeading, posterCardMainSHeadingNow);
-                }
-
-                //Проверка анонса созданной афиши в основном разделе 'Афииши'
-                String posterCardMainSTeaserNow = posterCardTeasers.get(i).getText();
-                Assert.assertEquals("Не совпадает анонс афиши в общем разделе 'Афиши'", posterAnnouncement, posterCardMainSTeaserNow);
 
                 //Проверка локации созданной афиши в основном разделе 'Афииши'
                 String posterCardMainSLocationNow = posterCardLocations.get(i).getText();
@@ -104,7 +103,7 @@ public class CreateAndPublicPoster extends PostersPage {
 
         //Проверка ссылки в открытой афише
         String openedPosterUrl = driver.findElement(xpathOpenedPosterUrl).getAttribute("href");
-        Assert.assertEquals("Не совпадает ссылка у открытой афиши", scheduleAfisha, openedPosterUrl);
+        Assert.assertEquals("Не совпадает ссылка у открытой афиши", schedulePoster, openedPosterUrl);
 
         //Проверка рубрики в открытой афише
         String openedPosterCategory = driver.findElement(xpathOpenedPosterCategory).getText();

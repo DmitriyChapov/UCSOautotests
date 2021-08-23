@@ -17,6 +17,7 @@ public class Xpath {
     public static By xpathPartnersAdd = By.xpath("//button[contains(text(), 'Стать партнером')]");
     public static By xpathPartnersOpen = By.xpath("//button[contains(text(), 'Перейти в кабинет')]");
     public static By xpathConfirmButton = By.xpath("//button[contains(text(), 'Готово')]");
+    public static By xpathUserTSPMSS_code = By.xpath("//label[contains(@for, 'classifiers')]/..//input");
     public static By xpathMSS_CodeConfirm = By.xpath("//li[contains(text(), '9999 Название')]");
     public static By xpathTSPSendButton = By.xpath("//button[contains(text(), 'Отправить заявку')]");
     public static By xpathTSPUserAddress = By.xpath("//span[contains(text(), 'Добавить адрес')]");

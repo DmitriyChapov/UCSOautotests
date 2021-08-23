@@ -2,10 +2,10 @@ package alltest.user;
 
 import org.junit.Test;
 
-public class CreateTSP extends login.user_portal.cabinetTSP.CreateTSP {
+public class CheckCreatedUserTSP extends login.user_portal.cabinetTSP.CreateTSP {
 
     @Test
-    public void testCreateTSP() throws InterruptedException {
+    public void testCheckCreatedUserTSP() throws InterruptedException {
         openPartnersPage();
         Thread.sleep(1000);
         createTSPofUser();

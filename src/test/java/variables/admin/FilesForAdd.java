@@ -39,7 +39,7 @@ public class FilesForAdd {
     public static String imageQuestionText ="C:\\Image for AutoTest\\Questions\\Text.png";
 
     //ТСП, Скидки, Акции
-    public static String imageLogoTSPAdmin = "C:\\Image for AutoTest\\TSP1.jpg";
+    public static String imageTSPLogoAdmin = "C:\\Image for AutoTest\\TSPAdmin.jpg";
     public static String imagePromotionAdmin = "C:\\Image for AutoTest\\PromotionAdmin.png";
     public static String imageDiscountAdmin = "C:\\Image for AutoTest\\DiscountAdmin.jpg";
 
