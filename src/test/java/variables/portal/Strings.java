@@ -1,6 +1,8 @@
 package variables.portal;
 
+import static variables.admin.Numbers.age;
 import static variables.admin.Strings.adminTSPPhonePublic;
+import static variables.admin.Strings.posterText;
 import static variables.portal.Numbers.*;
 import static variables.common.Numbers.*;
 
@@ -27,4 +29,7 @@ public class Strings {
     public static String userTSPDiscount = nmbDiscountPortal + "%";
 
     public static String tspPhone = "+7 (" + adminTSPPhonePublic.substring(0, 3) + ") " + adminTSPPhonePublic.substring(3, 6) + " " + adminTSPPhonePublic.substring(6, adminTSPPhonePublic.length());
+
+    public static String agePlus = age + "+";
+    public static String fullPosterText = posterText.repeat(20).substring(0,posterText.repeat(20).length()-1);
 }

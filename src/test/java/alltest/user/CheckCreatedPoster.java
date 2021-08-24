@@ -8,7 +8,7 @@ public class CheckCreatedPoster extends login.user_portal.posters.CreateAndPubli
     public void testCheckCreatedPoster() {
         createAndPublicPoster();
         loginPortal();
-        userToPosterCard();
+        sectionPosters();
         getUserPosters();
         openCreatedPosterCard();
     }

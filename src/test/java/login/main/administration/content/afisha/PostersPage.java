@@ -71,7 +71,7 @@ public class PostersPage extends Login {
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("[class = 'mat-ripple-element']")));
         wait.until(ExpectedConditions.elementToBeClickable(selectorFieldContentTitle));
         driver.findElement(selectorFieldContentTitle).sendKeys(posterHeading);
-        driver.findElement(selectorFieldContentTeaser).sendKeys(posterAnnouncement);
+        driver.findElement(selectorFieldContentTeaser).sendKeys(posterTeaser);
         driver.findElement(selectorFieldContentText).sendKeys(posterText.repeat(20));
         driver.findElement(selectorFieldAge).sendKeys(String.valueOf(age));
         driver.findElement(selectorFieldEventDate).sendKeys(posterDate);
@@ -116,7 +116,6 @@ public class PostersPage extends Login {
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(xpathPosterHeadingID)));
         String temp = driver.findElement(xpathPosterHeadingID).getText();
         posterCardId = temp.substring(temp.length() - 5);
-        System.out.println("ID созданной афиши: " + posterCardId);
     }
 
     public void createPoster() {
@@ -141,7 +140,7 @@ public class PostersPage extends Login {
         String textNotificationPosterCardPublicNow = driver.findElement(xpathNotifier).getText();
         Assert.assertEquals("Не совпадают тексты нотификации при публикации Афиши",
                 posterCardPublicNotification, textNotificationPosterCardPublicNow);
-        System.out.println("Poster successfully Published");
+        System.out.println("Poster ID: " + posterCardId + " successfully Published");
     }
 
     public void createAndPublicPoster(){

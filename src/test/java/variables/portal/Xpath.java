@@ -33,12 +33,12 @@ public class Xpath {
 
     public static By xpathPosterSection = By.xpath("//span[contains(text(), 'Афиши')]");
     public static By xpathAllUserPosters = By.xpath("//a[contains(@href, 'posters/')]");
-    public static By xpathMainSPosterDates = By.xpath("//main//a//div[1]/div[2]/div[1]//div");
-    public static By xpathMainSPosterCost = By.xpath("//main//a//div[1]//div[2]//div[2]//div[1]");
-    public static By xpathMainSPosterAge = By.xpath("//main//a//div[1]//div[2]//div[2]//div[2]");
-    public static By xpathMainSPosterHeading = By.xpath("//a/div[2]/div[1]/div[1]");
-    public static By xpathMainSPosterTeaser = By.xpath("//a/div[2]/div[1]/div[2]");
-    public static By xpathMainSPosterLocation = By.xpath("//a/div[2]/div[2]/span");
+    public static By xpathPosterMainDates = By.xpath("./div[1]/div[2]/div[1]//div");
+    public static By xpathPosterMainCost = By.xpath("./div[1]//div[2]//div[2]//div[1]");
+    public static By xpathPosterMainAge = By.xpath("./div[1]//div[2]//div[2]//div[2]");
+    public static By xpathPosterMainHeading = By.xpath("./div[2]/div[1]/div[1]");
+    public static By xpathPosterMainTeaser = By.xpath("./div[2]/div[1]/div[2]");
+    public static By xpathPosterMainLocation = By.xpath("./div[2]/div[2]/span");
     public static By xpathOpenedPosterHeader = By.xpath("//main//header");
     public static By xpathOpenedPosterHeading = By.xpath("//h1[contains(text(), '')]");
     public static By xpathOpenedPosterDate = By.xpath("//main//div//div[1]//p");
