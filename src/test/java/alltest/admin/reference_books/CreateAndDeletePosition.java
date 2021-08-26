@@ -1,6 +1,6 @@
 package alltest.admin.reference_books;
 
-import login.main.reference_books.position.PositionsPage;
+import code.main.reference_books.position.PositionsPage;
 import org.junit.Test;
 
 public class CreateAndDeletePosition extends PositionsPage {

@@ -47,5 +47,5 @@ public class Urls {
     public static String guidelinesAndRegulationsCardUrl = "https://ucso-test.opencode.su/guidelines/guideline-card";
     public static String cardHoldersRegistryUrl = "https://ucso-test.opencode.su/card-holders-registry";
     public static String electronicCasesRegistersUrl = "https://ucso-test.opencode.su/electronic-cases-registry";
-    public static String schedulePoster = "https://www.google.com/";
+    public static String posterEventSchedule = "https://www.google.com/";
 }

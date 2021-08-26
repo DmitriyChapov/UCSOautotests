@@ -1,6 +1,6 @@
 package alltest.admin;
 
-import login.main.administration.interviews.interviews.InterviewsPage;
+import code.main.administration.interviews.interviews.InterviewsPage;
 import org.junit.Test;
 
 public class PublicInterview extends InterviewsPage {

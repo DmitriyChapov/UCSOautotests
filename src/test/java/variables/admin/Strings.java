@@ -1,8 +1,6 @@
 package variables.admin;
 
 import static variables.admin.Numbers.*;
-import static variables.admin.Selector.*;
-import static variables.admin.Xpath.xpathNotifier;
 import static variables.common.Numbers.*;
 
 public class Strings {
@@ -96,7 +94,7 @@ public class Strings {
     public static String newsPageName = "Новости";
     public static String newsCardPageName = "Карточка новости";
     public static String newsHeading =  "Заголовок новости, созданной автотестом. Этот заголовок содержит максимальное количество символов равное 150. Номер генерируется рандомно и равен " + nmbAutoTest;
-    public static String newsAnnouncement = "Анонс новости, созданной автотестом. Этот анонс содержит максимальное количество знаков, равное 150 символов. Номер генерируется рандомно и равен " + nmbAutoTest;
+    public static String newsTeaser = "Анонс новости, созданной автотестом. Этот анонс содержит максимальное количество знаков, равное 150 символов. Номер генерируется рандомно и равен " + nmbAutoTest;
     public static String newsText = "Текст новости, созданной автотестом номер " + nmbAutoTest + ". ";
     public static String newsCardSaveNotification = "Публикация \"" + newsHeading + "\" успешно сохранена";
     public static String newsCardPublicNotification = "Карточка новости \"" + newsHeading + "\" успешно опубликована";
@@ -106,13 +104,13 @@ public class Strings {
     public static String posterHeading = "Заголовок афиши, созданной автотестом. Заголовок содержит максимальное количество знаков равное 150 символов. Номер генерируется рандомно и равен " + nmbAutoTest;
     public static String posterTeaser = "Анонс афиши, созданной автотестом. Анонс афиши содержит максимальное количество знаков равное 150 символов. Номер генерируется рандомно и равен № " + nmbAutoTest;
     public static String posterText = "Текст афиши, созданной автотестом номер " + nmbAutoTest + ". ";
-    public static String posterDate = "C 1 по 8 марта, начало в 19:00";
-    public static String posterLocation = "Локация для автотеста";
-    public static String posterCost = "Бесплатно";
+    public static String posterEventDate = "C 1 по 8 марта, начало в 19:00";
+    public static String posterEventLocation = "Локация для автотеста";
+    public static String posterEventCost = "Бесплатно";
     public static String posterCardSaveNotification = "Публикация \"" + posterHeading + "\" успешно сохранена";
     public static String posterCardPublicNotification = "Карточка афиши \"" + posterHeading + "\" успешно опубликована";
     public static String newsCardId;
-    public static String newsCardCategory;
+    public static String newsCategory;
     public static String posterCardId;
     public static String posterCategory;
 
@@ -124,48 +122,46 @@ public class Strings {
     public static String interviewCardSaveNotification = "Карточка опроса \"" + interviewHeading + "\" успешно сохранена";
     public static String interviewCardPublicNotification = "Опрос \"" + interviewHeading + "\" успешно опубликован";
     public static String questionShortNumberName = "Вопрос \"Короткий ответ\" - Числовая форма";
-    public static String questionShortNumberDescription = "Максимальное кол-во символов: " + maxSymbolShortNumber;
+    public static String questionShortNumberComment = "Максимальное кол-во символов: " + maxSymbolShortNumber;
     public static String questionShortDoubleName = "Вопрос \"Короткий ответ\" - Дробные числа";
-    public static String questionShortDoubleDescription = "Максимальное кол-во символов: " + maxSymbolShortDouble;
+    public static String questionShortDoubleComment = "Максимальное кол-во символов: " + maxSymbolShortDouble;
     public static String questionShortPhoneName = "Вопрос \"Короткий ответ\" - Формат телефона";
-    public static String questionShortPhoneDescription = "Кол-во символов: 11";
+    public static String questionShortPhoneComment = "Кол-во символов: 11";
     public static String questionShortSymbolName = "Вопрос \"Короткий ответ\" - Кириллические символы";
-    public static String questionShortSymbolDescription = "Максимальное кол-во символов: " + maxSymbolShortSymbol;
+    public static String questionShortSymbolComment = "Максимальное кол-во символов: " + maxSymbolShortSymbol;
     public static String questionShortNoValidName = "Вопрос \"Короткий ответ\" - Без валидации";
-    public static String questionShortNoValidDescription = "Максимальное кол-во символов: " + maxSymbolShortNoValid;
+    public static String questionShortNoValidComment = "Максимальное кол-во символов: " + maxSymbolShortNoValid;
     public static String questionLongName = "Вопрос \"Длинный ответ\"";
-    public static String questionLongDescription = "Максимальное кол-во символов: " + maxSymbolLong;
+    public static String questionLongComment = "Максимальное кол-во символов: " + maxSymbolLong;
     public static String questionOneVarName = "Вопрос \"Один вариант\"";
-    public static String questionOneVarDescription = "Кол-во вариантов ответа: " + nmbOneVar;
+    public static String questionOneVarComment = "Кол-во вариантов ответа: " + nmbOneVar;
     public static String nameVar(int i) {
         String nameVar = "Вариант " + (i + 1);
         return nameVar;
     }
-
-
     public static String questionSomeVarName = "Вопрос \"Несколько вариантов\"";
-    public static String questionSomeVarDescription = "Кол-во вариантов ответа: " + nmbSomeVar;
+    public static String questionSomeVarComment = "Кол-во вариантов ответа: " + nmbSomeVar;
     public static String questionDropDownName = "Вопрос \"Выпадающий список\"";
-    public static String questionDropDownDescription = "Кол-во вариантов ответа: " + nmbDropDown;
+    public static String questionDropDownComment = "Кол-во вариантов ответа: " + nmbDropDown;
     public static String questionScaleName = "Вопрос \"Шкала\"";
-    public static String questionScaleDescription = "Кол-во делений: ";
+    public static String questionScaleComment = "Кол-во делений: ";
     public static String questionDownloadJPEGName = "Вопрос \"Загрузка файла\" - JPEG";
-    public static String questionDownloadJPEGDescription = "Допустимый формат загружаемый файлов - JPEG, JPG. Максимальное кол-во файлов: " + maxFilesJPEG;
+    public static String questionDownloadJPEGComment = "Допустимый формат загружаемый файлов - JPEG, JPG. Максимальное кол-во файлов: " + maxFilesJPEG;
     public static String questionDownloadPNGName = "Вопрос \"Загрузка файла\" - PNG";
-    public static String questionDownloadPNGDescription = "Допустимый формат загружаемый файлов - PNG. Максимальное кол-во файлов: " + maxFilesPNG;
+    public static String questionDownloadPNGComment = "Допустимый формат загружаемый файлов - PNG. Максимальное кол-во файлов: " + maxFilesPNG;
     public static String questionDownloadPDFName = "Вопрос \"Загрузка файла\" - PDF";
-    public static String questionDownloadPDFDescription = "Допустимый формат загружаемый файлов - PDF. Максимальное кол-во файлов: " + maxFilesPDF;
+    public static String questionDownloadPDFComment = "Допустимый формат загружаемый файлов - PDF. Максимальное кол-во файлов: " + maxFilesPDF;
     public static String questionDownloadDOCName = "Вопрос \"Загрузка файла\" - DOC";
-    public static String questionDownloadDOCDescription = "Допустимый формат загружаемый файлов - DOC, DOCX, ODT, RTF. Максимальное кол-во файлов: " + maxFilesDOC;
+    public static String questionDownloadDOCComment = "Допустимый формат загружаемый файлов - DOC, DOCX, ODT, RTF. Максимальное кол-во файлов: " + maxFilesDOC;
     public static String questionDownloadXLSName = "Вопрос \"Загрузка файла\" - XLS";
-    public static String questionDownloadXLSDescription = "Допустимый формат загружаемый файлов - XLS, XLSX. Максимальное кол-во файлов: " + maxFilesXLS;
+    public static String questionDownloadXLSComment = "Допустимый формат загружаемый файлов - XLS, XLSX. Максимальное кол-во файлов: " + maxFilesXLS;
     public static String questionDownloadALLName = "Вопрос \"Загрузка файла\" - Все типы";
-    public static String questionDownloadALLDescription = "Допустимый формат загружаемый файлов - JPG, JPEG,PNG, PDF, DOC, DOCX, ODT, RTF, XLS, XLSX. Максимальное кол-во файлов: " + maxFilesALL;
+    public static String questionDownloadALLComment = "Допустимый формат загружаемый файлов - JPG, JPEG,PNG, PDF, DOC, DOCX, ODT, RTF, XLS, XLSX. Максимальное кол-во файлов: " + maxFilesALL;
     public static String questionTextName = "Вопрос \"Текст.\" ";
-    public static String questionTextDescription = "Просто текст";
-    public static String surveyId;
+    public static String questionTextComment = "Просто текст";
+    public static String interviewId;
     public static String scaleCount;
-    public static String qType;
+    public static String questionType;
 
     //ТСП, Скидки, Акции
     public static String tspPageName = "Торгово-сервисные предприятия";
@@ -231,8 +227,17 @@ public class Strings {
     public static String logoWindowName = "Редактирование варианта логотипа";
     public static String logoName = "Наименование Логотипа созданного автотестом " + nmbAutoTest;
 
-    //ТСП
-
+    //Общее
+    public static String contentCreationDate;
+    public static String contentUnPublicDate;
+    public static String contentDeleteDate;
+    public static String stateCreate = "Создано";
+    public static String statePublic = "Размещено";
+    public static String stateDelete = "Удалено";
+    public static String stateUnPublic = "Снято с публикации";
+    public static boolean contentPortalAvailable;
+    public static boolean contentMobileAvailable;
+    public static boolean contentLocationAvailable;
 
 }
 

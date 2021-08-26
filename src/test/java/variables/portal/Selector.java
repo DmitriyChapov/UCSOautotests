@@ -2,7 +2,7 @@ package variables.portal;
 
 import org.openqa.selenium.By;
 
-import static variables.admin.Strings.surveyId;
+import static variables.admin.Strings.interviewId;
 
 public class Selector {
 
@@ -39,5 +39,5 @@ public class Selector {
 
 
     //Опросы
-    public static By selectorCreatedSurveyHref = By.cssSelector("a[href = '#/info/polls/" + surveyId + "']");
+    public static By selectorCreatedSurveyHref = By.cssSelector("a[href = '#/info/polls/" + interviewId + "']");
 }

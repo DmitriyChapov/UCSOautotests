@@ -21,6 +21,7 @@ public class Xpath {
     public static By xpathEventPlaces = By.xpath("//a[contains(text(), 'Учреждения для проведения мероприятий')]");
     public static By xpathAdministration = By.xpath("//li[contains(text(), 'Администрирование')]");
     public static By xpathContent = By.xpath("//a[contains(text(), 'Контент')]");
+    public static By xpathNews = By.xpath("//a[contains(text(), 'Новости')]");
     public static By xpathPoster = By.xpath("//a[contains(text(), 'Афиши')]");
     public static By xpathInterviews = By.xpath("//a[contains(text(), 'Опросы')]");
     public static By xpathInterviewsArchive = By.xpath("//a[contains(text(), 'Архив')]");
@@ -68,8 +69,13 @@ public class Xpath {
     public static By xpathRadioButtonMainImage = By.xpath("//div[contains(text(), ' Основное изображение (в списке публикаций) ')]/../..");
     public static By xpathRadioButtonGalleryImage = By.xpath("//div[contains(text(), ' Галерея (детальное, внутри публикации) ')]/../..");
     public static By xpathLocationForEvent = By.xpath("//span[contains(text(), 'Локация для автотеста')]");
-    public static By xpathUserNewsCardId = By.xpath("//h1[contains(text(), 'Карточка')]");
     public static By xpathPosterHeadingID = By.xpath("//span[contains(text(), 'ID')]");
+    public static By xpathRubrics = By.xpath("//mat-select/div/div/span/span");
+    public static By xpathContentType = By.xpath("//mat-select/div/div/span/span");
+    public static By xpathContentImage = By.xpath("//mat-card");
+    public static By xpathContentText = By.xpath("//md-editor//p");
+    public static By xpathTabArchive = By.xpath("//div[contains(text(), 'Архив')]");
+    public static By xpathContentTagsInBlocks = By.xpath(".//mat-card-actions//span[contains(@class, 'rubrics')]");
 
     // Опросы
     public static By xpathAccessAll = By.xpath("//span[@class = 'mat-option-text'][contains(text(),'Всем')]");
@@ -96,10 +102,8 @@ public class Xpath {
     public static By xpathDownloadFilesDOC =  By.xpath("//span[contains(text(), 'DOC')]");
     public static By xpathDownloadFilesXLS =  By.xpath("//span[contains(text(), 'XLS')]");
     public static By xpathTextAnswer = By.xpath("//span[contains(text(), 'Текст')]");
-    public static By xpathCreatedSurveyId = By.xpath("//span[contains(text(), 'ID')]");
-    public static By xpathCreatedSurveyOneVarVariants = By.xpath("//input[contains(@id, 'answer')]");
-    public static By xpathCreatedSurveySomeVarVariants = By.xpath("//input[contains(@id, 'answer')]");
-    public static By xpathCreatedSurveyDropDownVariants = By.xpath("//input[contains(@id, 'answer')]");
+    public static By xpathInterviewId = By.xpath("//span[contains(text(), 'ID')]");
+    public static By xpathInterviewQuestionVariantName = By.xpath("//input[contains(@id, 'answer')]");
     public static By xpathCreatedSurveyScaleCount = By.xpath("//mat-select[contains(@id, 'answerValidationType')]//div[1]//div");
 
     // Скидки и Акции
@@ -135,13 +139,14 @@ public class Xpath {
     //Общие кнопки
     public static By xpathButtonSave = By.xpath("//span[contains(text(), 'Сохранить')]");
     public static By xpathButtonPublic = By.xpath("//span[contains(text(), 'Разместить')]");
+    public static By xpathButtonUnPublic = By.xpath("//span[contains(text(), 'Снять с публикации')]");
+    public static By xpathButtonDelete = By.xpath("//span[contains(text(), 'Удалить')]");
     public static By xpathButtonSaveInWindow = By.xpath("//mat-dialog-actions/button[2]/span[1]");
     public static By xpathButtonSaveImage = By.xpath("//app-image-cropper/div[2]/button[2]");
     public static By xpathButtonAdd = By.xpath("//span[contains(text(), 'Добавить')]");
     public static By xpathButtonDownloadImage = By.xpath("//button[contains(text(), 'Загрузить изображение')]");
     public static By xpathButtonSpanDownloadImage = By.xpath("//span[contains(text(), 'Загрузить изображение')]");
     public static By xpathButtonAccept = By.xpath("//span[contains(text(), 'Подтвердить')]");
-    public static By xpathButtonDelete = By.xpath("//span[contains(text(), 'Удалить')]");
     public static By xpathButtonIn = By.xpath("//span[contains(text(), 'Войти')]");
     public static By xpathButtonOk = By.xpath("//span[contains(text(), 'Ок')]");
     public static By xpathButtonYes = By.xpath("//span[contains(text(), 'Да')]");
@@ -150,9 +155,18 @@ public class Xpath {
     public static By xpathSpinner = By.xpath("//mat-spinner");
     public static By xpathListInTable = By.xpath("//tbody/tr");
     public static By xpathListBlocks = By.xpath("//mat-card");
+    public static By xpathContentStateInBlocks = By.xpath(".//mat-card-title");
+    public static By xpathContentIDInBlocks = By.xpath(".//mat-card-title/div");
+    public static By xpathContentCreationDateInBlocks = By.xpath(".//mat-card-content/p[1]");
+    public static By xpathContentHeadingInBlocks = By.xpath(".//mat-card-content//h3");
+    public static By xpathContentTeaserInBlocks = By.xpath(".//mat-card-content//p[2]");
     public static By xpathReferenceBookNameForSearch = By.xpath(".//td[2]");
     public static By xpathCheckDropDown = By.xpath(".//span/span");
     public static By xpathID = By.xpath("//span[contains(text(), 'ID')]");
+    public static By xpathContentCardState = By.xpath("//app-content-state/div/div[1]");
+    public static By xpathContentCardId = By.xpath("//h1[contains(text(), 'Карточка')]");
+
+
 
     //Создание ТСП для админки
     public static By xpathNameField = By.xpath("//input[contains(@name, 'partnerName')]");

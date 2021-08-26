@@ -26,6 +26,7 @@ public class Numbers {
 
     //Новости и Афиши
     public static int age = (int) (Math.random() * 98 + 1);
+    public static int countImage;
 
     //Опросы
     public static int maxSymbolShortNumber = (int) (Math.random() * 239 + 1);

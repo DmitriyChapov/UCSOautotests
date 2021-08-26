@@ -2,7 +2,7 @@ package alltest.user;
 
 import org.junit.Test;
 
-public class CheckCreatedUserTSP extends login.user_portal.cabinetTSP.CreateTSP {
+public class CheckCreatedUserTSP extends code.user_portal.cabinetTSP.CreateTSP {
 
     @Test
     public void testCheckCreatedUserTSP() throws InterruptedException {

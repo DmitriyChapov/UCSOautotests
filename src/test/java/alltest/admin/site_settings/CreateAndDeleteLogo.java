@@ -1,6 +1,6 @@
 package alltest.admin.site_settings;
 
-import login.main.site_settings.logo.LogoPage;
+import code.main.site_settings.logo.LogoPage;
 import org.junit.Test;
 
 public class CreateAndDeleteLogo extends LogoPage {

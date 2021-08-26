@@ -1,6 +1,6 @@
 package alltest.admin.registries;
 
-import login.main.registers.card_holders_registry.CardHoldersRegistryPage;
+import code.main.registers.card_holders_registry.CardHoldersRegistryPage;
 import org.junit.Test;
 
 public class OpenCardHoldersRegistry extends CardHoldersRegistryPage {

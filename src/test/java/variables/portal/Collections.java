@@ -8,15 +8,12 @@ public class Collections {
 
     //Новости
     public static List<WebElement> userNews;
-    public static List<WebElement> newsCardAttributes;
-    public static List<WebElement> newsCardMainSectionHeadings;
-    public static List<WebElement> newsCardMainSectionDates;
 
     //Афиши
     public static List<WebElement> userPosters;
 
     //Опросы
-    public static List<WebElement> userSurveys;
+    public static List<WebElement> userInterview;
 
     //Акции
     public static List<WebElement> allPromotions;

@@ -2,7 +2,7 @@ package variables.portal;
 
 import org.openqa.selenium.By;
 
-import static variables.admin.Strings.surveyId;
+import static variables.admin.Strings.interviewId;
 
 public class Xpath {
 
@@ -21,24 +21,26 @@ public class Xpath {
     public static By xpathMSS_CodeConfirm = By.xpath("//li[contains(text(), '9999 Название')]");
     public static By xpathTSPSendButton = By.xpath("//button[contains(text(), 'Отправить заявку')]");
     public static By xpathTSPUserAddress = By.xpath("//span[contains(text(), 'Добавить адрес')]");
-    public static By xpathUserNewsSection = By.xpath("//span[contains(text(), 'Новости')]");
 
     //Новости и Афиши
+    public static By xpathUserNewsSection = By.xpath("//span[contains(text(), 'Новости')]");
     public static By xpathAllUserNews = By.xpath("//a[contains(@href, 'news/')]");
-    public static By xpathNewsCardMainSectionHeading = By.xpath("//main//section/a/div/div[1]");
-    public static By xpathNewsCardMainSectionDates = By.xpath("//main//section/a/div/div[2]");
-    public static By xpathOpenedNewsCardHeading = By.xpath("//main//section//h1");
-    public static By xpathOpenedNewsCardAttributes = By.xpath("//main//section//p");
-    public static By xpathOpenedNewsCardCategory = By.xpath("//main//section//span");
+    public static By xpathNewsSectionHeading = By.xpath("./div/div[1]");
+    public static By xpathNewsSectionDates = By.xpath("./div/div[2]");
+    public static By xpathOpenedNewsDates = By.xpath("//main//section/div/p[1]");
+    public static By xpathOpenedNewsHeading = By.xpath("//main//section//h1");
+    public static By xpathOpenedNewsTeaser = By.xpath("//main//section/div/p[2]");
+    public static By xpathOpenedNewsText = By.xpath("//main//section//div//div//p");
+    public static By xpathOpenedNewsCategory = By.xpath("//main//section//span");
 
-    public static By xpathPosterSection = By.xpath("//span[contains(text(), 'Афиши')]");
+    public static By xpathUserPostersSection = By.xpath("//span[contains(text(), 'Афиши')]");
     public static By xpathAllUserPosters = By.xpath("//a[contains(@href, 'posters/')]");
-    public static By xpathPosterMainDates = By.xpath("./div[1]/div[2]/div[1]//div");
-    public static By xpathPosterMainCost = By.xpath("./div[1]//div[2]//div[2]//div[1]");
-    public static By xpathPosterMainAge = By.xpath("./div[1]//div[2]//div[2]//div[2]");
-    public static By xpathPosterMainHeading = By.xpath("./div[2]/div[1]/div[1]");
-    public static By xpathPosterMainTeaser = By.xpath("./div[2]/div[1]/div[2]");
-    public static By xpathPosterMainLocation = By.xpath("./div[2]/div[2]/span");
+    public static By xpathPosterSectionDates = By.xpath("./div[1]/div[2]/div[1]//div");
+    public static By xpathPosterSectionCost = By.xpath("./div[1]//div[2]//div[2]//div[1]");
+    public static By xpathPosterSectionAge = By.xpath("./div[1]//div[2]//div[2]//div[2]");
+    public static By xpathPosterSectionHeading = By.xpath("./div[2]/div[1]/div[1]");
+    public static By xpathPosterSectionTeaser = By.xpath("./div[2]/div[1]/div[2]");
+    public static By xpathPosterSectionLocation = By.xpath("./div[2]/div[2]/span");
     public static By xpathOpenedPosterHeader = By.xpath("//main//header");
     public static By xpathOpenedPosterHeading = By.xpath("//h1[contains(text(), '')]");
     public static By xpathOpenedPosterDate = By.xpath("//main//div//div[1]//p");
@@ -51,14 +53,14 @@ public class Xpath {
     public static By xpathOpenedPosterText = By.xpath("//main/section/div/div/p");
 
     //Опросы
-    public static By xpathUserToSurveryCard = By.xpath("//span[contains(text(), 'Опросы')]");
-    public static By xpathUserSurveys = By.xpath("//a[contains(@href, 'polls/')]");
-    public static By xpathSurveyMainSHeading = By.xpath("//a[contains(@href, '" + surveyId + "')]/div[1]");
+    public static By xpathUserInterviewsSection = By.xpath("//span[contains(text(), 'Опросы')]");
+    public static By xpathAllUserInterview = By.xpath("//a[contains(@href, 'polls/')]");
+    public static By xpathInterviewSectionHeading = By.xpath("//a[contains(@href, '" + interviewId + "')]/div[1]");
     public static By xpathOpenedSurveyElements = By.xpath("//main//section");
     public static By xpathOpenedSurveyHeading = By.xpath("//h1[contains(text(), '')]");
     public static By xpathOpenedSurveyDescription = By.xpath("//form//article[1]");
-    public static By xpathOpenedSurveyNames = By.xpath("//form//article//p[1]");
-    public static By xpathOpenedSurveyDescriptions = By.xpath("//form//article//p[2]");
+    public static By xpathOpenedQuestionName = By.xpath("//form//article//p[1]");
+    public static By xpathOpenedQuestionDescription = By.xpath("//form//article//p[2]");
 
     //Акции
     public static By xpathToPromotionsAndDiscounts = By.xpath("//span[contains(text(), 'Скидки и акции')]");

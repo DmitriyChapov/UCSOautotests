@@ -1,6 +1,6 @@
 package alltest.admin.reference_books;
 
-import login.main.reference_books.mss_codes.MSS_codesPage;
+import code.main.reference_books.mss_codes.MSS_codesPage;
 import org.junit.Test;
 
 public class CreateAndDeleteMSSCode extends MSS_codesPage {

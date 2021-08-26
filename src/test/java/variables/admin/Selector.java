@@ -34,14 +34,14 @@ public class Selector {
     public static By selectorFieldEventDate = By.cssSelector("[name = 'eventTimePicker']");
     public static By selectorFieldEventLocation = By.cssSelector("[name = 'placeSelectorInput']");
     public static By selectorFieldEventCost = By.cssSelector("[name = 'costInput']");
-    public static By selectorFieldEventShedule = By.cssSelector("[data-placeholder = 'Ссылка должна содержать \"http://\" или \"https://\"']");
+    public static By selectorFieldEventSchedule = By.cssSelector("[data-placeholder = 'Ссылка должна содержать \"http://\" или \"https://\"']");
     public static By selectorSelectTags = By.cssSelector("[name = 'postRubricsSelect']");
 
     //Опросы
     public static By selectorFieldInterviewHeading = By.cssSelector("[name = 'poll-name']");
     public static By selectorFieldInterviewDescription = By.cssSelector("[name = 'description']");
-    public static By selectorFieldQuestion =  By.cssSelector("[name = 'question']");
-    public static By selectorFieldQuestionDescription =  By.cssSelector("[name = 'questionDescription']");
+    public static By selectorFieldQuestionName =  By.cssSelector("[name = 'question']");
+    public static By selectorFieldQuestionComment =  By.cssSelector("[name = 'questionDescription']");
     public static By selectorFieldAnswerMaxLength =  By.cssSelector("[name = 'answerMaxLength']");
     public static By selectorFieldAnswerMaxFiles = By.cssSelector("[name = 'filesToUploadMaxCount']");
     public static By selectorSelectInterviewResults = By.cssSelector("[name = 'resultsAutoPublishMode']");
@@ -50,7 +50,7 @@ public class Selector {
     public static By selectorSelectValidationType = By.cssSelector("[name = 'answerValidationType']");
     public static By selectorQuestionType = By.cssSelector("p[class = 'question__type']");
     public static By selectorQuestionName = By.cssSelector("p[class = 'question__text']");
-    public static By selectorQuestionDescription = By.cssSelector("textarea[id = 'questionDescription']");
+    public static By selectorQuestionComment = By.cssSelector("textarea[id = 'questionDescription']");
     public static By idAnswer(int i){
         By idAnswer = By.id("answer-" + i);
         return idAnswer;
@@ -83,6 +83,7 @@ public class Selector {
     public static By timeFields = By.cssSelector("[type = 'time']");
     public static By selectorFieldImage = By.cssSelector("[name = 'fileInput']");
     public static By selectorFieldSearch = By.cssSelector("[name = 'search']");
+    public static By selectorContentCreationDate = By.cssSelector("[class = 'content-card__date']");
 
     //Общие Чек-боксы
     public static By selectorAvailable = By.cssSelector("[name = 'available']");
