@@ -6,7 +6,6 @@ import org.junit.Test;
 public class PublicAndUnPublicNews extends NewsPage {
 
     @Test
-    public void testPublicAndUnPublicNews() {
-        publicAndUnPublicNews();
+    public void testPublicAndUnPublicNews() { publicAndUnPublicNews();
     }
 }

@@ -15,6 +15,7 @@ public class DescriptionTransportCardPage extends Login {
 
     public void sectionReferenceBooks(){
         driver.findElement(xpathReferenceBooks).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingReferenceBooks));
         String referenceBooksUrlNow = driver.getCurrentUrl();
         String referenceBooksPageNameNow = driver.findElement(headingReferenceBooks).getText();
         Assert.assertEquals("Некорректный Url страницы 'Справочники'",
@@ -37,7 +38,7 @@ public class DescriptionTransportCardPage extends Login {
     }
 
     public void openDescriptionsTransportCardCard() {
-        wait.until(ExpectedConditions.elementToBeClickable(xpathButtonAdd));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingPage));;
         driver.findElement(xpathButtonAdd).click();
         String descriptionsTransportCardCardUrlNow = driver.getCurrentUrl();
         String descriptionsTransportCardCardPageNameNow = driver.findElement(headingCard).getText();
@@ -49,7 +50,7 @@ public class DescriptionTransportCardPage extends Login {
     }
 
     public void createDescriptionsTransportCard() {
-        wait.until(ExpectedConditions.elementToBeClickable(selectorFieldName));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingCard));
         driver.findElement(selectorFieldName).sendKeys(descriptionsTransportCardName);
         driver.findElement(selectorFieldCodeOTK).sendKeys(codeOTK);
         descriptionsTransportCardAvailable = driver.findElement(selectorAvailable).isSelected();
@@ -65,7 +66,7 @@ public class DescriptionTransportCardPage extends Login {
     public void checkDescriptionsTransportCardCard() {
         wait.until(ExpectedConditions.elementToBeClickable(xpathDescriptionsTransportCards));
         driver.findElement(xpathDescriptionsTransportCards).click();
-        wait.until(ExpectedConditions.elementToBeClickable(selectorFieldSearch));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingPage));
         driver.findElement(selectorFieldSearch).sendKeys(descriptionsTransportCardName);
         waitingSpinner();
         try {
@@ -85,7 +86,11 @@ public class DescriptionTransportCardPage extends Login {
                 break;
             }
         }
-        wait.until(ExpectedConditions.elementToBeClickable(selectorFieldName));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingCard));
+        String descriptionsTransportCardCardPageNameNow = driver.findElement(headingCard).getText();
+        Assert.assertEquals("Не совпадают заголовки на странице 'Карточка описаний карты'",
+                descriptionsTransportCardCardPageName,descriptionsTransportCardCardPageNameNow);
+        System.out.println("Open Descriptions Transport Card Card");
         String descriptionsTransportCardNameForCheck = driver.findElement(selectorFieldName).getAttribute("value");
         String codeOTKForCheck = driver.findElement(selectorFieldCodeOTK).getAttribute("value");
         boolean descriptionsTransportCardAvailableForCheck = driver.findElement(selectorAvailable).isSelected();
@@ -101,7 +106,7 @@ public class DescriptionTransportCardPage extends Login {
     public void deleteDescriptionsTransportCard()   {
         wait.until(ExpectedConditions.elementToBeClickable(xpathDescriptionsTransportCards));
         driver.findElement(xpathDescriptionsTransportCards).click();
-        wait.until(ExpectedConditions.elementToBeClickable(selectorFieldSearch));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingPage));
         driver.findElement(selectorFieldSearch).sendKeys(descriptionsTransportCardName);
         waitingSpinner();
         try {

@@ -17,6 +17,7 @@ public class TagsPage extends Login {
 
     public void sectionReferenceBooks() {
         driver.findElement(xpathReferenceBooks).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingReferenceBooks));
         String referenceBooksUrlNow = driver.getCurrentUrl();
         String referenceBooksPageNameNow = driver.findElement(headingReferenceBooks).getText();
         Assert.assertEquals("Некорректный Url страницы 'Справочники'",
@@ -39,7 +40,7 @@ public class TagsPage extends Login {
     }
 
     public void openTagCard() {
-        wait.until(ExpectedConditions.elementToBeClickable(xpathButtonAdd));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingTags));
         driver.findElement(xpathButtonAdd).click();
         String  tagCardUrlNow = driver.getCurrentUrl();
         String  tagCardPageNameNow = driver.findElement(headingCard).getText();
@@ -51,7 +52,7 @@ public class TagsPage extends Login {
     }
 
     public void createTag() {
-        wait.until(ExpectedConditions.elementToBeClickable(selectorFieldName));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingCard));
         driver.findElement(selectorFieldName).sendKeys(tagName);
         tagAvailable = driver.findElement(selectorAvailable).isSelected();
         wait.until(ExpectedConditions.elementToBeClickable(xpathButtonSave));
@@ -64,7 +65,7 @@ public class TagsPage extends Login {
     }
 
     public void checkTagCard() {
-        wait.until(ExpectedConditions.elementToBeClickable(selectorFieldSearch));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingTags));
         driver.findElement(selectorFieldSearch).sendKeys(tagName);
         waitingSpinner();
         try {
@@ -84,7 +85,11 @@ public class TagsPage extends Login {
                 break;
             }
         }
-        wait.until(ExpectedConditions.elementToBeClickable(selectorFieldName));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingCard));
+        String  tagCardPageNameNow = driver.findElement(headingCard).getText();
+        Assert.assertEquals("Не совпадают заголовки на странице 'Карточка Тега рубрики'",
+                tagCardPageName,tagCardPageNameNow);
+        System.out.println("Open Tag Card");
         String tagNameForCheck = driver.findElement(selectorFieldName).getAttribute("value");
         boolean tagAvailableForCheck = driver.findElement(selectorAvailable).isSelected();
         Assert.assertEquals("Некорректно заполнено поле 'Наименование тега'",
@@ -97,7 +102,7 @@ public class TagsPage extends Login {
     public void deleteTag() {
         wait.until(ExpectedConditions.elementToBeClickable(xpathTags));
         driver.findElement(xpathTags).click();
-        wait.until(ExpectedConditions.elementToBeClickable(selectorFieldSearch));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingTags));
         driver.findElement(selectorFieldSearch).sendKeys(tagName);
         waitingSpinner();
         try {
@@ -125,6 +130,7 @@ public class TagsPage extends Login {
                 0, tagListCheck.size());
         System.out.println("Tag successfully Deleted");
     }
+
     public void createAndDeleteTag(){
         loginAdmin();               // Авторизация под пользователем с правами "Администратор"
         sectionReferenceBooks();    // Переход в раздел "Справочники"

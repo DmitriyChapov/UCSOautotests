@@ -16,6 +16,7 @@ public class EventPlacesPage extends Login {
 
     public void sectionReferenceBooks()  {
         driver.findElement(xpathReferenceBooks).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingMainPage));
         String referenceBooksUrlNow = driver.getCurrentUrl();
         String referenceBooksPageNameNow = driver.findElement(headingReferenceBooks).getText();
         Assert.assertEquals("Некорректный Url страницы 'Справочники'",
@@ -38,7 +39,7 @@ public class EventPlacesPage extends Login {
     }
 
     public void openEventPlaceCard() {
-        wait.until(ExpectedConditions.elementToBeClickable(xpathButtonAdd));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingPage));
         driver.findElement(xpathButtonAdd).click();
         String eventPlaceCardUrlNow = driver.getCurrentUrl();
         String eventPlaceCardPageNameNow = driver.findElement(headingCard).getText();
@@ -50,7 +51,7 @@ public class EventPlacesPage extends Login {
     }
 
     public void createEventPlace() {
-        wait.until(ExpectedConditions.elementToBeClickable(selectorFieldName));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingCard));
         driver.findElement(selectorFieldName).sendKeys(eventPlaceName);
         driver.findElement(selectorFieldEventPlacesActAddress).sendKeys(eventPlaceAddress);
         driver.findElement(selectorEventPlacesSameAddress).click();
@@ -68,6 +69,7 @@ public class EventPlacesPage extends Login {
     public void checkEventPlaceCard() {
         wait.until(ExpectedConditions.elementToBeClickable(xpathEventPlaces));
         driver.findElement(xpathEventPlaces).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingPage));
         driver.findElement(selectorFieldSearch).sendKeys(eventPlaceName);
         waitingSpinner();
         try {
@@ -87,7 +89,11 @@ public class EventPlacesPage extends Login {
                 break;
             }
         }
-        wait.until(ExpectedConditions.elementToBeClickable(selectorFieldName));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingCard));
+        String eventPlaceCardPageNameNow = driver.findElement(headingCard).getText();
+        Assert.assertEquals("Не совпадают заголовки на странице 'Карточка Учреждения для проведения мероприятий'",
+                eventPlaceCardPageName,eventPlaceCardPageNameNow);
+        System.out.println("Open Event Place Card");
         String eventPlaceNameForCheck = driver.findElement(selectorFieldName).getAttribute("value");
         boolean eventPlaceAvailableForCheck = driver.findElement(selectorAvailable).isSelected();
         boolean eventPlaceSameAddressAvailableForCheck = driver.findElement(selectorEventPlacesSameAddress).isSelected();
@@ -103,7 +109,7 @@ public class EventPlacesPage extends Login {
     public void deleteEventPlace() {
         wait.until(ExpectedConditions.elementToBeClickable(xpathEventPlaces));
         driver.findElement(xpathEventPlaces).click();
-        wait.until(ExpectedConditions.elementToBeClickable(selectorFieldSearch));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingPage));
         driver.findElement(selectorFieldSearch).sendKeys(eventPlaceName);
         waitingSpinner();
         try {

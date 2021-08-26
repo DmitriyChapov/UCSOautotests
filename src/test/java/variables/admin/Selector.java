@@ -92,6 +92,7 @@ public class Selector {
     public static By selectorCloseWindow = By.cssSelector("[title = 'Закрыть диалог']");
 
     //Заголовки
+    public static By headingMainPage = By.className("page-header__title");
     public static By headingReferenceBooks = By.className("main-nav__header");
     public static By headingBanks = By.className("banks__title");
     public static By headingPositionsPage = By.className("positions__title");

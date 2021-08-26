@@ -222,6 +222,7 @@ public class TSPPage extends Login {
         wait.until(ExpectedConditions.elementToBeClickable(xpathPortal));
         datepicker = driver.findElements(dateFields);
         timepicker = driver.findElements(timeFields);
+        dateAndTime();
         driver.findElement(xpathPortal).click();
         contentPortalAvailable = driver.findElement(xpathPortal).isSelected();
         datepicker.get(4).sendKeys(dateNow);
@@ -239,7 +240,6 @@ public class TSPPage extends Login {
     public void tabContentPromotionCard() {
         wait.until(ExpectedConditions.elementToBeClickable(xpathTabContent));
         driver.findElement(xpathTabContent).click();
-        contentCreationDate = driver.findElement(selectorContentCreationDate).getText();
         for (int i = 0; i < nmbAddressForPromotionAdmin; i++) {
             String deliveryAddress = "Адрес предоставления № " + (i + 1);
             wait.until(ExpectedConditions.elementToBeClickable(selectorFieldAddressOffer));
@@ -336,8 +336,9 @@ public class TSPPage extends Login {
 
     public void tabPropertiesDiscountCard() {
         wait.until(ExpectedConditions.elementToBeClickable(xpathPortal));
-        List<WebElement> datepicker = driver.findElements(dateFields);
-        List<WebElement> timepicker = driver.findElements(timeFields);
+        datepicker = driver.findElements(dateFields);
+        timepicker = driver.findElements(timeFields);
+        dateAndTime();
         driver.findElement(xpathPortal).click();
         datepicker.get(4).sendKeys(dateNow);
         timepicker.get(4).sendKeys(timeNow);

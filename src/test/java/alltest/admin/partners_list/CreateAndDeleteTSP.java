@@ -4,8 +4,8 @@ import code.main.tsp.TSPPage;
 import org.junit.Test;
 
 public class CreateAndDeleteTSP extends TSPPage {
-    @Test
+   /* @Test
     public void testCreateAndDeleteTSP() {
         createAndDeleteTSP();
-    }
+    }*/
 }

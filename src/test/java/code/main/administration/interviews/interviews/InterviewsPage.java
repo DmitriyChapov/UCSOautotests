@@ -46,9 +46,10 @@ public class InterviewsPage extends Login {
     }
 
     public void tabPropertiesInterviewCard() {
-        List<WebElement> datepicker = driver.findElements(dateFields);
-        List<WebElement> timepicker = driver.findElements(timeFields);
         wait.until(ExpectedConditions.elementToBeClickable(xpathPortal));
+        datepicker = driver.findElements(dateFields);
+        timepicker = driver.findElements(timeFields);
+        dateAndTime();
         driver.findElement(xpathPortal).click();
         datepicker.get(4).sendKeys(dateNow);
         timepicker.get(4).sendKeys(timeNow);
@@ -629,7 +630,6 @@ public class InterviewsPage extends Login {
         String tempInterview = driver.findElement(xpathInterviewId).getText();
         interviewId = tempInterview.substring(4, tempInterview.length());
     }
-
 
     public void getAllQuestionsType() {
         wait.until(ExpectedConditions.presenceOfElementLocated(selectorQuestionType));

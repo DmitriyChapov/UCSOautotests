@@ -17,6 +17,7 @@ public class LocationTransportAppPage extends Login {
 
     public void sectionReferenceBooks() {
         driver.findElement(xpathReferenceBooks).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingReferenceBooks));
         String referenceBooksUrlNow = driver.getCurrentUrl();
         String referenceBooksPageNameNow = driver.findElement(headingReferenceBooks).getText();
         Assert.assertEquals("Некорректный Url страницы 'Справочники'",
@@ -39,7 +40,7 @@ public class LocationTransportAppPage extends Login {
     }
 
     public void openLocationTransportAppCard() {
-        wait.until(ExpectedConditions.elementToBeClickable(xpathButtonAdd));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingPage));
         driver.findElement(xpathButtonAdd).click();
         String  locationTransportAppCardUrlNow = driver.getCurrentUrl();
         String  locationTransportAppCardPageNameNow = driver.findElement(headingCard).getText();
@@ -51,7 +52,7 @@ public class LocationTransportAppPage extends Login {
     }
 
     public void createLocationTransportApp() {
-        wait.until(ExpectedConditions.elementToBeClickable(selectorFieldName));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingCard));
         driver.findElement(selectorFieldName).sendKeys(locationTransportAppName);
         driver.findElement(selectorFieldCodeOTK).sendKeys(codeOTK);
         locationTransportAppAvailable = driver.findElement(selectorAvailable).isSelected();
@@ -67,7 +68,7 @@ public class LocationTransportAppPage extends Login {
     public void checkLocationTransportAppCard() {
         wait.until(ExpectedConditions.elementToBeClickable(xpathLocationTransportApps));
         driver.findElement(xpathLocationTransportApps).click();
-        wait.until(ExpectedConditions.elementToBeClickable(selectorFieldSearch));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingPage));
         driver.findElement(selectorFieldSearch).sendKeys(locationTransportAppName);
         waitingSpinner();
         try {
@@ -87,7 +88,11 @@ public class LocationTransportAppPage extends Login {
                 break;
             }
         }
-        wait.until(ExpectedConditions.elementToBeClickable(selectorFieldName));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingCard));
+        String  locationTransportAppCardPageNameNow = driver.findElement(headingCard).getText();
+        Assert.assertEquals("Не совпадают заголовки на странице 'Карточка Локаций транспортного приложения'",
+                locationTransportAppCardPageName,locationTransportAppCardPageNameNow);
+        System.out.println("Open Location Transport App Card");
         String locationTransportAppNameForCheck = driver.findElement(selectorFieldName).getAttribute("value");
         String codeOTKForCheck = driver.findElement(selectorFieldCodeOTK).getAttribute("value");
         boolean locationTransportAppAvailableForCheck = driver.findElement(selectorAvailable).isSelected();
@@ -103,7 +108,7 @@ public class LocationTransportAppPage extends Login {
     public void deleteLocationTransportApp() {
         wait.until(ExpectedConditions.elementToBeClickable(xpathLocationTransportApps));
         driver.findElement(xpathLocationTransportApps).click();
-        wait.until(ExpectedConditions.elementToBeClickable(selectorFieldSearch));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingPage));
         driver.findElement(selectorFieldSearch).sendKeys(locationTransportAppName);
         waitingSpinner();
         try {
@@ -131,6 +136,7 @@ public class LocationTransportAppPage extends Login {
                 0, locationTransportAppListCheck.size());
         System.out.println("Locations Transport App successfully Deleted");
         }
+
     public void createAndDeleteLocationTransportApp(){
         loginAdmin();                            // Авторизация под пользователем с правами "Администратор"
         sectionReferenceBooks();                 // Переход в раздел "Справочники"

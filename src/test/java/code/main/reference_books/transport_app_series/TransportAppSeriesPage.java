@@ -17,13 +17,13 @@ import static variables.admin.Strings.*;
 
 public class TransportAppSeriesPage extends Login {
     boolean transportAppSeriesAvailable;
-
     DescriptionTransportCardPage DescriptionTransportCard = new DescriptionTransportCardPage();
     UserTypePage UserType = new UserTypePage();
     LocationTransportAppPage LocationTransportApp = new LocationTransportAppPage();
 
     public void sectionReferenceBooks() {
         driver.findElement(xpathReferenceBooks).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingReferenceBooks));
         String referenceBooksUrlNow = driver.getCurrentUrl();
         String referenceBooksPageNameNow = driver.findElement(headingReferenceBooks).getText();
         Assert.assertEquals("Некорректный Url страницы 'Справочники'",
@@ -70,7 +70,7 @@ public class TransportAppSeriesPage extends Login {
     }
 
     public void openTransportAppSeriesCard() {
-        wait.until(ExpectedConditions.elementToBeClickable(xpathButtonAdd));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingPage));
         driver.findElement(xpathButtonAdd).click();
         String  transportAppSeriesCardUrlNow = driver.getCurrentUrl();
         String  transportAppSeriesCardPageNameNow = driver.findElement(headingCard).getText();
@@ -82,7 +82,7 @@ public class TransportAppSeriesPage extends Login {
     }
 
     public void createTransportAppSeries() {
-        wait.until(ExpectedConditions.elementToBeClickable(selectorFieldName));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingCard));
         driver.findElement(selectorFieldName).sendKeys(transportAppSeries);
         wait.until(ExpectedConditions.elementToBeClickable(selectorSelectCardDescription));
         driver.findElement(selectorSelectCardDescription).click();
@@ -111,7 +111,7 @@ public class TransportAppSeriesPage extends Login {
     }
 
     public void checkTransportAppSeriesCard() {
-        wait.until(ExpectedConditions.elementToBeClickable(selectorFieldSearch));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingPage));
         driver.findElement(selectorFieldSearch).sendKeys(transportAppSeries);
         waitingSpinner();
         try {
@@ -131,7 +131,11 @@ public class TransportAppSeriesPage extends Login {
                 break;
             }
         }
-        wait.until(ExpectedConditions.elementToBeClickable(selectorFieldName));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingCard));
+        String  transportAppSeriesCardPageNameNow = driver.findElement(headingCard).getText();
+        Assert.assertEquals("Не совпадают заголовки на странице 'Карточка Серии транспортного приложения'",
+                transportAppSeriesCardPageName,transportAppSeriesCardPageNameNow);
+        System.out.println("Open Transport App Series Card");
         String transportAppSeriesNameForCheck = driver.findElement(selectorFieldName).getAttribute("value");
         String cardDescriptionNameForCheck = driver.findElement(selectorSelectCardDescription).findElement(xpathCheckDropDown).getText();
         String socialCodeNameForCheck = driver.findElement(selectorSelectSocialCode).findElement(xpathCheckDropDown).getText();
@@ -157,7 +161,7 @@ public class TransportAppSeriesPage extends Login {
     public void deleteTransportAppSeries() {
         wait.until(ExpectedConditions.elementToBeClickable(xpathTransportAppSeries));
         driver.findElement(xpathTransportAppSeries).click();
-        wait.until(ExpectedConditions.elementToBeClickable(selectorFieldSearch));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingPage));
         driver.findElement(selectorFieldSearch).sendKeys(transportAppSeries);
         waitingSpinner();
         try {
@@ -199,7 +203,7 @@ public class TransportAppSeriesPage extends Login {
         createUserType();                          // Создаем Тип пользователя
         createLocationTransportApp();              // Создаем Локацию транспортного приложения
         subSectionTransportAppSeries();            // Переход в подраздел "Серии транспортного приложения", раздела "Справочники"
-        openTransportAppSeriesCard();              //Открываем карточку Серии транспортного приложения
+        openTransportAppSeriesCard();              // Открываем карточку Серии транспортного приложения
         createTransportAppSeries();                // Создаем Серию транспортного приложения
         checkTransportAppSeriesCard();             // Проверяем заполненность карточки Серии транспортного приложения
         deleteTransportAppSeries();                // Удаляем Серию транспортного приложения

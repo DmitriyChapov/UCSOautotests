@@ -17,6 +17,7 @@ public class PositionsPage extends Login {
 
     public void sectionReferenceBooks() {
         driver.findElement(xpathReferenceBooks).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingReferenceBooks));
         String referenceBooksUrlNow = driver.getCurrentUrl();
         String referenceBooksPageNameNow = driver.findElement(headingReferenceBooks).getText();
         Assert.assertEquals("Некорректный Url страницы 'Справочники'",
@@ -39,7 +40,7 @@ public class PositionsPage extends Login {
     }
 
     public void openPositionCard() {
-        wait.until(ExpectedConditions.elementToBeClickable(xpathButtonAdd));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingPositionsPage));
         driver.findElement(xpathButtonAdd).click();
         String positionCardUrlNow = driver.getCurrentUrl();
         String positionCardPageNameNow = driver.findElement(headingCard).getText();
@@ -51,7 +52,7 @@ public class PositionsPage extends Login {
     }
 
     public void createPosition() {
-        wait.until(ExpectedConditions.elementToBeClickable(selectorFieldName));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingCard));
         driver.findElement(selectorFieldName).sendKeys(positionName);
         positionAvailable = driver.findElement(selectorAvailable).isSelected();
         wait.until(ExpectedConditions.elementToBeClickable(xpathButtonSave));
@@ -64,7 +65,7 @@ public class PositionsPage extends Login {
     }
 
     public void checkPositionCard() {
-        wait.until(ExpectedConditions.elementToBeClickable(selectorFieldSearch));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingPositionsPage));
         driver.findElement(selectorFieldSearch).sendKeys(positionName);
         waitingSpinner();
         try {
@@ -84,7 +85,11 @@ public class PositionsPage extends Login {
                 break;
             }
         }
-        wait.until(ExpectedConditions.elementToBeClickable(selectorFieldName));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingCard));
+        String positionCardPageNameNow = driver.findElement(headingCard).getText();
+        Assert.assertEquals("Не совпадают заголовки на странице 'Карточка Должности'",
+                positionCardPageName,positionCardPageNameNow);
+        System.out.println("Open Position Card");
         String positionNameForCheck = driver.findElement(selectorFieldName).getAttribute("value");
         boolean positionAvailableForCheck = driver.findElement(selectorAvailable).isSelected();
         Assert.assertEquals("Некорректно заполнено поле 'Должность'",
@@ -97,7 +102,7 @@ public class PositionsPage extends Login {
     public void deletePosition() {
         wait.until(ExpectedConditions.elementToBeClickable(xpathPositions));
         driver.findElement(xpathPositions).click();
-        wait.until(ExpectedConditions.elementToBeClickable(selectorFieldSearch));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingPositionsPage));
         driver.findElement(selectorFieldSearch).sendKeys(positionName);
         waitingSpinner();
         try {

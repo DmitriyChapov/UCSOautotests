@@ -5,7 +5,6 @@ import org.junit.Test;
 
 public class CreateAndDeleteTag extends TagsPage {
     @Test
-    public void testCreateAndDeleteTag() {
-        createAndDeleteTag();
+    public void testCreateAndDeleteTag() { createAndDeleteTag();
     }
 }

@@ -7,6 +7,8 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 import static variables.admin.Collections.*;
@@ -49,6 +51,7 @@ public class PostersPage extends Login {
         wait.until(ExpectedConditions.elementToBeClickable(xpathPortal));
         datepicker = driver.findElements(dateFields);
         timepicker = driver.findElements(timeFields);
+        dateAndTime();
         driver.findElement(xpathPortal).click();
         contentPortalAvailable = driver.findElement(xpathPortal).isSelected();
         datepicker.get(4).sendKeys(dateNow);
@@ -317,7 +320,7 @@ public class PostersPage extends Login {
         wait.until(ExpectedConditions.elementToBeClickable(xpathButtonAccept));
         driver.findElement(xpathButtonAccept).click();
         waitingSpinner();
-        contentDeleteDate = DateTimeFormatter.ofPattern("dd.MM.yyyy").format(toDay) + " " + DateTimeFormatter.ofPattern("HH:mm").format(toTime);
+        contentDeleteDate = DateTimeFormatter.ofPattern("dd.MM.yyyy").format(LocalDate.now()) + " " + DateTimeFormatter.ofPattern("HH:mm").format(LocalTime.now()) ;
     }
 
     public void unPublicPoster(){
@@ -326,7 +329,7 @@ public class PostersPage extends Login {
         wait.until(ExpectedConditions.elementToBeClickable(xpathButtonAccept));
         driver.findElement(xpathButtonAccept).click();
         waitingSpinner();
-        contentUnPublicDate = DateTimeFormatter.ofPattern("dd.MM.yyyy").format(toDay) + " " + DateTimeFormatter.ofPattern("HH:mm").format(toTime);
+        contentUnPublicDate = DateTimeFormatter.ofPattern("dd.MM.yyyy").format(LocalDate.now()) + " " + DateTimeFormatter.ofPattern("HH:mm").format(LocalTime.now()) ;
     }
 
     public void checkModifiedPosterBlock(String Status){

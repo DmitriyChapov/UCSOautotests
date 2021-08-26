@@ -17,6 +17,7 @@ public class StructuralSubdivisionsPage extends Login {
 
     public void sectionReferenceBooks() {
         driver.findElement(xpathReferenceBooks).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingReferenceBooks));
         String referenceBooksUrlNow = driver.getCurrentUrl();
         String referenceBooksPageNameNow = driver.findElement(headingReferenceBooks).getText();
         Assert.assertEquals("Некорректный Url страницы 'Справочники'",
@@ -51,7 +52,7 @@ public class StructuralSubdivisionsPage extends Login {
     }
 
     public void createStructuralSubdivision() {
-        wait.until(ExpectedConditions.elementToBeClickable(selectorFieldName));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingCard));
         driver.findElement(selectorFieldName).sendKeys(structuralSubdivisionName);
         structuralSubdivisionAvailable = driver.findElement(selectorAvailable).isSelected();
         wait.until(ExpectedConditions.elementToBeClickable(xpathButtonSave));
@@ -64,7 +65,7 @@ public class StructuralSubdivisionsPage extends Login {
     }
 
     public void checkStructuralSubdivisionCard() {
-        wait.until(ExpectedConditions.elementToBeClickable(selectorFieldSearch));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingPage));
         driver.findElement(selectorFieldSearch).sendKeys(structuralSubdivisionName);
         waitingSpinner();
         try {
@@ -84,7 +85,11 @@ public class StructuralSubdivisionsPage extends Login {
                 break;
             }
         }
-        wait.until(ExpectedConditions.elementToBeClickable(selectorFieldName));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingCard));
+        String  structuralSubdivisionCardPageNameNow = driver.findElement(headingCard).getText();
+        Assert.assertEquals("Не совпадают заголовки на странице 'Карточка Структурного подразделения'",
+                structuralSubdivisionCardPageName,structuralSubdivisionCardPageNameNow);
+        System.out.println("Open Structural Subdivision Card");
         String structuralSubdivisionNameForCheck = driver.findElement(selectorFieldName).getAttribute("value");
         boolean structuralSubdivisionAvailableForCheck = driver.findElement(selectorAvailable).isSelected();
         Assert.assertEquals("Некорректно заполнено поле 'Структурное подразделение'",
@@ -97,7 +102,7 @@ public class StructuralSubdivisionsPage extends Login {
     public void deleteStructuralSubdivision() {
         wait.until(ExpectedConditions.elementToBeClickable(xpathStructuralSubdivisions));
         driver.findElement(xpathStructuralSubdivisions).click();
-        wait.until(ExpectedConditions.elementToBeClickable(selectorFieldSearch));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingPage));
         driver.findElement(selectorFieldSearch).sendKeys(structuralSubdivisionName);
         waitingSpinner();
         try {
@@ -125,6 +130,7 @@ public class StructuralSubdivisionsPage extends Login {
                 0, structuralSubdivisionListCheck.size());
         System.out.println("Structural Subdivision successfully Deleted");
     }
+
     public void createAndDeleteStructuralSubdivision(){
         loginAdmin();                            // Авторизация под пользователем с правами "Администратор"
         sectionReferenceBooks();                 // Переход в раздел "Справочники"

@@ -16,6 +16,7 @@ public class MSS_codesPage extends Login {
 
     public void sectionReferenceBooks() {
         driver.findElement(xpathReferenceBooks).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingReferenceBooks));
         String referenceBooksUrlNow = driver.getCurrentUrl();
         String referenceBooksPageNameNow = driver.findElement(headingReferenceBooks).getText();
         Assert.assertEquals("Некорректный Url страницы 'Справочники'",
@@ -38,7 +39,7 @@ public class MSS_codesPage extends Login {
     }
 
     public void openMSSCodeCard() {
-        wait.until(ExpectedConditions.elementToBeClickable(xpathButtonAdd));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingPage));
         driver.findElement(xpathButtonAdd).click();
         String  mss_CodeCardUrlNow = driver.getCurrentUrl();
         String  mss_CodeCardPageNameNow = driver.findElement(headingCard).getText();
@@ -50,7 +51,7 @@ public class MSS_codesPage extends Login {
     }
 
     public void createMSSCode() {
-        wait.until(ExpectedConditions.elementToBeClickable(selectorFieldMSSCodeName));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingCard));
         driver.findElement(selectorFieldMSSCodeName).sendKeys(mss_CodeName);
         driver.findElement(selectorFieldMSSCode).sendKeys(String.valueOf(nmbAutoTest));
         mss_CodeAvailable = driver.findElement(selectorAvailable).isSelected();
@@ -64,7 +65,7 @@ public class MSS_codesPage extends Login {
     }
 
     public void checkMSSCodeCard() {
-        wait.until(ExpectedConditions.elementToBeClickable(selectorFieldSearch));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingPage));
         driver.findElement(selectorFieldSearch).sendKeys(mss_CodeName);
         waitingSpinner();
         try {
@@ -84,7 +85,11 @@ public class MSS_codesPage extends Login {
                 break;
             }
         }
-        wait.until(ExpectedConditions.elementToBeClickable(selectorFieldMSSCodeName));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingCard));
+        String  mss_CodeCardPageNameNow = driver.findElement(headingCard).getText();
+        Assert.assertEquals("Не совпадают заголовки на странице 'Карточка МСС-кода'",
+                mss_CodeCardPageName,mss_CodeCardPageNameNow);
+        System.out.println("Open MSS-code Card");
         String mss_CodeNameForCheck = driver.findElement(selectorFieldMSSCodeName).getAttribute("value");
         String mss_CodeForCheck = driver.findElement(selectorFieldMSSCode).getAttribute("value");
         boolean mss_CodeAvailableForCheck = driver.findElement(selectorAvailable).isSelected();
@@ -100,7 +105,7 @@ public class MSS_codesPage extends Login {
     public void deleteMSSCode() {
         wait.until(ExpectedConditions.elementToBeClickable(xpathMSSCodes));
         driver.findElement(xpathMSSCodes).click();
-        wait.until(ExpectedConditions.elementToBeClickable(selectorFieldSearch));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingPage));
         driver.findElement(selectorFieldSearch).sendKeys(mss_CodeName);
         waitingSpinner();
         try {
@@ -128,6 +133,7 @@ public class MSS_codesPage extends Login {
                 0, mss_CodeListCheck.size());
             System.out.println("MSS-code successfully Deleted");
         }
+        
     public void createAndDeleteMSSCode(){
         loginAdmin();               // Авторизация под пользователем с правами "Администратор"
         sectionReferenceBooks();    // Переход в раздел "Справочники"

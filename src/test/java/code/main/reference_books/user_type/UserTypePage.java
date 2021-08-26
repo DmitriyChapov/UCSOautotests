@@ -17,6 +17,7 @@ public class UserTypePage extends Login {
 
     public void sectionReferenceBooks() {
         driver.findElement(xpathReferenceBooks).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingReferenceBooks));
         String referenceBooksUrlNow = driver.getCurrentUrl();
         String referenceBooksPageNameNow = driver.findElement(headingReferenceBooks).getText();
         Assert.assertEquals("Некорректный Url страницы 'Справочники'",
@@ -39,7 +40,7 @@ public class UserTypePage extends Login {
     }
 
     public void openUserTypeCard() {
-        wait.until(ExpectedConditions.elementToBeClickable(xpathButtonAdd));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingPage));
         driver.findElement(xpathButtonAdd).click();
         String  userTypeCardUrlNow = driver.getCurrentUrl();
         String  userTypeCardPageNameNow = driver.findElement(headingCard).getText();
@@ -51,7 +52,7 @@ public class UserTypePage extends Login {
     }
 
     public void createUserType() {
-        wait.until(ExpectedConditions.elementToBeClickable(selectorFieldName));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingCard));
         driver.findElement(selectorFieldName).sendKeys(userTypeName);
         driver.findElement(selectorFieldCodeOTK).sendKeys(codeOTK);
         userTypeAvailable = driver.findElement(selectorAvailable).isSelected();
@@ -65,7 +66,7 @@ public class UserTypePage extends Login {
     }
 
     public void checkUserTypeCard() {
-        wait.until(ExpectedConditions.elementToBeClickable(selectorFieldSearch));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingPage));
         driver.findElement(selectorFieldSearch).sendKeys(userTypeName);
         waitingSpinner();
         try {
@@ -85,7 +86,10 @@ public class UserTypePage extends Login {
                 break;
             }
         }
-        wait.until(ExpectedConditions.elementToBeClickable(selectorFieldName));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingCard));
+        String  userTypeCardPageNameNow = driver.findElement(headingCard).getText();
+        Assert.assertEquals("Не совпадают заголовки на странице 'Карточка типа пользователя'",
+                userTypeCardPageName,userTypeCardPageNameNow);
         String userTypeNameForCheck = driver.findElement(selectorFieldName).getAttribute("value");
         String codeOTKForCheck = driver.findElement(selectorFieldCodeOTK).getAttribute("value");
         boolean userTypeAvailableForCheck = driver.findElement(selectorAvailable).isSelected();
@@ -101,7 +105,7 @@ public class UserTypePage extends Login {
     public void deleteUserType() {
         wait.until(ExpectedConditions.elementToBeClickable(xpathUserTypes));
         driver.findElement(xpathUserTypes).click();
-        wait.until(ExpectedConditions.elementToBeClickable(selectorFieldSearch));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingPage));
         driver.findElement(selectorFieldSearch).sendKeys(userTypeName);
         waitingSpinner();
         try {
@@ -129,6 +133,7 @@ public class UserTypePage extends Login {
                 0, userTypeListCheck.size());
         System.out.println("User Type successfully Deleted");
     }
+
     public void createAndDeleteUserType(){
         loginAdmin();                // Авторизация под пользователем с правами "Администратор"
         sectionReferenceBooks();     // Переход в раздел "Справочники"

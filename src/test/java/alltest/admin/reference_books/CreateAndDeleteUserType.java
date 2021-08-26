@@ -5,7 +5,6 @@ import org.junit.Test;
 
 public class CreateAndDeleteUserType extends UserTypePage {
     @Test
-    public void testCreateAndDeleteUsersType() {
-        createAndDeleteUserType();
+    public void testCreateAndDeleteUsersType() { createAndDeleteUserType();
     }
 }

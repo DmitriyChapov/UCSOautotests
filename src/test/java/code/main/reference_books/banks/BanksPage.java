@@ -14,13 +14,14 @@ import static variables.admin.Urls.*;
 import static variables.admin.FilesForAdd.*;
 
 public class BanksPage extends Login{
-    String bankUrlwithID;
+    String bankUrlWithID;
     int quantityBranch;
     int quantityDesign;
     boolean bankAvailable;
 
     public void sectionReferenceBooks(){
         driver.findElement(xpathReferenceBooks).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingReferenceBooks));
         String referenceBooksUrlNow = driver.getCurrentUrl();
         String referenceBooksPageNameNow = driver.findElement(headingReferenceBooks).getText();
         Assert.assertEquals("Некорректный Url страницы 'Справочники''",
@@ -43,7 +44,7 @@ public class BanksPage extends Login{
     }
 
     public void openBankCard() {
-        wait.until(ExpectedConditions.elementToBeClickable(xpathButtonAdd));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingBanks));
         driver.findElement(xpathButtonAdd).click();
         String bankCardUrlNow = driver.getCurrentUrl();
         String bankCardPageNameNow = driver.findElement(headingCard).getText();
@@ -55,7 +56,7 @@ public class BanksPage extends Login{
     }
 
     public void createBank() {
-        wait.until(ExpectedConditions.elementToBeClickable(selectorFieldBankName));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingCard));
         driver.findElement(selectorFieldBankName).sendKeys(bankName);
         driver.findElement(selectorFieldBankBic).sendKeys(String.valueOf(bankBIC));
         driver.findElement(selectorFieldBankAddress).sendKeys(bankAddress);
@@ -67,7 +68,7 @@ public class BanksPage extends Login{
         String textNotificationBankSave = driver.findElement(xpathNotifier).getText();
         Assert.assertEquals("Не совпадают тексты нотификации при сохранении Банка",
                 bankSaveNotification, textNotificationBankSave);
-        bankUrlwithID = driver.getCurrentUrl();
+        bankUrlWithID = driver.getCurrentUrl();
         System.out.println("Bank Card successfully Created");
     }
 
@@ -124,7 +125,7 @@ public class BanksPage extends Login{
     public void checkBankCard() {
         wait.until(ExpectedConditions.elementToBeClickable(xpathBanks));
         driver.findElement(xpathBanks).click();
-        wait.until(ExpectedConditions.elementToBeClickable(selectorFieldSearch));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingBanks));
         driver.findElement(selectorFieldSearch).sendKeys(bankName);
         waitingSpinner();
         try {
@@ -144,7 +145,10 @@ public class BanksPage extends Login{
                 break;
         }
     }
-        wait.until(ExpectedConditions.elementToBeClickable(selectorFieldBankName));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingCard));
+        String bankCardPageNameNow = driver.findElement(headingCard).getText();
+        Assert.assertEquals("Не совпадают заголовки на странице 'Карточка банка'",
+                bankCardPageName,bankCardPageNameNow);
         String bankCardUrlForCheck = driver.getCurrentUrl();
         String bankNameForCheck = driver.findElement(selectorFieldBankName).getAttribute("value");
         String bankBICForCheck = driver.findElement(selectorFieldBankBic).getAttribute("value");
@@ -154,7 +158,7 @@ public class BanksPage extends Login{
         List<WebElement> listBranchForCheck = driver.findElements(xpathNmbBranch);
         int quantityBranchForCheck = listBranchForCheck.size();
         Assert.assertEquals("Не совпадают Url созданного Банка и открытой карточки Банка",
-                bankUrlwithID, bankCardUrlForCheck);
+                bankUrlWithID, bankCardUrlForCheck);
         Assert.assertEquals("Некорректно заполнено поле 'Наименование банка'",
                 bankName, bankNameForCheck);
         Assert.assertEquals("Некорректно заполнено поле 'БИК'",
@@ -181,7 +185,7 @@ public class BanksPage extends Login{
     public void deleteBank() {
         wait.until(ExpectedConditions.elementToBeClickable(xpathBanks));
         driver.findElement(xpathBanks).click();
-        wait.until(ExpectedConditions.elementToBeClickable(selectorFieldSearch));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingBanks));
         driver.findElement(selectorFieldSearch).sendKeys(bankName);
         waitingSpinner();
         try {

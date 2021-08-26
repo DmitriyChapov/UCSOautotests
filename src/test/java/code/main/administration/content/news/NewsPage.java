@@ -15,6 +15,8 @@ import static variables.admin.Selector.*;
 import static variables.admin.Collections.*;
 import static variables.common.Strings.*;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 public class NewsPage extends Login {
@@ -49,6 +51,7 @@ public class NewsPage extends Login {
         wait.until(ExpectedConditions.elementToBeClickable(xpathPortal));
         datepicker = driver.findElements(dateFields);
         timepicker = driver.findElements(timeFields);
+        dateAndTime();
         driver.findElement(xpathPortal).click();
         contentPortalAvailable = driver.findElement(xpathPortal).isSelected();
         datepicker.get(4).sendKeys(dateNow);
@@ -78,6 +81,8 @@ public class NewsPage extends Login {
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("[class = 'mat-ripple-element']")));
         wait.until(ExpectedConditions.elementToBeClickable(selectorFieldContentTitle));
         contentCreationDate = driver.findElement(selectorContentCreationDate).getText();
+        Assert.assertEquals("Некорректная дата создания Новости",
+                dateWithTime, contentCreationDate);
         driver.findElement(selectorFieldContentTitle).sendKeys(newsHeading);
         driver.findElement(selectorFieldContentTeaser).sendKeys(newsTeaser);
         driver.findElement(selectorFieldContentText).sendKeys(newsText.repeat(20));
@@ -287,7 +292,7 @@ public class NewsPage extends Login {
         wait.until(ExpectedConditions.elementToBeClickable(xpathButtonAccept));
         driver.findElement(xpathButtonAccept).click();
         waitingSpinner();
-        contentDeleteDate = DateTimeFormatter.ofPattern("dd.MM.yyyy").format(toDay) + " " + DateTimeFormatter.ofPattern("HH:mm").format(toTime);
+        contentDeleteDate = DateTimeFormatter.ofPattern("dd.MM.yyyy").format(LocalDate.now()) + " " + DateTimeFormatter.ofPattern("HH:mm").format(LocalTime.now()) ;;
     }
 
     public void unPublicNews(){
@@ -296,7 +301,7 @@ public class NewsPage extends Login {
         wait.until(ExpectedConditions.elementToBeClickable(xpathButtonAccept));
         driver.findElement(xpathButtonAccept).click();
         waitingSpinner();
-        contentUnPublicDate = DateTimeFormatter.ofPattern("dd.MM.yyyy").format(toDay) + " " + DateTimeFormatter.ofPattern("HH:mm").format(toTime);
+        contentUnPublicDate = DateTimeFormatter.ofPattern("dd.MM.yyyy").format(LocalDate.now()) + " " + DateTimeFormatter.ofPattern("HH:mm").format(LocalTime.now()) ;;
     }
 
     public void checkModifiedNewsBlock(String Status){

@@ -19,6 +19,7 @@ public class ContentLocationPage extends Login {
 
     public void sectionReferenceBooks(){
         driver.findElement(xpathReferenceBooks).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingReferenceBooks));
         String referenceBooksUrlNow = driver.getCurrentUrl();
         String referenceBooksPageNameNow = driver.findElement(headingReferenceBooks).getText();
         Assert.assertEquals("Некорректный Url страницы 'Справочники'",
@@ -41,6 +42,7 @@ public class ContentLocationPage extends Login {
     }
 
     public void createContentLocations() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingLocations));
         List<WebElement> locationsBefore = driver.findElements(xpathLocationPathForCheck);
         nmbLocationsBefore = locationsBefore.size();
         System.out.println("Кол-во локаций до автотеста: " + nmbLocationsBefore);
@@ -70,7 +72,7 @@ public class ContentLocationPage extends Login {
         }
         List<WebElement> locationsAfter = driver.findElements(xpathLocationPathForCheck);
         nmbLocationsAfter = locationsAfter.size();
-        System.out.println("Кол-во локаций до автотеста: " + nmbLocationsAfter);
+        System.out.println("Кол-во локаций после создания: " + nmbLocationsAfter);
         int nmbCreatedLocations = nmbLocationsAfter - nmbLocationsBefore;
         Assert.assertEquals("Не все Локации контента созданы",
                 (nmbLocations +1), nmbCreatedLocations);

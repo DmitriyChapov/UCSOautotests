@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import static variables.admin.Selector.*;
 import static variables.admin.Strings.*;
 import static variables.portal.Strings.*;
 import static variables.admin.Urls.*;
@@ -18,18 +19,17 @@ import static variables.portal.Urls.*;
 import static variables.common.Selector.*;
 import static variables.admin.Xpath.*;
 import static variables.portal.Xpath.*;
-
 public class Login {
 
     public static ChromeDriver driver;
     public static WebDriverWait wait;
     public static Actions actionChange;
-    public LocalDate toDay = LocalDate.now();
-    public LocalTime toTime = LocalTime.now();
-    public String dateNow = DateTimeFormatter.ofPattern("dd.MM.yyyy").format(toDay);
-    public String timeNow = DateTimeFormatter.ofPattern("HH:mm").format(toTime);
-    public String convertDate = DateTimeFormatter.ofPattern("dd MMMM yyyy").format(toDay);
-
+    public LocalDate toDay;
+    public LocalTime toTime;
+    public String dateNow;
+    public String timeNow;
+    public String convertDate;
+    public String dateWithTime;
 
     @Before
     public void setUp() {
@@ -53,7 +53,7 @@ public class Login {
         driver.findElement(selectorLogin).sendKeys(loginInUser);
         driver.findElement(selectorPassword).sendKeys(passwordInUser);
         driver.findElement(xpathButtonIn).click();
-        wait.until(ExpectedConditions.elementToBeClickable(xpathReferenceBooks));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingMainPage));
         String title = driver.getTitle();
         String mainUrl = driver.getCurrentUrl();
         Assert.assertEquals("Не совпадают Url", mainUrl,"https://ucso-test.opencode.su/main");
@@ -77,7 +77,6 @@ public class Login {
         driver.findElement(xpathButtonIn).click();
     }
 
-
     public boolean spinner(){
         try{
             driver.findElement(xpathSpinner);
@@ -94,4 +93,13 @@ public class Login {
             wait.until(ExpectedConditions.invisibilityOfElementLocated(xpathSpinner));
         }
     }
+
+    public void dateAndTime(){
+        toDay = LocalDate.now();
+        toTime = LocalTime.now();
+        dateNow = DateTimeFormatter.ofPattern("dd.MM.yyyy").format(toDay);
+        timeNow = DateTimeFormatter.ofPattern("HH:mm").format(toTime);
+        dateWithTime = dateNow + " " + timeNow;
+    }
+
 }
