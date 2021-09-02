@@ -58,6 +58,7 @@ public class Collections {
     //ТСП
     public static List<WebElement> chosenAddressForPromotion;
     public static List<WebElement> chosenAddressForDiscount;
+    public static List<WebElement> promotionsList;
 
     public static List<WebElement> datepicker;
     public static List<WebElement> timepicker;

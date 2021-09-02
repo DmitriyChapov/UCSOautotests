@@ -44,11 +44,11 @@ public class Login {
         driver.manage().window().maximize();
     }
 
-    @After
+/*    @After
     public void close() {
         System.out.println("Browser closed");
         driver.quit();
-    }
+    }*/
 
    public void loginAdmin() {
         driver.get(siteAdmin);

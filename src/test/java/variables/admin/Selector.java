@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 
 public class Selector {
 
+
     //Справочники
     public static By selectorFieldMSSCodeName = By.cssSelector("[name = 'classifierName']");
     public static By selectorFieldMSSCode = By.cssSelector("[name = 'classifierCod']");
@@ -63,6 +64,7 @@ public class Selector {
     public static By selectorFieldOfferDateFrom = By.cssSelector("[name = 'fromDatePicker']");
     public static By selectorFieldOfferDateTo = By.cssSelector("[name = 'toDatePicker']");
     public static By selectorFieldDiscount = By.cssSelector("[name = 'discountInput']");
+    public static By selectorTspNameAdmin = By.cssSelector("[class = 'content-card__partner ng-star-inserted']");
 
     //Руководства и Регламенты
     public static By selectorDocumentPortal = By.cssSelector("[name = 'publishInMobile']");

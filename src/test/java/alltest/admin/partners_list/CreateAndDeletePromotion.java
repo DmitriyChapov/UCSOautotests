@@ -4,9 +4,9 @@ import code.main.tsp.TSPPage;
 import org.junit.Test;
 
 public class CreateAndDeletePromotion extends TSPPage {
-   /* @Test
+    @Test
     public void testCreateAndDeletePromotion() {
         createAndDeletePromotion();
-    }*/
+    }
 
 }

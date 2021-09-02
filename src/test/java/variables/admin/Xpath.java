@@ -46,6 +46,8 @@ public class Xpath {
     public static By xpathBankNameForSearch = By.xpath(".//td[2]/span/a");
     public static By xpathNmbBranch = By.xpath("//tbody//tr");
     public static By xpathNmbDesign = By.xpath("//mat-card");
+
+
     public static By xpathLocationPathAdd(int i) {
         By xpathLocationPathAdd = By.xpath("//div[contains(text(), '" + pathLocation(i) + "')]/../*[3]");
         return xpathLocationPathAdd;

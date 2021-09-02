@@ -4,6 +4,10 @@ import code.Login;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import static java.lang.String.valueOf;
 import static variables.admin.Numbers.*;
@@ -266,12 +270,16 @@ public class TSPPage extends Login {
         tabPropertiesPromotionCard();    // Заполняем вкладку "Свойства"
         tabContentPromotionCard();       // Заполняем вкладку "Содержимое"
         wait.until(ExpectedConditions.elementToBeClickable(xpathButtonSave));
+        contentCreationDate = DateTimeFormatter.ofPattern("dd.MM.yyyy").format(LocalDate.now()) + " " + DateTimeFormatter.ofPattern("HH:mm").format(LocalTime.now()) ;;
         driver.findElement(xpathButtonSave).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(xpathNotifier));
         String textNotificationPromotionCardSaveNow = driver.findElement(xpathNotifier).getText();
         Assert.assertEquals("Не совпадают тексты нотификации при сохранении Акции",
                 promotionSaveNotification, textNotificationPromotionCardSaveNow);
         wait.until(ExpectedConditions.invisibilityOfElementLocated(xpathNotifier));
+        contentCreationDateInCard = driver.findElement(selectorInterviewCreationDate).getText();
+        Assert.assertEquals("Некорректная дата создания Акции после сохранения",
+                contentCreationDate, contentCreationDateInCard);
         String statePromotionNow = driver.findElement(xpathContentCardState).getText();
         Assert.assertEquals("Некорректный статус Акции после создания",
                 stateCreate.toUpperCase(), statePromotionNow);
@@ -320,6 +328,76 @@ public class TSPPage extends Login {
         driver.navigate().back();
         wait.until(ExpectedConditions.invisibilityOfElementLocated(xpathSpinner));
     }
+
+    public void checkPromotionBlock(String Status){
+        waitingSpinner();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingContentCard));
+        wait.until(ExpectedConditions.elementToBeClickable(selectorTspNameAdmin));
+        driver.findElement(selectorTspNameAdmin).click();
+        wait.until(ExpectedConditions.elementToBeClickable(xpathTabPromotions));
+        driver.findElement(xpathTabPromotions).click();
+        wait.until(ExpectedConditions.elementToBeClickable(selectorFieldSearch));
+        driver.findElement(selectorFieldSearch).sendKeys(promotionName);
+        waitingSpinner();
+        promotionsList = driver.findElements(xpathListBlocks);
+        for (int i = 0; i < promotionsList.size(); i++) {
+            String promotionNameSearch = promotionsList.get(i).findElement(xpathContentHeadingInBlocks).getText();
+            if (promotionNameSearch.equals(promotionName)) {
+                wait.until(ExpectedConditions.elementToBeClickable(xpathIconEdit));
+                checkingPromotionBlock(i,Status);
+                System.out.println("Promotion ID: " + promotionID + " in Section 'Promotion - Administration' has been successfully Verified");
+                promotionsList.get(i).findElement(xpathIconEdit).click();
+                System.out.println("Open Promotion Card for Check");
+                break;
+            }
+        }
+    }
+
+    public void checkingPromotionBlock(int i, String Status) {
+        String stateText2 = "0", date = "0", state = "0";
+        switch (Status){
+            case "Create": {
+                state = stateCreate;
+                date = contentCreationDate;
+                stateText2 = "создания";
+                break;
+            }
+            case "Delete": {
+                stateText2 = "удаления";
+                date = contentDeleteDate;
+                state = stateDelete;
+                break;
+            }
+            case "Public": {
+                stateText2 = "создания";
+                date = contentCreationDate;
+                state = statePublic;
+                break;
+            }
+            case "UnPublic": {
+                stateText2 = "снятия с публикации";
+                date = contentUnPublicDate;
+                state = stateUnPublic;
+                break;
+            }
+        }
+        String promotionIDBlock = promotionsList.get(i).findElement(xpathContentIDInBlocks).getText();
+        Assert.assertEquals("Некорректный ID Акции в общем списке Акций",
+                promotionID, promotionIDBlock.substring(promotionIDBlock.length()-4));
+        String promotionStateBlock = promotionsList.get(i).findElement(xpathContentStateInBlocks).getText();
+        promotionStateBlock = promotionStateBlock.substring(0,promotionStateBlock.indexOf('\n'));
+        Assert.assertEquals("Некорректный статус Акции в общем списке Акций",
+                state.toUpperCase(), promotionStateBlock);
+        String promotionCreationDateBlock = promotionsList.get(i).findElement(xpathContentCreationDateInBlocks).getText();
+        Assert.assertEquals("Некорректная дата " + stateText2 + " Акции в общем списке Акций",
+                date, promotionCreationDateBlock);
+        String promotionNameBlock = promotionsList.get(i).findElement(xpathContentHeadingInBlocks).getText();
+        Assert.assertEquals("Некорректный заголовок Акции в общем списке Акций",
+                promotionName, promotionNameBlock);
+    }
+
+
+
 
     public void openTabDiscount() {
         wait.until(ExpectedConditions.elementToBeClickable(xpathTabDiscount));
@@ -454,12 +532,15 @@ public class TSPPage extends Login {
     public void createAndDeletePromotion(){
         loginAdmin();                        // Авторизация под пользователем с правами "Администратор"
         sectionTSP();                        // Переход в раздел "Торгово-сервисные предприятия"
-        openTSPCard();                       // Открываем карточку Торгово-сервисного предприятия
-        createTSP();                         // Создаем ТСП
+        openTSPCard(tspNameAdmin);                       // Открываем карточку Торгово-сервисного предприятия
+        //createTSP();                         // Создаем ТСП
         openTabPromotions();                 // открываем вкладку Акции
         openPromotionCard();                 // Открываем карточку Акции
         createPromotion();                   // Создаем Акцию
         getPromotionID();                    // Получаем ID Акции
+        publicPromotion();
+        checkPromotionBlock("Public");
+
     }
 
     public void createAndCheckPromotion(){
