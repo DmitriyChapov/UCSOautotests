@@ -27,6 +27,7 @@ public class NewsPage extends Login {
         actionChange.moveToElement(sectionAdmin);
         actionChange.moveToElement(subsectionContent).click();
         actionChange.perform();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingContentsPage));
         String newsUrlNow = driver.getCurrentUrl();
         String newsPageNameNow = driver.findElement(headingContentsPage).getText();
         Assert.assertEquals("Некорректный Url страницы 'Новости'",
@@ -36,7 +37,7 @@ public class NewsPage extends Login {
     }
 
     public void openNewsCard() {
-        wait.until(ExpectedConditions.elementToBeClickable(xpathButtonAdd));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingContentsPage));
         driver.findElement(xpathButtonAdd).click();
         String newsCardUrlNow = driver.getCurrentUrl();
         String newsCardPageNameNow = driver.findElement(headingContentCard).getText();
@@ -48,7 +49,7 @@ public class NewsPage extends Login {
     }
 
     public void tabPropertiesNewsCard() {
-        wait.until(ExpectedConditions.elementToBeClickable(xpathPortal));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingContentCard));
         datepicker = driver.findElements(dateFields);
         timepicker = driver.findElements(timeFields);
         dateAndTime();
@@ -152,7 +153,7 @@ public class NewsPage extends Login {
         ((JavascriptExecutor) driver).executeScript("scroll(0,-500);");
         wait.until(ExpectedConditions.elementToBeClickable(xpathNews));
         driver.findElement(xpathNews).click();
-        wait.until(ExpectedConditions.elementToBeClickable(selectorFieldSearch));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingContentsPage));
         driver.findElement(selectorFieldSearch).sendKeys(newsHeading);
         waitingSpinner();
         newsList = driver.findElements(xpathListBlocks);
@@ -219,7 +220,7 @@ public class NewsPage extends Login {
     }
 
     public void checkNewsCard(String state){
-        wait.until(ExpectedConditions.presenceOfElementLocated(headingContentCard));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingContentCard));
         datepicker = driver.findElements(dateFields);
         timepicker = driver.findElements(timeFields);
         String newsIdForCheck = driver.findElement(xpathContentCardId).getText();
@@ -314,7 +315,7 @@ public class NewsPage extends Login {
                 stateText1 = "Снятая с публикации";
                 break;
         }
-        wait.until(ExpectedConditions.elementToBeClickable(selectorFieldSearch));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingContentsPage));
         driver.findElement(selectorFieldSearch).sendKeys(newsHeading);
         waitingSpinner();
         newsList = driver.findElements(xpathListBlocks);

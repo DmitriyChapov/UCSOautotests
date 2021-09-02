@@ -6,7 +6,5 @@ import org.junit.Test;
 public class CreateAndDeleteDocument extends GuidelinesAndRegulations {
 
     @Test
-    public void testCreateAndDeleteDocument() {
-        createAndDeleteDocument();
-    }
+    public void testCreateAndDeleteDocument() { createAndDeleteDocument(); }
 }

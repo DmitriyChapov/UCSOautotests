@@ -30,6 +30,7 @@ public class PostersPage extends Login {
         actionChange.perform();
         wait.until(ExpectedConditions.elementToBeClickable(xpathPoster));
         driver.findElement(xpathPoster).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingContentsPage));
         String postersUrlNow = driver.getCurrentUrl();
         String postersPageNameNow = driver.findElement(headingContentsPage).getText();
         Assert.assertEquals("Некорректный Url страницы 'Афиши'", postersUrl, postersUrlNow);
@@ -38,7 +39,7 @@ public class PostersPage extends Login {
     }
 
     public void openPosterCard() {
-        wait.until(ExpectedConditions.elementToBeClickable(xpathButtonAdd));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingContentsPage));
         driver.findElement(xpathButtonAdd).click();
         String posterCardUrlNow = driver.getCurrentUrl();
         String posterCardPageNameNow = driver.findElement(headingContentCard).getText();
@@ -48,7 +49,7 @@ public class PostersPage extends Login {
     }
 
     public void tabPropertiesPosterCard() {
-        wait.until(ExpectedConditions.elementToBeClickable(xpathPortal));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingContentCard));
         datepicker = driver.findElements(dateFields);
         timepicker = driver.findElements(timeFields);
         dateAndTime();
@@ -165,7 +166,7 @@ public class PostersPage extends Login {
         ((JavascriptExecutor) driver).executeScript("scroll(0,-500);");
         wait.until(ExpectedConditions.elementToBeClickable(xpathPoster));
         driver.findElement(xpathPoster).click();
-        wait.until(ExpectedConditions.elementToBeClickable(selectorFieldSearch));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingContentsPage));
         driver.findElement(selectorFieldSearch).sendKeys(posterHeading);
         waitingSpinner();
         posterList = driver.findElements(xpathListBlocks);
@@ -232,7 +233,7 @@ public class PostersPage extends Login {
     }
 
     public void checkPosterCard(String state){
-        wait.until(ExpectedConditions.presenceOfElementLocated(headingContentCard));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingContentCard));
         datepicker = driver.findElements(dateFields);
         timepicker = driver.findElements(timeFields);
         String posterIdForCheck = driver.findElement(xpathContentCardId).getText();

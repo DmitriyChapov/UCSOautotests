@@ -19,6 +19,7 @@ public class GuidelinesAndRegulations extends Login {
         actionChange.moveToElement(sectionGuidelinesAndRegulations);
         actionChange.moveToElement(subsectionGuidelinesAndRegulations).click();
         actionChange.perform();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingPage));
         guidelinesAndRegulationsUrlNow = driver.getCurrentUrl();
         guidelinesAndRegulationsPageNameNow = driver.findElement(headingPage).getText();
         Assert.assertEquals("Некорректный Url страницы 'Руководства и регламенты'",
@@ -29,7 +30,7 @@ public class GuidelinesAndRegulations extends Login {
     }
 
     public void openDocumentCard() {
-        wait.until(ExpectedConditions.elementToBeClickable(xpathButtonAdd));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingPage));
         driver.findElement(xpathButtonAdd).click();
         guidelinesAndRegulationsCardUrlNow = driver.getCurrentUrl();
         guidelinesAndRegulationsCardPageNameNow = driver.findElement(headingCard).getText();
@@ -41,7 +42,7 @@ public class GuidelinesAndRegulations extends Login {
     }
 
     public void createDocument() {
-        wait.until(ExpectedConditions.elementToBeClickable(selectorFieldName));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(selectorFieldName));
         driver.findElement(selectorFieldName).sendKeys(documentName);
         driver.findElement(selectorDocumentPortal).click();
         documentPortalAvailable = driver.findElement(selectorDocumentPortal).isSelected();
@@ -59,7 +60,7 @@ public class GuidelinesAndRegulations extends Login {
     }
 
     public void checkDocumentCard() {
-        wait.until(ExpectedConditions.elementToBeClickable(selectorFieldSearch));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(selectorFieldSearch));
         driver.findElement(selectorFieldSearch).sendKeys(documentName);
         waitingSpinner();
         try {
@@ -79,7 +80,7 @@ public class GuidelinesAndRegulations extends Login {
                 break;
             }
         }
-        wait.until(ExpectedConditions.elementToBeClickable(selectorFieldName));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(selectorFieldName));
         guidelinesAndRegulationsCardNameForCheck = driver.findElement(selectorFieldName).getAttribute("value");
         documentPortalAvailableForCheck = driver.findElement(selectorDocumentPortal).isSelected();
         documentMobileAvailableForCheck = driver.findElement(selectorDocumentMobile).isSelected();
@@ -95,7 +96,7 @@ public class GuidelinesAndRegulations extends Login {
     public void deleteDocument() {
         wait.until(ExpectedConditions.elementToBeClickable(xpathSectionGuidelinesAndRegulations));
         driver.findElement(xpathSectionGuidelinesAndRegulations).click();
-        wait.until(ExpectedConditions.elementToBeClickable(selectorFieldSearch));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(selectorFieldSearch));
         driver.findElement(selectorFieldSearch).sendKeys(documentName);
         waitingSpinner();
         try {

@@ -121,6 +121,25 @@ public class Strings {
     public static String interviewDescription = "Краткое описание опроса, созданного автотестом № " + nmbAutoTest + ". В данном опросе присутствуют вопросы с типом: ";
     public static String interviewCardSaveNotification = "Карточка опроса \"" + interviewHeading + "\" успешно сохранена";
     public static String interviewCardPublicNotification = "Опрос \"" + interviewHeading + "\" успешно опубликован";
+    public static String questionTypeShort = "Короткий ответ";
+    public static String questionTypeLong = "Длинный ответ";
+    public static String questionTypeOneVar = "Один вариант";
+    public static String questionTypeSomeVar = "Несколько вариантов";
+    public static String questionTypeDropDown = "Выпадающий список";
+    public static String questionTypeScale = "Шкала";
+    public static String questionTypeDownload = "Загрузка файла";
+    public static String questionTypeText = "Текст";
+    public static String questionShortValidTypeNumbers = "Числовая форма";
+    public static String questionShortValidTypeDoubles = "Дробные числа";
+    public static String questionShortValidTypePhone = "Формат телефона";
+    public static String questionShortValidTypeSymbol = "Кириллические символы";
+    public static String questionShortValidTypeNoValid = "Без валидации";
+    public static String questionDownloadFilesTypeJPEG = "JPEG";
+    public static String questionDownloadFilesTypePNG = "PNG";
+    public static String questionDownloadFilesTypePDF = "PDF";
+    public static String questionDownloadFilesTypeDOC = "DOC";
+    public static String questionDownloadFilesTypeXLS = "XLS";
+
     public static String questionShortNumberName = "Вопрос \"Короткий ответ\" - Числовая форма";
     public static String questionShortNumberComment = "Максимальное кол-во символов: " + maxSymbolShortNumber;
     public static String questionShortDoubleName = "Вопрос \"Короткий ответ\" - Дробные числа";
@@ -162,6 +181,8 @@ public class Strings {
     public static String interviewId;
     public static String scaleCount;
     public static String questionType;
+    public static String interviewResultsType;
+    public static String interviewAccess;
 
     //ТСП, Скидки, Акции
     public static String tspPageName = "Торгово-сервисные предприятия";
@@ -229,6 +250,7 @@ public class Strings {
 
     //Общее
     public static String contentCreationDate;
+    public static String contentCreationDateInCard;
     public static String contentUnPublicDate;
     public static String contentDeleteDate;
     public static String stateCreate = "Создано";

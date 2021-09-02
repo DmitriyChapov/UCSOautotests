@@ -23,7 +23,8 @@ public class Xpath {
     public static By xpathContent = By.xpath("//a[contains(text(), 'Контент')]");
     public static By xpathNews = By.xpath("//a[contains(text(), 'Новости')]");
     public static By xpathPoster = By.xpath("//a[contains(text(), 'Афиши')]");
-    public static By xpathInterviews = By.xpath("//a[contains(text(), 'Опросы')]");
+    public static By xpathInterviews = By.xpath("//app-page-header//a[contains(text(), 'Опросы')]");
+    public static By xpathInterviews2 = By.xpath("//mat-drawer//a[contains(text(), 'Опросы')]");
     public static By xpathInterviewsArchive = By.xpath("//a[contains(text(), 'Архив')]");
     public static By xpathUsers = By.xpath("//a[contains(text(), 'Пользователи')]");
     public static By xpathRegisters = By.xpath("//li[contains(text(), 'Реестры')]");
@@ -105,6 +106,10 @@ public class Xpath {
     public static By xpathInterviewId = By.xpath("//span[contains(text(), 'ID')]");
     public static By xpathInterviewQuestionVariantName = By.xpath("//input[contains(@id, 'answer')]");
     public static By xpathCreatedSurveyScaleCount = By.xpath("//mat-select[contains(@id, 'answerValidationType')]//div[1]//div");
+    public static By xpathInterviewCreationDateInBlocks = By.xpath(".//mat-card-content/div/p[1]");
+    public static By xpathInterviewQuestions = By.xpath("//div[contains(@class, 'question__column')]/..");
+    public static By xpathQuestionType = By.xpath(".//p[contains(@class, 'question__type')]");
+    public static By xpathQuestionName = By.xpath(".//p[contains(@class, 'question__text')]");
 
     // Скидки и Акции
     public static By xpathTSPAvailableSlide = By.xpath("//mat-slide-toggle[@name='available']");
@@ -141,6 +146,8 @@ public class Xpath {
     public static By xpathButtonPublic = By.xpath("//span[contains(text(), 'Разместить')]");
     public static By xpathButtonUnPublic = By.xpath("//span[contains(text(), 'Снять с публикации')]");
     public static By xpathButtonDelete = By.xpath("//span[contains(text(), 'Удалить')]");
+    public static By xpathButtonCancel = By.xpath("//span[contains(text(), 'Отмена')]");
+    public static By xpathButtonUpdate = By.xpath("//span[contains(text(), 'Обновить')]");
     public static By xpathButtonSaveInWindow = By.xpath("//mat-dialog-actions/button[2]/span[1]");
     public static By xpathButtonSaveImage = By.xpath("//app-image-cropper/div[2]/button[2]");
     public static By xpathButtonAdd = By.xpath("//span[contains(text(), 'Добавить')]");

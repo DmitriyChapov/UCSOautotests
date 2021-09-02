@@ -15,6 +15,7 @@ public class EventPlacesPage extends Login {
     boolean eventPlaceSameAddressAvailable;
 
     public void sectionReferenceBooks()  {
+        wait.until(ExpectedConditions.elementToBeClickable(xpathReferenceBooks));
         driver.findElement(xpathReferenceBooks).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(headingMainPage));
         String referenceBooksUrlNow = driver.getCurrentUrl();

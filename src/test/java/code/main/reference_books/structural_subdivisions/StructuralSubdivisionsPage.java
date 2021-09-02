@@ -16,6 +16,7 @@ public class StructuralSubdivisionsPage extends Login {
     boolean structuralSubdivisionAvailable;
 
     public void sectionReferenceBooks() {
+        wait.until(ExpectedConditions.elementToBeClickable(xpathReferenceBooks));
         driver.findElement(xpathReferenceBooks).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(headingReferenceBooks));
         String referenceBooksUrlNow = driver.getCurrentUrl();

@@ -1,4 +1,4 @@
-package alltest.admin.administration;
+package alltest.admin.administration.content;
 
 import code.main.administration.content.news.NewsPage;
 import org.junit.Test;

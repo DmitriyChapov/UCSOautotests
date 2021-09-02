@@ -36,6 +36,7 @@ public class Selector {
     public static By selectorFieldEventCost = By.cssSelector("[name = 'costInput']");
     public static By selectorFieldEventSchedule = By.cssSelector("[data-placeholder = 'Ссылка должна содержать \"http://\" или \"https://\"']");
     public static By selectorSelectTags = By.cssSelector("[name = 'postRubricsSelect']");
+    public static By selectorContentCreationDate = By.className("content-card__date");
 
     //Опросы
     public static By selectorFieldInterviewHeading = By.cssSelector("[name = 'poll-name']");
@@ -48,13 +49,13 @@ public class Selector {
     public static By selectorSelectInterviewAccess = By.cssSelector("[name = 'accessModeInMobile']");
     public static By selectorSelectTypeQuestion = By.cssSelector("[name = 'type']");
     public static By selectorSelectValidationType = By.cssSelector("[name = 'answerValidationType']");
-    public static By selectorQuestionType = By.cssSelector("p[class = 'question__type']");
-    public static By selectorQuestionName = By.cssSelector("p[class = 'question__text']");
     public static By selectorQuestionComment = By.cssSelector("textarea[id = 'questionDescription']");
     public static By idAnswer(int i){
         By idAnswer = By.id("answer-" + i);
         return idAnswer;
     }
+    public static By selectorInterviewsChangeStyle = By.cssSelector("[title='Изменить стиль отображения']");
+    public static By selectorInterviewCreationDate = By.cssSelector("[class = 'content-card__date ng-star-inserted']");
 
     //ТСП, Скидки, Акции
     public static By selectorFieldAddressOffer = By.cssSelector("[name = 'addressName']");
@@ -83,7 +84,6 @@ public class Selector {
     public static By timeFields = By.cssSelector("[type = 'time']");
     public static By selectorFieldImage = By.cssSelector("[name = 'fileInput']");
     public static By selectorFieldSearch = By.cssSelector("[name = 'search']");
-    public static By selectorContentCreationDate = By.cssSelector("[class = 'content-card__date']");
 
     //Общие Чек-боксы
     public static By selectorAvailable = By.cssSelector("[name = 'available']");

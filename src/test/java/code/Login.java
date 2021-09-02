@@ -11,6 +11,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+
+import static variables.admin.Collections.*;
 import static variables.admin.Selector.*;
 import static variables.admin.Strings.*;
 import static variables.portal.Strings.*;
@@ -89,7 +92,6 @@ public class Login {
 
     public void waitingSpinner(){
         if (spinner()) {
-            System.out.println("Спиннер появился");
             wait.until(ExpectedConditions.invisibilityOfElementLocated(xpathSpinner));
         }
     }

@@ -44,6 +44,8 @@ public class Numbers {
     public static int maxFilesDOC = 4;
     public static int maxFilesXLS = 2;
     public static int maxFilesALL = (int) (Math.random()*4 + 3);
+    public static int countQuestions;
+    public static int countVariantsForCheck;
 
     //ТСП, Скидки, Акции
     public static int ogrnRndAdmin = (int) (Math.random()*100);

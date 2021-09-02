@@ -5,7 +5,5 @@ import org.junit.Test;
 
 public class CreateAndDeleteMSSCode extends MSS_codesPage {
     @Test
-    public void testCreateAndDeleteMSSCode() {
-        createAndDeleteMSSCode();
-    }
+    public void testCreateAndDeleteMSSCode() { createAndDeleteMSSCode(); }
 }
