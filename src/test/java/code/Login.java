@@ -7,6 +7,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.RemoteWebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import variables.admin.Strings;
@@ -107,7 +108,13 @@ public class Login {
     }
 
     public void waitingSearch(List<WebElement> a){
-        wait.equals(!Strings.waitSearch(a).equals(Strings.waitSearch(a)));
+        try {
+            while (waitSearch(a).equals(((RemoteWebElement) driver.findElements(xpathListBlocks).get(0)).getId())){
+            }
+        }
+        catch(IndexOutOfBoundsException e)
+        {
+        }
     }
 
 }

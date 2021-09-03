@@ -7,8 +7,6 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import variables.admin.Strings;
-
 import static variables.admin.Numbers.*;
 import static variables.admin.Strings.*;
 import static variables.admin.FilesForAdd.*;
@@ -112,8 +110,9 @@ public class NewsPage extends Login {
             driver.findElement(xpathButtonSaveImage).click();
             wait.until(ExpectedConditions.invisibilityOfElementLocated(xpathButtonSaveImage));
         }
+        wait.until(ExpectedConditions.visibilityOfElementLocated(xpathContentImage));
         countImage = driver.findElements(xpathContentImage).size();
-    }
+     }
 
     public void createNews() {
         tabPropertiesNewsCard();                 // Заполняем вкладку "Свойства"
@@ -158,10 +157,10 @@ public class NewsPage extends Login {
         driver.findElement(xpathNews).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(headingContentsPage));
         driver.findElement(selectorFieldSearch).sendKeys(newsHeading);
+        waitingSpinner();
         newsList = driver.findElements(xpathListBlocks);
-       // String rwe = ((RemoteWebElement) newsList.get(0)).getId();
-        //wait.equals(!rwe.equals(((RemoteWebElement) newsList.get(0)).getId()));
         waitingSearch(newsList);
+        newsList = driver.findElements(xpathListBlocks);
         for (int i = 0; i < newsList.size(); i++) {
             String newsNameSearch = newsList.get(i).findElement(xpathContentHeadingInBlocks).getText();
             if (newsNameSearch.equals(newsHeading)) {
@@ -322,10 +321,10 @@ public class NewsPage extends Login {
         }
         wait.until(ExpectedConditions.visibilityOfElementLocated(headingContentsPage));
         driver.findElement(selectorFieldSearch).sendKeys(newsHeading);
+        waitingSpinner();
         newsList = driver.findElements(xpathListBlocks);
-        //String rwe = ((RemoteWebElement) newsList.get(0)).getId();
-        //wait.equals(!Strings.waitSearch(newsList).equals(Strings.waitSearch(newsList)));
         waitingSearch(newsList);
+        newsList = driver.findElements(xpathListBlocks);
         for (int i = 0; i < newsList.size(); i++) {
             String newsNameSearch = newsList.get(i).findElement(xpathContentHeadingInBlocks).getText();
             if (newsNameSearch.equals(newsHeading)) {
@@ -338,6 +337,8 @@ public class NewsPage extends Login {
         wait.until(ExpectedConditions.elementToBeClickable(selectorFieldSearch));
         driver.findElement(selectorFieldSearch).sendKeys(newsHeading);
         waitingSpinner();
+        newsList = driver.findElements(xpathListBlocks);
+        waitingSearch(newsList);
         newsList = driver.findElements(xpathListBlocks);
         for (int i = 0; i < newsList.size(); i++) {
             String newsNameSearch = newsList.get(i).findElement(xpathContentHeadingInBlocks).getText();
