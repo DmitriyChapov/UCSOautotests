@@ -289,9 +289,16 @@ public class TSPPage extends Login {
     public void publicPromotion() {
         wait.until(ExpectedConditions.elementToBeClickable(xpathButtonPublic));
         driver.findElement(xpathButtonPublic).click();
-        wait.until(ExpectedConditions.elementToBeClickable(xpathButtonSaveInWindow));
-        driver.findElement(xpathButtonSaveInWindow).click();
-        System.out.println("Public Promotion");
+        wait.until(ExpectedConditions.elementToBeClickable(xpathButtonAccept));
+        driver.findElement(xpathButtonAccept).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(xpathNotifier));
+        String textNotificationPromotionCardPublicNow = driver.findElement(xpathNotifier).getText();
+        Assert.assertEquals("Не совпадают тексты нотификации при публикации Акции",
+                promotionPublicNotification, textNotificationPromotionCardPublicNow);
+        String statePromotionNow = driver.findElement(xpathContentCardState).getText();
+        Assert.assertEquals("Некорректный статус Акции после публикации",
+                statePublic.toUpperCase(), statePromotionNow);
+        System.out.println("Promotion ID: " + promotionID + " successfully Published");
     }
 
     public void getPromotionID() {

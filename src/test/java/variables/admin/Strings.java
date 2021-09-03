@@ -1,5 +1,10 @@
 package variables.admin;
 
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebElement;
+
+import java.util.List;
+
 import static variables.admin.Numbers.*;
 import static variables.common.Numbers.*;
 
@@ -202,6 +207,7 @@ public class Strings {
     public static String descriptionAndConditionPromotion = "Описание и условия действия акции , созданной автотестом № " + nmbAutoTest + " и кол-вом адресов предоставления: " + nmbAddressForPromotionAdmin + ". ";
     public static String promotionID;
     public static String promotionSaveNotification = "Предложение \"" + promotionName + "\" успешно сохранено";
+    public static String promotionPublicNotification = "Предложение \"" + promotionName + "\" успешно опубликовано";
 
     public static String discountName = "Наименование Скидки с кол-вом символов 70, созданной автотестом № " + nmbAutoTest;
     public static String descriptionAndConditionDiscount = "Описание и условия действия скидки , созданной автотестом № " + nmbAutoTest + " и кол-вом адресов предоставления: " + nmbAddressForDiscountAdmin + ". ";
@@ -260,6 +266,10 @@ public class Strings {
     public static boolean contentPortalAvailable;
     public static boolean contentMobileAvailable;
     public static boolean contentLocationAvailable;
+    public static String waitSearch(List<WebElement> a) {
+        String waitSearch = ((RemoteWebElement) a.get(0)).getId();
+        return waitSearch;
+    }
 
 }
 

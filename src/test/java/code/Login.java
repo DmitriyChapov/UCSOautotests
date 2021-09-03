@@ -4,16 +4,18 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import variables.admin.Strings;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
+import java.util.List;
 
-import static variables.admin.Collections.*;
 import static variables.admin.Selector.*;
 import static variables.admin.Strings.*;
 import static variables.portal.Strings.*;
@@ -44,11 +46,11 @@ public class Login {
         driver.manage().window().maximize();
     }
 
-/*    @After
+   @After
     public void close() {
         System.out.println("Browser closed");
         driver.quit();
-    }*/
+    }
 
    public void loginAdmin() {
         driver.get(siteAdmin);
@@ -102,6 +104,10 @@ public class Login {
         dateNow = DateTimeFormatter.ofPattern("dd.MM.yyyy").format(toDay);
         timeNow = DateTimeFormatter.ofPattern("HH:mm").format(toTime);
         dateWithTime = dateNow + " " + timeNow;
+    }
+
+    public void waitingSearch(List<WebElement> a){
+        wait.equals(!Strings.waitSearch(a).equals(Strings.waitSearch(a)));
     }
 
 }

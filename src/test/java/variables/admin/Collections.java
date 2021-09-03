@@ -1,6 +1,7 @@
 package variables.admin;
 
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebElement;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -62,4 +63,5 @@ public class Collections {
 
     public static List<WebElement> datepicker;
     public static List<WebElement> timepicker;
+
 }
